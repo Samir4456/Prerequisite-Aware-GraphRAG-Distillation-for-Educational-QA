@@ -1,0 +1,337 @@
+{
+  "nodes": 3481,
+  "edges": 6703,
+  "density": 0.000553,
+  "avg_in_degree": 1.93,
+  "avg_out_degree": 1.93,
+  "top_foundational_concepts": [
+    [
+      "recurrence relation",
+      27
+    ],
+    [
+      "lower bound",
+      26
+    ],
+    [
+      "shortest path",
+      25
+    ],
+    [
+      "loop invariant",
+      25
+    ],
+    [
+      "dynamic programming",
+      24
+    ],
+    [
+      "time complexity",
+      24
+    ],
+    [
+      "optimal solution",
+      24
+    ],
+    [
+      "merge sort",
+      23
+    ],
+    [
+      "matrix multiplication",
+      21
+    ],
+    [
+      "insertion",
+      21
+    ],
+    [
+      "amortized cost",
+      21
+    ],
+    [
+      "minimum spanning tree",
+      19
+    ],
+    [
+      "all-pairs shortest paths",
+      18
+    ],
+    [
+      "running time",
+      17
+    ],
+    [
+      "expected value",
+      17
+    ]
+  ],
+  "top_gateway_concepts": [
+    [
+      "binary search tree",
+      72
+    ],
+    [
+      "graph",
+      54
+    ],
+    [
+      "dynamic programming",
+      50
+    ],
+    [
+      "linear program",
+      48
+    ],
+    [
+      "linear programming",
+      44
+    ],
+    [
+      "asymptotic notation",
+      43
+    ],
+    [
+      "red-black tree",
+      42
+    ],
+    [
+      "matrix multiplication",
+      41
+    ],
+    [
+      "fibonacci heap",
+      41
+    ],
+    [
+      "flow network",
+      41
+    ],
+    [
+      "divide and conquer",
+      38
+    ],
+    [
+      "depth-first search",
+      33
+    ],
+    [
+      "amortized analysis",
+      32
+    ],
+    [
+      "modular arithmetic",
+      32
+    ],
+    [
+      "binary tree",
+      32
+    ]
+  ],
+  "longest_chain_length": 101,
+  "longest_chain": [
+    "graph theory",
+    "vertices",
+    "graph",
+    "bipartite graph",
+    "flow network",
+    "capacity",
+    "directed graph",
+    "weighted graph",
+    "negative-weight cycles",
+    "bellman-ford",
+    "shortest-path",
+    "path",
+    "shortest path",
+    "augmentation",
+    "order statistic",
+    "selection problem",
+    "linear time",
+    "find-max-crossing-subarray",
+    "divide and conquer",
+    "probabilistic analysis",
+    "randomized algorithm",
+    "expected value",
+    "probability space",
+    "random variable",
+    "event",
+    "probability distribution",
+    "probability",
+    "indicator random variable",
+    "linearity of expectation",
+    "recurrence",
+    "subproblems",
+    "greedy algorithms",
+    "binary tree",
+    "prefix code",
+    "full binary tree",
+    "internal nodes",
+    "black-height",
+    "sentinel",
+    "doubly linked list",
+    "free list",
+    "stack",
+    "inorder tree walk",
+    "time complexity",
+    "recurrence relation",
+    "cost equation",
+    "asymptotic analysis",
+    "recurrence relations",
+    "master theorem",
+    "heapsort",
+    "heap data structure",
+    "min-priority queue",
+    "heap",
+    "potential",
+    "amortized analysis",
+    "table expansion",
+    "load factor",
+    "uniform hashing",
+    "probability of a1",
+    "conditional probability",
+    "independence",
+    "matroid",
+    "independent subset",
+    "maximal independent subset",
+    "greedy method",
+    "minimum-spanning-tree",
+    "dijkstra's algorithm",
+    "fibonacci heap",
+    "parallel algorithms",
+    "max flow",
+    "residual network",
+    "augmenting path",
+    "matching",
+    "cardinality",
+    "finite set",
+    "substring",
+    "longest common subsequence",
+    "lcs problem",
+    "dynamic-programming algorithm",
+    "all-pairs shortest paths",
+    "shortest-path matrix",
+    "predecessor matrix",
+    "shortest-path weights",
+    "feasible solution",
+    "linear program",
+    "standard form",
+    "nonnegativity constraint",
+    "equality constraint conversion",
+    "inequality constraint",
+    "slack form",
+    "auxiliary linear program",
+    "pivoting",
+    "lu decomposition",
+    "lup decomposition",
+    "permutation matrix",
+    "symmetric matrix",
+    "positive-definite matrix",
+    "least-squares approximation",
+    "polynomial",
+    "fft",
+    "dft",
+    "inverse dft"
+  ],
+  "top_bottleneck_concepts": [
+    [
+      "amortized analysis",
+      0.032168460613233245
+    ],
+    [
+      "dynamic programming",
+      0.030673127924880857
+    ],
+    [
+      "matrix multiplication",
+      0.028408939660588117
+    ],
+    [
+      "divide and conquer",
+      0.02714982809632063
+    ],
+    [
+      "modular arithmetic",
+      0.02135745360159222
+    ],
+    [
+      "quicksort",
+      0.019623959521179846
+    ],
+    [
+      "recursion",
+      0.018953262808495314
+    ],
+    [
+      "time complexity",
+      0.018647065163105006
+    ],
+    [
+      "merge sort",
+      0.018403797735312904
+    ],
+    [
+      "recurrence",
+      0.01802881318229537
+    ]
+  ],
+  "num_communities": 198,
+  "top_communities": [
+    {
+      "id": 46,
+      "size": 322,
+      "sample": [
+        "data structure",
+        "left child",
+        "right child",
+        "binary tree",
+        "insertion operation"
+      ]
+    },
+    {
+      "id": 4,
+      "size": 283,
+      "sample": [
+        "algorithm correctness",
+        "correct algorithms",
+        "error rate control",
+        "graph",
+        "vertex"
+      ]
+    },
+    {
+      "id": 14,
+      "size": 244,
+      "sample": [
+        "efficient algorithms",
+        "np-complete",
+        "efficient-algorithm",
+        "traveling-salesman-problem",
+        "approximation-algorithms"
+      ]
+    },
+    {
+      "id": 2,
+      "size": 241,
+      "sample": [
+        "sorting",
+        "algorithm",
+        "problem statement",
+        "input/output relationship",
+        "sorting algorithm"
+      ]
+    },
+    {
+      "id": 1,
+      "size": 234,
+      "sample": [
+        "asymptotic notation",
+        "divide and conquer",
+        "master method",
+        "recurrence",
+        "time complexity"
+      ]
+    }
+  ],
+  "num_weakly_connected_components": 176,
+  "largest_component_size": 3089
+}
