@@ -1,0 +1,3850 @@
+[
+  {
+    "qa_id": "clrs_chunk_00000_sh_0",
+    "question": "What is the term used to describe the technique employed by merge sort?",
+    "answer": "a recursive technique known as “divide-and-conquer”.",
+    "answer_span": "a recursive technique known as “divide-and-conquer”",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00000"
+    ],
+    "source_page": 24,
+    "chapter": "page_24",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00001_sh_0",
+    "question": "What is a technique used to solve recurrences that arise from divide-and-conquer algorithms?",
+    "answer": "The master method.",
+    "answer_span": "the “master method,”",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00001"
+    ],
+    "source_page": 25,
+    "chapter": "Chapter 4 delves further into the divide-and-conquer method introduced",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00001_sh_1",
+    "question": "What type of algorithm has behavior determined by both input and random-number generator values?",
+    "answer": "A randomized algorithm.",
+    "answer_span": "An algorithm whose behavior is determined not only by its input but by the values produced by a random-number generator",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00001"
+    ],
+    "source_page": 25,
+    "chapter": "Chapter 4 delves further into the divide-and-conquer method introduced",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00002_sh_0",
+    "question": "What is an algorithm?",
+    "answer": "any well-defined computational procedure that takes some value, or set of values, as input and produces some value, or set of values, as output",
+    "answer_span": "Informally, an algorithm is any well-defined computational procedure that takes some value, or set of values, as input and produces some value, or set of values, as output.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00002"
+    ],
+    "source_page": 26,
+    "chapter": "page_26",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00002_sh_1",
+    "question": "What does a problem instance consist of?",
+    "answer": "the input (satisfying whatever constraints are imposed in the problem statement) needed to compute a solution to the problem",
+    "answer_span": "In general, an instance of a problem consists of the input (satisfying whatever constraints are imposed in the problem statement) needed to compute a solution to the problem.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00002"
+    ],
+    "source_page": 26,
+    "chapter": "page_26",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00003_sh_0",
+    "question": "What is the primary requirement for an algorithm specification?",
+    "answer": "A precise description of the computational procedure to be followed.",
+    "answer_span": "The only requirement is that the specification must provide a precise description of the computational procedure to be followed.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00003"
+    ],
+    "source_page": 27,
+    "chapter": "page_27",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00003_sh_1",
+    "question": "What happens if an algorithm does not halt on some input instances?",
+    "answer": "It might halt with an incorrect answer or it might not halt at all.",
+    "answer_span": "An incorrect algorithm might not halt at all on some input instances, or it might halt with an incorrect answer.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00003"
+    ],
+    "source_page": 27,
+    "chapter": "page_27",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00004_sh_0",
+    "question": "What is the primary goal of using algorithms in data analysis?",
+    "answer": "To accomplish tasks while using resources efficiently.",
+    "answer_span": "thereby enabling scientists to accomplish tasks while using resources efficiently",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00004"
+    ],
+    "source_page": 27,
+    "chapter": "page_27",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00004_sh_1",
+    "question": "How can access and retrieval of large amounts of information be optimized?",
+    "answer": "With the aid of clever algorithms.",
+    "answer_span": "With the aid of clever algorithms",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00004"
+    ],
+    "source_page": 27,
+    "chapter": "page_27",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00005_sh_0",
+    "question": "What type of problems can be solved using linear programming?",
+    "answer": "problems that can be solved using linear programming",
+    "answer_span": "An oil company may wish to know where to place its wells in order to maximize its expected profit.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00005"
+    ],
+    "source_page": 28,
+    "chapter": "Chapter 24), and using a search engine to quickly ﬁnd pages on which p",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00005_sh_1",
+    "question": "How do we model the road map as a graph?",
+    "answer": "we model the road map (which is itself a model of the actual roads) as a graph",
+    "answer_span": "Here, we model the road map (which is itself a model of the actual roads) as a graph (which we will meet in Part VI and",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00005"
+    ],
+    "source_page": 28,
+    "chapter": "Chapter 24), and using a search engine to quickly ﬁnd pages on which p",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00006_sh_0",
+    "question": "What is a subsequence of X?",
+    "answer": "X with some (or possibly all or none) of its elements removed",
+    "answer_span": "A subsequence of X is just X with some (or possibly all or none) of its elements removed.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00006"
+    ],
+    "source_page": 28,
+    "chapter": "Chapter 24), and using a search engine to quickly ﬁnd pages on which p",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00007_sh_0",
+    "question": "What is the problem with generating each possible order of parts and then verifying that each part appears before its dependencies?",
+    "answer": "The factorial function grows faster than even an exponential function, making this approach infeasible unless we have only a few parts.",
+    "answer_span": "Because the factorial function grows faster than even an exponential function",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00007"
+    ],
+    "source_page": 29,
+    "chapter": "Chapter 15 how to use a general technique known as dynamic",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00007_sh_1",
+    "question": "What is the problem described that involves finding the convex hull of n points in the plane?",
+    "answer": "Any of the 2n subsets of the points might be the vertices of the convex hull, and we also need to know the order in which they appear.",
+    "answer_span": "There are many choices, therefore, for the vertices of the convex hull",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00007"
+    ],
+    "source_page": 29,
+    "chapter": "Chapter 15 how to use a general technique known as dynamic",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00008_sh_0",
+    "question": "What are two characteristics common to many interesting algorithmic problems?",
+    "answer": "They have many candidate solutions, the overwhelming majority of which do not solve the problem at hand. They have practical applications.",
+    "answer_span": "1. They have many candidate solutions, the overwhelming majority of which do not solve the problem at hand. Finding one that does, or one that is “best,” can present quite a challenge.\n2. They have practical applications.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00008"
+    ],
+    "source_page": 29,
+    "chapter": "Chapter 15 how to use a general technique known as dynamic",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00008_sh_1",
+    "question": "Why is finding shortest paths useful for transportation firms?",
+    "answer": "taking shorter paths results in lower labor and fuel costs",
+    "answer_span": "A transportation firm, such as a trucking or railroad company, has a financial interest in finding shortest paths through a road or rail network because taking shorter paths results in lower labor and fuel costs.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00008"
+    ],
+    "source_page": 29,
+    "chapter": "Chapter 15 how to use a general technique known as dynamic",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00009_sh_0",
+    "question": "What is the primary purpose of a data structure?",
+    "answer": "A way to store and organize data in order to facilitate access and modifications.",
+    "answer_span": "No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00009"
+    ],
+    "source_page": 30,
+    "chapter": "page_30",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00009_sh_1",
+    "question": "What are algorithms used for when there isn't a readily available published algorithm?",
+    "answer": "Develop algorithms on your own, show that they give the correct answer, and understand their efficiency.",
+    "answer_span": "This book will teach you techniques of algorithm design and analysis so that you can develop algorithms on your own, show that they give the correct answer, and understand their efficiency.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00009"
+    ],
+    "source_page": 30,
+    "chapter": "page_30",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00011_sh_0",
+    "question": "What is the relationship among NP-complete problems?",
+    "answer": "If an efficient algorithm exists for any one of them, then efficient algorithms exist for all of them.",
+    "answer_span": "This relationship among the NP-complete problems makes the lack of efficient solutions all the more tantalizing.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00011"
+    ],
+    "source_page": 31,
+    "chapter": "page_31",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00011_sh_1",
+    "question": "What is known about developing an efficient algorithm when faced with an NP-complete problem?",
+    "answer": "You can instead spend your time developing an efficient algorithm that gives a good, but not the best possible, solution.",
+    "answer_span": "If you can show that the problem is NP-complete, you can instead spend your time developing an efficient algorithm",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00011"
+    ],
+    "source_page": 31,
+    "chapter": "page_31",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00012_sh_0",
+    "question": "What is the primary challenge to increasing processor clock speeds?",
+    "answer": "Physical limitations.",
+    "answer_span": "power density increases superlinearly with clock speed",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00012"
+    ],
+    "source_page": 31,
+    "chapter": "page_31",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00012_sh_1",
+    "question": "What type of algorithms can give an overall distance that is not too far above the smallest possible?",
+    "answer": "Approximation algorithms.",
+    "answer_span": "“approximation algorithms”",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00012"
+    ],
+    "source_page": 31,
+    "chapter": "page_31",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00013_sh_0",
+    "question": "What measures of efficiency might one use in a real-world setting?",
+    "answer": "Other than speed, what other measures of efficiency might one use in a real-world setting?",
+    "answer_span": "Other than speed, what other measures of efficiency might one use in a real-world setting?",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00013"
+    ],
+    "source_page": 32,
+    "chapter": "page_32",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00013_sh_1",
+    "question": "Why is it important to study algorithms even if computers were infinitely fast and memory was free?",
+    "answer": "If computers were infinitely fast, any correct method for solving a problem would do.",
+    "answer_span": "If computers were infinitely fast, any correct method for solving a problem would do.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00013"
+    ],
+    "source_page": 32,
+    "chapter": "page_32",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00014_sh_1",
+    "question": "How does the advantage of merge sort’s running time over insertion sort’s make it faster for large input sizes?",
+    "answer": "its advantage of lg n vs. n will more than compensate for the difference in constant factors",
+    "answer_span": "merge sort’s advantage of lg n vs. n will more than compensate for the difference in constant factors",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00014"
+    ],
+    "source_page": 33,
+    "chapter": "Chapter 2, we will see two algorithms for",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00015_sh_0",
+    "question": "How many instructions does insertion sort require to sort n numbers?",
+    "answer": "2n^2 instructions",
+    "answer_span": "2n^2 instructions",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00015"
+    ],
+    "source_page": 33,
+    "chapter": "Chapter 2, we will see two algorithms for",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00015_sh_1",
+    "question": "What is the time complexity of merge sort in terms of n and lg n?",
+    "answer": "50n lg n instructions",
+    "answer_span": "50n lg n instructions",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00015"
+    ],
+    "source_page": 33,
+    "chapter": "Chapter 2, we will see two algorithms for",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00016_sh_1",
+    "question": "What is one example of an application that relies on algorithms for certain operations?",
+    "answer": "finding routes (probably using a shortest-path algorithm)",
+    "answer_span": "finding routes (probably using a shortest-path algorithm)",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00016"
+    ],
+    "source_page": 34,
+    "chapter": "page_34",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00017_sh_1",
+    "question": "What is the common use of compilers/interpreters/assemblers?",
+    "answer": "they make extensive use of algorithms",
+    "answer_span": "all of which make extensive use of algorithms",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00017"
+    ],
+    "source_page": 34,
+    "chapter": "page_34",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00018_sh_0",
+    "question": "For which values of n does insertion sort beat merge sort?",
+    "answer": "We need to find the largest value of n such that 8n^2 is less than 64n lg n.",
+    "answer_span": "For inputs of size n, insertion sort runs in 8n2 steps, while merge sort runs in 64n lg n steps.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00018"
+    ],
+    "source_page": 35,
+    "chapter": "page_35",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00018_sh_1",
+    "question": "What is the smallest value of n such that an algorithm whose running time is 100n^2 runs faster than an algorithm whose running time is 2n on the same machine?",
+    "answer": "We need to find the smallest value of n such that 100n^2 is less than 2n.",
+    "answer_span": "What is the smallest value of n such that an algorithm whose running time is 100n2 runs faster than an algorithm whose running time is 2n on the same machine?",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00018"
+    ],
+    "source_page": 35,
+    "chapter": "page_35",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00019_sh_0",
+    "question": "What are some recommended textbooks on algorithms?",
+    "answer": "These include texts by Aho, Hopcroft, and Ullman; Baase and Van Gelder; and others.",
+    "answer_span": "There are many excellent texts on the general topic of algorithms",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00019"
+    ],
+    "source_page": 36,
+    "chapter": "Chapter 1\nsecond",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00019_sh_1",
+    "question": "What time complexity is represented by 'n lg n'?",
+    "answer": "This represents O(n log n) time complexity, which is between linear and quadratic.",
+    "answer_span": "lg n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00019"
+    ],
+    "source_page": 36,
+    "chapter": "Chapter 1\nsecond",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00020_sh_0",
+    "question": "What is the purpose of using a pseudocode to describe algorithms?",
+    "answer": "We shall typically describe algorithms as programs written in a pseudocode that is similar in many respects to C, C++, Java, Python, or Pascal.",
+    "answer_span": "In this book, we shall typically describe algorithms as programs written in a pseudocode that is similar in many respects to C, C++, Java, Python, or Pascal.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00020"
+    ],
+    "source_page": 37,
+    "chapter": "page_37",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00020_sh_1",
+    "question": "What type of problem does the insertion sort algorithm solve?",
+    "answer": "the sorting problem",
+    "answer_span": "We begin by examining the insertion sort algorithm to solve the sorting problem introduced in Chapter 1.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00020"
+    ],
+    "source_page": 37,
+    "chapter": "page_37",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00021_sh_0",
+    "question": "What is the main difference between pseudocode and 'real' code?",
+    "answer": "Pseudocode employs whatever expressive method is most clear and concise to specify a given algorithm, whereas real code considers issues of software engineering.",
+    "answer_span": "we employ whatever expressive method is most clear and concise to specify a given algorithm",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00021"
+    ],
+    "source_page": 38,
+    "chapter": "page_38",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00021_sh_1",
+    "question": "How does Insertion Sort find the correct position for an element?",
+    "answer": "It compares each card with the cards already in the hand, from right to left.",
+    "answer_span": "we compare it with each of the cards already in the hand, from right to left",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00021"
+    ],
+    "source_page": 38,
+    "chapter": "page_38",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00022_sh_0",
+    "question": "What is the time complexity of storing numbers outside the array at any given time in the SORT algorithm?",
+    "answer": "a constant number of them",
+    "answer_span": "at most a constant number of them stored outside the array at any time",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00022"
+    ],
+    "source_page": 38,
+    "chapter": "page_38",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00022_sh_1",
+    "question": "What is the outcome of running the INSERTION-SORT procedure on the input array A?",
+    "answer": "the sorted output sequence when the INSERTION-SORT procedure is finished",
+    "answer_span": "The input array A contains the sorted output sequence when the INSERTION-SORT procedure is finished.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00022"
+    ],
+    "source_page": 38,
+    "chapter": "page_38",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00023_sh_0",
+    "question": "What is the purpose of the line 'i D j - 1' in the INSERTION-SORT algorithm?",
+    "answer": "It initializes the index i to point at the last element of the sorted sequence.",
+    "answer_span": "i D j  1",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00023"
+    ],
+    "source_page": 39,
+    "chapter": "page_39",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00023_sh_1",
+    "question": "What is the relationship between the subarray A[1:j-1] and the elements originally in positions 1 through j-1?",
+    "answer": "They are now in sorted order.",
+    "answer_span": "elements AŒ1 : : j  1 are the elements originally in positions 1 through j  1, but now in sorted order",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00023"
+    ],
+    "source_page": 39,
+    "chapter": "page_39",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00024_sh_0",
+    "question": "What is the property of a loop invariant that we must show three things about?",
+    "answer": "We must show three things about a loop invariant: the initialization, maintenance, and termination",
+    "answer_span": "We must show three things about a loop invariant",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00024"
+    ],
+    "source_page": 39,
+    "chapter": "page_39",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00024_sh_1",
+    "question": "At what point in each iteration of the for loop do we examine the subarray AŒ1 : : j 1?",
+    "answer": "At the start of each iteration",
+    "answer_span": "the start of each iteration",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00024"
+    ],
+    "source_page": 39,
+    "chapter": "page_39",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00025_sh_0",
+    "question": "What is the purpose of the third property of a loop invariant?",
+    "answer": "The termination property differs from how we usually use mathematical induction, in which we apply the inductive step infinitely; here, we stop the “induction” when the loop terminates.",
+    "answer_span": "The third property",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00025"
+    ],
+    "source_page": 40,
+    "chapter": "page_40",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00025_sh_1",
+    "question": "What is shown to be true before each iteration of the loop?",
+    "answer": "When the first two properties hold, the loop invariant is true prior to every iteration of the loop.",
+    "answer_span": "prior to every iteration",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00025"
+    ],
+    "source_page": 40,
+    "chapter": "page_40",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00026_sh_0",
+    "question": "What is the purpose of lines 4–7 in the INSERTION-SORT algorithm?",
+    "answer": "The body of the for loop works by moving elements to their proper position",
+    "answer_span": "Informally, the body of the for loop works by",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00026"
+    ],
+    "source_page": 40,
+    "chapter": "page_40",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00026_sh_1",
+    "question": "At what time is the loop invariant checked just prior to the first iteration?",
+    "answer": "After assigning 2 to the variable j but before the first test",
+    "answer_span": "just after the initial assignment to the loop-counter variable and just before the first test in the loop header.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00026"
+    ],
+    "source_page": 40,
+    "chapter": "page_40",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00027_sh_0",
+    "question": "What is the condition causing the for loop to terminate?",
+    "answer": "j > A:length D n",
+    "answer_span": "j > A:length D n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00027"
+    ],
+    "source_page": 41,
+    "chapter": "page_41",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00027_sh_1",
+    "question": "How does the loop counter's value behave immediately after exiting a for loop?",
+    "answer": "the loop counter retains its value",
+    "answer_span": "the loop counter retains its value",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00027"
+    ],
+    "source_page": 41,
+    "chapter": "page_41",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00028_sh_0",
+    "question": "What is the value of the loop counter after a for loop terminates?",
+    "answer": "the value that first exceeded the for loop bound",
+    "answer_span": "after a for loop, the loop counter’s value is the value that first exceeded the for",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00028"
+    ],
+    "source_page": 41,
+    "chapter": "page_41",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00028_sh_1",
+    "question": "How do you indent an else clause in an if-else statement?",
+    "answer": "at the same level as its matching if",
+    "answer_span": "In an if-else statement, we indent else at the same level as its matching if",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00028"
+    ],
+    "source_page": 41,
+    "chapter": "page_41",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00029_sh_0",
+    "question": "How do we assign values to both variables i and j?",
+    "answer": "A multiple assignment of the form i D j D e assigns to both variables i and j the value of expression e",
+    "answer_span": "A multiple assignment of the form i D j D e",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00029"
+    ],
+    "source_page": 42,
+    "chapter": "page_42",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00029_sh_1",
+    "question": "How do we access an array element?",
+    "answer": "We access array elements by specifying the array name followed by the index in square brackets",
+    "answer_span": "We access array elements by specifying the array name followed by the index in square brackets",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00029"
+    ],
+    "source_page": 42,
+    "chapter": "page_42",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00030_sh_0",
+    "question": "What happens when an object is passed as a parameter to a procedure?",
+    "answer": "The pointer to the data representing the object is copied, but the object's attributes are not.",
+    "answer_span": "When objects are passed, the pointer to the data representing the object is copied, but the object’s attributes are not.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00030"
+    ],
+    "source_page": 42,
+    "chapter": "page_42",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00030_sh_1",
+    "question": "What happens when a value is assigned to a parameter within a called procedure?",
+    "answer": "The change is not seen by the calling procedure.",
+    "answer_span": "the change is not seen by the calling procedure",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00030"
+    ],
+    "source_page": 42,
+    "chapter": "page_42",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00031_sh_0",
+    "question": "What happens when we use a return statement in our pseudocode?",
+    "answer": "A return statement immediately transfers control back to the point of call in the calling procedure.",
+    "answer_span": "A return statement immediately transfers control back to the point of call in the calling procedure.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00031"
+    ],
+    "source_page": 43,
+    "chapter": "page_43",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00031_sh_1",
+    "question": "How do short-circuiting operators allow us to write boolean expressions?",
+    "answer": "Short-circuiting operators allow us to write boolean expressions such as “x ¤ NIL and x:f D y” without worrying about what happens when we try to evaluate x:f when x is NIL.",
+    "answer_span": "Short-circuiting operators allow us to write boolean expressions such as “x ¤ NIL and x:f D y” without worrying about what happens when we try to evaluate x:f when x is NIL.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00031"
+    ],
+    "source_page": 43,
+    "chapter": "page_43",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00032_sh_0",
+    "question": "What is the purpose of linear search?",
+    "answer": "Output: An index i such that D AŒi or the special value NIL if does not appear in A.",
+    "answer_span": "Output: An index i such that D AŒi or the special value NIL if does not appear in A.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00032"
+    ],
+    "source_page": 43,
+    "chapter": "page_43",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00032_sh_1",
+    "question": "What is stored in binary form after adding two n-bit binary integers?",
+    "answer": "The sum of the two integers",
+    "answer_span": "The sum of the two integers should be stored in binary form in",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00032"
+    ],
+    "source_page": 43,
+    "chapter": "page_43",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00033_sh_0",
+    "question": "What is the primary concern when analyzing an algorithm?",
+    "answer": "Computational time",
+    "answer_span": "most often it is computational time that we want to measure.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00033"
+    ],
+    "source_page": 44,
+    "chapter": "page_44",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00034_sh_0",
+    "question": "What types of instructions are categorized under movement in the RAM model?",
+    "answer": "load, store, copy",
+    "answer_span": "movement (load, store, copy)",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00034"
+    ],
+    "source_page": 44,
+    "chapter": "page_44",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00035_sh_1",
+    "question": "What will this book's analyses usually be good at predicting?",
+    "answer": "performance on actual machines",
+    "answer_span": "Moreover, RAM-model analyses are usually excellent predictors of performance on actual machines.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00035"
+    ],
+    "source_page": 45,
+    "chapter": "page_45",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00036_sh_0",
+    "question": "How do we traditionally describe the running time of a program?",
+    "answer": "To describe the running time as a function of the size of its input.",
+    "answer_span": "To do so, we need to define the terms “running time” and “size of input” more carefully.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00036"
+    ],
+    "source_page": 45,
+    "chapter": "page_45",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00036_sh_1",
+    "question": "What is one desirable property of an analysis method?",
+    "answer": "It should be simple to write and manipulate.",
+    "answer_span": "We would like a way that is simple to write and manipulate, shows the important characteristics of an algorithm’s resource requirements, and suppresses tedious details.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00036"
+    ],
+    "source_page": 45,
+    "chapter": "page_45",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00037_sh_0",
+    "question": "What is the best notion for input size for problems like sorting?",
+    "answer": "The number of items in the input.",
+    "answer_span": "the most natural measure is the number of items in the input—for example, the array size n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00037"
+    ],
+    "source_page": 46,
+    "chapter": "page_46",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00037_sh_1",
+    "question": "What do we assume about the time taken to execute each line of pseudocode?",
+    "answer": "A constant amount of time.",
+    "answer_span": "a constant amount of time is required to execute each line of our pseudocode",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00037"
+    ],
+    "source_page": 46,
+    "chapter": "page_46",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00038_sh_0",
+    "question": "How many times is the while loop test executed for a given value of j?",
+    "answer": "tj denotes the number of times the while loop test in line 5 is executed",
+    "answer_span": "we let tj denote the number of times the while loop test in line 5 is executed for that value of j",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00038"
+    ],
+    "source_page": 46,
+    "chapter": "page_46",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00038_sh_1",
+    "question": "What happens to a statement that calls a subroutine?",
+    "answer": "That is, we separate the process of calling the subroutine—passing parameters to it, etc.—from the process of executing the subroutine.",
+    "answer_span": "a statement that calls a subroutine takes constant time",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00038"
+    ],
+    "source_page": 46,
+    "chapter": "page_46",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00039_sh_0",
+    "question": "What is the formula to compute the running time of INSERTION-SORT on an input of n values?",
+    "answer": "T .n/ D c1n C c2.n  1/ C c4.n  1/ C c5 n X jD2 tj C c6 n X jD2 .tj  1/ C c7 n X jD2 .tj  1/ C c8.n  1/",
+    "answer_span": "T .n/D c1n C c2.n  1/C c4.n  1/ C c5",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00039"
+    ],
+    "source_page": 47,
+    "chapter": "page_47",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00039_sh_1",
+    "question": "What happens in the best case for INSERTION-SORT?",
+    "answer": "the array is already sorted",
+    "answer_span": "For example, in INSERTION-SORT, the best case occurs if the array is already sorted.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00039"
+    ],
+    "source_page": 47,
+    "chapter": "page_47",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00040_sh_0",
+    "question": "What is the best-case scenario for INSERTION-SORT?",
+    "answer": "The array is already sorted.",
+    "answer_span": "the best case occurs if the array is already sorted",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00040"
+    ],
+    "source_page": 47,
+    "chapter": "page_47",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00041_sh_0",
+    "question": "What is the worst-case running time of INSERTION-SORT?",
+    "answer": "an2 C bn C c for constants a, b, and c",
+    "answer_span": "We can express this worst-case running time as an2 C bn C c for constants a, b, and c that again depend on the statement costs ci;",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00041"
+    ],
+    "source_page": 48,
+    "chapter": "page_48",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00041_sh_1",
+    "question": "Why does the book usually concentrate on finding only the worst-case running time?",
+    "answer": "the longest running time for any input of size n",
+    "answer_span": "that is, the longest running time for any input of size n.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00041"
+    ],
+    "source_page": 48,
+    "chapter": "page_48",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00042_sh_0",
+    "question": "What is the main purpose of finding an algorithm's worst-case running time?",
+    "answer": "It provides an upper bound on the running time for any input.",
+    "answer_span": "The worst-case running time of an algorithm gives us an upper bound on the running time for any input.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00042"
+    ],
+    "source_page": 48,
+    "chapter": "page_48",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00042_sh_1",
+    "question": "When might an algorithm's worst case occur frequently?",
+    "answer": "In some applications, searches for absent information may be frequent.",
+    "answer_span": "In some applications, searches for absent information may be frequent.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00042"
+    ],
+    "source_page": 48,
+    "chapter": "page_48",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00043_sh_0",
+    "question": "What is the average-case running time of insertion sort, in terms of input size?",
+    "answer": "a quadratic function of the input size",
+    "answer_span": "The resulting average-case running time turns out to be a quadratic function of the input size, just like the worst-case running time.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00043"
+    ],
+    "source_page": 49,
+    "chapter": "page_49",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00043_sh_1",
+    "question": "What is the average number of elements checked in subarray A[1..j-1] when inserting element A[j]?",
+    "answer": "half the elements",
+    "answer_span": "On average, half the elements in A[1..j-1] are less than A[j], and half the elements are greater.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00043"
+    ],
+    "source_page": 49,
+    "chapter": "page_49",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00044_sh_0",
+    "question": "What is the main focus when analyzing running time?",
+    "answer": "the rate of growth, or order of growth, of the running time",
+    "answer_span": "We therefore consider only the leading term of a formula (e.g., an2), since the lower-order terms are relatively insignificant for large values of n.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00044"
+    ],
+    "source_page": 49,
+    "chapter": "page_49",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00044_sh_1",
+    "question": "Why do constant factors have less significance than rate of growth?",
+    "answer": "in determining computational efficiency for large inputs",
+    "answer_span": "since constant factors are less significant than the rate of growth in determining computational efficiency for large inputs.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00044"
+    ],
+    "source_page": 49,
+    "chapter": "page_49",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00045_sh_0",
+    "question": "What is the running time of a n^2 algorithm compared to a n^3 algorithm for large inputs?",
+    "answer": "a n^2 algorithm will run more quickly in the worst case than a n^3 algorithm",
+    "answer_span": "‚.n2/ algorithm, for example, will run more quickly in the worst case than a ‚.n3/ algorithm.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00045"
+    ],
+    "source_page": 50,
+    "chapter": "page_50",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00045_sh_1",
+    "question": "What is the loop invariant maintained by selection sort?",
+    "answer": "The subarray A[1..j] is sorted",
+    "answer_span": "The subarray A[1..j ] is sorted",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00045"
+    ],
+    "source_page": 50,
+    "chapter": "page_50",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00047_sh_0",
+    "question": "What are the three steps involved in the divide-and-conquer paradigm?",
+    "answer": "Divide, Conquer, and Combine",
+    "answer_span": "The divide-and-conquer paradigm involves three steps at each level of the recursion:",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00047"
+    ],
+    "source_page": 51,
+    "chapter": "page_51",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00047_sh_1",
+    "question": "When does the recursion in merge sort 'bottom out'?",
+    "answer": "when the sequence to be sorted has length 1",
+    "answer_span": "The recursion “bottoms out” when the sequence to be sorted has length 1,",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00047"
+    ],
+    "source_page": 51,
+    "chapter": "page_51",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00050_sh_1",
+    "question": "What is computed by line 1 of the MERGE procedure?",
+    "answer": "length n1 of the subarray AŒp : : q",
+    "answer_span": "line 1 computes the length n1 of the subarray AŒp : : q",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00050"
+    ],
+    "source_page": 52,
+    "chapter": "page_52",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00051_sh_0",
+    "question": "What values do the lightly shaded positions in A contain?",
+    "answer": "Their final values, and the two sentinels.",
+    "answer_span": "the array L contains h2; 4; 5; 7; 1i",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00051"
+    ],
+    "source_page": 53,
+    "chapter": "page_53",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00051_sh_1",
+    "question": "What does the subarray A[p:k-1] contain at the start of each iteration?",
+    "answer": "The k-p smallest elements of L[1:n1+1].",
+    "answer_span": "the subarray AŒp : : k  1 contains the k  p smallest elements of LŒ1 : : n1 C 1",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00051"
+    ],
+    "source_page": 53,
+    "chapter": "page_53",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00053_sh_0",
+    "question": "What is the loop invariant maintained by each iteration of the algorithm?",
+    "answer": "The subarray AŒp : : k will contain the k  p C 1 smallest elements.",
+    "answer_span": "After line 14 copies LŒi into AŒk,",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00053"
+    ],
+    "source_page": 54,
+    "chapter": "page_54",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00053_sh_1",
+    "question": "What is the condition for termination of the algorithm?",
+    "answer": "At termination, k D r C 1.",
+    "answer_span": "Termination: At termination, k D r C 1.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00053"
+    ],
+    "source_page": 54,
+    "chapter": "page_54",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00054_sh_0",
+    "question": "How many elements does the merged array A contain after partial merge?",
+    "answer": "n1 C n2 C 2 D r  p C 3",
+    "answer_span": "The arrays L and R together contain n1 C n2 C 2 D r  p C 3 elements.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00054"
+    ],
+    "source_page": 54,
+    "chapter": "page_54",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00055_sh_0",
+    "question": "What is the time complexity of each for loop in lines 4-7?",
+    "answer": "‚.n1 C n2/ D ‚.n/",
+    "answer_span": "the for loops of lines 4–7 take ‚.n1 C n2/ D ‚.n/ time",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00055"
+    ],
+    "source_page": 55,
+    "chapter": "page_55",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00056_sh_0",
+    "question": "What is a recurrence equation?",
+    "answer": "a recurrence equation or recurrence, which describes the overall running time on a problem of size n in terms of the running time on smaller inputs.",
+    "answer_span": "We can then use mathematical tools to solve the recurrence and provide bounds on the performance of the algorithm.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00056"
+    ],
+    "source_page": 55,
+    "chapter": "page_55",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00056_sh_1",
+    "question": "What does ‚-notation denote?",
+    "answer": "The expression dxe denotes the least integer greater than or equal to x,",
+    "answer_span": "and bxc denotes the greatest integer less than or equal to x.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00056"
+    ],
+    "source_page": 55,
+    "chapter": "page_55",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00057_sh_0",
+    "question": "What is the name of the recurrence for the running time of a divide-and-conquer algorithm?",
+    "answer": "T .n/ falls out from the three steps of the basic paradigm",
+    "answer_span": "A recurrence for the running time of a divide-and-conquer algorithm falls out from the three steps of the basic paradigm.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00057"
+    ],
+    "source_page": 56,
+    "chapter": "page_56",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00058_sh_1",
+    "question": "What is the recurrence for the worst-case running time T.n/ of merge sort?",
+    "answer": "T.n/ D 2T .n=2/ C ‚.n/",
+    "answer_span": "Adding it to the 2T .n=2/ term from the “conquer” step gives the recurrence for the worst-case running time T .n/ of merge sort:",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00058"
+    ],
+    "source_page": 57,
+    "chapter": "Chapter 4, we shall see that this assumption does",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00059_sh_1",
+    "question": "How does the running time of insertion sort compare to that of merge sort for large enough inputs?",
+    "answer": "merge sort outperforms insertion sort",
+    "answer_span": "merge sort, with its ‚.n lg n/ running time, outperforms insertion sort",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00059"
+    ],
+    "source_page": 57,
+    "chapter": "Chapter 4, we shall see that this assumption does",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00063_sh_0",
+    "question": "What is the recurrence relation for T(n) given that n is an exact power of 2?",
+    "answer": "T .n/ = (if n D 2; 2T .n=2/ C n if n D 2k, for k > 1)",
+    "answer_span": "if n D 2;",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00063"
+    ],
+    "source_page": 60,
+    "chapter": "Chapter 2\n2.3-3",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00064_sh_1",
+    "question": "Why might insertion sort be faster than merge sort in practice for small problem sizes?",
+    "answer": "The constant factors in insertion sort can make it faster",
+    "answer_span": "the constant factors in insertion sort can make it faster",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00064"
+    ],
+    "source_page": 60,
+    "chapter": "Chapter 2\n2.3-3",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00066_sh_1",
+    "question": "What should your proof use to prove inequality (2.3)?",
+    "answer": "the structure of the loop invariant proof presented in this chapter",
+    "answer_span": "Your proof should use the structure of the loop invariant proof presented in this chapter",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00066"
+    ],
+    "source_page": 61,
+    "chapter": "page_61",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00068_sh_0",
+    "question": "How many inversions does the array with elements from the set f1; 2; : : : ; ng have?",
+    "answer": "We are not given enough information to determine this.",
+    "answer_span": "How many does it have?",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00068"
+    ],
+    "source_page": 63,
+    "chapter": "page_63",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00070_sh_0",
+    "question": "What happens to the multiplicative constants and lower-order terms of an exact running time as input size increases without bound?",
+    "answer": "They are dominated by the effects of the input size itself.",
+    "answer_span": "For large enough inputs, the multiplicative constants and lower-order terms of an exact running time are dominated by the effects of the input size itself.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00070"
+    ],
+    "source_page": 64,
+    "chapter": "Chapter 2,",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00070_sh_1",
+    "question": "Which type of algorithms is usually the best choice for all but very small inputs?",
+    "answer": "an algorithm that is asymptotically more efficient",
+    "answer_span": "Usually, an algorithm that is asymptotically more efficient will be the best choice for all but very small inputs.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00070"
+    ],
+    "source_page": 64,
+    "chapter": "Chapter 2,",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00072_sh_0",
+    "question": "What is the primary use of asymptotic notation in this book?",
+    "answer": "to describe the running times of algorithms",
+    "answer_span": "We will use asymptotic notation primarily to describe the running times of algorithms",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00072"
+    ],
+    "source_page": 65,
+    "chapter": "page_65",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00072_sh_1",
+    "question": "What is the function that ‚.n2/ represents in this context?",
+    "answer": "an2 C bn C c, which characterizes the worst-case running time of an algorithm",
+    "answer_span": "what we were writing as ‚.n2/ was the function an2 C bn C c",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00072"
+    ],
+    "source_page": 65,
+    "chapter": "page_65",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00073_sh_0",
+    "question": "What does the notation ‚.g.n// represent?",
+    "answer": "The set of functions",
+    "answer_span": "'‚.g.n// D ff .n/ W there exist positive constants c1, c2, and n0 such that'",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00073"
+    ],
+    "source_page": 65,
+    "chapter": "page_65",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00073_sh_1",
+    "question": "What is the relationship between a function f(n) and g(n) in ‚-notation?",
+    "answer": "There exist positive constants c1, c2, and n0 such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0",
+    "answer_span": "'0 ≤ c1g.n/ ≤ f .n/ ≤ c2g.n/ for all n ≥ n0'",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00073"
+    ],
+    "source_page": 65,
+    "chapter": "page_65",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00074_sh_0",
+    "question": "What does the ‚-notation do?",
+    "answer": "bounds a function to within constant factors",
+    "answer_span": "‚-notation bounds a func-tion to within constant factors.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00074"
+    ],
+    "source_page": 66,
+    "chapter": "page_66",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00074_sh_1",
+    "question": "How is f.n/ related to O.g.n// if it always lies on or below cg.n/?",
+    "answer": "f .n/ D O.g.n//",
+    "answer_span": "f .n/ D O.g.n//",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00074"
+    ],
+    "source_page": 66,
+    "chapter": "page_66",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00075_sh_1",
+    "question": "What is a characteristic of every member f .n/ 2 ‚.g.n//?",
+    "answer": "asymptotically nonnegative",
+    "answer_span": "that f .n/ be nonnegative whenever n is sufficiently large.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00075"
+    ],
+    "source_page": 66,
+    "chapter": "page_66",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00077_sh_0",
+    "question": "What happens to lower-order terms of an asymptotically positive function for large n?",
+    "answer": "They can be ignored in determining asymptotically tight bounds.",
+    "answer_span": "Intuitively, the lower-order terms of an asymptotically positive function can be ignored in determining asymptotically tight bounds because they are insignificant for large n.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00077"
+    ],
+    "source_page": 67,
+    "chapter": "Chapter 2, we introduced an informal notion of ‚-notation that amount",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00077_sh_1",
+    "question": "What is the effect of ignoring the constant coefficient on c1 and c2?",
+    "answer": "It only changes c1 and c2 by a constant factor equal to the coefficient.",
+    "answer_span": "The coefficient of the highest-order term can likewise be ignored, since it only changes c1 and c2 by a constant factor equal to the coefficient.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00077"
+    ],
+    "source_page": 67,
+    "chapter": "Chapter 2, we introduced an informal notion of ‚-notation that amount",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00078_sh_0",
+    "question": "What does O-notation asymptotically bound?",
+    "answer": "a function from above and below",
+    "answer_span": "The -notation asymptotically bounds a function from above and below.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00078"
+    ],
+    "source_page": 68,
+    "chapter": "page_68",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00078_sh_1",
+    "question": "What is implied by f .n/ D ‚.g.n//?",
+    "answer": "f .n/ D O.g.n//",
+    "answer_span": "Note that f .n/ D ‚.g.n// implies f .n/ D O.g.n//, since -notation is a stronger notion than O-notation.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00078"
+    ],
+    "source_page": 68,
+    "chapter": "page_68",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00079_sh_0",
+    "question": "What is the distinction between an asymptotic upper bound and an asymptotically tight bound?",
+    "answer": "We are merely claiming that some constant multiple of g(n) is an asymptotic upper bound on f(n), with no claim about how tight an upper bound it is.",
+    "answer_span": "merely claiming that some constant multiple of g.n/ is an asymptotic upper bound on f .n/,",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00079"
+    ],
+    "source_page": 68,
+    "chapter": "page_68",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00080_sh_1",
+    "question": "How is f(n) related to the running time of an algorithm in Big-O notation?",
+    "answer": "there is a function f .n/ that is O.n2/ such that for any value of n, no matter what particular input of size n is chosen, the running time on that input is bounded from above by the value f .n/.",
+    "answer_span": "function f .n/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00080"
+    ],
+    "source_page": 69,
+    "chapter": "page_69",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00082_sh_0",
+    "question": "What does it mean when we say the running time of an algorithm is O(n)?",
+    "answer": "no matter what particular input of size n is chosen for each value of n, the running time on that input is at least a constant times g.n/, for sufficiently large n",
+    "answer_span": "we mean that no matter what particular input of size n is chosen for each value of n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00082"
+    ],
+    "source_page": 70,
+    "chapter": "page_70",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00082_sh_1",
+    "question": "How do we interpret asymptotic notation when it appears in a formula?",
+    "answer": "when the asymptotic notation stands alone on the right-hand side of an equation (or inequality), as in n D O.n2/, we have already defined the equal sign to mean set membership",
+    "answer_span": "we interpret it as stand-alone on the right-hand side of an equation (or inequality)",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00082"
+    ],
+    "source_page": 70,
+    "chapter": "page_70",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00083_sh_0",
+    "question": "What does the asymptotic notation ‚.n/ represent in an equation?",
+    "answer": "some anonymous function that we do not care to name",
+    "answer_span": "where f .n/ is some function in the set ‚.n/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00083"
+    ],
+    "source_page": 70,
+    "chapter": "page_70",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00083_sh_1",
+    "question": "How many times must asymptotic notation appear in an expression for its number of anonymous functions?",
+    "answer": "equal to the number of times the asymptotic notation appears",
+    "answer_span": "The number of anonymous functions in an expression is understood to be equal",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00083"
+    ],
+    "source_page": 70,
+    "chapter": "page_70",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00084_sh_0",
+    "question": "What does an equation with asymptotic notation on the left-hand side of the form $2n^2 C f(n) = g(n)$ mean?",
+    "answer": "For any function f(n) in Θ(n), there is some function g(n) in Θ(n^2) such that 2n^2 C f(n) = g(n) for all n.",
+    "answer_span": "Thus, our example means that for any function f .n/ 2 ‚.n/, there is some func-tion g.n/ 2 ‚.n2/ such that 2n2 C f .n/ D g.n/ for all n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00084"
+    ],
+    "source_page": 71,
+    "chapter": "page_71",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00084_sh_1",
+    "question": "What happens when we chain together a number of relationships like $2n^2 + 3n + 1 = 2n^2 + Θ(n) = Θ(n^2)$?",
+    "answer": "We can interpret each equation separately by the rules above, implying that $2n^2 + 3n + 1 = Θ(n^2)$",
+    "answer_span": "Note that this interpretation implies that 2n2 C 3n C 1 D ‚.n2/, which is what the chaining of equations intuitively gives us.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00084"
+    ],
+    "source_page": 71,
+    "chapter": "page_71",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00086_sh_0",
+    "question": "What is the definition of !-notation in terms of o-notation?",
+    "answer": "f .n/ 2 !.g.n// if and only if g.n/ 2 o.f .n//",
+    "answer_span": "One way to define it is by f .n/ 2 !.g.n// if and only if g.n/ 2 o.f .n// :",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00086"
+    ],
+    "source_page": 72,
+    "chapter": "page_72",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00086_sh_1",
+    "question": "What is the implication of the relation f .n/ D !.g.n// on the limit as n approaches infinity?",
+    "answer": "lim n!1 f .n/ g.n/ D 1;",
+    "answer_span": "if the limit exists. That is, f .n/ becomes arbitrarily large relative to g.n/ as n approaches infinity.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00086"
+    ],
+    "source_page": 72,
+    "chapter": "page_72",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00087_sh_1",
+    "question": "How do we represent reflexivity in terms of the function f and g?",
+    "answer": "f .n/ D ‚.f .n//",
+    "answer_span": "‚.f .n//",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00087"
+    ],
+    "source_page": 72,
+    "chapter": "page_72",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00088_sh_0",
+    "question": "What is the relationship between functions f(n) and g(n) when f(n) = O(g(n))?",
+    "answer": "f(n) is asymptotically larger than or equal to g(n)",
+    "answer_span": "f .n/ D O.g.n//",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00088"
+    ],
+    "source_page": 73,
+    "chapter": "page_73",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00088_sh_1",
+    "question": "What property of real numbers does not carry over to asymptotic notation?",
+    "answer": "Trichotomy: exactly one of the following must hold: a < b, a = b, or a > b",
+    "answer_span": "Trichotomy:",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00088"
+    ],
+    "source_page": 73,
+    "chapter": "page_73",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00089_sh_0",
+    "question": "What is the property of the exponent in n1Csin n?",
+    "answer": "The value of the exponent oscillates between 0 and 2, taking on all values in between.",
+    "answer_span": "taking on all values in between",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00089"
+    ],
+    "source_page": 73,
+    "chapter": "page_73",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00089_sh_1",
+    "question": "How do you prove that max.f .n/; g.n// D ‚.f .n/ C g.n//?",
+    "answer": "Using the basic definition of ‚-notation.",
+    "answer_span": "basic defi-nition of ‚-notation",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00089"
+    ],
+    "source_page": 73,
+    "chapter": "page_73",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00090_sh_1",
+    "question": "What does the notation O.g.n; m// represent?",
+    "answer": "The set of functions O.g.n; m// represents.",
+    "answer_span": "For a given function g.n; m/, we denote by O.g.n; m//",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00090"
+    ],
+    "source_page": 74,
+    "chapter": "page_74",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00092_sh_0",
+    "question": "What is the definition of the ceiling function?",
+    "answer": "the least integer greater than or equal to x by dxe",
+    "answer_span": "dxe (read “the ceiling of x”)",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00092"
+    ],
+    "source_page": 75,
+    "chapter": "page_75",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00092_sh_1",
+    "question": "How does modular arithmetic relate to division?",
+    "answer": "The value a mod n is the remainder of the quotient a=n.",
+    "answer_span": "a  n ba=nc :",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00092"
+    ],
+    "source_page": 75,
+    "chapter": "page_75",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00093_sh_0",
+    "question": "What is the condition for two numbers a and b to be equivalent modulo n?",
+    "answer": "a and b have the same remainder when divided by n",
+    "answer_span": "a and b have the same remainder when divided by n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00093"
+    ],
+    "source_page": 75,
+    "chapter": "page_75",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00094_sh_0",
+    "question": "What is the form of a polynomial in n of degree d?",
+    "answer": "p.n/ D X i=0 ain i;",
+    "answer_span": "where the constants a0; a1; : : : ; ad are the coefficients of the polynomial and",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00094"
+    ],
+    "source_page": 76,
+    "chapter": "page_76",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00094_sh_1",
+    "question": "How do we relate the rates of growth of polynomials and exponentials?",
+    "answer": "For all real constants a and b such that a > 1, lim n!1 nb an D 0;",
+    "answer_span": "from which we can conclude that",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00094"
+    ],
+    "source_page": 76,
+    "chapter": "page_76",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00096_sh_1",
+    "question": "What is the value of logc.ab/, where a and b are positive constants?",
+    "answer": "logc a + logc b",
+    "answer_span": "logc.ab/ D logc a C logc b;",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00096"
+    ],
+    "source_page": 77,
+    "chapter": "page_77",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00098_sh_1",
+    "question": "Which function grows faster, a positive polynomial or a polylogarithmic function?",
+    "answer": "a positive polynomial function",
+    "answer_span": "Thus, any positive polynomial function grows faster than any polylogarithmic function.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00098"
+    ],
+    "source_page": 78,
+    "chapter": "page_78",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00100_sh_0",
+    "question": "What is the range for the value of ˛n in equation (3.21)?",
+    "answer": "12n C 1 < ˛n < 12n",
+    "answer_span": "12n C 1 < ˛n < 12n",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00100"
+    ],
+    "source_page": 79,
+    "chapter": "page_79",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00101_sh_0",
+    "question": "What is the iterated logarithm function defined as?",
+    "answer": "min{i ≥ 0 | lg.i/ n ≤ 1}",
+    "answer_span": "min i ≥ 0 W lg.i/ n ≤ 1",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00101"
+    ],
+    "source_page": 79,
+    "chapter": "page_79",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00101_sh_1",
+    "question": "How does the iterated logarithm grow?",
+    "answer": "it is a very slowly growing function",
+    "answer_span": "The iterated logarithm is a very slowly growing function",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00101"
+    ],
+    "source_page": 79,
+    "chapter": "page_79",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00102_sh_0",
+    "question": "How are Fibonacci numbers defined?",
+    "answer": "By the recurrence Fi = Fi-1 + Fi-2 for i ≥ 2.",
+    "answer_span": "Thus, each Fibonacci number is the sum of the two previous ones",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00102"
+    ],
+    "source_page": 80,
+    "chapter": "page_80",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00102_sh_1",
+    "question": "What is the consequence of |y| < 1?",
+    "answer": "That |yi| < 2 for all i.",
+    "answer_span": "which implies that",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00102"
+    ],
+    "source_page": 80,
+    "chapter": "page_80",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00103_sh_0",
+    "question": "If f(n) and g(n) are monotonically increasing functions, what can be said about the function f(g(n))?",
+    "answer": "f(g(n)) is monotonically increasing.",
+    "answer_span": "the functions f.g.n//",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00103"
+    ],
+    "source_page": 81,
+    "chapter": "page_81",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00103_sh_1",
+    "question": "What is the relationship between the golden ratio and its conjugate, as described in equation (3.16)?",
+    "answer": "They both satisfy the equation x^2 = x + 1.",
+    "answer_span": "x2 D x C 1",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00103"
+    ],
+    "source_page": 81,
+    "chapter": "page_81",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00106_sh_0",
+    "question": "For two functions f(n) and g(n), which of the following must be true if they are asymptotically nonnegative?",
+    "answer": "f(n) = O(g(n)) or f(n) = ω∞(g(n))",
+    "answer_span": "either f .n/ D O.g.n// or f .n/ D 1.g.n//",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00106"
+    ],
+    "source_page": 83,
+    "chapter": "page_83",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00106_sh_1",
+    "question": "What is an alternative definition of ω used by some authors?",
+    "answer": "ω∞, read as \"omega infinity\"",
+    "answer_span": "1 (read \"omega infinity\")",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00106"
+    ],
+    "source_page": 83,
+    "chapter": "page_83",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00109_sh_0",
+    "question": "Who invented the o-notation?",
+    "answer": "E. Landau in 1909",
+    "answer_span": "o-notation was invented by E. Landau in 1909",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00109"
+    ],
+    "source_page": 85,
+    "chapter": "page_85",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00109_sh_1",
+    "question": "Why does Knuth advocate for the  and ‚ notations?",
+    "answer": "to correct the popular, but technically sloppy, practice in the literature of using O-notation for both upper and lower bounds",
+    "answer_span": "The  and ‚ notations were advocated by Knuth [213] to correct the popular, but technically sloppy, practice in the literature of using O-notation for both upper and lower bounds.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00109"
+    ],
+    "source_page": 85,
+    "chapter": "page_85",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00110_sh_0",
+    "question": "What are the three steps in the divide-and-conquer paradigm?",
+    "answer": "Divide the problem into a number of subproblems, Conquer the subproblems by solving them recursively, Combine the solutions to the subproblems",
+    "answer_span": "Divide the problem into a number of subproblems that are smaller instances of the same problem. Conquer the subproblems by solving them recursively. If the subproblem sizes are small enough, however, just solve the subproblems in a straightforward manner.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00110"
+    ],
+    "source_page": 86,
+    "chapter": "page_86",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00111_sh_0",
+    "question": "What is the form of a recurrence that can be solved using the master method?",
+    "answer": "T .n/ = aT .n=b/ C f .n/",
+    "answer_span": "aT .n=b/ C f .n/ ;",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00111"
+    ],
+    "source_page": 87,
+    "chapter": "page_87",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00111_sh_1",
+    "question": "What is one of the methods for solving recurrences presented in this chapter?",
+    "answer": "The recursion-tree method converts the recurrence into a tree whose nodes represent the costs incurred at various levels of the recursion.",
+    "answer_span": "The recursion-tree method converts the recurrence into a tree whose nodes represent the costs incurred at various levels of the recursion.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00111"
+    ],
+    "source_page": 87,
+    "chapter": "page_87",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00112_sh_1",
+    "question": "What is the purpose of the divide and combine steps in the recurrence (4.2)?",
+    "answer": "to create subproblems, each of which is 1=b the size of the original problem",
+    "answer_span": "each of which is 1=b the size of the original problem",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00112"
+    ],
+    "source_page": 87,
+    "chapter": "page_87",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00113_sh_1",
+    "question": "What is typically ignored when stating and solving recurrences?",
+    "answer": "Boundary conditions",
+    "answer_span": "Boundary conditions represent another class of details that we typically ignore.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00113"
+    ],
+    "source_page": 88,
+    "chapter": "page_88",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00114_sh_0",
+    "question": "What happens to the exact solution of a recurrence when changing the value of T(.1)?",
+    "answer": "the solution typically doesn’t change by more than a constant factor",
+    "answer_span": "the solution typically doesn’t change by more than a constant factor, and so the order of growth is unchanged",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00114"
+    ],
+    "source_page": 88,
+    "chapter": "page_88",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00114_sh_1",
+    "question": "What do we often omit when stating and solving recurrences?",
+    "answer": "floors, ceilings, and boundary conditions",
+    "answer_span": "We forge ahead without these details and later determine whether or not they matter",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00114"
+    ],
+    "source_page": 88,
+    "chapter": "page_88",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00115_sh_0",
+    "question": "What is the goal of the maximum-subarray problem?",
+    "answer": "maximize profit",
+    "answer_span": "Your goal is to maximize your profit.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00115"
+    ],
+    "source_page": 89,
+    "chapter": "page_89",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00117_sh_1",
+    "question": "What is the goal of transforming the input to solve the maximum-subarray problem?",
+    "answer": "find a sequence of days over which the net change from the first day to the last is maximum",
+    "answer_span": "We want to find a sequence of days over which the net change from the first day to the last is maximum.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00117"
+    ],
+    "source_page": 90,
+    "chapter": "page_90",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00118_sh_0",
+    "question": "What is the maximum subarray in an array?",
+    "answer": "the nonempty, contiguous subarray of A whose values have the largest sum.",
+    "answer_span": "We call this contiguous subarray the maximum subarray",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00118"
+    ],
+    "source_page": 90,
+    "chapter": "page_90",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00119_sh_1",
+    "question": "How can we efficiently compute each subarray sum in the maximum-subarray problem?",
+    "answer": "Given the values of previously computed subarray sums, each subarray sum takes O(1/ time",
+    "answer_span": "O.1/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00119"
+    ],
+    "source_page": 91,
+    "chapter": "page_91",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00120_sh_0",
+    "question": "What can be deduced about the location of a maximum subarray of AŒlow : : high?",
+    "answer": "A maximum subarray must lie in exactly one of the following places: entirely in AŒlow : : mid, entirely in AŒmid C 1 : : high, or crossing the midpoint.",
+    "answer_span": "Therefore, a maximum subarray of AŒlow : : high must lie in exactly one of these places.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00120"
+    ],
+    "source_page": 91,
+    "chapter": "page_91",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00120_sh_1",
+    "question": "What is a property of smaller instances of the problem that allows for recursive solution?",
+    "answer": "These two subproblems are smaller instances of the problem of finding a maximum subarray.",
+    "answer_span": "We can find maximum subarrays of AŒlow : : mid and AŒmidC1 : : high recursively, because these two subproblems are smaller instances",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00120"
+    ],
+    "source_page": 91,
+    "chapter": "page_91",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00121_sh_0",
+    "question": "What is the main problem that this algorithm is trying to solve?",
+    "answer": "The maximum-subarray problem",
+    "answer_span": "4.1 The maximum-subarray problem",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00121"
+    ],
+    "source_page": 92,
+    "chapter": "page_92",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00121_sh_1",
+    "question": "How can we easily find a maximum subarray crossing the midpoint in time linear in the size of A[low:high]?",
+    "answer": "We can easily find a maximum subarray crossing the midpoint in time linear in the size of the subarray A[low:high].",
+    "answer_span": "We can easily find a maximum subarray crossing the midpoint in time linear in the size of the subarray A[low:high].",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00121"
+    ],
+    "source_page": 92,
+    "chapter": "page_92",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00122_sh_0",
+    "question": "What is the purpose of the FIND-MAX-CROSSING-SUBARRAY procedure?",
+    "answer": "It returns a tuple containing the indices demarcating a maximum subarray that crosses the midpoint, along with the sum of the values in a maximum subarray.",
+    "answer_span": "it returns a tuple containing the indices demarcating a maximum subarray that crosses the midpoint, along with the sum of the values in a maximum subarray.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00122"
+    ],
+    "source_page": 92,
+    "chapter": "page_92",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00122_sh_1",
+    "question": "What is the time complexity of the two nested loops in FIND-MAX-CROSSING-SUBARRAY?",
+    "answer": "The first loop runs from mid downto low, and the second loop runs from mid + 1 to high.",
+    "answer_span": "mid downto low; mid C 1 to high",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00122"
+    ],
+    "source_page": 92,
+    "chapter": "page_92",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00123_sh_1",
+    "question": "How do the for loops in lines 3-7 and 10-14 initialize their indices?",
+    "answer": "at mid and works down to low, and at midC1 and works up to high",
+    "answer_span": "so that every subarray it considers is of the form AŒi : : mid, and so that every subarray it considers is of the form AŒmid C 1 : : j .",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00123"
+    ],
+    "source_page": 93,
+    "chapter": "page_93",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00124_sh_1",
+    "question": "How many iterations are there in total for the FIND-MAXIMUM-SUBARRAY procedure?",
+    "answer": ".mid  low C 1/ C .high  mid/",
+    "answer_span": "The total number of iterations is .mid  low C 1/ C .high  mid/.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00124"
+    ],
+    "source_page": 93,
+    "chapter": "page_93",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00125_sh_0",
+    "question": "What is the base case for the FIND-MAXIMUM-SUBARRAY procedure?",
+    "answer": "A subarray with just one element.",
+    "answer_span": "Line 1 tests for the base case, where the subarray has just one element",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00125"
+    ],
+    "source_page": 94,
+    "chapter": "page_94",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00125_sh_1",
+    "question": "What is considered in the combine part of the FIND-MAXIMUM-SUBARRAY procedure?",
+    "answer": "a maximum subarray that crosses the midpoint",
+    "answer_span": "Line 6 finds a maximum subarray that crosses the midpoint.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00125"
+    ],
+    "source_page": 94,
+    "chapter": "page_94",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00126_sh_1",
+    "question": "What happens to the running time of lines 4 and 5 in the recursive case?",
+    "answer": "We spend 2T(n/2) time solving each of them.",
+    "answer_span": "Each of the subproblems solved in lines 4 and 5 is on a subarray of n=2 elements (our assumption that the original problem size is a power of 2 ensures that n=2 is an integer), and so we spend T .n=2/ time solving each of them.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00126"
+    ],
+    "source_page": 94,
+    "chapter": "page_94",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00128_sh_1",
+    "question": "What change to the recursive algorithm causes the crossover point at which it beats the brute-force algorithm to change?",
+    "answer": "Changing the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is less than n0.",
+    "answer_span": "change the base case of the recursive algorithm",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00128"
+    ],
+    "source_page": 95,
+    "chapter": "page_95",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00132_sh_0",
+    "question": "How many multiplications and additions are required for each of the four equations?",
+    "answer": "two multiplications and one addition",
+    "answer_span": "Each of these four equations specifies two multiplications of n=2 × n=2 matrices and the addition of their n=2 × n=2 products.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00132"
+    ],
+    "source_page": 97,
+    "chapter": "page_97",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00132_sh_1",
+    "question": "What type of algorithm can be created using the four equations?",
+    "answer": "a straightforward, recursive, divide-and-conquer algorithm",
+    "answer_span": "We can use these equations to create a straightforward, recursive, divide-and-conquer algorithm:",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00132"
+    ],
+    "source_page": 97,
+    "chapter": "page_97",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00135_sh_0",
+    "question": "What is the total time for the recursive case of the SQUARE-MATRIX-MULTIPLY-RECURSIVE algorithm?",
+    "answer": "The sum of the partitioning time, the time for all the recursive calls, and the time to add the matrices resulting from the recursive calls: 8T .n=2/ C ‚.n2/",
+    "answer_span": "8T .n=2/ C ‚.n2/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00135"
+    ],
+    "source_page": 99,
+    "chapter": "page_99",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00137_sh_0",
+    "question": "What is the key to Strassen's method for matrix multiplication?",
+    "answer": "Making the recursion tree slightly less bushy.",
+    "answer_span": "The key to Strassen’s method is to make the recursion tree slightly less bushy.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00137"
+    ],
+    "source_page": 100,
+    "chapter": "page_100",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00137_sh_1",
+    "question": "How many new additions are made in Strassen's method instead of one matrix multiplication?",
+    "answer": "A constant number",
+    "answer_span": "but still only a constant number of additions",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00137"
+    ],
+    "source_page": 100,
+    "chapter": "page_100",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00138_sh_1",
+    "question": "What is the recurrence for the running time T .n/ of Strassen’s algorithm?",
+    "answer": "T .n/ D 7T .n=2/ C ‚.n2/ if n > 1",
+    "answer_span": "Hence, we obtain the following recurrence for the running time T .n/ of Strassen’s algorithm:",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00138"
+    ],
+    "source_page": 100,
+    "chapter": "page_100",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00140_sh_1",
+    "question": "What is constructed by adding and subtracting the Pi matrices created in step 3?",
+    "answer": "four n=2 × n=2 submatrices of the product C",
+    "answer_span": "We start withC11 D P5 C P4  P2 C P6 :",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00140"
+    ],
+    "source_page": 101,
+    "chapter": "page_101",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00141_sh_0",
+    "question": "What is the equation for C11 according to Strassen's algorithm?",
+    "answer": "A11 * B11 CA11 * B22 CA22 * B11 CA22 * B22",
+    "answer_span": "which corresponds to equation (4.11).",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00141"
+    ],
+    "source_page": 102,
+    "chapter": "page_102",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00142_sh_0",
+    "question": "What is the running time of Strassen's algorithm in terms of n?",
+    "answer": "T(n) = ‚.nlg 7/",
+    "answer_span": "‚.nlg 7/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00142"
+    ],
+    "source_page": 103,
+    "chapter": "page_103",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00144_sh_0",
+    "question": "What is the first step in the substitution method for solving recurrences?",
+    "answer": "Guess the form of the solution.",
+    "answer_span": "1. Guess the form of the solution.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00144"
+    ],
+    "source_page": 104,
+    "chapter": "page_104",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00144_sh_1",
+    "question": "What is the purpose of using mathematical induction in the substitution method?",
+    "answer": "to find the constants and show that the solution works",
+    "answer_span": "2. Use mathematical induction to find the constants and show that the solution works.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00144"
+    ],
+    "source_page": 104,
+    "chapter": "page_104",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00146_sh_1",
+    "question": "Why can't we use T(1) = 1 as a base case in the recurrence relation?",
+    "answer": "Because it leads to a contradiction with the bound T(n) ≤ cn lg n",
+    "answer_span": "which is at odds with T.(1) D 1.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00146"
+    ],
+    "source_page": 105,
+    "chapter": "page_105",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00147_sh_1",
+    "question": "What is a common strategy for guessing solutions to recurrences, especially when they are similar to ones seen before?",
+    "answer": "Guessing a similar solution is reasonable.",
+    "answer_span": "If a recurrence is similar to one you have seen before, then guessing a similar solution is reasonable.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00147"
+    ],
+    "source_page": 105,
+    "chapter": "page_105",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00148_sh_0",
+    "question": "When is the substitution method used to solve recurrences?",
+    "answer": "When we have a good guess for the solution to the recurrence.",
+    "answer_span": "When n is large, the difference between bn=2c and bn=2c C 17 is not that large: both cut n nearly evenly in half.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00148"
+    ],
+    "source_page": 106,
+    "chapter": "page_106",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00148_sh_1",
+    "question": "What happens if we try to prove a detailed bound using an inductive assumption that is too weak?",
+    "answer": "The math often fails to work out.",
+    "answer_span": "If you revise the guess by subtracting a lower-order term when you hit such a snag, the math often goes through.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00148"
+    ],
+    "source_page": 106,
+    "chapter": "page_106",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00149_sh_1",
+    "question": "Why does mathematical induction not work with an approximate guess for T(n)?",
+    "answer": "because we must prove the exact form of the inductive hypothesis",
+    "answer_span": "mathematical induction does not work unless we prove the exact form of the inductive hypothesis.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00149"
+    ],
+    "source_page": 106,
+    "chapter": "page_106",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00150_sh_0",
+    "question": "What is a potential issue when proving an upper bound by induction?",
+    "answer": "It may be more difficult to prove that a weaker upper bound holds.",
+    "answer_span": "When proving an upper bound by induction, it may actually be more difficult to prove that a weaker upper bound holds",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00150"
+    ],
+    "source_page": 107,
+    "chapter": "page_107",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00150_sh_1",
+    "question": "How many times can we subtract out the lower-order term of the proposed bound in our current example?",
+    "answer": "once per recursive term",
+    "answer_span": "In our current example, when the recurrence has more than one recursive term, we get to subtract out the lower-order term of the proposed bound once per recursive term",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00150"
+    ],
+    "source_page": 107,
+    "chapter": "page_107",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00151_sh_0",
+    "question": "What transformation is used to simplify the given recurrence?",
+    "answer": "change of variables",
+    "answer_span": "a little algebraic manipulation can make an unknown recurrence similar to one you have seen before.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00151"
+    ],
+    "source_page": 107,
+    "chapter": "page_107",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00151_sh_1",
+    "question": "How does the new recurrence S.m/ relate to T .n/?",
+    "answer": "S.m/ D 2T .2m=2/ C m",
+    "answer_span": "S.m/D T .2m/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00151"
+    ],
+    "source_page": 107,
+    "chapter": "page_107",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00154_sh_0",
+    "question": "What is the purpose of a recursion tree in solving recurrences?",
+    "answer": "serves as a straightforward way to devise a good guess.",
+    "answer_span": "a straightforward way to devise a good guess",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00154"
+    ],
+    "source_page": 109,
+    "chapter": "page_109",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00154_sh_1",
+    "question": "What type of values should we worry about when making a change of variables?",
+    "answer": "whether values are integral",
+    "answer_span": "whether values are integral",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00154"
+    ],
+    "source_page": 109,
+    "chapter": "page_109",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00155_sh_0",
+    "question": "What is the given recurrence in the problem?",
+    "answer": "T(n) = 3T(n/4) + cn^2",
+    "answer_span": "having written out the implied constant coefficient c > 0.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00155"
+    ],
+    "source_page": 109,
+    "chapter": "page_109",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00155_sh_1",
+    "question": "What is represented by the 'cn^2' term at the root of the recursion tree?",
+    "answer": "the cost at the top level of recursion",
+    "answer_span": "The cn2 term at the root represents",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00155"
+    ],
+    "source_page": 109,
+    "chapter": "page_109",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00158_sh_0",
+    "question": "What is the upper bound of the sum of coefficients in a decreasing geometric series?",
+    "answer": "the sum of these coefficients",
+    "answer_span": "by equation (A.6)",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00158"
+    ],
+    "source_page": 111,
+    "chapter": "page_111",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00158_sh_1",
+    "question": "How does the original recurrence T.n/ relate to its derived guess?",
+    "answer": "our original recurrence T .n/ D 3T .bn=4c/ C ‚.n2/",
+    "answer_span": "Thus, we have derived a guess of T .n/ D O.n2/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00158"
+    ],
+    "source_page": 111,
+    "chapter": "page_111",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00159_sh_0",
+    "question": "Why is the cost of the root dominating the total cost of the tree?",
+    "answer": "The root contributes a constant fraction of the total cost.",
+    "answer_span": "the root contributes a constant fraction of the total cost",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00159"
+    ],
+    "source_page": 112,
+    "chapter": "page_112",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00159_sh_1",
+    "question": "What must be true if O(n^2) is indeed an upper bound for the recurrence?",
+    "answer": "It must be a tight bound.",
+    "answer_span": "it must be a tight bound",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00159"
+    ],
+    "source_page": 112,
+    "chapter": "page_112",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00162_sh_1",
+    "question": "Under what condition does a more accurate accounting of costs in the recursion tree not need to be performed?",
+    "answer": "d >= c=.lg 3.2=3//",
+    "answer_span": "Thus, we did not need to perform a more accurate accounting of costs in the recursion tree.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00162"
+    ],
+    "source_page": 113,
+    "chapter": "page_113",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00163_sh_0",
+    "question": "What is the master method used for?",
+    "answer": "a \"cookbook\" method for solving recurrences of the form T(n) = aT(n/b) + f(n)",
+    "answer_span": "The master method for solving recurrences",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00163"
+    ],
+    "source_page": 114,
+    "chapter": "page_114",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00163_sh_1",
+    "question": "What recurrence relation can be solved using a recursion tree to get T(n) = Θ(n lg n)?",
+    "answer": "T(n) = T(n/3) + CT(2n/3)/Ccn",
+    "answer_span": "T .n/ D T .n=3/CT .2n=3/Ccn, where c is a constant",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00163"
+    ],
+    "source_page": 114,
+    "chapter": "page_114",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00164_sh_0",
+    "question": "What form do recurrences take that the master method solves?",
+    "answer": "T(n) = aT(n=b) + f(n);",
+    "answer_span": "where a > 1 and b > 1 are constants and f .n/ is an asymptotically positive function.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00164"
+    ],
+    "source_page": 114,
+    "chapter": "page_114",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00164_sh_1",
+    "question": "What advantage does the master method provide for solving recurrences?",
+    "answer": "you will be able to solve many recurrences quite easily, often without pencil and paper.",
+    "answer_span": "often without pencil and paper",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00164"
+    ],
+    "source_page": 114,
+    "chapter": "page_114",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00165_sh_1",
+    "question": "Under what condition does T(n) have an asymptotic bound of ℤ(n log_b a lg n)?",
+    "answer": "f(n) = Θ(n log_b a)",
+    "answer_span": "If f .n/ D ‚.nlogb a/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00165"
+    ],
+    "source_page": 115,
+    "chapter": "page_115",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00166_sh_0",
+    "question": "What is the solution to a recurrence where f(n) = nlogb a?",
+    "answer": "T(n) = ‚.nlogb a/",
+    "answer_span": "then T.n/ D ‚.nlogb a,",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00166"
+    ],
+    "source_page": 115,
+    "chapter": "page_115",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00166_sh_1",
+    "question": "In the master theorem, what happens when f(n) is polynomially smaller than nlogb a?",
+    "answer": "not only must f .n/ be smaller than nlogb a, it must be polynomially smaller",
+    "answer_span": "Beyond this intuition, you need to be aware of some technicalities.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00166"
+    ],
+    "source_page": 115,
+    "chapter": "page_115",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00168_sh_1",
+    "question": "Under what condition does case 3 of the master theorem apply?",
+    "answer": "if we can show that the regularity condition holds for f .n/.",
+    "answer_span": "the regularity condition holds for f .n/.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00168"
+    ],
+    "source_page": 116,
+    "chapter": "page_116",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00171_sh_0",
+    "question": "What is the recurrence for Professor Caesar's algorithm if it creates a subproblem?",
+    "answer": "T(n) = aT(n=4) + .n^2/",
+    "answer_span": "If his algorithm creates a subproblems, then the recurrence for the running time T(n) becomes T(n) D aT(n=4/ C ‚.n2/.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00171"
+    ],
+    "source_page": 118,
+    "chapter": "page_118",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00172_sh_0",
+    "question": "What is the main purpose of the first part of the proof of the master theorem?",
+    "answer": "to give all the intuition needed to understand why the master theorem is true",
+    "answer_span": "The first part analyzes the master recurrence (4.20), under the simplifying assumption that T .n/ is defined only on exact powers of b > 1, that is, for n D 1; b; b2; : : : .",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00172"
+    ],
+    "source_page": 118,
+    "chapter": "page_118",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00172_sh_1",
+    "question": "How does the proof extend its analysis to all positive integers n?",
+    "answer": "it applies mathematical technique to the problem of handling floors and ceilings",
+    "answer_span": "The second part shows how to extend the analysis to all positive integers n; it applies mathematical technique to the problem of handling floors and ceilings.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00172"
+    ],
+    "source_page": 118,
+    "chapter": "page_118",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00173_sh_0",
+    "question": "What is the consequence of using asymptotic notation over a limited domain without making it clear in the context?",
+    "answer": "We could draw improper conclusions.",
+    "answer_span": "Because of this sort of drastic consequence, we shall never use asymptotic notation over a limited domain without making it absolutely clear from the context that we are doing so.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00173"
+    ],
+    "source_page": 119,
+    "chapter": "page_119",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00174_sh_0",
+    "question": "What is the recurrence relation for T.n/ when n = bi?",
+    "answer": "aT .n=b/ C f .n/",
+    "answer_span": "aT .n=b/ C f .n/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00174"
+    ],
+    "source_page": 119,
+    "chapter": "page_119",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00175_sh_0",
+    "question": "What is the structure of the recursion tree generated by T .n/ D aT .n=b/Cf .n/?",
+    "answer": "The recursion tree is a complete a-ary tree",
+    "answer_span": "a complete a-ary tree with nlogb a leaves and height logb n.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00175"
+    ],
+    "source_page": 120,
+    "chapter": "page_120",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00178_sh_0",
+    "question": "What type of series is the summation within the O-notation?",
+    "answer": "an increasing geometric series",
+    "answer_span": "increasing geometric series",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00178"
+    ],
+    "source_page": 121,
+    "chapter": "page_121",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00178_sh_1",
+    "question": "What does the O-notation bound in equation (4.23)?",
+    "answer": "the summation within the O-notation",
+    "answer_span": "summation within the O-notation",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00178"
+    ],
+    "source_page": 121,
+    "chapter": "page_121",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00179_sh_1",
+    "question": "What is the result of substituting the summation expression into equation (4.24)?",
+    "answer": "‚(n logb a lg n)",
+    "answer_span": "‚.nlogb a lg n/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00179"
+    ],
+    "source_page": 122,
+    "chapter": "page_122",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00181_sh_0",
+    "question": "What is the recurrence relation for T(n) in Lemma 4.4?",
+    "answer": "T(n) = aT(n=b) + f(n)",
+    "answer_span": "aT .n=b/ C f .n/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00181"
+    ],
+    "source_page": 123,
+    "chapter": "page_123",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00183_sh_0",
+    "question": "What is the condition for case 2 of the master theorem?",
+    "answer": "T(n) = Θ(n log_b a / C Θ(n log_b a lg n) / = Θ(n log_b a lg n)",
+    "answer_span": "‚.nlogb a/ C ‚.nlogb a lg n/ D ‚.nlogb a lg n/",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00183"
+    ],
+    "source_page": 124,
+    "chapter": "page_124",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00183_sh_1",
+    "question": "How does the recursion tree change to analyze recurrence (4.26)?",
+    "answer": "We modify the recursion tree of Figure 4.7 to produce the recursion tree in Figure 4.8.",
+    "answer_span": "We modify the recursion tree of Figure 4.7 to produce the recursion tree in Fig-",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00183"
+    ],
+    "source_page": 124,
+    "chapter": "page_124",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00189_sh_0",
+    "question": "What is the time complexity of passing an array by copying?",
+    "answer": "Time D ‚.N /, where N is the size of the array.",
+    "answer_span": "‚.N /, where N is the size of the array.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00189"
+    ],
+    "source_page": 128,
+    "chapter": "Chapter 4\n4-1",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00189_sh_1",
+    "question": "What is the recurrence relation for T .n/ in problem d?",
+    "answer": "T .n/ D 7T .n=3/ C n2.",
+    "answer_span": "T .n/ D 7T .n=3/ C n2.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00189"
+    ],
+    "source_page": 128,
+    "chapter": "Chapter 4\n4-1",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00191_sh_1",
+    "question": "What is the recurrence for T .n/ in part f, where n has been replaced with a new value?",
+    "answer": "T .n=2/ C T .n=4/ C T .n=8/ C n",
+    "answer_span": "T .n/ D T .n=2/ C T .n=4/ C T .n=8/ C n.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00191"
+    ],
+    "source_page": 129,
+    "chapter": "page_129",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00193_sh_1",
+    "question": "What is the recurrence that describes the number of tests for identifying good chips with pairwise tests?",
+    "answer": "Give and solve the recurrence that describes the number of tests.",
+    "answer_span": "Give and solve the recurrence that describes the number of tests.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00193"
+    ],
+    "source_page": 131,
+    "chapter": "page_131",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00194_sh_0",
+    "question": "What is a Monge array?",
+    "answer": "a matrix where the sum of elements in each row is non-decreasing and the sum of columns is non-increasing",
+    "answer_span": "any m × n Monge array.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00194"
+    ],
+    "source_page": 132,
+    "chapter": "Chapter 4\nc. Let f .i/ be the index of the column containing the leftm",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00195_sh_1",
+    "question": "Why is Strassen's algorithm not the method of choice for matrix multiplication when matrices are sparse?",
+    "answer": "Methods tailored for sparse matrices are faster",
+    "answer_span": "When the matrices are sparse, methods tailored for sparse matrices are faster.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00195"
+    ],
+    "source_page": 132,
+    "chapter": "Chapter 4\nc. Let f .i/ be the index of the column containing the leftm",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00196_sh_0",
+    "question": "What is the main limitation of Strassen's algorithm compared to SQUARE-MATRIX-MULTIPLY?",
+    "answer": "Larger errors accumulate in Strassen's algorithm than in SQUARE-MATRIX-MULTIPLY due to limited computer arithmetic precision.",
+    "answer_span": "larger errors accumulate in Strassen’s algorithm than in SQUARE-MATRIX-MULTIPLY",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00196"
+    ],
+    "source_page": 133,
+    "chapter": "page_133",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00196_sh_1",
+    "question": "What is the purpose of D'Alberto and Nicolau's adaptive scheme?",
+    "answer": "Determine the crossover point by benchmarking when their software package is installed.",
+    "answer_span": "determines the crossover point by benchmarking when their software package is installed",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00196"
+    ],
+    "source_page": 133,
+    "chapter": "page_133",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00197_sh_0",
+    "question": "What is the general form of a recurrence that can be solved using the Akra-Bazzi method?",
+    "answer": "T(x) = (1/x) * ∑[i=1 to k] ai T(b^i x) + f(x)",
+    "answer_span": "(4.30)",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00197"
+    ],
+    "source_page": 133,
+    "chapter": "page_133",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00197_sh_1",
+    "question": "What is the condition for x0 in the Akra-Bazzi method?",
+    "answer": "x0 ≥ 1/b^i and x0 ≥ 1/(1 - bi) for i = 1, 2, ..., k",
+    "answer_span": "where",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00197"
+    ],
+    "source_page": 133,
+    "chapter": "page_133",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00198_sh_0",
+    "question": "What is the polynomial-growth condition?",
+    "answer": "there exist positive constants c1 and c2 such that for all x ≥ 1, for i = 1; 2; : : : ; k, and for all u such that bi x ≤ u < x, we have c1 f .x/ ≤ f .u/ ≤ c2 f .x.",
+    "answer_span": "there exist positive constants c1 and c2 such that for all x ≥ 1, for i = 1; 2; : : : ; k, and for all u such that bi x ≤ u < x, we have c1 f .x/ ≤ f .u/ ≤ c2 f .x.",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00198"
+    ],
+    "source_page": 134,
+    "chapter": "Chapter 4\n\u000f",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00198_sh_1",
+    "question": "For what type of recurrences does the Akra-Bazzi method apply?",
+    "answer": "recurrences that model division of the problem into substantially unequally sized subproblems",
+    "answer_span": "division of the problem into substantially unequally sized subproblems",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00198"
+    ],
+    "source_page": 134,
+    "chapter": "Chapter 4\n\u000f",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00199_sh_0",
+    "question": "What decision is made about the current office assistant when a new applicant is better qualified?",
+    "answer": "fire the current office assistant and hire the new applicant",
+    "answer_span": "you will fire the current office assistant and hire the new applicant",
+    "question_type": "single_hop",
+    "source_chunks": [
+      "clrs_chunk_00199"
+    ],
+    "source_page": 135,
+    "chapter": "page_135",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00000_mh_0",
+    "question": "Chapter 1 introduces the concept of considering algorithms as a technology. Later, in Chapter 4, we see additional examples of divide-and-conquer algorithms using this approach. What is one specific advantage mentioned in Chapter 2 for using merge sort's 'divide-and-conquer' technique over insertion sort?",
+    "answer": "The rate of increase in running time differs between the two algorithms.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00000",
+      "clrs_chunk_00001"
+    ],
+    "source_page": 24,
+    "chapter": "page_24",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00005_mh_0",
+    "question": "In the context of electronic commerce, which relies on algorithms and number theory (as mentioned in Passage A), what property from sorting algorithms (discussed in Passage B) is particularly relevant?",
+    "answer": "The correctness of an algorithm, as defined in Passage B, is crucial for secure transactions such as those facilitated by public-key cryptography and digital signatures.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00005",
+      "clrs_chunk_00003"
+    ],
+    "source_page": 28,
+    "chapter": "Chapter 24), and using a search engine to quickly ﬁnd pages on which p",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00007_mh_0",
+    "question": "Consider the problem of finding the convex hull of a set of points in the plane. Given that this problem has many candidate solutions (as discussed in Chapter 33), and that solving it efficiently requires overcoming the challenge of having to consider all possible orders of vertices, explain why the use of dynamic programming to solve the topological sorting problem from Passage A might provide insight into developing an efficient algorithm for finding the convex hull.",
+    "answer": "Dynamic programming can be used to solve the topological sorting problem because it allows us to break down the problem into smaller subproblems and store the solutions to these subproblems in a table. Similarly, when solving the convex hull problem, we can use dynamic programming to consider all possible orders of vertices and store the solution for each order in a table, allowing us to efficiently compute the optimal solution.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00007",
+      "clrs_chunk_00008"
+    ],
+    "source_page": 29,
+    "chapter": "Chapter 15 how to use a general technique known as dynamic",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00011_mh_0",
+    "question": "Consider the traveling-salesman problem (TSP), which is an NP-complete problem. According to Passage A, if a fast algorithm for TSP exists, then fast algorithms exist for all NP-complete problems. However, Passage B states that nobody has ever proven the existence of a fast algorithm for any NP-complete problem. What does this imply about the possibility of finding a good solution to TSP using efficient techniques from Chapter 17?",
+    "answer": "This implies that if we can find an efficient algorithm for TSP, it would be a significant breakthrough and would likely lead to efficient algorithms for all other NP-complete problems.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00011",
+      "clrs_chunk_00010"
+    ],
+    "source_page": 31,
+    "chapter": "page_31",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00014_mh_0",
+    "question": "For large input sizes, how does the trade-off between constant factors and dependence on input size affect the choice of algorithm in a parallel computing environment?",
+    "answer": "The dependence on input size will eventually dominate the effect of constant factors, making merge sort's advantage over insertion sort more significant. Therefore, in a parallel computing environment where multiple cores can be utilized, it is more important to choose an algorithm like merge sort that has a lower dependence on input size (lg n) than one with a higher dependence (n^2), such as insertion sort.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00014",
+      "clrs_chunk_00012"
+    ],
+    "source_page": 33,
+    "chapter": "Chapter 2, we will see two algorithms for",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00017_mh_0",
+    "question": "How do the differences in raw computing power between two computers and the efficiency of their respective sorting algorithms affect the overall time it takes to sort a large array?",
+    "answer": "The computer with more raw computing power (1000 times faster) can still be outperformed by the slower computer if its sorting algorithm is less efficient. In this case, insertion sort on the faster computer takes 20,000 seconds, while merge sort on the slower computer takes only a fraction of that time.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00017",
+      "clrs_chunk_00015"
+    ],
+    "source_page": 34,
+    "chapter": "page_34",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00020_mh_0",
+    "question": "What range of problem sizes (n) would allow insertion sort to beat merge sort in running time, according to the comparison between these two sorting algorithms in Chapter 1?",
+    "answer": "When n is less than or equal to 8/64 = 0.125 times the input size that makes their running times equal, which can be calculated from the given expressions for insertion sort's and merge sort's running times.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00020",
+      "clrs_chunk_00018"
+    ],
+    "source_page": 37,
+    "chapter": "page_37",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00023_mh_0",
+    "question": "How does the hand of cards in the pseudocode for insertion sort (Passage B) relate to the loop invariant stated for INSERTION-SORT (Passage A)?",
+    "answer": "The hand of cards in the pseudocode for insertion sort corresponds to the sorted subarray consisting of elements A[1..j-1], which is one of the two loop invariants stated for INSERTION-SORT.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00023",
+      "clrs_chunk_00021"
+    ],
+    "source_page": 39,
+    "chapter": "page_39",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00026_mh_0",
+    "question": "For the INSERTION-SORT algorithm, how does the loop invariant used in Passage B relate to the loop structure described in Passage A?",
+    "answer": "The loop invariant holds true prior to every iteration of the loop because it is maintained from one iteration to the next (as shown by the maintenance property in Passage B), and it also holds before the first iteration of the loop, which corresponds to the base case in mathematical induction (similarly to how Passage B describes the relationship between the initialization property and the first iteration).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00026",
+      "clrs_chunk_00025"
+    ],
+    "source_page": 40,
+    "chapter": "page_40",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00027_mh_0",
+    "question": "According to the pseudocode conventions in Passage A, what happens to the loop counter's value immediately after a for loop terminates, and how does this property apply to the correctness argument presented in Passage B for insertion sort?",
+    "answer": "The loop counter retains its value after exiting the loop, which is equal to the value that first exceeded the for loop bound. This property was used in the correctnes argument for insertion sort.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00027",
+      "clrs_chunk_00028"
+    ],
+    "source_page": 41,
+    "chapter": "page_41",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00033_mh_0",
+    "question": "The RAM model assumes a generic one-processor, random-access machine (RAM) model of computation. Considering the discussion in Passage B about computers having instructions not listed above and gray areas in the RAM model, what is a limitation of the RAM model that it does not attempt to model?",
+    "answer": "memory hierarchy effects such as caches or virtual memory",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00033",
+      "clrs_chunk_00035"
+    ],
+    "source_page": 44,
+    "chapter": "page_44",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00038_mh_0",
+    "question": "What is the appropriate measure of input size for an algorithm that sorts a graph, and how does this relate to the running time of the algorithm?",
+    "answer": "The input size can be described by the numbers of vertices and edges in the graph. The running time of the algorithm on this particular input is the number of primitive operations or “steps” executed.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00038",
+      "clrs_chunk_00037"
+    ],
+    "source_page": 46,
+    "chapter": "page_46",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00039_mh_0",
+    "question": "What is the relationship between the running time of INSERTION-SORT in its best case and worst case, as described in Passages A and B?",
+    "answer": "The best-case running time of INSERTION-SORT is a linear function of n, whereas the worst-case running time is also a linear function of n, but with different coefficients.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00039",
+      "clrs_chunk_00040"
+    ],
+    "source_page": 47,
+    "chapter": "page_47",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00042_mh_0",
+    "question": "For which type of algorithm does ignoring the constant factor and lower-order terms, as described in Passage B, make a significant difference in determining computational efficiency?",
+    "answer": "algorithms for which the worst case occurs fairly often, such as searching algorithms, as mentioned in Passage A",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00042",
+      "clrs_chunk_00044"
+    ],
+    "source_page": 48,
+    "chapter": "page_48",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00045_mh_0",
+    "question": "How does the worst-case running time of a sorting algorithm designed using divide-and-conquer compare to that of selection sort, and what design approach is used for each?",
+    "answer": "The worst-case running time of a sorting algorithm designed using divide-and-conquer (see passage B) can be much less than that of insertion sort, which was described as an incremental approach. However, the worst-case running time of selection sort (described in passage A) is O(n^2).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00045",
+      "clrs_chunk_00046"
+    ],
+    "source_page": 50,
+    "chapter": "page_50",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00048_mh_0",
+    "question": "How does the MERGE procedure described in Passage A compare to the pseudocode implementation of MERGE.A in Passage B, in terms of time complexity?",
+    "answer": "Both procedures have a time complexity of ‚.n/, where n is the total number of elements being merged.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00048",
+      "clrs_chunk_00049"
+    ],
+    "source_page": 51,
+    "chapter": "page_51",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00052_mh_0",
+    "question": "How does the loop invariant described in Passage A (Initialization step) relate to the initial state of arrays L and R, as depicted in the diagrams in Passage B?",
+    "answer": "The loop invariant holds prior to the first iteration because, as shown in the diagram in Passage B, both LŒi and RŒj  are the smallest elements of their arrays that have not been copied back into A, which means k D p, so the subarray AŒp : : k  1 is empty.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00052",
+      "clrs_chunk_00051"
+    ],
+    "source_page": 53,
+    "chapter": "page_53",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00055_mh_0",
+    "question": "What is the time complexity of the MERGE-SORT algorithm, and how does this relate to its divide-and-conquer approach?",
+    "answer": "The MERGE-SORT algorithm has a time complexity of O(n log n), which can be understood by analyzing the recurrence equation that describes its running time. In particular, each recursive call reduces the problem size by half, leading to a logarithmic number of levels in the recursion tree. This is reflected in the MERGE procedure's use of for loops that take O(n) time, and the fact that there are n iterations of these loops.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00055",
+      "clrs_chunk_00056"
+    ],
+    "source_page": 55,
+    "chapter": "page_55",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00058_mh_0",
+    "question": "What is the recurrence for the worst-case running time T .n/ of merge sort, and how does it relate to the master theorem mentioned in Passage A?",
+    "answer": "The recurrence for the worst-case running time T .n/ of merge sort is given by (2.1): T .n/ = 2T .n=2/ + ‚.n/. This recurrence is then solved using the master theorem, which shows that T .n/ is ‚.n lg n/, where lg n stands for log2 n.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00058",
+      "clrs_chunk_00057"
+    ],
+    "source_page": 57,
+    "chapter": "Chapter 4, we shall see that this assumption does",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00060_mh_0",
+    "question": "How does the total cost of merge sort, as computed in Passage B, relate to the number of levels in the recursion tree described in Passage A?",
+    "answer": "The total cost of merge sort is given by cn lg n C cn, which matches the expression for the total cost at each level below the top level in the recursion tree.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00060",
+      "clrs_chunk_00061"
+    ],
+    "source_page": 58,
+    "chapter": "page_58",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00063_mh_0",
+    "question": "If we use binary search to improve the overall worst-case running time of insertion sort, as suggested in Exercise 2.3-6, will it affect the solution of the recurrence given for T(n) in Problem 2.3-3?",
+    "answer": "No, because the improved running time of insertion sort from ‚.n^2/ to ‚.n lg n/ does not change the fact that the solution of the recurrence is still T(n) = n lg n when n is an exact power of 2.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00063",
+      "clrs_chunk_00064"
+    ],
+    "source_page": 60,
+    "chapter": "Chapter 2\n2.3-3",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00068_mh_0",
+    "question": "What is the worst-case running time of bubblesort and how does it compare to the running time of insertion sort, given that an algorithm exists (modified merge sort) to determine the number of inversions in any permutation on n elements in O(n lg n) worst-case time?",
+    "answer": "The worst-case running time of bubblesort is O(n^2), which is worse than the O(n^2) worst-case running time of insertion sort. The existence of an algorithm to determine the number of inversions in any permutation on n elements in O(n lg n) worst-case time has no direct impact on the comparison of the running times of bubblesort and insertion sort, as it pertains to a different problem.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00068",
+      "clrs_chunk_00067"
+    ],
+    "source_page": 63,
+    "chapter": "page_63",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00070_mh_0",
+    "question": "For large enough inputs, which algorithm is asymptotically more efficient in terms of running time: merge sort or insertion sort? Justify your answer based on the order of growth of their worst-case running times.",
+    "answer": "merge sort is asymptotically more efficient than insertion sort because its worst-case running time grows as ‚.n lg n/ compared to ‚.n2/ for insertion sort.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00070",
+      "clrs_chunk_00071"
+    ],
+    "source_page": 64,
+    "chapter": "Chapter 2,",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00074_mh_0",
+    "question": "How do the definitions of ‚-notation in passages A and B compare?",
+    "answer": "The definition of ‚-notation in passage A states that a function f(n) belongs to the set ‚.g(n)// if there exist positive constants c1 and c2 such that it can be ‘sandwiched’ between c1g(n) and c2g(n), for sufficiently large n. In contrast, the definition of ‚-notation in passage B states that ‚.g(n)// is the set of functions ff(n) W there exist positive constants c1, c2, and n0 such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00074",
+      "clrs_chunk_00073"
+    ],
+    "source_page": 66,
+    "chapter": "page_66",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00075_mh_0",
+    "question": "Consider a quadratic function f(n) = an^2 + bn + c, where a, b, and c are constants and a > 0. Given that the set ‚.g.n// requires every member f .n/ 2 ‚.g.n// to be asymptotically nonnegative, how do the values of c1 and c2 in the definition of ‚-notation compare to the coefficient 'a' in this quadratic function?",
+    "answer": "c1 can be set to a value that is slightly smaller than 'a' and c2 can be set to a value that is slightly larger, permitting the inequalities in the definition of ‚-notation to be satisfied.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00075",
+      "clrs_chunk_00077"
+    ],
+    "source_page": 66,
+    "chapter": "page_66",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00078_mh_0",
+    "question": "What is the difference in meaning between writing a function's running time as O(g(n)) and O(g(n)) when it is an asymptotically tight bound?",
+    "answer": "When we write f.n/ D O.g.n//, we are merely claiming that some constant multiple of g.n/ is an asymptotic upper bound on f .n/, with no claim about how tight an upper bound it is. On the other hand, if we have an asymptotically tight bound, then we would be using ‚-notation.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00078",
+      "clrs_chunk_00079"
+    ],
+    "source_page": 68,
+    "chapter": "page_68",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00082_mh_0",
+    "question": "Given the equation n = O(n^2), what does it imply about the running time of an algorithm, and how does this relate to the definition of Ω-notation?",
+    "answer": "The equation n = O(n^2) implies that the running time of an algorithm is at most a quadratic function of n. According to the definition of Ω-notation in Passage B (clrs_chunk_00081), f(n) = Ω(g(n)) means there exist positive constants c and n0 such that cg(n) ≤ f(n) for all n ≥ n0. Since we know from Passage A (clrs_chunk_00082) that if an algorithm's running time is Ω(n^2), it also belongs to O(n^2), the equation n = O(n^2) implies that there exist inputs for which the algorithm runs in Ω(n^2) time, making the two notations asymptotically tight.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00082",
+      "clrs_chunk_00081"
+    ],
+    "source_page": 70,
+    "chapter": "page_70",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00085_mh_0",
+    "question": "What can be inferred about the limit of f(n) to g(n) when f(n) is in !.g.n// and what does this imply for their asymptotic comparison?",
+    "answer": "The limit of f(n) to g(n) is 1, which implies that f(n) becomes arbitrarily large relative to g(n) as n approaches infinity.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00085",
+      "clrs_chunk_00086"
+    ],
+    "source_page": 71,
+    "chapter": "page_71",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00088_mh_0",
+    "question": "If f(n) = O(g(n)) and g(n) is not a constant function, what can be concluded about the relationship between f(n) and h(n), where h(n) = O(g(n))?",
+    "answer": "f(n) = O(h(n)).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00088",
+      "clrs_chunk_00087"
+    ],
+    "source_page": 73,
+    "chapter": "page_73",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00091_mh_0",
+    "question": "Given a function f(n, m) that is strictly increasing in both n and m, what can be said about its relationship to the Big-O notation O.g(n, m)/?",
+    "answer": "The function f(n, m) must be greater than or equal to cg(n, m), where c is a positive constant.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00091",
+      "clrs_chunk_00090"
+    ],
+    "source_page": 74,
+    "chapter": "page_74",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00093_mh_0",
+    "question": "Given a real number x, if we consider the remainder of x modulo n, how does this relate to the expansion of e^x in terms of its Taylor series?",
+    "answer": "The expansion of e^x shows that e^x is equivalent to 1 + x + (x^2)/2! + (x^3)/3! + ..., which means that if two numbers have the same remainder when divided by n, then their difference will be divisible by n. This property allows us to relate the concept of equivalence modulo n to the properties of the exponential function.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00093",
+      "clrs_chunk_00095"
+    ],
+    "source_page": 75,
+    "chapter": "page_75",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00098_mh_0",
+    "question": "If a function f(n) is polylogarithmically bounded, and we are comparing the growth rates of two algorithms A and B, where algorithm A uses a polynomial function g(n) with degree 'a' and algorithm B uses an exponential function e^x. If we substitute lg n for n in g(n), what can we conclude about the growth rate comparison between A and B?",
+    "answer": "Since any polylogarithmic function grows slower than any positive polynomial function, substituting lg n for n in g(n) would result in a function that grows slower than e^x. Therefore, algorithm A using g(n) with degree 'a' would grow faster than algorithm B using e^x.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00098",
+      "clrs_chunk_00096"
+    ],
+    "source_page": 78,
+    "chapter": "page_78",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00101_mh_0",
+    "question": "What is the growth rate of the iterated logarithm function compared to the factorial function, and how does this comparison relate to Stirling's approximation?",
+    "answer": "The iterated logarithm function grows much more slowly than the factorial function. According to Passage A, lg^5(65536) = 5, while in Passage B, n! grows at least as fast as 2^n. This is consistent with Stirling's approximation (3.18), which also shows that n! grows faster than any power of n.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00101",
+      "clrs_chunk_00099"
+    ],
+    "source_page": 79,
+    "chapter": "page_79",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00103_mh_0",
+    "question": "If the ith Fibonacci number Fi is equal to $\\phi^i - \\hat{\\phi}^i$ rounded to the nearest integer, where $\\phi$ and $\\hat{\\phi}$ are the golden ratio and its conjugate respectively, how does this relate to the equation in (3.22) which defines Fibonacci numbers recursively as the sum of the two previous ones?",
+    "answer": "According to Passage A, Fi = $\\phi^i - \\hat{\\phi}^i$ rounded to the nearest integer, and according to Passage B, Fi can also be expressed using the recursive formula in (3.22). This implies that the values of $\\phi^i - \\hat{\\phi}^i$ rounded to the nearest integer must be equal to the sum of the two previous Fibonacci numbers for all i >= 2.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00103",
+      "clrs_chunk_00102"
+    ],
+    "source_page": 81,
+    "chapter": "page_81",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00106_mh_0",
+    "question": "Show that for a function f(n) defined as O(g(n)) in part (a) of passage B, there exists a positive constant c such that f(n) ≥ cg(n) ≥ 0 for infinitely many integers n.",
+    "answer": "The definition provided in passage A for 1ω(g(n)) states that there exists a positive constant c such that f(n) ≥ cg(n) ≥ 0 for infinitely many integers n. Therefore, if f(n) = O(g(n)), then it also satisfies the definition of 1ω(g(n)).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00106",
+      "clrs_chunk_00105"
+    ],
+    "source_page": 83,
+    "chapter": "page_83",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00109_mh_0",
+    "question": "What is an advantage of using the little-o notation over the big-O notation in describing time or space complexity?",
+    "answer": "The ‚-notation allows for the description of upper bounds without also implying a lower bound, as can be seen in Equation (3.20) and the discussion on asymptotic notations in Passage A.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00109",
+      "clrs_chunk_00108"
+    ],
+    "source_page": 85,
+    "chapter": "page_85",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00113_mh_0",
+    "question": "When solving the recurrence for MERGE-SORT, which notation should we use if we are given an inequality that only provides an upper bound on the running time T.n/?",
+    "answer": "We would use O-notation.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00113",
+      "clrs_chunk_00111"
+    ],
+    "source_page": 88,
+    "chapter": "page_88",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00115_mh_0",
+    "question": "What is the typical time complexity of a divide-and-conquer algorithm, and how might omitting floors or ceilings in its recurrence relation affect this complexity?",
+    "answer": "The typical time complexity of a divide-and-conquer algorithm is O(n log n), as described by equation (4.4). However, omitting floors or ceilings in the recurrence relation can affect this complexity, although typically only by a constant factor.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00115",
+      "clrs_chunk_00114"
+    ],
+    "source_page": 89,
+    "chapter": "page_89",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00119_mh_0",
+    "question": "Suppose we want to find the maximum subarray in an array that contains both positive and negative numbers. What time complexity can be achieved using a divide-and-conquer approach, assuming that computing all n^2 subarray sums takes O(n) time?",
+    "answer": "O(n log n)",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00119",
+      "clrs_chunk_00118"
+    ],
+    "source_page": 91,
+    "chapter": "page_91",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00122_mh_0",
+    "question": "Suppose the FIND-MAX-CROSSING-SUBARRAY procedure is called on a subarray A[low:high] and it finds a maximum subarray that crosses the midpoint. What can be concluded about the sum of this maximum subarray, and how does this relate to finding maximum subarrays in the recursive calls to FIND-MAX-LOW and FIND-MAX-HIGH?",
+    "answer": "The sum of the maximum subarray crossing the midpoint is the maximum of the sums of maximum subarrays found by the recursive calls to FIND-MAX-LOW and FIND-MAX-HIGH, as well as the sum of any maximum subarray that may exist entirely within one of these two halves.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00122",
+      "clrs_chunk_00120"
+    ],
+    "source_page": 92,
+    "chapter": "page_92",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00124_mh_0",
+    "question": "How many iterations does the FIND-MAXIMUM-SUBARRAY procedure take, and what is the time complexity of this procedure?",
+    "answer": "The FIND-MAXIMUM-SUBARRAY procedure takes O(n) iterations. The time complexity of this procedure can be determined by analyzing its recursive calls: each call makes two recursive calls on subarrays A[low : mid] and A[mid + 1 : high]. The base case is when the size of the subarray is one, which takes constant time. Since there are O(log n) levels in a binary tree with n nodes, the total number of iterations is O(n).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00124",
+      "clrs_chunk_00125"
+    ],
+    "source_page": 93,
+    "chapter": "page_93",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00126_mh_0",
+    "question": "In the FIND-MAXIMUM-SUBARRAY procedure, what is returned when all elements of array A are negative?",
+    "answer": "The maximum subarray must cross the midpoint, as neither the left nor right subarrays contain a subarray achieving the maximum sum.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00126",
+      "clrs_chunk_00127"
+    ],
+    "source_page": 94,
+    "chapter": "page_94",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00130_mh_0",
+    "question": "How does the time complexity of Strassen's algorithm for matrix multiplication compare to that of the SQUARE-MATRIX-MULTIPLY procedure, and what property from one passage enables a conclusion about the other?",
+    "answer": "Strassen's algorithm has a time complexity of O(n^log2(7)), while SQUARE-MATRIX-MULTIPLY has a time complexity of O(n^3). The fact that Strassen's algorithm requires n x n matrices to be divided into 7 submatrices (as mentioned in passage B) enables the conclusion that it can achieve better performance than SQUARE-MATRIX-MULTIPLY, which does not use any such division.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00130",
+      "clrs_chunk_00129"
+    ],
+    "source_page": 96,
+    "chapter": "page_96",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00133_mh_0",
+    "question": "How does the partitioning trick used in Strassen's algorithm ( Passage A ) compare to the way matrices are divided up in equation (4.10) of Passage B, and what impact does this have on the overall running time?",
+    "answer": "The partitioning trick in Strassen's algorithm allows for the creation of submatrices without copying entries, which reduces the time complexity of line 5 to O(1). In Passage B, equation (4.10) also divides up matrices into four submatrices, but it does so by explicitly specifying each submatrix through index calculations. This is similar in spirit to the partitioning trick used in Strassen's algorithm.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00133",
+      "clrs_chunk_00132"
+    ],
+    "source_page": 98,
+    "chapter": "page_98",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00135_mh_0",
+    "question": "What is the primary difference between the recursion tree of Strassen's algorithm and that of SQUARE-MATRIX-MULTIPLY-RECURSIVE, in terms of the number of matrix multiplications performed at each level?",
+    "answer": "The recursion tree of Strassen's algorithm has a factor of 7/8 less bushy than SQUARE-MATRIX-MULTIPLY-RECURSIVE, meaning that it performs only seven recursive multiplications of n=2 × n=2 matrices instead of eight.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00135",
+      "clrs_chunk_00137"
+    ],
+    "source_page": 99,
+    "chapter": "page_99",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00140_mh_0",
+    "question": "In Strassen's algorithm, what is the time complexity of computing each submatrix of the result matrix C when n > 1?",
+    "answer": "‚.n2/ time for steps 1, 2, and 4; seven multiplications of n=2 × n=2 matrices in step 3",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00140",
+      "clrs_chunk_00138"
+    ],
+    "source_page": 101,
+    "chapter": "page_101",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00142_mh_0",
+    "question": "In Strassen's algorithm, we divide the input matrices into smaller sub-matrices in step 1. Referring to equations (4.11) through (4.14), what is the total number of multiplications required to compute C12 using this method, and how does it compare with the straightforward SQUARE-MATRIX-MULTIPLY procedure?",
+    "answer": "According to equation (4.12), computing C12 requires 7 multiplications: A11*B12 - A11*B22 + CA11*B22 + A12*B22. This is in contrast to the straightforward SQUARE-MATRIX-MULTIPLY procedure, which takes ‚.n^3/ time and involves n^2*n = n^3 multiplications.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00142",
+      "clrs_chunk_00141"
+    ],
+    "source_page": 103,
+    "chapter": "page_103",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00144_mh_0",
+    "question": "Using the substitution method, derive an upper bound on the recurrence T(n) = 2T(bn/2) + n and explain how this relates to Strassen's algorithm for matrix multiplication.",
+    "answer": "T(n) = O(n lg n). This is related to Strassen's algorithm because both the derivation of the upper bound and the Strassen's algorithm (from Passage A) involve using a recurrence to characterize running times. Specifically, in Passage B, we see that T(bn/2) = cn lg bn/2, which is derived from an assumption about the solution to a related recurrence.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00144",
+      "clrs_chunk_00145"
+    ],
+    "source_page": 104,
+    "chapter": "page_104",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00148_mh_0",
+    "question": "In the substitution method for solving recurrences, when does making a larger guess for the solution to a recurrence not work?",
+    "answer": "When the larger guess works but the original guess is correct, it's necessary to make a stronger inductive hypothesis.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00148",
+      "clrs_chunk_00149"
+    ],
+    "source_page": 106,
+    "chapter": "page_106",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00151_mh_0",
+    "question": "Given the recurrence T(n) = 2T(2^m) + m and its solution S(m) = O(m lg m), show that if we apply the substitution method to the recurrence T(n) = T(n - 1) + n, it would have a solution of O(n^2).",
+    "answer": "Since we know from Passage A that we can change variables in the original recurrence and rename S(m) = T(2^m), leading to the new recurrence S(m) = 2S(m/2) + m. This is similar to the recurrence given in Passage B, which has a solution of O(n lg n). However, for the recurrence T(n) = T(n - 1) + n, we can apply the substitution method directly and see that it would have a solution of O(n^2), as each iteration adds another constant factor.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00151",
+      "clrs_chunk_00152"
+    ],
+    "source_page": 107,
+    "chapter": "page_107",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00153_mh_0",
+    "question": "How does the approach described in Passage B for handling the cn^2 term when solving a recurrence relation compare to the method used in Passage A to make a substitution proof work when the initial assumption T(n) >= cn log^3 4 fails?",
+    "answer": "The approach in Passage B is to subtract off a lower-order term by expanding the recursion tree and treating the cn^2 term as part of the top-level cost, whereas in Passage A, the method involves showing that a substitution proof with the assumption T(n) >= cn^2 fails and then subtracting off a lower-order term to make it work.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00153",
+      "clrs_chunk_00155"
+    ],
+    "source_page": 108,
+    "chapter": "page_108",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00157_mh_0",
+    "question": "In the derivation of T(n) in Passage A, what is the value of the constant term added at the bottom level that enables the subsequent simplification using equation (A.6) as shown in Passage B?",
+    "answer": "n log4 3",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00157",
+      "clrs_chunk_00158"
+    ],
+    "source_page": 111,
+    "chapter": "page_111",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00160_mh_0",
+    "question": "For the recurrence T(n) = 3T(2n/3) + cn, where c is a constant factor in the O(n) term, what is the tightest upper bound on T(n), and how does it relate to the cost of the root in its recursion tree?",
+    "answer": "The tightest upper bound on T(n) is O(n^2), which means that the root's contribution to the total cost must be dn^2 for some constant d > 0. The last step in the substitution method holds as long as d ≥ (16/13)/c.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00160",
+      "clrs_chunk_00159"
+    ],
+    "source_page": 112,
+    "chapter": "page_112",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00163_mh_0",
+    "question": "Given a recurrence T(n) = 2T(⌊n/3⌋) + c, where c is a constant, use the recursion tree method to find an asymptotically tight solution. Then, apply the master method from Passage B to verify your answer.",
+    "answer": "Ω(n log n)",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00163",
+      "clrs_chunk_00164"
+    ],
+    "source_page": 114,
+    "chapter": "page_114",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00165_mh_0",
+    "question": "For the recurrence T(n) = aT(2n/3) + 1, what is the asymptotic bound of T(n) if we can apply the master method?",
+    "answer": "T(n) D ‚.nlogb a lg n/,",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00165",
+      "clrs_chunk_00167"
+    ],
+    "source_page": 115,
+    "chapter": "page_115",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00170_mh_0",
+    "question": "Consider the recurrence for Strassen's algorithm, T(n) = 7T(n/2) + O(n^2), and compare it to the recurrence for merge sort, T(n) = 2T(n/2) + Θ(n). Which of these recurrences falls into case 1 or case 3 of the master method, and why?",
+    "answer": "The recurrence for Strassen's algorithm falls into case 1 because n^log_b(a) = n^log_2(7) is polynomially larger than f(n) = O(n^2), while the recurrence for merge sort falls into case 3 because f(n) = Θ(n) is not polynomially larger than n.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00170",
+      "clrs_chunk_00169"
+    ],
+    "source_page": 117,
+    "chapter": "page_117",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00173_mh_0",
+    "question": "For the recurrence T(n) = aT(n/4) + ‚(n^2), what is the largest integer value of 'a' for which Professor Caesar's algorithm would be asymptotically faster than Strassen's algorithm, given that it creates a constant number of subproblems, and how does this relate to the notation used in passage A?",
+    "answer": "In passage B, the recurrence T(n) = aT(n/4) + ‚(n^2) is considered, and we are told that Professor Caesar's algorithm would be asymptotically faster than Strassen's if it creates a constant number of subproblems. We need to find the largest integer value of 'a' for which this is true. To do this, we can use the master theorem (Theorem 4.1), but first we must understand the notation used in passage A, specifically that 'a' and 'b' are constants, and 'f(n)' is a nonnegative function defined over all sufficiently large numbers.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00173",
+      "clrs_chunk_00171"
+    ],
+    "source_page": 119,
+    "chapter": "page_119",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00176_mh_0",
+    "question": "What is the value of a in terms of n for the recurrence relation given in Lemma 4.2?",
+    "answer": "a = ‚.nlogb/ since equation (4.21) can be derived from summing the costs of nodes at each depth, as shown in Figure 4.7",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00176",
+      "clrs_chunk_00174"
+    ],
+    "source_page": 120,
+    "chapter": "page_120",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00178_mh_0",
+    "question": "For a divide-and-conquer algorithm with a cost of nlogb a for each subproblem, which of the three cases in Master Theorem corresponds to this scenario?",
+    "answer": "case 1",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00178",
+      "clrs_chunk_00177"
+    ],
+    "source_page": 121,
+    "chapter": "page_121",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00182_mh_0",
+    "question": "Given that af(n) = O(cf(n)) for some constant c < 1 and all sufficiently large n, what can be concluded about the term f(n=b^j) in a geometric series g(n)?",
+    "answer": "ajf(n=b^j) ≤ cjf(n)",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00182",
+      "clrs_chunk_00180"
+    ],
+    "source_page": 123,
+    "chapter": "page_123",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00183_mh_0",
+    "question": "How does the analysis of the recursion tree in Passage B relate to the master theorem, specifically with regards to obtaining a lower bound on T(n) = aT(dn/be) + f(n)?",
+    "answer": "The analysis of the recursion tree in Passage B shows that for each level j of the recursion tree, nj is given by equation (4.27), which is used to obtain a lower bound on the recurrence relation.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00183",
+      "clrs_chunk_00184"
+    ],
+    "source_page": 124,
+    "chapter": "page_124",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00186_mh_0",
+    "question": "Suppose we have a function f(n) for which the regularity condition of case 2 of Lemma 4.3 holds, and we also know that this function satisfies the regularity condition af(n/b) <= cf(n) for some constant c < 1. What can be concluded about the asymptotic growth rate of f(n)?",
+    "answer": "f(n) = O(n logb a)",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00186",
+      "clrs_chunk_00188"
+    ],
+    "source_page": 126,
+    "chapter": "page_126",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00190_mh_0",
+    "question": "Suppose we're using the MERGE-SORT algorithm from Section 2.3.1 to sort an N-element array, and we pass it by copying only the subrange that might be accessed by the called procedure (option 3 in Problem 4-2). What is a good upper bound on the running time of MERGE-SORT if we assume T(n) = 16T(n/4) + n^2?",
+    "answer": "The recurrence for MERGE-SORT with this parameter passing strategy and the given recurrence would be T(N) = q-p+1 * (16T((q-p+1)/4) + (q-p+1)^2), which is at most O(q-p+1 * n^2).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00190",
+      "clrs_chunk_00189"
+    ],
+    "source_page": 128,
+    "chapter": "Chapter 4\n4-1",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00194_mh_0",
+    "question": "Given a Monge array A of size m x n, describe how to use the divide-and-conquer algorithm from passage A (clrs_chunk_00194) to find the leftmost minimum element in each row. Explain why this approach can be efficiently modified to identify good chips from a set of chips using pairwise tests as described in passage B (clrs_chunk_00193).",
+    "answer": "The divide-and-conquer algorithm from passage A constructs a submatrix A0 of even-numbered rows and recursively determines the leftmost minimum for each row. Then it computes the leftmost minimum in the odd-numbered rows. This can be modified to identify good chips by treating the rows as sets of chips and using pairwise tests to eliminate bad chips, similar to passage B (clrs_chunk_00193).",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00194",
+      "clrs_chunk_00193"
+    ],
+    "source_page": 132,
+    "chapter": "Chapter 4\nc. Let f .i/ be the index of the column containing the leftm",
+    "generated_by": "llama3.1:8b"
+  },
+  {
+    "qa_id": "clrs_chunk_00195_mh_0",
+    "question": "What is the crossover point at which Strassen's algorithm becomes faster than SQUARE-MATRIX-MULTIPLY, and what factors influence its determination?",
+    "answer": "The exact value of the crossover point is highly system dependent, ranging from n = 8 to n = 2150. It can be influenced by various factors such as cache effects, pipelining, and even system-specific benchmarking.",
+    "question_type": "multi_hop",
+    "source_chunks": [
+      "clrs_chunk_00195",
+      "clrs_chunk_00196"
+    ],
+    "source_page": 132,
+    "chapter": "Chapter 4\nc. Let f .i/ be the index of the column containing the leftm",
+    "generated_by": "llama3.1:8b"
+  }
+]
