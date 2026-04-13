@@ -8,3 +8,17 @@ wheels/
 
 # Virtual environments
 .venv
+# venv
+venv/
+.env/
+
+# data
+data/
+*.pkl
+
+# models
+checkpoints/
+*.safetensors
+
+# cache
+cache/
