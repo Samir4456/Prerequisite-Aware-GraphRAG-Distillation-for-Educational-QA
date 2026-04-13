@@ -1,0 +1,105 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py", line 412, in <module>
+    train(args)
+  File "C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py", line 248, in train
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py:248: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ..\torch\csrc\utils\tensor_numpy.cpp:84.)
+  device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+Device : cuda
+C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\.venv\lib\site-packages\torch\cuda\__init__.py:173: UserWarning:
+NVIDIA GeForce RTX 5070 Laptop GPU with CUDA capability sm_120 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_61 sm_70 sm_75 sm_80 sm_86 sm_90 compute_37.
+If you want to use the NVIDIA GeForce RTX 5070 Laptop GPU GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+GPU    : NVIDIA GeForce RTX 5070 Laptop GPU
+VRAM   : 8.5 GB
+
+Loading knowledge base...
+  134,741 triples loaded
+Some weights of DistilBertForQuestionAnswering were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+Building train dataset (all 3 hops)...
+  1-hop train: 5,000 pairs →
+    loaded 101  |  skipped 4,899 (answer not in context)
+  2-hop train: 5,000 pairs →
+    loaded 27  |  skipped 4,973 (answer not in context)
+  3-hop train: 5,000 pairs →
+    loaded 2,254  |  skipped 2,746 (answer not in context)
+
+Building dev dataset (500 per hop)...
+  1-hop dev: 500 pairs →
+    loaded 0  |  skipped 500 (answer not in context)
+  2-hop dev: 500 pairs →
+    loaded 2  |  skipped 498 (answer not in context)
+  3-hop dev: 500 pairs →
+    loaded 240  |  skipped 260 (answer not in context)
+
+Total train examples : 2,382
+Total dev examples   : 242
+
+Training: 3 epochs | batch=16 | accum=2 | effective_batch=32 | fp16=True
+
+  step 50  loss=1.8971
+
+Epoch 1/3  avg_loss=3.3422  time=0.8min
+  Evaluating on dev set...
+    dev/EM: 0.4876
+    dev/F1: 0.4934
+    dev/latency_ms: 3.25
+  step 100  loss=1.0239
+
+Epoch 2/3  avg_loss=1.1369  time=0.7min
+  Evaluating on dev set...
+    dev/EM: 0.8017
+    dev/F1: 0.8158
+    dev/latency_ms: 8.36
+  step 150  loss=0.2521
+  step 200  loss=0.6255
+
+Epoch 3/3  avg_loss=0.7214  time=0.7min
+  Evaluating on dev set...
+    dev/EM: 0.8017
+    dev/F1: 0.8176
+    dev/latency_ms: 4.48
+
+Model saved → checkpoints\distilbert-baseline
+
+Final test evaluation (per hop, 1000 samples each)...
+  1-hop test →
+    loaded 4  |  skipped 996 (answer not in context)
+    test_1hop/EM: 0.0
+    test_1hop/F1: 0.5179
+    test_1hop/latency_ms: 4.9
+  2-hop test →
+    loaded 6  |  skipped 994 (answer not in context)
+    test_2hop/EM: 0.0
+    test_2hop/F1: 0.1111
+    test_2hop/latency_ms: 3.98
+  3-hop test →
+    loaded 447  |  skipped 553 (answer not in context)
+    test_3hop/EM: 0.7673
+    test_3hop/F1: 0.802
+    test_3hop/latency_ms: 4.27
+
+=== BASELINE LOCKED — everything else must beat this ===
+  test_1hop/EM: 0.0
+  test_1hop/F1: 0.5179
+  test_1hop/latency_ms: 4.9
+  test_2hop/EM: 0.0
+  test_2hop/F1: 0.1111
+  test_2hop/latency_ms: 3.98
+  test_3hop/EM: 0.7673
+  test_3hop/F1: 0.802
+  test_3hop/latency_ms: 4.27

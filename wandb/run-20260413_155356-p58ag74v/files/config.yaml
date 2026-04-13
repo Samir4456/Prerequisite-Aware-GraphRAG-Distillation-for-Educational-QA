@@ -1,0 +1,89 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            mo2y7xnwbtwtv0396jtr6ar02nqmrzii:
+                args:
+                    - --data_dir
+                    - data/raw
+                    - --kb_path
+                    - data/raw/kb.txt
+                    - --output_dir
+                    - checkpoints/distilbert-baseline
+                    - --samples_per_hop
+                    - "16667"
+                    - --epochs
+                    - "6"
+                codePath: src\models\baseline.py
+                codePathLocal: src\models\baseline.py
+                cpu_count: 24
+                cpu_count_logical: 32
+                cudaVersion: "12.9"
+                disk:
+                    /:
+                        total: "1021821579264"
+                        used: "435808079872"
+                email: st125989@ait.asia
+                executable: C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\.venv\Scripts\python.exe
+                gpu: NVIDIA GeForce RTX 5070 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 4608
+                      memoryTotal: "8546942976"
+                      name: NVIDIA GeForce RTX 5070 Laptop GPU
+                      uuid: GPU-b637db75-5923-1b26-8a15-5c1eb5948866
+                host: LAPTOP-REMKNVFE
+                memory:
+                    total: "34070192128"
+                os: Windows-10-10.0.26200-SP0
+                program: C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py
+                python: CPython 3.10.11
+                root: C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress
+                startedAt: "2026-04-13T08:53:56.240123Z"
+                writerId: mo2y7xnwbtwtv0396jtr6ar02nqmrzii
+        m: []
+        python_version: 3.10.11
+        t:
+            "1":
+                - 1
+                - 11
+                - 49
+                - 71
+            "2":
+                - 1
+                - 11
+                - 49
+                - 71
+            "3":
+                - 2
+                - 13
+                - 15
+                - 16
+            "4": 3.10.11
+            "5": 0.25.1
+            "6": 4.35.0
+            "8":
+                - 3
+            "12": 0.25.1
+            "13": windows-amd64
+batch_size:
+    value: 16
+cache_dir:
+    value: data/processed/cache
+data_dir:
+    value: data/raw
+epochs:
+    value: 6
+grad_accum:
+    value: 2
+kb_path:
+    value: data/raw/kb.txt
+lr:
+    value: 3e-05
+no_cache:
+    value: false
+output_dir:
+    value: checkpoints/distilbert-baseline
+samples_per_hop:
+    value: 16667

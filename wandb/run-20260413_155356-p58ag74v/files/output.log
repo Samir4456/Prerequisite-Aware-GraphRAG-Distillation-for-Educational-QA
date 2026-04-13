@@ -1,0 +1,115 @@
+
+Device : cuda
+GPU    : NVIDIA GeForce RTX 5070 Laptop GPU
+VRAM   : 8.5 GB
+
+Loading knowledge base...
+  134,741 triples  |  43,234 nodes (bidirectional)
+Some weights of DistilBertForQuestionAnswering were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+Building train dataset...
+  1-hop train: loading 16,667 pairs → context_hops=2
+Epoch 1/6: 100%|███████████████████████████████████████████████████████████████████████████████| 3125/3125 [06:54<00:00,  7.53it/s, loss=0.8424]
+    loaded 16,666  |  skipped 1
+    built in 217.1s
+  Cache saved → data\processed\cache\1hop_train_d3afc150b8fd.pkl
+  2-hop train: loading 16,667 pairs → context_hops=2
+    loaded 16,667  |  skipped 0
+    built in 178.4s
+  Cache saved → data\processed\cache\2hop_train_8213964b22b6.pkl
+  3-hop train: loading 16,667 pairs → context_hops=3
+    loaded 16,667  |  skipped 0
+    built in 9269.4s
+  Cache saved → data\processed\cache\3hop_train_595986b1a5be.pkl
+  Total train: 50,000 examples  (9724.3s)
+
+Building dev dataset...
+  1-hop dev: loading 1,000 pairs → context_hops=2
+    loaded 1,000  |  skipped 0
+    built in 1.5s
+  Cache saved → data\processed\cache\1hop_dev_d8c2ca353365.pkl
+  2-hop dev: loading 1,000 pairs → context_hops=2
+    loaded 1,000  |  skipped 0
+    built in 16.2s
+  Cache saved → data\processed\cache\2hop_dev_300d00311d06.pkl
+  3-hop dev: loading 1,000 pairs → context_hops=3
+    loaded 1,000  |  skipped 0
+    built in 9337.2s
+  Cache saved → data\processed\cache\3hop_dev_5bdabf8e8e84.pkl
+  Total dev: 3,000 examples  (9358.4s)
+
+Training: 6 epochs | batch=16 | accum=2 | effective_batch=32 | total_steps=18,750 | fp16=True
+
+
+Epoch 1/6  avg_loss=1.4960  time=6.9min
+Epoch 2/6: 100%|███████████████████████████████████████████████████████████████████████████████| 3125/3125 [06:48<00:00,  7.66it/s, loss=0.8057]
+  dev/EM: 0.2697
+  dev/F1: 0.3001
+  dev/latency_ms: 6.59
+  ✓ New best dev EM=0.2697 — model saved
+
+Epoch 2/6  avg_loss=0.5299  time=6.8min
+Epoch 3/6: 100%|███████████████████████████████████████████████████████████████████████████████| 3125/3125 [06:49<00:00,  7.63it/s, loss=0.2361]
+  dev/EM: 0.3783
+  dev/F1: 0.4029
+  dev/latency_ms: 6.39
+  ✓ New best dev EM=0.3783 — model saved
+
+Epoch 3/6  avg_loss=0.4280  time=6.8min
+Epoch 4/6: 100%|███████████████████████████████████████████████████████████████████████████████| 3125/3125 [06:49<00:00,  7.63it/s, loss=0.9067]
+  dev/EM: 0.3397
+  dev/F1: 0.3698
+  dev/latency_ms: 5.98
+
+Epoch 4/6  avg_loss=0.3334  time=6.8min
+Epoch 5/6: 100%|███████████████████████████████████████████████████████████████████████████████| 3125/3125 [06:50<00:00,  7.60it/s, loss=0.2918]
+  dev/EM: 0.343
+  dev/F1: 0.3736
+  dev/latency_ms: 5.57
+
+Epoch 5/6  avg_loss=0.2431  time=6.8min
+Epoch 6/6: 100%|███████████████████████████████████████████████████████████████████████████████| 3125/3125 [06:51<00:00,  7.59it/s, loss=0.0839]
+  dev/EM: 0.3697
+  dev/F1: 0.4038
+  dev/latency_ms: 5.78
+
+Epoch 6/6  avg_loss=0.1762  time=6.9min
+                                                                                                                                                
+  dev/EM: 0.404
+  dev/F1: 0.4349
+  dev/latency_ms: 5.54
+  ✓ New best dev EM=0.4040 — model saved
+
+Best dev EM: 0.4040
+
+Final test evaluation (per hop, 2000 samples each)...
+
+  1-hop test → context_hops=2
+    loaded 2,000  |  skipped 0
+    test_1hop/EM: 0.4485
+    test_1hop/F1: 0.4876
+    test_1hop/latency_ms: 5.22
+
+  2-hop test → context_hops=2
+    loaded 2,000  |  skipped 0
+    test_2hop/EM: 0.649
+    test_2hop/F1: 0.6737
+    test_2hop/latency_ms: 6.08
+
+  3-hop test → context_hops=3
+    loaded 2,000  |  skipped 0
+    test_3hop/EM: 0.059
+    test_3hop/F1: 0.0614
+    test_3hop/latency_ms: 5.67
+
+=== BASELINE LOCKED — everything else must beat this ===
+  test_1hop/EM: 0.4485
+  test_1hop/F1: 0.4876
+  test_1hop/latency_ms: 5.22
+  test_2hop/EM: 0.649
+  test_2hop/F1: 0.6737
+  test_2hop/latency_ms: 6.08
+  test_3hop/EM: 0.059
+  test_3hop/F1: 0.0614
+  test_3hop/latency_ms: 5.67

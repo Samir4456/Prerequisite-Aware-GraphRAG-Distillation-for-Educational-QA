@@ -1,0 +1,107 @@
+
+Device : cuda
+GPU    : NVIDIA GeForce RTX 5070 Laptop GPU
+VRAM   : 8.5 GB
+
+Loading knowledge base...
+  134,741 triples loaded
+Some weights of DistilBertForQuestionAnswering were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+Building train dataset (all 3 hops)...
+  1-hop train: 5,000 pairs → context_hops=2
+    loaded 4,999  |  skipped 1 (answer not in context)
+  2-hop train: 5,000 pairs → context_hops=2
+    loaded 5,000  |  skipped 0 (answer not in context)
+  3-hop train: 5,000 pairs → context_hops=3
+    loaded 5,000  |  skipped 0 (answer not in context)
+
+Building dev dataset (500 per hop)...
+  1-hop dev: 500 pairs → context_hops=2
+    loaded 500  |  skipped 0 (answer not in context)
+  2-hop dev: 500 pairs → context_hops=2
+    loaded 500  |  skipped 0 (answer not in context)
+  3-hop dev: 500 pairs → context_hops=3
+    loaded 500  |  skipped 0 (answer not in context)
+
+Total train examples : 14,999
+Total dev examples   : 1,500
+
+Training: 3 epochs | batch=16 | accum=2 | effective_batch=32 | fp16=True
+
+  step 50  loss=5.0574
+  step 100  loss=1.5767
+  step 150  loss=1.3398
+  step 200  loss=1.8706
+  step 250  loss=0.8280
+  step 300  loss=1.2354
+  step 350  loss=0.7994
+  step 400  loss=0.8445
+  step 450  loss=1.0323
+
+Epoch 1/3  avg_loss=1.8056  time=2.0min
+  Evaluating on dev set...
+    dev/EM: 0.3367
+    dev/F1: 0.3646
+    dev/latency_ms: 6.83
+  step 500  loss=0.4492
+  step 550  loss=1.0857
+  step 600  loss=1.2762
+  step 650  loss=0.7603
+  step 700  loss=0.5991
+  step 750  loss=0.6934
+  step 800  loss=1.1375
+  step 850  loss=0.4235
+  step 900  loss=0.6940
+
+Epoch 2/3  avg_loss=0.7143  time=2.0min
+  Evaluating on dev set...
+    dev/EM: 0.358
+    dev/F1: 0.3867
+    dev/latency_ms: 6.62
+  step 950  loss=0.5936
+  step 1000  loss=0.4744
+  step 1050  loss=0.4492
+  step 1100  loss=1.0558
+  step 1150  loss=0.3076
+  step 1200  loss=0.4699
+  step 1250  loss=0.3484
+  step 1300  loss=0.4989
+  step 1350  loss=1.0179
+  step 1400  loss=0.4507
+
+Epoch 3/3  avg_loss=0.5599  time=2.0min
+  Evaluating on dev set...
+    dev/EM: 0.4173
+    dev/F1: 0.4517
+    dev/latency_ms: 5.11
+
+Model saved → checkpoints\distilbert-baseline
+
+Final test evaluation (per hop, 1000 samples each)...
+  1-hop test → context_hops=2
+    loaded 1,000  |  skipped 0 (answer not in context)
+    test_1hop/EM: 0.571
+    test_1hop/F1: 0.628
+    test_1hop/latency_ms: 4.53
+  2-hop test → context_hops=2
+    loaded 1,000  |  skipped 0 (answer not in context)
+    test_2hop/EM: 0.602
+    test_2hop/F1: 0.6413
+    test_2hop/latency_ms: 4.1
+  3-hop test → context_hops=3
+    loaded 1,000  |  skipped 0 (answer not in context)
+    test_3hop/EM: 0.06
+    test_3hop/F1: 0.0648
+    test_3hop/latency_ms: 6.7
+
+=== BASELINE LOCKED — everything else must beat this ===
+  test_1hop/EM: 0.571
+  test_1hop/F1: 0.628
+  test_1hop/latency_ms: 4.53
+  test_2hop/EM: 0.602
+  test_2hop/F1: 0.6413
+  test_2hop/latency_ms: 4.1
+  test_3hop/EM: 0.06
+  test_3hop/F1: 0.0648
+  test_3hop/latency_ms: 6.7

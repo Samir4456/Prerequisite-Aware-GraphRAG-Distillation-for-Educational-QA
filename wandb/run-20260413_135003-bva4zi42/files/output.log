@@ -1,0 +1,57 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py", line 387, in <module>
+    results = train(args)
+  File "C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py", line 250, in train
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\src\models\baseline.py:250: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ..\torch\csrc\utils\tensor_numpy.cpp:84.)
+  device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+Device: cuda
+Downloading tokenizer_config.json: 100%|█████████████████████████████████████████████████████████████████████████████| 48.0/48.0 [00:00<?, ?B/s]
+C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\.venv\lib\site-packages\huggingface_hub\file_download.py:137: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\Samir Pokharel\.cache\huggingface\hub. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to see activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Downloading vocab.txt: 232kB [00:00, 1.11MB/s]
+Downloading tokenizer.json: 466kB [00:00, 936kB/s] 
+Downloading config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████| 483/483 [00:00<?, ?B/s]
+Downloading model.safetensors: 100%|█████████████████████████████████████████████████████████████████████████| 268M/268M [00:10<00:00, 25.7MB/s]
+Some weights of DistilBertForQuestionAnswering were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+C:\Users\Samir Pokharel\OneDrive\Desktop\Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA-progress\.venv\lib\site-packages\torch\cuda\__init__.py:173: UserWarning:
+NVIDIA GeForce RTX 5070 Laptop GPU with CUDA capability sm_120 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_61 sm_70 sm_75 sm_80 sm_86 sm_90 compute_37.
+If you want to use the NVIDIA GeForce RTX 5070 Laptop GPU GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+
+Building train dataset...
+  Loaded 6 examples  |  skipped 194 (answer not in context)
+Building dev dataset...
+  Loaded 0 examples  |  skipped 200 (answer not in context)
+
+Epoch 1/3  avg_loss=5.9912
+Evaluating on dev set...
+  EM=0.0000  F1=0.0000  latency=0.0ms
+
+Epoch 2/3  avg_loss=5.6540
+Evaluating on dev set...
+  EM=0.0000  F1=0.0000  latency=0.0ms
+
+Epoch 3/3  avg_loss=5.4379
+Evaluating on dev set...
+  EM=0.0000  F1=0.0000  latency=0.0ms
+
+Model saved to checkpoints\distilbert-baseline
+
+Final evaluation on test set...
+  Loaded 2 examples  |  skipped 198 (answer not in context)
+  Test EM=0.0000  F1=0.2000
+Results saved to checkpoints\distilbert-baseline\results.json
