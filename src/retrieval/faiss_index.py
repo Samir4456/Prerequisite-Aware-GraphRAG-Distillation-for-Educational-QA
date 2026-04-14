@@ -96,7 +96,7 @@ def load_or_build_index(
     Load index from disk if it exists, otherwise build and save it.
     Pass force_rebuild=True to always rebuild.
     """
-    if not force_rebuild and Path(index_path).exists():
+    if not force_rebuild and Path(index_path).exists() and Path(corpus_path).exists():
         return load_index(index_path, corpus_path)
     print("  Building new FAISS index...")
     return build_index(texts, index_path, corpus_path)

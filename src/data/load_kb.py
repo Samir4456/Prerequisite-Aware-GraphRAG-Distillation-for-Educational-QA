@@ -70,7 +70,7 @@ def kb_stats(triples: list[tuple], adjacency: dict) -> dict:
 
 if __name__ == "__main__":
     import sys
-    path = sys.argv[1] if len(sys.argv) > 1 else "data/raw/kb.txt"
+    path = sys.argv[1] if len(sys.argv) > 1 else "src/data/raw/kb.txt"
     triples, adjacency = load_kb(path)
     stats = kb_stats(triples, adjacency)
     print("=== Knowledge Base Stats ===")

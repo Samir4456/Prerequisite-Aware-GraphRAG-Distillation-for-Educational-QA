@@ -5,6 +5,7 @@ Each line format: question\tanswer1|answer2|...
 """
 
 import re
+import random
 from pathlib import Path
 
 
@@ -69,6 +70,31 @@ def load_all_splits(hop_dir: str, max_samples: int = None) -> dict:
         fpath = hop_dir / f"qa_{split}.txt"
         splits[split] = load_qa_pairs(str(fpath), max_samples=max_samples)
     return splits
+
+
+def sample_qa_pairs(
+    qa_pairs: list[dict],
+    n_samples: int,
+    rng: random.Random | None = None,
+) -> list[dict]:
+    """
+    Randomly sample QA pairs without replacement.
+
+    Args:
+        qa_pairs: Loaded QA examples
+        n_samples: Requested sample count
+        rng: Optional random.Random instance for reproducibility
+
+    Returns:
+        A fresh random subset each call unless rng is seeded upstream.
+    """
+    if n_samples <= 0:
+        return []
+    if n_samples >= len(qa_pairs):
+        return list(qa_pairs)
+
+    sampler = rng or random
+    return sampler.sample(qa_pairs, n_samples)
 
 
 if __name__ == "__main__":
