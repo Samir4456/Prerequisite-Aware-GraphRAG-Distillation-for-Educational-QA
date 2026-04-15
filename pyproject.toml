@@ -6,9 +6,18 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "faiss-cpu",
+    "ipykernel",
+    "jupyter",
+    "matplotlib",
+    "networkx",
     "numpy",
     "openai",
+    "pandas",
+    "requests",
+    "scikit-learn",
+    "seaborn",
     "sentence-transformers",
+    "streamlit",
     "torch",
     "tqdm",
     "transformers",

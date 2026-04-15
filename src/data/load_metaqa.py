@@ -9,6 +9,13 @@ import random
 from pathlib import Path
 
 
+HOP_DIR_ALIASES = {
+    "1hop": "1-hop",
+    "2hop": "2-hop",
+    "3hop": "3-hop",
+}
+
+
 def extract_topic_entity(question: str) -> str | None:
     """MetaQA brackets topic entities like [Tom Hanks]."""
     match = re.search(r'\[(.+?)\]', question)
@@ -65,6 +72,11 @@ def load_all_splits(hop_dir: str, max_samples: int = None) -> dict:
         {'train': [...], 'dev': [...], 'test': [...]}
     """
     hop_dir = Path(hop_dir)
+    if not hop_dir.exists() and hop_dir.name in HOP_DIR_ALIASES:
+        aliased = hop_dir.with_name(HOP_DIR_ALIASES[hop_dir.name])
+        if aliased.exists():
+            hop_dir = aliased
+
     splits = {}
     for split in ('train', 'dev', 'test'):
         fpath = hop_dir / f"qa_{split}.txt"
@@ -100,7 +112,7 @@ def sample_qa_pairs(
 if __name__ == "__main__":
     # Quick sanity check
     import sys
-    path = sys.argv[1] if len(sys.argv) > 1 else "data/raw/1hop/qa_train.txt"
+    path = sys.argv[1] if len(sys.argv) > 1 else "src/data/raw/1hop/qa_train.txt"
     pairs = load_qa_pairs(path, max_samples=5)
     for p in pairs:
         print(p)

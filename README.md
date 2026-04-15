@@ -232,3 +232,34 @@ The key result is Stage 4 — a tiny local model matching GPT-4o quality at 15x 
 ## Next stage
 
 See branch `student-training` for Qwen2.5 LoRA fine-tuning via LlamaFactory.
+# Pocket GraphRAG - MetaQA RAG/GraphRAG Project
+
+## Current Deliverables
+
+This repository now includes three main project-facing artifacts:
+
+- Full visual MetaQA EDA notebook: `notebooks/01_metaqa_full_eda.ipynb`
+- Streamlit dashboard/frontend: `app/streamlit_app.py`
+- Setup and usage documentation: `docs/project_usage.md`
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the dashboard:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+Open the EDA notebook:
+
+```bash
+jupyter notebook notebooks/01_metaqa_full_eda.ipynb
+```
+
+The current raw dataset layout is expected under `src/data/raw/`, including `kb.txt`, `entity/kb_entity_dict.txt`, and `1-hop`, `2-hop`, `3-hop` QA folders. See `docs/project_usage.md` for the full workflow, method descriptions, limitations, and interpretation guidance.
+
+---
