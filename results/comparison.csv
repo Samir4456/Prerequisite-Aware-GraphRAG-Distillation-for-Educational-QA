@@ -1,0 +1,2 @@
+model,params,type,1hop_EM,1hop_F1,1hop_latency_ms,2hop_EM,2hop_F1,2hop_latency_ms,3hop_EM,3hop_F1,3hop_latency_ms,overall_EM,overall_F1
+DistilBERT baseline,66M,baseline,0.4485,0.4876,5.22,0.649,0.6737,6.08,0.059,0.0614,5.67,,

@@ -1,0 +1,1634 @@
+[
+  {
+    "question": "what does [Grégoire Colin] appear in",
+    "gold": [
+      "Before the Rain"
+    ],
+    "pred": [
+      "Before the Rain"
+    ],
+    "raw_output": "Before the Rain",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 470.78
+  },
+  {
+    "question": "[Joe Thomas] appears in which movies",
+    "gold": [
+      "The Inbetweeners Movie",
+      "The Inbetweeners 2"
+    ],
+    "pred": [
+      "The Inbetweeners Movie",
+      "The Inbetweeners 2"
+    ],
+    "raw_output": "The Inbetweeners Movie | The Inbetweeners 2",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 550.72
+  },
+  {
+    "question": "what films did [Michelle Trachtenberg] star in",
+    "gold": [
+      "Inspector Gadget",
+      "Black Christmas",
+      "Ice Princess",
+      "Harriet the Spy",
+      "The Scribbler"
+    ],
+    "pred": [
+      "Ice Princess",
+      "The Scribbler",
+      "Black Christmas",
+      "Harriet the Spy",
+      "Inspector Gadget"
+    ],
+    "raw_output": "Ice Princess | The Scribbler | Black Christmas | Harriet the Spy | Inspector Gadget",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 873.28
+  },
+  {
+    "question": "what does [Helen Mack] star in",
+    "gold": [
+      "The Son of Kong",
+      "Kiss and Make-Up",
+      "Divorce"
+    ],
+    "pred": [
+      "Divorce",
+      "The Son of Kong",
+      "Kiss and Make-Up"
+    ],
+    "raw_output": "Divorce | The Son of Kong | Kiss and Make-Up",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 551.88
+  },
+  {
+    "question": "what films did [Shahid Kapoor] act in",
+    "gold": [
+      "Haider",
+      "Jab We Met",
+      "Chance Pe Dance"
+    ],
+    "pred": [
+      "Jab We Met",
+      "Haider",
+      "Chance Pe Dance"
+    ],
+    "raw_output": "Jab We Met | Haider | Chance Pe Dance",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 527.35
+  },
+  {
+    "question": "[Brendan Gleeson] appears in which movies",
+    "gold": [
+      "The Raven",
+      "Lake Placid",
+      "Calvary",
+      "The Smurfs 2",
+      "Stonehearst Asylum",
+      "The Grand Seduction",
+      "The General",
+      "Six Shooter",
+      "Harrison's Flowers",
+      "Into the Storm",
+      "The Tiger's Tail"
+    ],
+    "pred": [
+      "The Raven",
+      "The General",
+      "Into the Storm",
+      "The Grand Seduction",
+      "Six Shooter",
+      "The Smurfs 2",
+      "Stonehearst Asylum",
+      "Calvary",
+      "The Raven"
+    ],
+    "raw_output": "The Raven | The General | Into the Storm | The Grand Seduction | Six Shooter | The Smurfs 2 | Stonehearst Asylum | Calvary | The Raven",
+    "em": 0.0,
+    "f1": 0.8421052631578948,
+    "latency_ms": 1597.54
+  },
+  {
+    "question": "what films does [Paresh Rawal] appear in",
+    "gold": [
+      "Table No. 21",
+      "Cheeni Kum"
+    ],
+    "pred": [
+      "Cheeni Kum",
+      "Table No. 21"
+    ],
+    "raw_output": "Cheeni Kum | Table No. 21",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 517.6
+  },
+  {
+    "question": "what does [Doug Collins] star in",
+    "gold": [
+      "Michael Jordan to the Max"
+    ],
+    "pred": [
+      "Michael Jordan to the Max"
+    ],
+    "raw_output": "Michael Jordan to the Max",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 248.46
+  },
+  {
+    "question": "what films does [Brigitte Nielsen] appear in",
+    "gold": [
+      "Cobra",
+      "Red Sonja"
+    ],
+    "pred": [
+      "Red Sonja",
+      "Cobra"
+    ],
+    "raw_output": "Red Sonja | Cobra",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 277.97
+  },
+  {
+    "question": "[Mona McKinnon] appears in which movies",
+    "gold": [
+      "Plan 9 from Outer Space"
+    ],
+    "pred": [
+      "Plan 9 from Outer Space"
+    ],
+    "raw_output": "Plan 9 from Outer Space",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 293.34
+  },
+  {
+    "question": "what films did [Christina Ricci] act in",
+    "gold": [
+      "Sleepy Hollow",
+      "Monster",
+      "Black Snake Moan",
+      "Buffalo '66",
+      "After.Life",
+      "Now and Then",
+      "The Opposite of Sex",
+      "Bel Ami",
+      "Prozac Nation",
+      "The Man Who Cried",
+      "Pecker",
+      "Pumpkin",
+      "The Gathering",
+      "That Darn Cat",
+      "Desert Blue",
+      "Miranda",
+      "The Last of the High Kings",
+      "All's Faire in Love",
+      "Around the Block"
+    ],
+    "pred": [
+      "Black Snake Moan",
+      "Prozac Nation",
+      "Pecker",
+      "Pumpkin",
+      "Monster",
+      "Miranda",
+      "Desert Blue",
+      "Buffalo '66",
+      "Bel Ami",
+      "The Gathering",
+      "That Darn Cat",
+      "The Man Who Cried",
+      "The Last of the High Kings",
+      "All's Faire in Love",
+      "After.Life",
+      "Sleepy"
+    ],
+    "raw_output": "Black Snake Moan | Prozac Nation | Pecker | Pumpkin | Monster | Miranda | Desert Blue | Buffalo '66 | Bel Ami | The Gathering | That Darn Cat | The Man Who Cried | The Last of the High Kings | All's Faire in Love | After.Life | Sleepy",
+    "em": 0.0,
+    "f1": 0.8571428571428572,
+    "latency_ms": 2476.47
+  },
+  {
+    "question": "[Brian Backer] appears in which movies",
+    "gold": [
+      "Moving Violations"
+    ],
+    "pred": [
+      "Moving Violations"
+    ],
+    "raw_output": "Moving Violations",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 175.54
+  },
+  {
+    "question": "what films does [William Atherton] appear in",
+    "gold": [
+      "Die Hard 2",
+      "The Sugarland Express",
+      "The Day of the Locust",
+      "Buried Alive",
+      "The Citizen"
+    ],
+    "pred": [
+      "The Sugarland Express",
+      "The Day of the Locust",
+      "Buried Alive",
+      "Die Hard 2"
+    ],
+    "raw_output": "The Sugarland Express | The Day of the Locust | Buried Alive | Die Hard 2",
+    "em": 0.0,
+    "f1": 0.888888888888889,
+    "latency_ms": 943.87
+  },
+  {
+    "question": "what does [Jeremy Piven] act in",
+    "gold": [
+      "So Undercover",
+      "Keeping Up with the Steins",
+      "Just Write"
+    ],
+    "pred": [
+      "Keeping Up with the Steins",
+      "So Undercover",
+      "Just Write"
+    ],
+    "raw_output": "Keeping Up with the Steins | So Undercover | Just Write",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 612.02
+  },
+  {
+    "question": "what films did [Roger Bart] star in",
+    "gold": [
+      "Excision"
+    ],
+    "pred": [
+      "Excision"
+    ],
+    "raw_output": "Excision",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 126.62
+  },
+  {
+    "question": "[Ruggero Raimondi] appears in which movies",
+    "gold": [
+      "Carmen"
+    ],
+    "pred": [
+      "Carmen"
+    ],
+    "raw_output": "Carmen",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 222.63
+  },
+  {
+    "question": "what films did [Robert Strauss] act in",
+    "gold": [
+      "Stalag 17",
+      "Attack"
+    ],
+    "pred": [
+      "Attack",
+      "Stalag 17"
+    ],
+    "raw_output": "Attack | Stalag 17",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 407.57
+  },
+  {
+    "question": "what films did [Aleksandr Gordon] act in",
+    "gold": [
+      "The Killers"
+    ],
+    "pred": [
+      "The Killers"
+    ],
+    "raw_output": "The Killers",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 219.39
+  },
+  {
+    "question": "what does [Stephen Furst] act in",
+    "gold": [
+      "The Dream Team"
+    ],
+    "pred": [
+      "The Dream Team"
+    ],
+    "raw_output": "The Dream Team",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 173.98
+  },
+  {
+    "question": "what does [Hiromi Nagasaku] star in",
+    "gold": [
+      "Doppelganger"
+    ],
+    "pred": [
+      "Doppelganger"
+    ],
+    "raw_output": "Doppelganger",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 213.29
+  },
+  {
+    "question": "what films does [Claude Akins] appear in",
+    "gold": [
+      "Battle for the Planet of the Apes",
+      "Comanche Station",
+      "A Man Called Sledge"
+    ],
+    "pred": [
+      "Battle for the Planet of the Apes",
+      "A Man Called Sledge",
+      "Comanche Station"
+    ],
+    "raw_output": "Battle for the Planet of the Apes | A Man Called Sledge | Comanche Station",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 835.58
+  },
+  {
+    "question": "what films did [Arjun Rampal] act in",
+    "gold": [
+      "Ra.One",
+      "Om Shanti Om",
+      "Don",
+      "Raajneeti",
+      "D-Day",
+      "Aankhen",
+      "Heroine"
+    ],
+    "pred": [
+      "Om Shanti Om",
+      "Ra.One",
+      "D-Day",
+      "Heroine",
+      "Raajneeti",
+      "Don"
+    ],
+    "raw_output": "Om Shanti Om | Ra.One | D-Day | Heroine | Raajneeti | Don",
+    "em": 0.0,
+    "f1": 0.923076923076923,
+    "latency_ms": 906.25
+  },
+  {
+    "question": "what movies was [Chris O'Donnell] an actor in",
+    "gold": [
+      "Scent of a Woman",
+      "Vertical Limit",
+      "Kinsey",
+      "The Three Musketeers",
+      "School Ties",
+      "The Bachelor",
+      "Cookie's Fortune",
+      "The Chamber",
+      "In Love and War",
+      "Mad Love",
+      "Men Don't Leave"
+    ],
+    "pred": [
+      "The Bachelor",
+      "School Ties",
+      "The Chamber",
+      "In Love and War",
+      "Men Don't Leave",
+      "The Three Musketeers",
+      "Scent of a Woman",
+      "Vertical Limit",
+      "Mad Love",
+      "Kinsey"
+    ],
+    "raw_output": "The Bachelor | School Ties | The Chamber | In Love and War | Men Don't Leave | The Three Musketeers | Scent of a Woman | Vertical Limit | Mad Love | Kinsey",
+    "em": 0.0,
+    "f1": 0.9523809523809523,
+    "latency_ms": 1731.89
+  },
+  {
+    "question": "what does [May Robson] act in",
+    "gold": [
+      "A Star Is Born",
+      "Wife vs. Secretary"
+    ],
+    "pred": [
+      "A Star Is Born",
+      "Wife vs. Secretary"
+    ],
+    "raw_output": "A Star Is Born | Wife vs. Secretary",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 541.0
+  },
+  {
+    "question": "what films did [Melvin Van Peebles] star in",
+    "gold": [
+      "Sweet Sweetback's Baadasssss Song"
+    ],
+    "pred": [
+      "Sweet Sweetback's Baadasssss Song"
+    ],
+    "raw_output": "Sweet Sweetback's Baadasssss Song",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 453.7
+  },
+  {
+    "question": "what does [Tannishtha Chatterjee] appear in",
+    "gold": [
+      "Brick Lane",
+      "Road, Movie"
+    ],
+    "pred": [
+      "Road, Movie",
+      "Brick Lane"
+    ],
+    "raw_output": "Road, Movie | Brick Lane",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 296.33
+  },
+  {
+    "question": "what movies was [Michael Tully] an actor in",
+    "gold": [
+      "Septien"
+    ],
+    "pred": [
+      "Ping Pong Summer"
+    ],
+    "raw_output": "Ping Pong Summer",
+    "em": 0.0,
+    "f1": 0.0,
+    "latency_ms": 200.7
+  },
+  {
+    "question": "what movies was [Dan Petronijevic] an actor in",
+    "gold": [
+      "Cottage Country"
+    ],
+    "pred": [
+      "Cottage Country"
+    ],
+    "raw_output": "Cottage Country",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 165.68
+  },
+  {
+    "question": "what films did [Phil Silvers] act in",
+    "gold": [
+      "A Funny Thing Happened on the Way to the Forum",
+      "A Lady Takes a Chance",
+      "Top Banana"
+    ],
+    "pred": [
+      "A Funny Thing Happened on the Way to the Forum",
+      "Top Banana",
+      "A Lady Takes a Chance"
+    ],
+    "raw_output": "A Funny Thing Happened on the Way to the Forum | Top Banana | A Lady Takes a Chance",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 931.45
+  },
+  {
+    "question": "what films does [James B. Schwartz] appear in",
+    "gold": [
+      "Faces of Death IV"
+    ],
+    "pred": [
+      "Faces of Death IV"
+    ],
+    "raw_output": "Faces of Death IV",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 209.07
+  },
+  {
+    "question": "what films did [Piolo Pascual] star in",
+    "gold": [
+      "On the Job"
+    ],
+    "pred": [
+      "On the Job"
+    ],
+    "raw_output": "On the Job",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 185.92
+  },
+  {
+    "question": "what movies was [Eiji Funakoshi] an actor in",
+    "gold": [
+      "Fires on the Plain"
+    ],
+    "pred": [
+      "Fires on the Plain"
+    ],
+    "raw_output": "Fires on the Plain",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 247.34
+  },
+  {
+    "question": "what films does [Richard Roundtree] appear in",
+    "gold": [
+      "Shaft",
+      "Q",
+      "An Eye for an Eye",
+      "Shaft in Africa"
+    ],
+    "pred": [
+      "Shaft in Africa",
+      "Shaft",
+      "An Eye for an Eye"
+    ],
+    "raw_output": "Shaft in Africa | Shaft | An Eye for an Eye",
+    "em": 0.0,
+    "f1": 0.8571428571428571,
+    "latency_ms": 651.55
+  },
+  {
+    "question": "what movies did [Darren McGavin] star in",
+    "gold": [
+      "Billy Madison",
+      "The Night Stalker",
+      "Mrs. Pollifax-Spy",
+      "The Challenge"
+    ],
+    "pred": [
+      "The Night Stalker",
+      "The Challenge",
+      "Mrs. Pollifax-Spy",
+      "Billy Madison"
+    ],
+    "raw_output": "The Night Stalker | The Challenge | Mrs. Pollifax-Spy | Billy Madison",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 789.58
+  },
+  {
+    "question": "what films did [Stéphane Demers] act in",
+    "gold": [
+      "The Left-Hand Side of the Fridge"
+    ],
+    "pred": [
+      "The Left-Hand Side of the Fridge"
+    ],
+    "raw_output": "The Left-Hand Side of the Fridge",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 423.49
+  },
+  {
+    "question": "what does [Ximena Ayala] appear in",
+    "gold": [
+      "The Amazing Catfish"
+    ],
+    "pred": [
+      "The Amazing Catfish"
+    ],
+    "raw_output": "The Amazing Catfish",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 197.86
+  },
+  {
+    "question": "what does [Nell Cattrysse] star in",
+    "gold": [
+      "The Broken Circle Breakdown"
+    ],
+    "pred": [
+      "The Broken Circle Breakdown"
+    ],
+    "raw_output": "The Broken Circle Breakdown",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 268.38
+  },
+  {
+    "question": "what does [Sharon Gans] act in",
+    "gold": [
+      "Slaughterhouse-Five"
+    ],
+    "pred": [
+      "Slaughterhouse-Five"
+    ],
+    "raw_output": "Slaughterhouse-Five",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 261.37
+  },
+  {
+    "question": "what does [Beatrice Lillie] act in",
+    "gold": [
+      "Exit Smiling"
+    ],
+    "pred": [
+      "Exit Smiling"
+    ],
+    "raw_output": "Exit Smiling",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 169.12
+  },
+  {
+    "question": "what movies did [Caroline Aaron] star in",
+    "gold": [
+      "A Modern Affair"
+    ],
+    "pred": [
+      "A Modern Affair"
+    ],
+    "raw_output": "A Modern Affair",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 202.46
+  },
+  {
+    "question": "what films does [Celia Montalván] appear in",
+    "gold": [
+      "Toni"
+    ],
+    "pred": [
+      "Toni"
+    ],
+    "raw_output": "Toni",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 141.02
+  },
+  {
+    "question": "what movies did [Martín Adjemián] act in",
+    "gold": [
+      "La Ciénaga"
+    ],
+    "pred": [
+      "La Ciénaga"
+    ],
+    "raw_output": "La Ciénaga",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 207.2
+  },
+  {
+    "question": "[Judi Dench] appears in which movies",
+    "gold": [
+      "Skyfall",
+      "Philomena",
+      "The Best Exotic Marigold Hotel",
+      "Notes on a Scandal",
+      "The Shipping News",
+      "Iris",
+      "Mrs Henderson Presents"
+    ],
+    "pred": [
+      "The Shipping News",
+      "Iris",
+      "Mrs Henderson Presents",
+      "The Best Exotic Marigold Hotel",
+      "Philomena",
+      "Notes on a Scandal",
+      "Skyfall"
+    ],
+    "raw_output": "The Shipping News | Iris | Mrs Henderson Presents | The Best Exotic Marigold Hotel | Philomena | Notes on a Scandal | Skyfall",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 1332.86
+  },
+  {
+    "question": "what does [Marlee Matlin] appear in",
+    "gold": [
+      "Children of a Lesser God",
+      "Hear No Evil",
+      "Dead Silence"
+    ],
+    "pred": [
+      "Children of a Lesser God",
+      "Dead Silence"
+    ],
+    "raw_output": "Children of a Lesser God | Dead Silence",
+    "em": 0.0,
+    "f1": 0.8,
+    "latency_ms": 417.14
+  },
+  {
+    "question": "what films did [Fabiola Quiroz] act in",
+    "gold": [
+      "Who the Hell Is Juliette?"
+    ],
+    "pred": [
+      "Who the Hell Is Juliette?"
+    ],
+    "raw_output": "Who the Hell Is Juliette?",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 333.3
+  },
+  {
+    "question": "what films did [Carroll Ballard] act in",
+    "gold": [
+      "Fog City Mavericks"
+    ],
+    "pred": [
+      "Fly Away Home",
+      "Wind",
+      "Never Cry Wolf",
+      "Duma"
+    ],
+    "raw_output": "Fly Away Home | Wind | Never Cry Wolf | Duma",
+    "em": 0.0,
+    "f1": 0.0,
+    "latency_ms": 644.99
+  },
+  {
+    "question": "what movies did [Nicole Grimaudo] act in",
+    "gold": [
+      "Loose Cannons"
+    ],
+    "pred": [
+      "Loose Cannons"
+    ],
+    "raw_output": "Loose Cannons",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 276.38
+  },
+  {
+    "question": "what films did [Agnes Ayres] act in",
+    "gold": [
+      "The Sheik"
+    ],
+    "pred": [
+      "The Sheik"
+    ],
+    "raw_output": "The Sheik",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 173.07
+  },
+  {
+    "question": "what films did [Audra Lindley] act in",
+    "gold": [
+      "Desert Hearts",
+      "The Heartbreak Kid"
+    ],
+    "pred": [
+      "Desert Hearts",
+      "The Heartbreak Kid"
+    ],
+    "raw_output": "Desert Hearts | The Heartbreak Kid",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 431.16
+  },
+  {
+    "question": "what movies did [Max Elliott Slade] act in",
+    "gold": [
+      "3 Ninjas"
+    ],
+    "pred": [
+      "3 Ninjas"
+    ],
+    "raw_output": "3 Ninjas",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 179.24
+  },
+  {
+    "question": "what movies did [Knut Berger] star in",
+    "gold": [
+      "Walk on Water"
+    ],
+    "pred": [
+      "Walk on Water"
+    ],
+    "raw_output": "Walk on Water",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 179.62
+  },
+  {
+    "question": "what films did [Tamara Toumanova] star in",
+    "gold": [
+      "Days of Glory"
+    ],
+    "pred": [
+      "Days of Glory"
+    ],
+    "raw_output": "Days of Glory",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 196.26
+  },
+  {
+    "question": "what films does [Ralf Harolde] appear in",
+    "gold": [
+      "Safe in Hell"
+    ],
+    "pred": [
+      "Safe in Hell"
+    ],
+    "raw_output": "Safe in Hell",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 175.6
+  },
+  {
+    "question": "what movies did [Sophie Rois] star in",
+    "gold": [
+      "The Inheritors"
+    ],
+    "pred": [
+      "The Inheritors"
+    ],
+    "raw_output": "The Inheritors",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 218.71
+  },
+  {
+    "question": "what does [Marguerite Churchill] appear in",
+    "gold": [
+      "Dracula's Daughter",
+      "Charlie Chan Carries On"
+    ],
+    "pred": [
+      "Charlie Chan Carries On",
+      "Dracula's Daughter"
+    ],
+    "raw_output": "Charlie Chan Carries On | Dracula's Daughter",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 481.23
+  },
+  {
+    "question": "what films did [Odoardo Spadaro] act in",
+    "gold": [
+      "The Golden Coach"
+    ],
+    "pred": [
+      "The Golden Coach"
+    ],
+    "raw_output": "The Golden Coach",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 184.47
+  },
+  {
+    "question": "what films does [Ben Mendelsohn] appear in",
+    "gold": [
+      "Beautiful Kate",
+      "The Year My Voice Broke",
+      "Amy",
+      "Idiot Box",
+      "Mississippi Grind"
+    ],
+    "pred": [
+      "The Year My Voice Broke",
+      "Beautiful Kate",
+      "Mississippi Grind",
+      "Idiot Box",
+      "Amy"
+    ],
+    "raw_output": "The Year My Voice Broke | Beautiful Kate | Mississippi Grind | Idiot Box | Amy",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 850.99
+  },
+  {
+    "question": "what films did [Pat Derby] star in",
+    "gold": [
+      "An Apology to Elephants"
+    ],
+    "pred": [
+      "An Apology to Elephants"
+    ],
+    "raw_output": "An Apology to Elephants",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 286.66
+  },
+  {
+    "question": "what movies did [Wesley Jonathan] star in",
+    "gold": [
+      "Crossover",
+      "Roll Bounce"
+    ],
+    "pred": [
+      "Roll Bounce",
+      "Crossover"
+    ],
+    "raw_output": "Roll Bounce | Crossover",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 316.6
+  },
+  {
+    "question": "what movies did [Paul Lynde] act in",
+    "gold": [
+      "The Villain"
+    ],
+    "pred": [
+      "The Villain"
+    ],
+    "raw_output": "The Villain",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 178.9
+  },
+  {
+    "question": "what does [JoBeth Williams] appear in",
+    "gold": [
+      "The Day After",
+      "Dutch",
+      "Switch",
+      "Teachers",
+      "Just Write",
+      "Desert Bloom",
+      "Memories of Me"
+    ],
+    "pred": [
+      "The Day After",
+      "Just Write",
+      "Desert Bloom",
+      "Memories of Me",
+      "Dutch",
+      "Switch",
+      "Teachers"
+    ],
+    "raw_output": "The Day After | Just Write | Desert Bloom | Memories of Me | Dutch | Switch | Teachers",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 936.94
+  },
+  {
+    "question": "what movies was [William Zappa] an actor in",
+    "gold": [
+      "Zone 39"
+    ],
+    "pred": [
+      "Zone 39"
+    ],
+    "raw_output": "Zone 39",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 293.94
+  },
+  {
+    "question": "what films does [Susan Cabot] appear in",
+    "gold": [
+      "The Wasp Woman"
+    ],
+    "pred": [
+      "The Wasp Woman"
+    ],
+    "raw_output": "The Wasp Woman",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 279.57
+  },
+  {
+    "question": "what movies did [Eion Bailey] act in",
+    "gold": [
+      "And Starring Pancho Villa as Himself",
+      "(Untitled)",
+      "A Better Place"
+    ],
+    "pred": [
+      "A Better Place",
+      "Untitled",
+      "And Starring Pancho Villa as Himself"
+    ],
+    "raw_output": "A Better Place | Untitled | And Starring Pancho Villa as Himself",
+    "em": 0.0,
+    "f1": 0.6666666666666666,
+    "latency_ms": 958.68
+  },
+  {
+    "question": "what films did [Leonid Mozgovoy] star in",
+    "gold": [
+      "Moloch"
+    ],
+    "pred": [
+      "Moloch"
+    ],
+    "raw_output": "Moloch",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 232.06
+  },
+  {
+    "question": "what movies did [Taurean Blacque] star in",
+    "gold": [
+      "DeepStar Six"
+    ],
+    "pred": [
+      "DeepStar Six"
+    ],
+    "raw_output": "DeepStar Six",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 199.63
+  },
+  {
+    "question": "what does [Chips Rafferty] act in",
+    "gold": [
+      "Wake in Fright",
+      "The Wackiest Ship in the Army"
+    ],
+    "pred": [
+      "Wake in Fright",
+      "The Wackiest Ship in the Army"
+    ],
+    "raw_output": "Wake in Fright | The Wackiest Ship in the Army",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 787.85
+  },
+  {
+    "question": "what films does [Grace Kelly] appear in",
+    "gold": [
+      "Rear Window",
+      "Dial M for Murder",
+      "To Catch a Thief",
+      "High Society",
+      "Mogambo",
+      "The Bridges at Toko-Ri",
+      "The Country Girl",
+      "The Swan",
+      "Green Fire"
+    ],
+    "pred": [
+      "The Swan",
+      "Dial M for Murder",
+      "Rear Window",
+      "The Country Girl",
+      "To Catch a Thief",
+      "The Bridges at Toko-Ri",
+      "Green Fire",
+      "High Society",
+      "Mogambo"
+    ],
+    "raw_output": "The Swan | Dial M for Murder | Rear Window | The Country Girl | To Catch a Thief | The Bridges at Toko-Ri | Green Fire | High Society | Mogambo",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 1945.64
+  },
+  {
+    "question": "what does [Stanley Baker] act in",
+    "gold": [
+      "The Guns of Navarone",
+      "Zulu",
+      "Hell Drivers",
+      "Helen of Troy",
+      "Eva",
+      "Yesterday's Enemy"
+    ],
+    "pred": [
+      "Yesterday's Enemy",
+      "The Guns of Navarone",
+      "Hell Drivers",
+      "Yesterday",
+      "Helen of Troy",
+      "Eva"
+    ],
+    "raw_output": "Yesterday's Enemy | The Guns of Navarone | Hell Drivers | Yesterday | Helen of Troy | Eva",
+    "em": 0.0,
+    "f1": 0.8333333333333334,
+    "latency_ms": 1268.07
+  },
+  {
+    "question": "[Eric Cantona] appears in which movies",
+    "gold": [
+      "Looking for Eric"
+    ],
+    "pred": [
+      "Looking for Eric"
+    ],
+    "raw_output": "Looking for Eric",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 241.96
+  },
+  {
+    "question": "what movies did [Mike White] star in",
+    "gold": [
+      "The Good Girl"
+    ],
+    "pred": [
+      "The Good Girl"
+    ],
+    "raw_output": "The Good Girl",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 290.02
+  },
+  {
+    "question": "what does [Ayesha Takia] star in",
+    "gold": [
+      "Wanted"
+    ],
+    "pred": [
+      "Wanted"
+    ],
+    "raw_output": "Wanted",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 196.07
+  },
+  {
+    "question": "what does [Susan George] act in",
+    "gold": [
+      "Straw Dogs",
+      "Enter the Ninja",
+      "Mandingo",
+      "Fright",
+      "Lola",
+      "A Small Town in Texas"
+    ],
+    "pred": [
+      "A Small Town in Texas",
+      "Enter the Ninja",
+      "Mandingo",
+      "Fright",
+      "Lola"
+    ],
+    "raw_output": "A Small Town in Texas|Enter the Ninja|Mandingo|Fright|Lola",
+    "em": 0.0,
+    "f1": 0.9090909090909091,
+    "latency_ms": 1160.52
+  },
+  {
+    "question": "what movies was [Scott Grimes] an actor in",
+    "gold": [
+      "Critters"
+    ],
+    "pred": [
+      "Critters"
+    ],
+    "raw_output": "Critters",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 171.47
+  },
+  {
+    "question": "what does [Geraldine Smith] star in",
+    "gold": [
+      "Flesh"
+    ],
+    "pred": [
+      "Flesh"
+    ],
+    "raw_output": "Flesh",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 166.89
+  },
+  {
+    "question": "what films did [Patrick Malahide] star in",
+    "gold": [
+      "The 39 Steps",
+      "A Month in the Country"
+    ],
+    "pred": [
+      "The 39 Steps",
+      "A Month in the Country"
+    ],
+    "raw_output": "The 39 Steps | A Month in the Country",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 762.04
+  },
+  {
+    "question": "what does [Joanna Newsom] star in",
+    "gold": [
+      "Inherent Vice"
+    ],
+    "pred": [
+      "Inherent Vice"
+    ],
+    "raw_output": "Inherent Vice",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 206.93
+  },
+  {
+    "question": "what films did [Lemmy] act in",
+    "gold": [
+      "Lemmy"
+    ],
+    "pred": [
+      "Lemmy"
+    ],
+    "raw_output": "Lemmy",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 293.79
+  },
+  {
+    "question": "what films did [Carrie Henn] act in",
+    "gold": [
+      "Aliens"
+    ],
+    "pred": [
+      "Aliens"
+    ],
+    "raw_output": "Aliens",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 168.38
+  },
+  {
+    "question": "what films does [Julian Sands] appear in",
+    "gold": [
+      "The Killing Fields",
+      "The Medallion",
+      "Blood and Bone",
+      "Warlock",
+      "Boxing Helena",
+      "Gothic"
+    ],
+    "pred": [
+      "The Killing Fields",
+      "Gothic",
+      "Warlock",
+      "The Medallion",
+      "Boxing Helena",
+      "Blood and Bone"
+    ],
+    "raw_output": "The Killing Fields | Gothic | Warlock | The Medallion | Boxing Helena | Blood and Bone",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 1267.64
+  },
+  {
+    "question": "what films did [Greg McLane] star in",
+    "gold": [
+      "Purely Belter"
+    ],
+    "pred": [
+      "Purely Belter"
+    ],
+    "raw_output": "Purely Belter",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 285.32
+  },
+  {
+    "question": "what movies did [Maury Chaykin] star in",
+    "gold": [
+      "Owning Mahowny",
+      "Jerry and Tom"
+    ],
+    "pred": [
+      "Jerry and Tom",
+      "Owning Mahowny"
+    ],
+    "raw_output": "Jerry and Tom | Owning Mahowny",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 542.74
+  },
+  {
+    "question": "what movies was [Jade Yorker] an actor in",
+    "gold": [
+      "Bomb the System"
+    ],
+    "pred": [
+      "Bomb the System"
+    ],
+    "raw_output": "Bomb the System",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 209.15
+  },
+  {
+    "question": "what does [Chevy Chase] appear in",
+    "gold": [
+      "Caddyshack",
+      "National Lampoon's Vacation",
+      "¡Three Amigos!",
+      "Fletch",
+      "Spies Like Us",
+      "Vegas Vacation",
+      "Memoirs of an Invisible Man",
+      "Funny Farm",
+      "Fletch Lives",
+      "Zoom",
+      "Foul Play",
+      "Man of the House",
+      "Seems Like Old Times",
+      "Modern Problems",
+      "Deal of the Century",
+      "Under the Rainbow",
+      "The Groove Tube"
+    ],
+    "pred": [
+      "Caddyshack",
+      "Deal of the Century",
+      "Foul Play",
+      "Fletch Lives",
+      "Man of the House",
+      "Funny Farm",
+      "National Lampoon's Vacation",
+      "Modern Problems",
+      "Memoirs of an Invisible Man",
+      "Zoom",
+      "Vegas Vacation",
+      "¡Three Amigos!",
+      "The Groove Tube",
+      "Spies Like Us"
+    ],
+    "raw_output": "Caddyshack | Deal of the Century | Foul Play | Fletch Lives | Man of the House | Funny Farm | National Lampoon's Vacation | Modern Problems | Memoirs of an Invisible Man | Zoom | Vegas Vacation | ¡Three Amigos! | The Groove Tube | Spies Like Us |",
+    "em": 0.0,
+    "f1": 0.9032258064516129,
+    "latency_ms": 3309.01
+  },
+  {
+    "question": "what movies did [Margrét Vilhjálmsdóttir] star in",
+    "gold": [
+      "The Seagull's Laughter"
+    ],
+    "pred": [
+      "The Seagull's Laughter"
+    ],
+    "raw_output": "The Seagull's Laughter",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 433.43
+  },
+  {
+    "question": "what does [Andy Rodoreda] act in",
+    "gold": [
+      "Black Water"
+    ],
+    "pred": [
+      "Black Water"
+    ],
+    "raw_output": "Black Water",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 174.44
+  },
+  {
+    "question": "what films did [Jon Seda] star in",
+    "gold": [
+      "I Like It Like That"
+    ],
+    "pred": [
+      "I Like It Like That"
+    ],
+    "raw_output": "I Like It Like That",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 346.05
+  },
+  {
+    "question": "what films does [Tom Hughes] appear in",
+    "gold": [
+      "Page Eight"
+    ],
+    "pred": [
+      "Page Eight"
+    ],
+    "raw_output": "Page Eight",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 153.44
+  },
+  {
+    "question": "what movies was [Jason Alexander] an actor in",
+    "gold": [
+      "Pretty Woman",
+      "Shallow Hal",
+      "The Hunchback of Notre Dame",
+      "North",
+      "Dunston Checks In",
+      "White Palace"
+    ],
+    "pred": [
+      "North",
+      "Shallow Hal",
+      "Pretty Woman",
+      "White Palace",
+      "Dunston Checks In",
+      "The Hunchback of Notre Dame"
+    ],
+    "raw_output": "North | Shallow Hal | Pretty Woman | White Palace | Dunston Checks In | The Hunchback of Notre Dame",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 1451.31
+  },
+  {
+    "question": "what movies did [Tyler Labine] act in",
+    "gold": [
+      "Someone Marry Barry",
+      "Cottage Country"
+    ],
+    "pred": [
+      "Cottage Country",
+      "Someone Marry Barry"
+    ],
+    "raw_output": "Cottage Country | Someone Marry Barry",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 460.14
+  },
+  {
+    "question": "what movies was [Mitchell Ryan] an actor in",
+    "gold": [
+      "Lethal Weapon"
+    ],
+    "pred": [
+      "Lethal Weapon"
+    ],
+    "raw_output": "Lethal Weapon",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 288.82
+  },
+  {
+    "question": "what does [Haley Joel] act in",
+    "gold": [
+      "Abominable"
+    ],
+    "pred": [
+      "Abominable"
+    ],
+    "raw_output": "Abominable",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 237.1
+  },
+  {
+    "question": "what movies did [Jackie Earle Haley] star in",
+    "gold": [
+      "Watchmen",
+      "Little Children",
+      "A Nightmare on Elm Street",
+      "Breaking Away",
+      "Losin' It",
+      "The Bad News Bears Go to Japan",
+      "The Bad News Bears in Breaking Training",
+      "Dollman"
+    ],
+    "pred": [
+      "The Bad News Bears Go to Japan",
+      "Losin' It",
+      "A Nightmare on Elm Street",
+      "The Bad News Bears in Breaking Training",
+      "Dollman",
+      "Breaking Away",
+      "Watchmen"
+    ],
+    "raw_output": "The Bad News Bears Go to Japan | Losin' It | A Nightmare on Elm Street | The Bad News Bears in Breaking Training | Dollman | Breaking Away | Watchmen",
+    "em": 0.0,
+    "f1": 0.9333333333333333,
+    "latency_ms": 1944.03
+  },
+  {
+    "question": "what movies was [Heather Sears] an actor in",
+    "gold": [
+      "Room at the Top",
+      "The Story of Esther Costello"
+    ],
+    "pred": [
+      "Room at the Top",
+      "The Story of Esther Costello"
+    ],
+    "raw_output": "Room at the Top | The Story of Esther Costello",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 660.14
+  },
+  {
+    "question": "what movies did [Annabelle Gurwitch] star in",
+    "gold": [
+      "Melvin Goes to Dinner"
+    ],
+    "pred": [
+      "Melvin Goes to Dinner"
+    ],
+    "raw_output": "Melvin Goes to Dinner",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 310.23
+  },
+  {
+    "question": "[Ryan Alosio] appears in which movies",
+    "gold": [
+      "Apostle Peter and the Last Supper",
+      "The Hi-Line"
+    ],
+    "pred": [
+      "The Hi-Line",
+      "Apostle Peter and the Last Supper"
+    ],
+    "raw_output": "The Hi-Line | Apostle Peter and the Last Supper",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 655.85
+  },
+  {
+    "question": "[Jack Palance] appears in which movies",
+    "gold": [
+      "The Swan Princess",
+      "Panic in the Streets",
+      "Attack",
+      "Chato's Land",
+      "Sudden Fear",
+      "The Big Knife",
+      "Hawk the Slayer",
+      "Halls of Montezuma",
+      "Without Warning",
+      "Torture Garden",
+      "Bram Stoker's Dracula",
+      "God's Gun",
+      "Arrowhead",
+      "Ten Seconds to Hell",
+      "The Desperados"
+    ],
+    "pred": [
+      "Sudden Fear",
+      "Attack",
+      "Ten Seconds to Hell",
+      "Without Warning",
+      "Arrowhead",
+      "Torture Garden",
+      "God's Gun",
+      "Halls of Montezuma",
+      "Hawk the Slayer",
+      "Panic in the Streets",
+      "The Desperados",
+      "Chato's Land",
+      "The Swan Princess",
+      "The Big Knife",
+      "Bram Stoker's Dr"
+    ],
+    "raw_output": "Sudden Fear | Attack | Ten Seconds to Hell | Without Warning | Arrowhead | Torture Garden | God's Gun | Halls of Montezuma | Hawk the Slayer | Panic in the Streets | The Desperados | Chato's Land | The Swan Princess | The Big Knife | Bram Stoker's Dr",
+    "em": 0.0,
+    "f1": 0.9333333333333333,
+    "latency_ms": 3560.85
+  },
+  {
+    "question": "what films does [Baby Peggy] appear in",
+    "gold": [
+      "Captain January"
+    ],
+    "pred": [
+      "Captain January"
+    ],
+    "raw_output": "Captain January",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 174.27
+  },
+  {
+    "question": "what does [Mark Dacascos] act in",
+    "gold": [
+      "Double Dragon",
+      "Only the Strong",
+      "DNA",
+      "American Samurai",
+      "Scorcher"
+    ],
+    "pred": [
+      "DNA",
+      "Double Dragon",
+      "American Samurai",
+      "Scorcher",
+      "Only the Strong"
+    ],
+    "raw_output": "DNA | Double Dragon | American Samurai | Scorcher | Only the Strong",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 855.24
+  },
+  {
+    "question": "what movies was [Roger Perry] an actor in",
+    "gold": [
+      "The Thing with Two Heads"
+    ],
+    "pred": [
+      "The Thing with Two Heads"
+    ],
+    "raw_output": "The Thing with Two Heads",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 321.67
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "model": "checkpoints/qwen2.5-3b-graphrag-hybrid",
+  "mode": "graphrag",
+  "n_samples": 500,
+  "test_1hop/EM": 0.83,
+  "test_1hop/F1": 0.9508,
+  "test_1hop/latency_ms": 641.28,
+  "test_2hop/EM": 0.474,
+  "test_2hop/F1": 0.6906,
+  "test_2hop/latency_ms": 609.54,
+  "test_3hop/EM": 0.07,
+  "test_3hop/F1": 0.2125,
+  "test_3hop/latency_ms": 510.68,
+  "overall/EM": 0.458,
+  "overall/F1": 0.618
+}

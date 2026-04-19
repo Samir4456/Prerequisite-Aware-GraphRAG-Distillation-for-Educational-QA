@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "mode": "graphrag",
+  "n_samples": 200,
+  "test_1hop/EM": 0.375,
+  "test_1hop/F1": 0.7496,
+  "test_1hop/latency_ms": 585.55,
+  "test_2hop/EM": 0.34,
+  "test_2hop/F1": 0.6067,
+  "test_2hop/latency_ms": 801.38,
+  "test_3hop/EM": 0.025,
+  "test_3hop/F1": 0.1799,
+  "test_3hop/latency_ms": 981.16,
+  "overall/EM": 0.2467,
+  "overall/F1": 0.5121
+}

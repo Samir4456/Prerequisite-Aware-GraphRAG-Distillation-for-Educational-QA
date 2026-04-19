@@ -1,0 +1,39 @@
+[
+  {
+    "question": "what does [Grégoire Colin] appear in",
+    "gold": [
+      "Before the Rain"
+    ],
+    "pred": [
+      "Before the Rain"
+    ],
+    "raw_output": "Before the Rain",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 426.18
+  },
+  {
+    "question": "[Joe Thomas] appears in which movies",
+    "gold": [
+      "The Inbetweeners Movie",
+      "The Inbetweeners 2"
+    ],
+    "pred": [
+      "The Inbetweeners Movie",
+      "The Inbetweeners 2"
+    ],
+    "raw_output": "The Inbetweeners Movie | The Inbetweeners 2",
+    "em": 1.0,
+    "f1": 1.0,
+    "latency_ms": 410.34
+  },
+  {
+    "question": "what films did [Michelle Trachtenberg] star in",
+    "gold": [
+      "Inspector Gadget",
+      "Black Christmas",
+      "Ice Princess",
+      "Harriet the Spy",
+      "The Scribbler"
+    ],
+    "pred": 

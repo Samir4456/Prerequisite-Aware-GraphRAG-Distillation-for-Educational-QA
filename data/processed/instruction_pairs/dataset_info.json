@@ -1,0 +1,29 @@
+{
+  "graphrag_gold": {
+    "file_name": "train_graphrag_gold.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "rag_gold": {
+    "file_name": "train_rag_gold.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "graphrag_hybrid": {
+    "file_name": "train_graphrag_hybrid.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  }
+}

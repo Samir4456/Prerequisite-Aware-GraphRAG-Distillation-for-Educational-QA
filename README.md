@@ -1,234 +1,295 @@
-# Pocket GraphRAG — Stage 2 & 3: RAG + GraphRAG Pipeline
+# Pocket GraphRAG
+### Prerequisite-Aware GraphRAG Distillation for Educational QA
 
-## Branch: `post-baseline`
-
-This branch builds on the `baseline` branch and adds FAISS semantic retrieval, N-hop graph traversal, GPT-4o teacher generation, and the instruction set that will be used to fine-tune the Qwen2.5 student model.
+> Fine-tuning small Qwen2.5 models (0.5B–3B) to perform multi-hop knowledge graph QA using GraphRAG, evaluated on MetaQA across 1-hop, 2-hop, and 3-hop reasoning tasks.
 
 ---
 
-## What this branch adds
+## Overview
+
+This project investigates whether **small language models (SLMs)** can match large teacher models on multi-hop knowledge graph question answering when equipped with **graph-augmented retrieval (GraphRAG)** and **instruction fine-tuning**.
+
+We compare:
+- **RAG only** — flat FAISS retrieval over serialized KB triples
+- **GraphRAG** — explicit KG traversal + FAISS retrieval combined
+- **Gold SFT** — fine-tuned on MetaQA gold answers
+- **Hybrid distillation** — fine-tuned on teacher-generated evidence chains + gold answers
+
+Across three student model sizes: **Qwen2.5-0.5B**, **Qwen2.5-1.5B**, **Qwen2.5-3B**
+
+---
+
+## Key Findings
+
+### GraphRAG vs RAG — 2-hop is the headline result
+
+| Model | 1-hop EM | 2-hop EM | 3-hop EM | Overall EM |
+|-------|---------|---------|---------|-----------|
+| DistilBERT baseline | 0.449 | 0.649 | 0.059 | — |
+| Qwen2.5-1.5B RAG only | 0.720 | 0.025 | 0.020 | 0.255 |
+| Qwen2.5-1.5B GraphRAG Gold | 0.778 | 0.544 | 0.054 | 0.459 |
+| Qwen2.5-3B GraphRAG Gold | **0.832** | **0.586** | 0.050 | **0.489** |
+| Qwen2.5-3B GraphRAG Hybrid | 0.830 | 0.474 | **0.070** | 0.458 |
+
+**RAG collapses on 2-hop (EM = 0.025)**. Without the knowledge graph, the model cannot connect entities across reasoning steps. GraphRAG maintains 0.544 on 2-hop — a **21x improvement** over RAG only.
+
+### Model Size Scaling (GraphRAG Gold)
+
+| Size | 1-hop EM | 2-hop EM | 3-hop EM | Overall EM |
+|------|---------|---------|---------|-----------|
+| 0.5B | 0.756 | 0.478 | 0.056 | 0.430 |
+| 1.5B | 0.778 | 0.544 | 0.054 | 0.459 |
+| 3B   | 0.832 | 0.586 | 0.050 | 0.489 |
+
+### Fine-tuning vs Base Model
+
+| Size | Type | 1-hop EM | 2-hop EM | 3-hop EM |
+|------|------|---------|---------|---------|
+| 0.5B | Base | 0.000 | 0.040 | 0.020 |
+| 0.5B | Gold SFT | 0.756 | 0.478 | 0.056 |
+| 1.5B | Base | 0.175 | 0.195 | 0.040 |
+| 1.5B | Gold SFT | 0.778 | 0.544 | 0.054 |
+| 3B | Base | 0.375 | 0.340 | 0.025 |
+| 3B | Gold SFT | 0.832 | 0.586 | 0.050 |
+
+---
+
+## Pipeline
+
+```
+Question with [bracketed entity]
+        │
+        ▼
+Entity Extraction
+        │
+   ┌────┴────┐
+   ▼         ▼
+KG Traversal  FAISS Retrieval
+(N-hop)      (top-K chunks)
+   │         │
+   └────┬────┘
+        ▼
+  Context Prompt
+  (graph triples + retrieved text)
+        │
+        ▼
+  Qwen2.5 Student
+        │
+        ▼
+    Answer
+```
+
+---
+
+## Dataset
+
+**MetaQA** — Movie knowledge graph QA benchmark
+
+| Split | 1-hop | 2-hop | 3-hop |
+|-------|-------|-------|-------|
+| Train | 96,106 | 118,980 | 114,196 |
+| Dev | 9,992 | 14,872 | 14,274 |
+| Test | 9,947 | 14,872 | 14,274 |
+
+- KB: **134,741 triples** | **43,234 entities** | **9 relation types**
+- Questions contain bracketed topic entities: `who directed [Inception]`
+- Answers are pipe-separated: `Christopher Nolan`
+
+---
+
+## Repository Structure
 
 ```
 pocket-graphrag/
+├── app.py                              # Streamlit demo
+├── run_all.py                          # Master training + evaluation script
+├── results_charts.ipynb               # Jupyter notebook for charts
+├── dataset_info.json                   # LlamaFactory dataset registry
+├── requirements.txt
+├── configs/
+│   ├── lora_0.5b_graphrag_gold.yaml
+│   ├── lora_0.5b_graphrag_hybrid.yaml
+│   ├── lora_1.5b_graphrag_gold.yaml
+│   ├── lora_1.5b_graphrag_hybrid.yaml
+│   ├── lora_1.5b_rag_gold.yaml
+│   ├── lora_3b_graphrag_gold.yaml
+│   └── lora_3b_graphrag_hybrid.yaml
 ├── data/
-│   ├── faiss/
-│   │   ├── index.bin               # FAISS vector index (auto-generated)
-│   │   └── corpus.pkl              # KB triple corpus (auto-generated)
-│   └── processed/
-│       ├── cache/                  # Tokenized dataset cache (from baseline)
-│       ├── teacher_outputs/        # GPT-4o generated answers (checkpointed)
-│       └── train_instruction.json  # Final instruction set for Qwen2.5
-├── src/
-│   ├── retrieval/
-│   │   ├── embedder.py             # sentence-transformers wrapper
-│   │   ├── faiss_index.py          # Build and query FAISS index
-│   │   ├── build_index.py          # One-time index build script
-│   │   └── retrieve.py             # Full RAG pipeline (entity → graph + FAISS → prompt)
-│   ├── graph/
-│   │   ├── entity_extract.py       # Extract [bracketed entity] from question
-│   │   ├── subgraph.py             # N-hop graph traversal
-│   │   └── serialize.py            # Triples → text for prompts
-│   └── teacher/
-│       ├── generate.py             # Call GPT-4o, checkpoint every 10 examples
-│       └── format_pairs.py         # Convert teacher outputs → instruction JSON
-└── README.md
+│   ├── raw/                            # MetaQA (download separately)
+│   ├── faiss/                          # Auto-generated
+│   └── processed/instruction_pairs/   # Generated JSON datasets
+├── checkpoints/                        # Saved model weights
+├── results/                            # Evaluation JSON + charts
+└── src/
+    ├── data/load_kb.py  load_metaqa.py  eda_inspect.py
+    ├── graph/entity_extract.py  subgraph.py  serialize.py
+    ├── retrieval/embedder.py  faiss_index.py  build_index.py
+    ├── models/baseline.py
+    ├── teacher/build_instruction_set.py
+    └── evaluation/evaluate_student.py  compile_results.py
 ```
 
 ---
 
-## Setup
+## Quickstart
 
-Make sure you have everything from the `baseline` branch set up first, then:
-
-```bash
-pip install sentence-transformers faiss-cpu openai
-```
-
----
-
-## Stage 2 — Build the FAISS Index
-
-The retrieval corpus is every triple in `kb.txt` serialised to a sentence:
-```
-The Matrix directed_by Wachowski Sisters
-The Matrix has_genre Sci-Fi
-Tom Hanks starred_actors Cast Away
-...
-```
-134,741 triples → 133,582 unique sentences (after deduplication) → encoded into 384-dim vectors → stored in FAISS flat index.
+### 1. Environment setup
 
 ```bash
-# Run once — saves index to data/faiss/
+python -m venv .venv
+source .venv/bin/activate        # Linux/Mac
+# .venv\Scripts\Activate.ps1    # Windows
+
+pip install "numpy<2" faiss-cpu==1.7.4
+pip install transformers==4.35.0 datasets accelerate wandb peft
+pip install sentence-transformers llamafactory openai streamlit pandas tqdm matplotlib
+```
+
+**PyTorch — choose for your GPU:**
+```bash
+# RTX 5070/5080/5090 (Blackwell sm_120) — nightly required
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+
+# RTX 3090/4090/A6000
+pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+```
+
+### 2. Download MetaQA
+
+```
+https://drive.google.com/drive/folders/0B-36Uca2AvwhTWVFSUZqRXVtbUE
+```
+
+Arrange as:
+```
+data/raw/kb.txt
+data/raw/1hop/qa_train.txt  qa_dev.txt  qa_test.txt
+data/raw/2hop/  (same)
+data/raw/3hop/  (same)
+```
+
+> Rename folders from `1-hop` to `1hop` after download.
+
+### 3. Build FAISS index (once)
+
+```bash
 python src/retrieval/build_index.py --kb_path data/raw/kb.txt
 ```
 
-Takes ~2-3 minutes. Index is saved to disk and reloaded instantly on subsequent runs.
+### 4. Build instruction datasets
 
-**Test retrieval:**
 ```bash
-python src/retrieval/retrieve.py
+# Gold GraphRAG — free, no API
+python src/teacher/build_instruction_set.py \
+    --mode graphrag --label_source gold \
+    --samples_per_hop 2000 --seed 42 \
+    --output_path data/processed/instruction_pairs/train_graphrag_gold.json
+
+# Hybrid teacher evidence — DeepSeek (~$0.05 per 1500 examples)
+export DEEPSEEK_API_KEY="your-key"
+python src/teacher/build_instruction_set.py \
+    --mode graphrag --label_source hybrid \
+    --samples_per_hop 2000 --seed 42 \
+    --teacher_provider deepseek --teacher_model deepseek-chat \
+    --output_path data/processed/instruction_pairs/train_graphrag_hybrid.json
 ```
 
-Expected output for `"Who directed The Matrix?"`:
+### 5. Train all models overnight
+
+```bash
+python run_all.py --experiments gold hybrid --sizes 0.5b 1.5b 3b
 ```
-Entity: The Matrix
-Subgraph: The Matrix → directed_by → Wachowski Sisters
-Retrieved: The Matrix directed_by Wachowski Sisters
+
+### 6. Evaluate
+
+```bash
+python src/evaluation/evaluate_student.py \
+    --model_path checkpoints/qwen2.5-3b-graphrag-gold \
+    --mode graphrag --run_name qwen2.5-3b-graphrag-gold --n_samples 500
+```
+
+### 7. Compile results
+
+```bash
+python src/evaluation/compile_results.py --save_csv results/comparison.csv
+```
+
+### 8. Run demo
+
+```bash
+streamlit run app.py
 ```
 
 ---
 
-## How the retrieval pipeline works
+## Training Configuration
 
-For each question, the pipeline runs 3 steps in parallel:
-
-```
-Question: "What movies did [Tom Hanks] star in?"
-        ↓
-1. Entity extraction    →  topic_entity = "Tom Hanks"
-        ↓
-2. Graph traversal      →  subgraph: {Cast Away → starred_actors → Tom Hanks, ...}
-        ↓
-3. FAISS retrieval      →  top-5 KB sentences most similar to the question
-        ↓
-4. Build prompt         →  question + subgraph + retrieved chunks → GPT-4o
-```
-
-**Three retrieval modes** (controlled by `mode` argument):
-
-| Mode | Uses graph | Uses FAISS | Used for |
-|------|-----------|-----------|---------|
-| `rag` | No | Yes | Stage 2 ablation |
-| `graph` | Yes | No | Stage 3 ablation |
-| `graphrag` | Yes | Yes | Stage 3 (default) |
+| Parameter | 0.5B | 1.5B | 3B |
+|-----------|------|------|----|
+| `lora_rank` | 16 | 16 | 16 |
+| `lora_alpha` | 32 | 32 | 32 |
+| `batch_size` | 2 | 1 | 1 |
+| `grad_accum` | 8 | 16 | 16 |
+| `cutoff_len` | 512 | 512 | 512 |
+| `epochs` | 3 | 3 | 3 |
+| `lr` | 2e-4 | 2e-4 | 2e-4 |
 
 ---
 
-## Stage 3 — GPT-4o Teacher Generation
+## Instruction Set Format
 
-The teacher model (GPT-4o) receives a structured prompt containing the question, the knowledge graph subgraph, and the top-K retrieved context chunks. It generates a clean, accurate answer that becomes the training target for the student model.
-
-**What GPT-4o receives:**
-```
-You are a question answering assistant. Answer the question based on the
-provided context. Be concise — give only the answer entity or entities,
-separated by | if there are multiple.
-
-Knowledge Graph:
-Cast Away → starred_actors → Tom Hanks
-Philadelphia → starred_actors → Tom Hanks
-Forrest Gump → starred_actors → Tom Hanks
-
-Retrieved Context:
-- Cast Away starred_actors Tom Hanks
-- Philadelphia starred_actors Tom Hanks
-
-Question: What movies did Tom Hanks star in?
-
-Answer:
-```
-
-**GPT-4o returns:** `Cast Away | Philadelphia | Forrest Gump`
-
-This (prompt → answer) pair is saved as an instruction tuple:
+**Gold label** (free, MetaQA gold answer):
 ```json
 {
-  "instruction": "Given the context and knowledge graph, answer the question.",
-  "input": "Knowledge Graph:\n...\n\nRetrieved Context:\n...\n\nQuestion: ...",
-  "output": "Cast Away | Philadelphia | Forrest Gump"
+  "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+  "input": "Knowledge Graph:\nInception -> directed_by -> Christopher Nolan\n\nRetrieved Context:\n- Inception directed_by Christopher Nolan\n\nQuestion: who directed Inception",
+  "output": "Christopher Nolan"
 }
 ```
 
-**Run teacher generation:**
-```bash
-# Set your OpenAI API key first
-export OPENAI_API_KEY=sk-...       # Linux/Mac
-$env:OPENAI_API_KEY="sk-..."       # Windows PowerShell
-
-python src/teacher/generate.py \
-    --data_dir data/raw \
-    --kb_path data/raw/kb.txt \
-    --output_path data/processed/teacher_outputs/outputs.json \
-    --max_samples 200 \
-    --hops 1
-```
-
-**Cost estimate:**
-
-| Samples | Estimated cost |
-|---------|---------------|
-| 200 (pipeline test) | ~$1 |
-| 1,500 (full training) | ~$7-10 |
-| Ablations (graph only, RAG only, K values) | ~$5 |
-| **Total** | **~$15-20** |
-
-Outputs are checkpointed every 10 examples so generation can be resumed if interrupted.
-
----
-
-## Instruction set format
-
-The final instruction set saved to `data/processed/train_instruction.json` follows the LlamaFactory format:
-
+**Hybrid label** (teacher evidence + gold answer):
 ```json
-[
-  {
-    "instruction": "Given the context and knowledge graph, answer the question.",
-    "input": "Knowledge Graph:\nThe Matrix → directed_by → Wachowski Sisters\n\nRetrieved Context:\n- The Matrix directed_by Wachowski Sisters\n\nQuestion: Who directed The Matrix?",
-    "output": "Wachowski Sisters"
-  },
-  ...
-]
+{
+  "instruction": "Answer the question using the retrieved context and knowledge graph. First list the supporting evidence, then give the final answer.",
+  "input": "Knowledge Graph:\nInception -> directed_by -> Christopher Nolan\n\nQuestion: who directed Inception",
+  "output": "Supporting evidence:\n- Inception -> directed_by -> Christopher Nolan\n\nFinal answer: Christopher Nolan"
+}
 ```
 
-Each entry captures:
-- The full graph + retrieval context the model saw
-- The gold-quality answer GPT-4o produced
-- The reasoning style of a large teacher model
+---
 
-This is the dataset used to fine-tune Qwen2.5 via LoRA in Stage 4.
+## Reproducibility
+
+- All experiments use `--seed 42`
+- Same seed + same MetaQA files = identical instruction pairs for all team members
+- Teacher API outputs are not deterministic — generate once, share the JSON file
 
 ---
 
-## Ablation experiments (this branch)
+## WandB
 
-| Experiment | What changes | Purpose |
-|-----------|-------------|---------|
-| RAG only | No graph, FAISS only | Measure value of graph |
-| Graph only | No FAISS, graph only | Measure value of retrieval |
-| RAG + Graph | Both (default) | Full GraphRAG |
-| K=3,5,10,15 | Number of retrieved chunks | Find optimal K |
+All training and evaluation runs logged to:
+```
+https://wandb.ai/st125989-asian-institute-of-technology/pocket-graphrag
+```
 
 ---
 
-## Stage 2 & 3 expected results
+## Troubleshooting
 
-These are targets — actual numbers will be logged to WandB.
-
-| Stage | Model | 1-hop EM | 2-hop EM | 3-hop EM | Latency |
-|-------|-------|--------:|--------:|--------:|--------:|
-| 1 — Baseline | DistilBERT | 0.449 | 0.649 | 0.059 | 5ms |
-| 2 — RAG | GPT-4o | ~0.85 | ~0.70 | ~0.50 | ~1000ms |
-| 3 — GraphRAG | GPT-4o | ~0.90 | ~0.80 | ~0.70 | ~1500ms |
-| 4 — Student | Qwen2.5-1.5B | ~0.85 | ~0.75 | ~0.65 | ~100ms |
-
-The key result is Stage 4 — a tiny local model matching GPT-4o quality at 15x lower latency and zero API cost.
+| Error | Fix |
+|-------|-----|
+| `module 'inspect' has no attribute` | Rename `src/data/inspect.py` → `eda_inspect.py` |
+| `faiss import error` | `pip install "numpy<2" faiss-cpu==1.7.4` |
+| `CUDA out of memory` | Set `cutoff_len: 384` in yaml |
+| `dataset_info.json not found` | Copy to `data/processed/instruction_pairs/` |
+| `UnicodeEncodeError: charmap` | Add `encoding='utf-8'` to all `open()` calls |
+| RTX 5070 not compatible | Use PyTorch nightly cu128 |
 
 ---
 
-## Tech stack (Stage 2 & 3)
+## Team
 
-| Component | Tool |
-|-----------|------|
-| Embeddings | `sentence-transformers/all-MiniLM-L6-v2` |
-| Vector retrieval | FAISS flat index (IndexFlatIP, cosine similarity) |
-| Graph traversal | Bidirectional adjacency dict (custom) |
-| Teacher model | GPT-4o via OpenAI API |
-| Prompt format | LlamaFactory instruction format |
-| Experiment tracking | Weights & Biases |
-
----
-
-## Next stage
-
-See branch `student-training` for Qwen2.5 LoRA fine-tuning via LlamaFactory.
+Asian Institute of Technology
+WandB: [pocket-graphrag](https://wandb.ai/st125989-asian-institute-of-technology/pocket-graphrag)
+GitHub: [Samir4456/Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA](https://github.com/Samir4456/Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA)

@@ -1,0 +1,48 @@
+### Model
+model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+
+### Method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: q_proj,v_proj,k_proj,o_proj
+
+### Dataset
+dataset: graphrag_hybrid
+dataset_dir: data/processed/instruction_pairs
+template: qwen
+cutoff_len: 512
+max_samples: 6000
+overwrite_cache: true
+preprocessing_num_workers: 4
+
+### Output
+output_dir: checkpoints/qwen2.5-1.5b-graphrag-hybrid
+logging_steps: 10
+save_steps: 100
+save_total_limit: 2
+plot_loss: true
+overwrite_output_dir: true
+
+### Train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+learning_rate: 2.0e-4
+num_train_epochs: 3
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+fp16: true
+ddp_timeout: 180000000
+
+### Eval
+val_size: 0.1
+per_device_eval_batch_size: 2
+eval_strategy: steps
+eval_steps: 100
+
+### Logging
+report_to: wandb
+run_name: qwen2.5-1.5b-graphrag-hybrid

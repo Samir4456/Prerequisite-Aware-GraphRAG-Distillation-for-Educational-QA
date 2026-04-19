@@ -7,18 +7,43 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
-# venv
+.venv/
 venv/
 .env/
 
-# data
-data/
+# ── Data (too large for git) ──────────────────────────────────────────────────
+data/raw/
+data/faiss/
+data/processed/cache/
 *.pkl
+*.bin
 
-# models
+# Keep instruction pairs JSON (small, needed for reproduction)
+!data/processed/instruction_pairs/
+
+# ── Models and checkpoints ────────────────────────────────────────────────────
 checkpoints/
 *.safetensors
+*.pt
+*.pth
 
-# cache
-cache/
+# ── WandB ─────────────────────────────────────────────────────────────────────
+wandb/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+run_all.log
+
+# ── OS and editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.tmp
+*.bak

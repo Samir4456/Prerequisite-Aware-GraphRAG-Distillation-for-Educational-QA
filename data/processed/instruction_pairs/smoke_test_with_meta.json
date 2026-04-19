@@ -1,0 +1,602 @@
+[
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nPatch Adams → directed_by → Tom Shadyac\nPatch Adams → written_by → Maureen Mylander\nPatch Adams → written_by → Patch Adams\nPatch Adams → starred_actors → Robin Williams\nPatch Adams → release_year → 1998\nPatch Adams → has_genre → Drama\nPatch Adams → has_genre → Comedy\nPatch Adams → has_imdb_rating → good\nPatch Adams → has_tags → drama\nPatch Adams → has_tags → robin williams\nPatch Adams → has_tags → tom shadyac\nWorld's Greatest Dad → starred_actors → Robin Williams\nJakob the Liar → starred_actors → Robin Williams\nThe Survivors → starred_actors → Robin Williams\nHouse of D → starred_actors → Robin Williams\nFlubber → starred_actors → Robin Williams\nMan of the Year → starred_actors → Robin Williams\nMoscow on the Hudson → starred_actors → Robin Williams\nThe World According to Garp → starred_actors → Robin Williams\nJumanji → starred_actors → Robin Williams\nPopeye → starred_actors → Robin Williams\nToys → starred_actors → Robin Williams\nThe Big White → starred_actors → Robin Williams\nOne Hour Photo → starred_actors → Robin Williams\nOld Dogs → starred_actors → Robin Williams\nLicense to Wed → starred_actors → Robin Williams\nRV → starred_actors → Robin Williams\nThe Birdcage → starred_actors → Robin Williams\nAladdin → starred_actors → Robin Williams\nClub Paradise → starred_actors → Robin Williams\nThe Angriest Man in Brooklyn → starred_actors → Robin Williams\nSeize the Day → starred_actors → Robin Williams\nDead Poets Society → starred_actors → Robin Williams\nHook → starred_actors → Robin Williams\nAwakenings → starred_actors → Robin Williams\nWhat Dreams May Come → starred_actors → Robin Williams\nCadillac Man → starred_actors → Robin Williams\nBeing Human → starred_actors → Robin Williams\nThe Final Cut → starred_actors → Robin Williams\nThe Face of Love → starred_actors → Robin Williams\nGood Morning, Vietnam → starred_actors → Robin Williams\nBicentennial Man → starred_actors → Robin Williams\nMrs. Doubtfire → starred_actors → Robin Williams\nGood Will Hunting → starred_actors → Robin Williams\nDeath to Smoochy → starred_actors → Robin Williams\nJack → starred_actors → Robin Williams\nFathers' Day → starred_actors → Robin Williams\nThe Best of Times → starred_actors → Robin Williams\n\nRetrieved Context:\n- Patch Adams has_imdb_rating good\n- Patch Adams directed_by Tom Shadyac\n- Patch Adams starred_actors Robin Williams\n- Patch Adams has_genre Comedy\n- Patch Adams has_genre Drama\n\nQuestion: who directed the film Patch Adams",
+    "output": "Tom Shadyac",
+    "metadata": {
+      "question": "who directed the film [Patch Adams]",
+      "gold_answers": [
+        "Tom Shadyac"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nLove Is Strange → directed_by → Ira Sachs\nLove Is Strange → written_by → Ira Sachs\nLove Is Strange → release_year → 2014\nLove Is Strange → has_genre → Drama\nLove Is Strange → has_tags → ira sachs\nForty Shades of Blue → directed_by → Ira Sachs\nForty Shades of Blue → written_by → Ira Sachs\nMarried Life → directed_by → Ira Sachs\nMarried Life → written_by → Ira Sachs\nKeep the Lights On → directed_by → Ira Sachs\nKeep the Lights On → written_by → Ira Sachs\nThe Raid 2 → release_year → 2014\nGod's Pocket → release_year → 2014\nBack in the Day → release_year → 2014\nThe Hundred-Foot Journey → release_year → 2014\nBoyhood → release_year → 2014\nBoyhood → has_tags → 2014\nThink Like a Man Too → release_year → 2014\nHeaven Is for Real → release_year → 2014\nThe Amazing Spider-Man 2 → release_year → 2014\nThe Signal → release_year → 2014\nMitt → release_year → 2014\nStill Alice → release_year → 2014\nSalting the Battlefield → release_year → 2014\nAnd So It Goes → release_year → 2014\nThe Two Faces of January → release_year → 2014\nFury → release_year → 2014\nThe Salvation → release_year → 2014\nThe Pyramid → release_year → 2014\nLust for Love → release_year → 2014\nAlien Abduction → release_year → 2014\nThe Drop → release_year → 2014\nObvious Child → release_year → 2014\nThe Giver → release_year → 2014\nThe Overnighters → release_year → 2014\nThe Case Against 8 → release_year → 2014\nEden → release_year → 2014\nThe Boxtrolls → release_year → 2014\nMuppets Most Wanted → release_year → 2014\nFiston → release_year → 2014\nAbout Last Night → release_year → 2014\nRoboCop → release_year → 2014\nAction Jackson → release_year → 2014\nRage → release_year → 2014\nThe Homesman → release_year → 2014\nChef → release_year → 2014\nChef → has_tags → 2014\nJimmy's Hall → release_year → 2014\n\nRetrieved Context:\n- Love Is Strange has_genre Drama\n- Love Is Strange release_year 2014\n- Love Is Strange directed_by Ira Sachs\n- Love Is Strange written_by Ira Sachs\n- Love Is Strange has_tags ira sachs\n\nQuestion: what terms are applicable to Love Is Strange",
+    "output": "ira sachs",
+    "metadata": {
+      "question": "what terms are applicable to [Love Is Strange]",
+      "gold_answers": [
+        "ira sachs"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nRan → has_tags → shakespearean\nRan → directed_by → Akira Kurosawa\nRan → written_by → Akira Kurosawa\nRan → starred_actors → Tatsuya Nakadai\nRan → release_year → 1985\nRan → in_language → Japanese\nRan → has_genre → War\nRan → has_tags → war\nRan → has_tags → japan\nRan → has_tags → shakespeare\nRan → has_tags → akira kurosawa\nRan → has_tags → tragedy\nRan → has_tags → kurosawa\nRan → has_tags → tatsuya nakadai\nRan → has_tags → powerful\n\nRetrieved Context:\n- Shakespeare in Love has_genre Drama\n- Shakespeare in Love has_genre Comedy\n- Shakespeare in Love directed_by John Madden\n- Romeo and Juliet directed_by George Cukor\n- The Tempest has_genre Comedy\n\nQuestion: what movies are about shakespearean",
+    "output": "Ran",
+    "metadata": {
+      "question": "what movies are about [shakespearean]",
+      "gold_answers": [
+        "Ran"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nThe Star Maker → directed_by → Giuseppe Tornatore\nThe Star Maker → written_by → Giuseppe Tornatore\nThe Star Maker → starred_actors → Sergio Castellitto\nThe Star Maker → release_year → 1995\nThe Star Maker → in_language → Italian\nThe Star Maker → has_tags → giuseppe tornatore\nA Pure Formality → has_tags → giuseppe tornatore\nThe Unknown Woman → has_tags → giuseppe tornatore\nMalèna → has_tags → giuseppe tornatore\nEverybody's Fine → has_tags → giuseppe tornatore\nThe Legend of 1900 → has_tags → giuseppe tornatore\nCinema Paradiso → has_tags → giuseppe tornatore\nThe Best Offer → has_tags → giuseppe tornatore\nA Pure Formality → directed_by → Giuseppe Tornatore\nA Pure Formality → written_by → Giuseppe Tornatore\nThe Unknown Woman → directed_by → Giuseppe Tornatore\nThe Unknown Woman → written_by → Giuseppe Tornatore\nMalèna → directed_by → Giuseppe Tornatore\nMalèna → written_by → Giuseppe Tornatore\nEverybody's Fine → directed_by → Giuseppe Tornatore\nEverybody's Fine → written_by → Giuseppe Tornatore\nThe Legend of 1900 → directed_by → Giuseppe Tornatore\nThe Legend of 1900 → written_by → Giuseppe Tornatore\nCinema Paradiso → directed_by → Giuseppe Tornatore\nCinema Paradiso → written_by → Giuseppe Tornatore\nBaarìa → directed_by → Giuseppe Tornatore\nBaarìa → written_by → Giuseppe Tornatore\nThe Best Offer → directed_by → Giuseppe Tornatore\nThe Best Offer → written_by → Giuseppe Tornatore\nHuman Capital → in_language → Italian\nUnfair Competition → in_language → Italian\nGood Morning, Night → in_language → Italian\nOedipus Rex → in_language → Italian\nRocco and His Brothers → in_language → Italian\nStarcrash → in_language → Italian\nI giorni contati → in_language → Italian\nSeven Dollars on the Red → in_language → Italian\nThe Tree of Wooden Clogs → in_language → Italian\nContempt → in_language → Italian\nThe Rose Tattoo → in_language → Italian\nFun Is Beautiful → in_language → Italian\nBicycle Thieves → in_language → Italian\nThe First Beautiful Thing → in_language → Italian\nDeath in Venice → in_language → Italian\nThe Canterbury Tales → in_language → Italian\nBread and Tulips → in_language → Italian\n\nRetrieved Context:\n- The Star Maker directed_by Giuseppe Tornatore\n- The Star Maker starred_actors Sergio Castellitto\n- A Star Is Born directed_by William A. Wellman\n- The Star Maker release_year 1995\n- A Star Is Born directed_by George Cukor\n\nQuestion: who is the writer of the film The Star Maker",
+    "output": "Giuseppe Tornatore",
+    "metadata": {
+      "question": "who is the writer of the film [The Star Maker]",
+      "gold_answers": [
+        "Giuseppe Tornatore"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nLegionnaire → starred_actors → Steven Berkoff\nLegionnaire → starred_actors → Nicholas Farrell\nLegionnaire → release_year → 1998\nUnder the Cherry Moon → starred_actors → Steven Berkoff\nMighty Joe Young → release_year → 1998\nSometimes They Come Back... for More → release_year → 1998\nSmall Soldiers → release_year → 1998\nThe Pentagon Wars → release_year → 1998\nFear and Loathing in Las Vegas → release_year → 1998\nSamurai Fiction → release_year → 1998\nIn God's Hands → release_year → 1998\nThe Players Club → release_year → 1998\nTwilight → release_year → 1998\nThe Barber of Siberia → release_year → 1998\nJack Frost → release_year → 1998\nThe Gingerbread Man → release_year → 1998\nHead On → release_year → 1998\nKnock Off → release_year → 1998\nNext Stop Wonderland → release_year → 1998\nRide → release_year → 1998\nThe Life and Times of Hank Greenberg → release_year → 1998\nGia → release_year → 1998\nAlmost Heroes → release_year → 1998\nTitanic Town → release_year → 1998\nWoo → release_year → 1998\nPatch Adams → release_year → 1998\nCousin Bette → release_year → 1998\nAmong Giants → release_year → 1998\nDesperate Measures → release_year → 1998\nPecker → release_year → 1998\nSlums of Beverly Hills → release_year → 1998\nBesieged → release_year → 1998\nUrban Legend → release_year → 1998\nThe Object of My Affection → release_year → 1998\nAlice and Martin → release_year → 1998\nLovers of the Arctic Circle → release_year → 1998\nThe Last Broadcast → release_year → 1998\nHow Stella Got Her Groove Back → release_year → 1998\nFinding North → release_year → 1998\nU.S. Marshals → release_year → 1998\nThose Who Love Me Can Take the Train → release_year → 1998\nDog Park → release_year → 1998\nThe Mask of Zorro → release_year → 1998\nThe Love Letter → release_year → 1998\nA Perfect Murder → release_year → 1998\nSome Girl → release_year → 1998\nA Bright Shining Lie → release_year → 1998\nThe Book of Life → release_year → 1998\n\nRetrieved Context:\n- Legionnaire release_year 1998\n- The Last Legion release_year 2007\n- Legion release_year 2010\n- Black Legion release_year 1937\n- Legion directed_by Scott Stewart\n\nQuestion: what was the release year of Legionnaire",
+    "output": "1998",
+    "metadata": {
+      "question": "what was the release year of [Legionnaire]",
+      "gold_answers": [
+        "1998"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nMutant Chronicles → directed_by → Simon Hunter\nMutant Chronicles → starred_actors → Ron Perlman\nMutant Chronicles → starred_actors → Thomas Jane\nMutant Chronicles → release_year → 2008\nMutant Chronicles → has_genre → Horror\nMutant Chronicles → has_tags → r\nMutant Chronicles → has_tags → ron perlman\nDeep Blue Sea → starred_actors → Thomas Jane\nThe Mist → starred_actors → Thomas Jane\nDreamcatcher → starred_actors → Thomas Jane\nUnder Suspicion → starred_actors → Thomas Jane\nVice → starred_actors → Thomas Jane\nThe Last Time I Committed Suicide → starred_actors → Thomas Jane\n61* → starred_actors → Thomas Jane\nKillshot → starred_actors → Thomas Jane\nStander → starred_actors → Thomas Jane\nKiller Movie → release_year → 2008\nMartyrs → release_year → 2008\nMiss Pettigrew Lives for a Day → release_year → 2008\nBlindness → release_year → 2008\nTwo Lovers → release_year → 2008\nVice → release_year → 2008\nFilth and Wisdom → release_year → 2008\nDante 01 → release_year → 2008\nInvoluntary → release_year → 2008\nThe End of Poverty? → release_year → 2008\nI've Loved You So Long → release_year → 2008\nThe Guitar → release_year → 2008\nCape No. 7 → release_year → 2008\nMy Sassy Girl → release_year → 2008\nMad Money → release_year → 2008\nMamma Mia! → release_year → 2008\nFour Nights with Anna → release_year → 2008\nFelon → release_year → 2008\nDance of the Dead → release_year → 2008\nTranssiberian → release_year → 2008\nRachel Getting Married → release_year → 2008\nThe Country Teacher → release_year → 2008\nThe Women → release_year → 2008\nMid-August Lunch → release_year → 2008\nShuttle → release_year → 2008\nThe House Bunny → release_year → 2008\nMeet the Spartans → release_year → 2008\nDefiance → release_year → 2008\nAn Empress and the Warriors → release_year → 2008\nWhere in the World Is Osama Bin Laden? → release_year → 2008\n33 Scenes from Life → release_year → 2008\nTortured → release_year → 2008\nDiminished Capacity → release_year → 2008\n\nRetrieved Context:\n- Mutant Chronicles release_year 2008\n- Mutant Chronicles has_genre Horror\n- Mutant Chronicles directed_by Simon Hunter\n- Mutants release_year 2009\n- Mutant Chronicles starred_actors Thomas Jane\n\nQuestion: the movie Mutant Chronicles, when was it released",
+    "output": "2008",
+    "metadata": {
+      "question": "the movie [Mutant Chronicles], when was it released",
+      "gold_answers": [
+        "2008"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nQuinceañera → directed_by → Richard Glatzer\nQuinceañera → directed_by → Wash Westmoreland\nQuinceañera → written_by → Wash Westmoreland\nQuinceañera → written_by → Richard Glatzer\nQuinceañera → release_year → 2006\nQuinceañera → in_language → English\nQuinceañera → in_language → Spanish\nQuinceañera → has_genre → Drama\nQuinceañera → has_tags → homosexuality\nQuinceañera → has_tags → pregnancy\nKnocked Up → has_tags → pregnancy\nSaved! → has_tags → pregnancy\nWhat to Expect When You're Expecting → has_tags → pregnancy\nJuno → has_tags → pregnancy\nStill Alice → directed_by → Wash Westmoreland\nStill Alice → written_by → Wash Westmoreland\nKismet → in_language → English\nThe Raid 2 → in_language → English\nMarnie → in_language → English\nRomeo Must Die → in_language → English\nMore → in_language → English\nBlindness → in_language → English\nThe Fiendish Plot of Dr. Fu Manchu → in_language → English\nDemonlover → in_language → English\nThe Island of Dr. Moreau → in_language → English\nLord of the Flies → in_language → English\nNight Train to Lisbon → in_language → English\nStarcrash → in_language → English\nJoy Division → in_language → English\nVictim → in_language → English\nPlanet 51 → in_language → English\nRenaissance → in_language → English\nGame of Death → in_language → English\nThe Winslow Boy → in_language → English\nThe Rose Tattoo → in_language → English\nMickey Blue Eyes → in_language → English\nThe Englishman Who Went Up a Hill But Came Down a Mountain → in_language → English\nLes Misérables → in_language → English\nThe Canterbury Tales → in_language → English\nThe Adventures of Priscilla, Queen of the Desert → in_language → English\nUnder the Same Moon → in_language → English\nThe Women → in_language → English\nIronclad → in_language → English\nLast Life in the Universe → in_language → English\nAnna Christie → in_language → English\nBroken Lullaby → in_language → English\nDr. Goldfoot and the Girl Bombs → in_language → English\n\nRetrieved Context:\n- Quinceañera directed_by Richard Glatzer\n- Quinceañera has_genre Drama\n- Quinceañera directed_by Wash Westmoreland\n- Quinceañera in_language English\n- Quinceañera in_language Spanish\n\nQuestion: which words describe movie Quinceañera",
+    "output": "homosexuality | pregnancy",
+    "metadata": {
+      "question": "which words describe movie [Quinceañera]",
+      "gold_answers": [
+        "homosexuality",
+        "pregnancy"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nWinchester '73 → directed_by → Anthony Mann\nWinchester '73 → written_by → Borden Chase\nWinchester '73 → written_by → Robert L. Richards\nWinchester '73 → starred_actors → James Stewart\nWinchester '73 → starred_actors → Shelley Winters\nWinchester '73 → starred_actors → Stephen McNally\nWinchester '73 → release_year → 1950\nWinchester '73 → has_genre → Western\nWinchester '73 → has_tags → anthony mann\nDesperate → directed_by → Anthony Mann\nDesperate → written_by → Anthony Mann\nBend of the River → directed_by → Anthony Mann\nMen in War → directed_by → Anthony Mann\nHe Walked by Night → directed_by → Anthony Mann\nThe Fall of the Roman Empire → directed_by → Anthony Mann\nRaw Deal → directed_by → Anthony Mann\nThe Heroes of Telemark → directed_by → Anthony Mann\nThe Furies → directed_by → Anthony Mann\nGod's Little Acre → directed_by → Anthony Mann\nThe Last Frontier → directed_by → Anthony Mann\nBorder Incident → directed_by → Anthony Mann\nThunder Bay → directed_by → Anthony Mann\nRailroaded! → directed_by → Anthony Mann\nStrategic Air Command → directed_by → Anthony Mann\nT-Men → directed_by → Anthony Mann\nEl Cid → directed_by → Anthony Mann\nThe Man from Laramie → directed_by → Anthony Mann\nSide Street → directed_by → Anthony Mann\nThe Far Country → directed_by → Anthony Mann\nThe Glenn Miller Story → directed_by → Anthony Mann\nThe Great Flamarion → directed_by → Anthony Mann\nCimarron → directed_by → Anthony Mann\nDevil's Doorway → directed_by → Anthony Mann\nThe Naked Spur → directed_by → Anthony Mann\nFollow Me Quietly → written_by → Anthony Mann\nThe Tin Star → directed_by → Anthony Mann\nMan of the West → directed_by → Anthony Mann\nNo Way Out → starred_actors → Stephen McNally\nViolent Saturday → starred_actors → Stephen McNally\nSplit Second → starred_actors → Stephen McNally\nHe Ran All the Way → starred_actors → Shelley Winters\nTentacles → starred_actors → Shelley Winters\nThe Night of the Hunter → starred_actors → Shelley Winters\nDéjà Vu → starred_actors → Shelley Winters\nWild in the Streets → starred_actors → Shelley Winters\nThe Diary of Anne Frank → starred_actors → Shelley Winters\nA Patch of Blue → starred_actors → Shelley Winters\n\nRetrieved Context:\n- Winchester '73 release_year 1950\n- Winchester '73 written_by Robert L. Richards\n- Winchester '73 has_genre Western\n- Winchester '73 written_by Borden Chase\n- Winchester '73 directed_by Anthony Mann\n\nQuestion: describe Winchester '73",
+    "output": "anthony mann",
+    "metadata": {
+      "question": "describe [Winchester '73]",
+      "gold_answers": [
+        "anthony mann"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nXX/XY → starred_actors → Maya Stange\nXX/XY → directed_by → Austin Chick\nXX/XY → written_by → Austin Chick\nXX/XY → starred_actors → Mark Ruffalo\nXX/XY → starred_actors → Kathleen Robertson\nXX/XY → release_year → 2002\nXX/XY → has_genre → Drama\n\nRetrieved Context:\n- XX/XY starred_actors Maya Stange\n- Idiocracy starred_actors Maya Rudolph\n- Broken Wings starred_actors Maya Maron\n- Apocalypto in_language Maya\n- Bridesmaids starred_actors Maya Rudolph\n\nQuestion: what does Maya Stange appear in",
+    "output": "XX/XY",
+    "metadata": {
+      "question": "what does [Maya Stange] appear in",
+      "gold_answers": [
+        "XX/XY"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nBaby Face → directed_by → Alfred E. Green\nBaby Face → written_by → Darryl F. Zanuck\nBaby Face → starred_actors → Barbara Stanwyck\nBaby Face → starred_actors → George Brent\nBaby Face → release_year → 1933\nBaby Face → has_genre → Drama\nBaby Face → has_tags → bd-r\nBaby Face → has_tags → barbara stanwyck\nBaby Face → has_tags → alfred e. green\nThe Dark Horse → directed_by → Alfred E. Green\nThoroughbreds Don't Cry → directed_by → Alfred E. Green\nSmart Money → directed_by → Alfred E. Green\nThe Jolson Story → directed_by → Alfred E. Green\nDangerous → directed_by → Alfred E. Green\nDisraeli → directed_by → Alfred E. Green\nThe Jackie Robinson Story → directed_by → Alfred E. Green\nThe Longest Day → directed_by → Darryl F. Zanuck\nA Yank in the R.A.F. → written_by → Darryl F. Zanuck\nNoah's Ark → directed_by → Darryl F. Zanuck\nNoah's Ark → written_by → Darryl F. Zanuck\nThe Dark Horse → has_tags → alfred e. green\nSmart Money → has_tags → alfred e. green\nThe Jolson Story → has_tags → alfred e. green\nDangerous → has_tags → alfred e. green\nEmployees' Entrance → release_year → 1933\nAlice in Wonderland → release_year → 1933\nThe Mayor of Hell → release_year → 1933\nHeroes for Sale → release_year → 1933\nThe Stranger's Return → release_year → 1933\nChristopher Strong → release_year → 1933\nState Fair → release_year → 1933\nPenthouse → release_year → 1933\nPeg o' My Heart → release_year → 1933\nMorning Glory → release_year → 1933\nThe House on 56th Street → release_year → 1933\nThe Eagle and the Hawk → release_year → 1933\nMan's Castle → release_year → 1933\nSagebrush Trail → release_year → 1933\nMurders in the Zoo → release_year → 1933\nMystery of the Wax Museum → release_year → 1933\nFootlight Parade → release_year → 1933\nSons of the Desert → release_year → 1933\nThe Man from Monterey → release_year → 1933\nCavalcade → release_year → 1933\nHis Private Secretary → release_year → 1933\nRiders of Destiny → release_year → 1933\nLand Without Bread → release_year → 1933\n\nRetrieved Context:\n- Baby Face starred_actors Barbara Stanwyck\n- Baby Face starred_actors George Brent\n- Baby Face has_genre Drama\n- Babies starred_actors Hattie\n- Face to Face starred_actors Liv Ullmann\n\nQuestion: who stars in Baby Face",
+    "output": "Barbara Stanwyck | George Brent",
+    "metadata": {
+      "question": "who stars in [Baby Face]",
+      "gold_answers": [
+        "Barbara Stanwyck",
+        "George Brent"
+      ],
+      "hop": 1,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nThe German Doctor → directed_by → Lucía Puenzo\nThe German Doctor → written_by → Lucía Puenzo\nThe German Doctor → starred_actors → Diego Peretti\nThe German Doctor → starred_actors → Àlex Brendemühl\nThe German Doctor → starred_actors → Natalia Oreiro\nThe German Doctor → starred_actors → Elena Roger\nThe German Doctor → release_year → 2013\nThe German Doctor → in_language → German\nThe German Doctor → has_genre → Drama\nThe Fish Child → directed_by → Lucía Puenzo\nThe Fish Child → written_by → Lucía Puenzo\nXXY → directed_by → Lucía Puenzo\nXXY → written_by → Lucía Puenzo\nDirty Filthy Love → has_genre → Drama\nMrs. Parkington → has_genre → Drama\nThe Wolf Man → has_genre → Drama\nA Cruel Romance → has_genre → Drama\nLove Happens → has_genre → Drama\nI Can't Sleep → has_genre → Drama\nMoonlight Mile → has_genre → Drama\nThe Well-Digger's Daughter → has_genre → Drama\nThe Ice Storm → has_genre → Drama\nDesperate Search → has_genre → Drama\nThe War Within → has_genre → Drama\nThe Bridges of Madison County → has_genre → Drama\nMy Favorite Season → has_genre → Drama\nNewlyweds → has_genre → Drama\nAlps → has_genre → Drama\nThe Grand Maneuver → has_genre → Drama\nGilles' Wife → has_genre → Drama\nThe Shipping News → has_genre → Drama\nZorba the Greek → has_genre → Drama\nHyde Park on Hudson → has_genre → Drama\nThe Shawshank Redemption → has_genre → Drama\nAre You Listening? → has_genre → Drama\nGolden Boy → has_genre → Drama\nWhen the Wind Blows → has_genre → Drama\nBig Eden → has_genre → Drama\nTwo Lovers → has_genre → Drama\nRemember Me → has_genre → Drama\nThe Rainmaker → has_genre → Drama\nGunbuster → has_genre → Drama\nLove Story → has_genre → Drama\nTen North Frederick → has_genre → Drama\nUnfair Competition → has_genre → Drama\nAin't Them Bodies Saints → has_genre → Drama\n\nRetrieved Context:\n- The German Doctor starred_actors Diego Peretti\n- The German Doctor starred_actors Àlex Brendemühl\n- The German Doctor starred_actors Natalia Oreiro\n- The German Doctor in_language German\n- The German Doctor starred_actors Elena Roger\n\nQuestion: the actor in The German Doctor also appears in which films",
+    "output": "Cleopatra",
+    "metadata": {
+      "question": "the actor in [The German Doctor] also appears in which films",
+      "gold_answers": [
+        "Cleopatra"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nHow the West Was Fun → starred_actors → Ashley Olsen\nSwitching Goals → starred_actors → Ashley Olsen\nNew York Minute → starred_actors → Ashley Olsen\nIt Takes Two → starred_actors → Ashley Olsen\nTo Grandmother's House We Go → starred_actors → Ashley Olsen\nWhen in Rome → starred_actors → Ashley Olsen\nSwitching Goals → release_year → 1999\nIt Takes Two → starred_actors → Steve Guttenberg\nIt Takes Two → starred_actors → Kirstie Alley\nIt Takes Two → release_year → 1995\nWhen in Rome → directed_by → Mark Steven Johnson\nWhen in Rome → written_by → David Weissman\nWhen in Rome → written_by → David Diamond\nWhen in Rome → starred_actors → Josh Duhamel\nWhen in Rome → starred_actors → Kristen Bell\nWhen in Rome → release_year → 2010\nWhen in Rome → has_genre → Comedy\nWhen in Rome → has_tags → kristen bell\nWhen in Rome → has_tags → josh duhamel\nWhen in Rome → release_year → 2002\nTo Grandmother's House We Go → release_year → 1992\nTo Grandmother's House We Go → has_tags → christmas\nNew York Minute → directed_by → Dennie Gordon\nNew York Minute → starred_actors → Eugene Levy\nNew York Minute → release_year → 2004\nNew York Minute → has_genre → Comedy\nNew York Minute → has_tags → new york city\nNew York Minute → has_tags → twins\nHow the West Was Fun → release_year → 1994\n\nRetrieved Context:\n- New York Minute starred_actors Ashley Olsen\n- When in Rome starred_actors Ashley Olsen\n- It Takes Two starred_actors Ashley Olsen\n- Switching Goals starred_actors Ashley Olsen\n- To Grandmother's House We Go starred_actors Ashley Olsen\n\nQuestion: who is listed as director of Ashley Olsen starred movies",
+    "output": "Mark Steven Johnson | Dennie Gordon",
+    "metadata": {
+      "question": "who is listed as director of [Ashley Olsen] starred movies",
+      "gold_answers": [
+        "Mark Steven Johnson",
+        "Dennie Gordon"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nOur Daily Bread → directed_by → Nikolaus Geyrhalter\nOur Daily Bread → written_by → Nikolaus Geyrhalter\nOur Daily Bread → written_by → Wolfgang Widerhofer\nOur Daily Bread → release_year → 2005\nOur Daily Bread → has_genre → Documentary\nOur Daily Bread → directed_by → King Vidor\nOur Daily Bread → written_by → King Vidor\nOur Daily Bread → starred_actors → Tom Keene\nOur Daily Bread → starred_actors → Karen Morley\nOur Daily Bread → starred_actors → John Qualen\nOur Daily Bread → release_year → 1934\nOur Daily Bread → has_tags → king vidor\n\nRetrieved Context:\n- Gomorrah directed_by Matteo Garrone\n- The Diary of Anne Frank directed_by George Stevens\n- Gertrud directed_by Carl Theodor Dreyer\n- The Notebook directed_by Nick Cassavetes\n- The Mothman Prophecies starred_actors Richard Gere\n\nQuestion: when were the movies written by Nikolaus Geyrhalter released",
+    "output": "2005 | 1934",
+    "metadata": {
+      "question": "when were the movies written by [Nikolaus Geyrhalter] released",
+      "gold_answers": [
+        "2005",
+        "1934"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nStoryville → directed_by → Mark Frost\nStoryville → written_by → Mark Frost\nStoryville → starred_actors → James Spader\nStoryville → release_year → 1992\nSecretary → starred_actors → James Spader\nBad Influence → starred_actors → James Spader\nCritical Care → starred_actors → James Spader\nThe Rachel Papers → starred_actors → James Spader\nTrue Colors → starred_actors → James Spader\nMannequin → starred_actors → James Spader\nThe Pentagon Papers → starred_actors → James Spader\nThe Watcher → starred_actors → James Spader\nSpeaking of Sex → starred_actors → James Spader\nTuff Turf → starred_actors → James Spader\nStargate → starred_actors → James Spader\nLess Than Zero → starred_actors → James Spader\nDream Lover → starred_actors → James Spader\nThe Music of Chance → starred_actors → James Spader\nCrash → starred_actors → James Spader\nAlien Hunter → starred_actors → James Spader\nSupernova → starred_actors → James Spader\nKeys to Tulsa → starred_actors → James Spader\nWhite Palace → starred_actors → James Spader\nWolf → starred_actors → James Spader\nJack's Back → starred_actors → James Spader\nThe Greatest Game Ever Played → written_by → Mark Frost\nThe Mighty Ducks → release_year → 1992\nCaptain Ron → release_year → 1992\nStay Tuned → release_year → 1992\nMo' Money → release_year → 1992\nThe Northerners → release_year → 1992\nDiggstown → release_year → 1992\nLove Field → release_year → 1992\nRapid Fire → release_year → 1992\nFinal Analysis → release_year → 1992\nDr. Giggles → release_year → 1992\nWhite Men Can't Jump → release_year → 1992\nIt's Christmastime Again, Charlie Brown → release_year → 1992\nCareful → release_year → 1992\nThunderheart → release_year → 1992\nEvil Toons → release_year → 1992\nPoison Ivy → release_year → 1992\nFrozen Assets → release_year → 1992\nSleepwalkers → release_year → 1992\nStalin → release_year → 1992\nUnforgiven → release_year → 1992\nThe Gun in Betty Lou's Handbag → release_year → 1992\n\nRetrieved Context:\n- Storyville starred_actors James Spader\n- Storyville directed_by Mark Frost\n- The Canterville Ghost starred_actors Charles Laughton\n- The Canterville Ghost starred_actors Robert Young\n- The Triplets of Belleville starred_actors Michèle Caucheteux\n\nQuestion: which films have the same actor of Storyville",
+    "output": "Speaking of Sex | Tuff Turf | Crash | Keys to Tulsa | True Colors | Bad Influence | Supernova | Critical Care | Less Than Zero | The Pentagon Papers | Dream Lover | The Watcher | Wolf | Mannequin | Secretary | White Palace | The Music of Chance | Jack's Back | The Rachel Papers | Stargate | Alien Hunter",
+    "metadata": {
+      "question": "which films have the same actor of [Storyville]",
+      "gold_answers": [
+        "Speaking of Sex",
+        "Tuff Turf",
+        "Crash",
+        "Keys to Tulsa",
+        "True Colors",
+        "Bad Influence",
+        "Supernova",
+        "Critical Care",
+        "Less Than Zero",
+        "The Pentagon Papers",
+        "Dream Lover",
+        "The Watcher",
+        "Wolf",
+        "Mannequin",
+        "Secretary",
+        "White Palace",
+        "The Music of Chance",
+        "Jack's Back",
+        "The Rachel Papers",
+        "Stargate",
+        "Alien Hunter"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nThe All Together → starred_actors → Velibor Topic\nThe All Together → directed_by → Gavin Claxton\nThe All Together → written_by → Gavin Claxton\nThe All Together → starred_actors → Martin Freeman\nThe All Together → starred_actors → Corey Johnson\nThe All Together → starred_actors → Danny Dyer\nThe All Together → release_year → 2007\nThe All Together → has_genre → Comedy\n\nRetrieved Context:\n- Cinema Verite has_genre Drama\n- Movie Movie has_genre Musical\n- Veer-Zaara has_genre Drama\n- Vesna va veloce has_genre Drama\n- The Last Movie has_genre Drama\n\nQuestion: what are the genres of the movies acted by Velibor Topic",
+    "output": "Comedy",
+    "metadata": {
+      "question": "what are the genres of the movies acted by [Velibor Topic]",
+      "gold_answers": [
+        "Comedy"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nA Beginner's Guide to Endings → directed_by → Jonathan Sobol\nA Beginner's Guide to Endings → written_by → Jonathan Sobol\nA Beginner's Guide to Endings → starred_actors → Harvey Keitel\nA Beginner's Guide to Endings → starred_actors → J.K. Simmons\nA Beginner's Guide to Endings → starred_actors → Scott Caan\nA Beginner's Guide to Endings → release_year → 2010\nThe Vicious Kind → starred_actors → J.K. Simmons\nThe Art of the Steal → directed_by → Jonathan Sobol\nThe Art of the Steal → written_by → Jonathan Sobol\nRemember Me → release_year → 2010\nBlack Swan → release_year → 2010\nThe Extra Man → release_year → 2010\nThe 19th Wife → release_year → 2010\nHow to Train Your Dragon → release_year → 2010\nThe River Why → release_year → 2010\nGood Neighbors → release_year → 2010\nElektra Luxx → release_year → 2010\nA Screaming Man → release_year → 2010\nMonsters → release_year → 2010\nThe American → release_year → 2010\nDevil → release_year → 2010\nDaydream Nation → release_year → 2010\nCold Prey 3 → release_year → 2010\nBoy → release_year → 2010\nThe Back-up Plan → release_year → 2010\nThe First Beautiful Thing → release_year → 2010\nThe Killer Inside Me → release_year → 2010\nBloomington → release_year → 2010\nVampires Suck → release_year → 2010\nThe Four-Faced Liar → release_year → 2010\nHowl → release_year → 2010\nTamara Drewe → release_year → 2010\nThe Virginity Hit → release_year → 2010\nMy Girlfriend's Boyfriend → release_year → 2010\nBlack Bread → release_year → 2010\nUdaan → release_year → 2010\nBunraku → release_year → 2010\nAnton Chekhov's The Duel → release_year → 2010\nIn My Sleep → release_year → 2010\nYou Will Meet a Tall Dark Stranger → release_year → 2010\nThe First Grader → release_year → 2010\nTangled → release_year → 2010\nStonehenge Apocalypse → release_year → 2010\nRoad Kill → release_year → 2010\nDrones → release_year → 2010\nKaboom → release_year → 2010\nValentine's Day → release_year → 2010\n\nRetrieved Context:\n- A Beginner's Guide to Endings directed_by Jonathan Sobol\n- A Beginner's Guide to Endings starred_actors Scott Caan\n- A Beginner's Guide to Endings starred_actors J.K. Simmons\n- A Beginner's Guide to Endings release_year 2010\n- A Beginner's Guide to Endings starred_actors Harvey Keitel\n\nQuestion: what are the films that are directed by the same director of A Beginner's Guide to Endings",
+    "output": "The Art of the Steal",
+    "metadata": {
+      "question": "what are the films that are directed by the same director of [A Beginner's Guide to Endings]",
+      "gold_answers": [
+        "The Art of the Steal"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nRock 'n' Roll Nightmare → directed_by → John Fasano\nBlack Roses → directed_by → John Fasano\nDarkness Falls → written_by → John Fasano\nDarkness Falls → directed_by → Jonathan Liebesman\nDarkness Falls → written_by → Joe Harris\nDarkness Falls → starred_actors → Emma Caulfield\nDarkness Falls → starred_actors → Lee Cormie\nDarkness Falls → starred_actors → Chaney Kley\nDarkness Falls → release_year → 2003\nDarkness Falls → has_genre → Horror\nDarkness Falls → has_tags → dark\nDarkness Falls → has_tags → jonathan liebesman\nBlack Roses → release_year → 1988\nBlack Roses → has_genre → Horror\nRock 'n' Roll Nightmare → written_by → Jon Mikl Thor\nRock 'n' Roll Nightmare → starred_actors → Jon Mikl Thor\nRock 'n' Roll Nightmare → starred_actors → Jillian Peri\nRock 'n' Roll Nightmare → release_year → 1987\nRock 'n' Roll Nightmare → has_genre → Horror\nRock 'n' Roll Nightmare → has_genre → Music\n\nRetrieved Context:\n- Black Roses directed_by John Fasano\n- Fados directed_by Carlos Saura\n- Rock 'n' Roll Nightmare directed_by John Fasano\n- Cinematographer Style directed_by Jon Fauer\n- Made directed_by Jon Favreau\n\nQuestion: what types are the films directed by John Fasano",
+    "output": "Horror | Music",
+    "metadata": {
+      "question": "what types are the films directed by [John Fasano]",
+      "gold_answers": [
+        "Horror",
+        "Music"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nSurf Ninjas → directed_by → Neal Israel\nMoving Violations → directed_by → Neal Israel\nMoving Violations → written_by → Neal Israel\nBachelor Party → directed_by → Neal Israel\nBachelor Party → written_by → Neal Israel\nReal Genius → written_by → Neal Israel\nBreaking the Rules → directed_by → Neal Israel\nBachelor Party → written_by → Pat Proft\nBachelor Party → written_by → Bob Israel\nBachelor Party → starred_actors → Tom Hanks\nBachelor Party → starred_actors → Tawny Kitaen\nBachelor Party → starred_actors → Adrian Zmed\nBachelor Party → release_year → 1984\nBachelor Party → has_genre → Comedy\nBachelor Party → has_tags → wedding\nBachelor Party → has_tags → bachelor party\nBachelor Party → has_tags → neal israel\nReal Genius → directed_by → Martha Coolidge\nReal Genius → written_by → Pat Proft\nReal Genius → starred_actors → Val Kilmer\nReal Genius → starred_actors → Gabriel Jarret\nReal Genius → release_year → 1985\nReal Genius → has_genre → Comedy\nReal Genius → has_tags → genius\nReal Genius → has_tags → val kilmer\nReal Genius → has_tags → martha coolidge\nMoving Violations → starred_actors → Jennifer Tilly\nMoving Violations → starred_actors → Brian Backer\nMoving Violations → starred_actors → John Murray\nMoving Violations → release_year → 1985\nMoving Violations → has_genre → Comedy\nSurf Ninjas → written_by → Dan Gordon\nSurf Ninjas → starred_actors → Ernie Reyes Jr.\nSurf Ninjas → starred_actors → Nicolas Cowan\nSurf Ninjas → release_year → 1993\nSurf Ninjas → has_tags → martial arts\nSurf Ninjas → has_tags → neal israel\nBreaking the Rules → starred_actors → Jason Bateman\nBreaking the Rules → release_year → 1992\nBreaking the Rules → has_genre → Drama\n\nRetrieved Context:\n- Breaking the Rules directed_by Neal Israel\n- The Life and Times of Hank Greenberg directed_by Aviva Kempner\n- Real Genius written_by Neal Israel\n- An American Hippie in Israel directed_by Amos Sefer\n- The End of the Affair directed_by Neil Jordan\n\nQuestion: the films written by Neal Israel were in which genres",
+    "output": "Comedy",
+    "metadata": {
+      "question": "the films written by [Neal Israel] were in which genres",
+      "gold_answers": [
+        "Comedy"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nFall → starred_actors → Amanda De Cadenet\nFall → directed_by → Eric Schaeffer\nFall → written_by → Eric Schaeffer\nFall → starred_actors → Eric Schaeffer\nFall → release_year → 1997\n\nRetrieved Context:\n- Fall starred_actors Amanda De Cadenet\n- She's the Man starred_actors Amanda Bynes\n- The Ex starred_actors Amanda Peet\n- 2012 starred_actors Amanda Peet\n- Fright Night starred_actors Amanda Bearse\n\nQuestion: who are the directors of the films starred by Amanda De Cadenet",
+    "output": "Eric Schaeffer",
+    "metadata": {
+      "question": "who are the directors of the films starred by [Amanda De Cadenet]",
+      "gold_answers": [
+        "Eric Schaeffer"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nShakes the Clown → starred_actors → Julie Brown\nEarth Girls Are Easy → written_by → Julie Brown\nCamp Rock → written_by → Julie Brown\nRaining Stones → starred_actors → Julie Brown\nShakes the Clown → directed_by → Bobcat Goldthwait\nShakes the Clown → written_by → Bobcat Goldthwait\nShakes the Clown → starred_actors → Bobcat Goldthwait\nShakes the Clown → has_genre → Comedy\nShakes the Clown → has_tags → alcoholism\nShakes the Clown → has_tags → clowns\nShakes the Clown → has_tags → bobcat goldthwait\nShakes the Clown → has_tags → mimes\nCamp Rock → directed_by → Matthew Diamond\nCamp Rock → written_by → Paul Brown\nCamp Rock → starred_actors → Demi Lovato\nCamp Rock → release_year → 2008\nCamp Rock → has_genre → Musical\nCamp Rock → has_tags → demi lovato\nRaining Stones → directed_by → Ken Loach\nRaining Stones → starred_actors → Ricky Tomlinson\nRaining Stones → starred_actors → Bruce Jones\nRaining Stones → starred_actors → Gemma Phoenix\nRaining Stones → release_year → 1993\nRaining Stones → has_tags → ken loach\nEarth Girls Are Easy → directed_by → Julien Temple\nEarth Girls Are Easy → starred_actors → Jim Carrey\nEarth Girls Are Easy → starred_actors → Jeff Goldblum\nEarth Girls Are Easy → starred_actors → Geena Davis\nEarth Girls Are Easy → starred_actors → Damon Wayans\nEarth Girls Are Easy → release_year → 1988\nEarth Girls Are Easy → has_genre → Comedy\nEarth Girls Are Easy → has_genre → Musical\nEarth Girls Are Easy → has_tags → jim carrey\nEarth Girls Are Easy → has_tags → geena davis\n\nRetrieved Context:\n- Raining Stones starred_actors Julie Brown\n- Shakes the Clown starred_actors Julie Brown\n- Young Cassidy starred_actors Julie Christie\n- Brown of Harvard starred_actors Mary Brian\n- Jam starred_actors Julie Claire\n\nQuestion: who co-starred with Julie Brown",
+    "output": "Ricky Tomlinson | Gemma Phoenix | Bobcat Goldthwait | Bruce Jones",
+    "metadata": {
+      "question": "who co-starred with [Julie Brown]",
+      "gold_answers": [
+        "Ricky Tomlinson",
+        "Gemma Phoenix",
+        "Bobcat Goldthwait",
+        "Bruce Jones"
+      ],
+      "hop": 2,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nFists in the Pocket → directed_by → Marco Bellocchio\nFists in the Pocket → written_by → Marco Bellocchio\nFists in the Pocket → release_year → 1965\nFists in the Pocket → in_language → Italian\nHuman Capital → in_language → Italian\nUnfair Competition → in_language → Italian\nGood Morning, Night → in_language → Italian\nOedipus Rex → in_language → Italian\nRocco and His Brothers → in_language → Italian\nStarcrash → in_language → Italian\nI giorni contati → in_language → Italian\nSeven Dollars on the Red → in_language → Italian\nThe Tree of Wooden Clogs → in_language → Italian\nContempt → in_language → Italian\nThe Rose Tattoo → in_language → Italian\nFun Is Beautiful → in_language → Italian\nBicycle Thieves → in_language → Italian\nThe First Beautiful Thing → in_language → Italian\nDeath in Venice → in_language → Italian\nThe Canterbury Tales → in_language → Italian\nBread and Tulips → in_language → Italian\nMark Strikes Again → in_language → Italian\nDjango → in_language → Italian\nDark Eyes → in_language → Italian\nMid-August Lunch → in_language → Italian\nCemetery Man → in_language → Italian\nDr. Goldfoot and the Girl Bombs → in_language → Italian\nWild Is the Wind → in_language → Italian\nTeorema → in_language → Italian\nNightmare Castle → in_language → Italian\nBesieged → in_language → Italian\nFrom the Clouds to the Resistance → in_language → Italian\nThe White Sheik → in_language → Italian\nThe Caiman → in_language → Italian\nL'Eclisse → in_language → Italian\nNon pensarci → in_language → Italian\nGinger and Fred → in_language → Italian\nAfter the Fox → in_language → Italian\nAgata and the Storm → in_language → Italian\nThe Overcoat → in_language → Italian\nThe Gospel According to St. Matthew → in_language → Italian\nMaradona, the Hand of God → in_language → Italian\nWe All Loved Each Other So Much → in_language → Italian\nTerraferma → in_language → Italian\nThe Unknown Woman → in_language → Italian\nThe Great Silence → in_language → Italian\nMiracle in Milan → in_language → Italian\nBread, Love and Dreams → in_language → Italian\nInvestigation of a Citizen Above Suspicion → in_language → Italian\nThe Good, the Bad and the Ugly → in_language → Italian\n\nRetrieved Context:\n- Fists in the Pocket release_year 1965\n- A Fistful of Fingers release_year 1995\n- The Robber release_year 2010\n- The Hand release_year 1981\n- Date Movie release_year 2006\n\nQuestion: what were the release years of the movies that share screenwriters with the movie Fists in the Pocket",
+    "output": "2002 | 2003 | 2009 | 2006",
+    "metadata": {
+      "question": "what were the release years of the movies that share screenwriters with the movie [Fists in the Pocket]",
+      "gold_answers": [
+        "2002",
+        "2003",
+        "2009",
+        "2006"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nYoung Goethe in Love → directed_by → Philipp Stölzl\nYoung Goethe in Love → written_by → Philipp Stölzl\nYoung Goethe in Love → starred_actors → Moritz Bleibtreu\nYoung Goethe in Love → starred_actors → Miriam Stein\nYoung Goethe in Love → starred_actors → Alexander Fehling\nYoung Goethe in Love → release_year → 2010\nYoung Goethe in Love → in_language → German\nYoung Goethe in Love → has_genre → Drama\nDirty Filthy Love → has_genre → Drama\nMrs. Parkington → has_genre → Drama\nThe Wolf Man → has_genre → Drama\nA Cruel Romance → has_genre → Drama\nLove Happens → has_genre → Drama\nI Can't Sleep → has_genre → Drama\nMoonlight Mile → has_genre → Drama\nThe Well-Digger's Daughter → has_genre → Drama\nThe Ice Storm → has_genre → Drama\nDesperate Search → has_genre → Drama\nThe War Within → has_genre → Drama\nThe Bridges of Madison County → has_genre → Drama\nMy Favorite Season → has_genre → Drama\nNewlyweds → has_genre → Drama\nAlps → has_genre → Drama\nThe Grand Maneuver → has_genre → Drama\nGilles' Wife → has_genre → Drama\nThe Shipping News → has_genre → Drama\nZorba the Greek → has_genre → Drama\nHyde Park on Hudson → has_genre → Drama\nThe Shawshank Redemption → has_genre → Drama\nAre You Listening? → has_genre → Drama\nGolden Boy → has_genre → Drama\nWhen the Wind Blows → has_genre → Drama\nBig Eden → has_genre → Drama\nTwo Lovers → has_genre → Drama\nRemember Me → has_genre → Drama\nThe Rainmaker → has_genre → Drama\nGunbuster → has_genre → Drama\nLove Story → has_genre → Drama\nTen North Frederick → has_genre → Drama\nUnfair Competition → has_genre → Drama\nAin't Them Bodies Saints → has_genre → Drama\nBorn to Be Bad → has_genre → Drama\nTowelhead → has_genre → Drama\nThe Accused → has_genre → Drama\nThe Astronaut Farmer → has_genre → Drama\nRegarding Henry → has_genre → Drama\nChinatown → has_genre → Drama\nHomicide → has_genre → Drama\nDogville → has_genre → Drama\nEréndira → has_genre → Drama\n\nRetrieved Context:\n- Young Goethe in Love starred_actors Moritz Bleibtreu\n- Young Goethe in Love directed_by Philipp Stölzl\n- Young Goethe in Love starred_actors Miriam Stein\n- Young Goethe in Love has_genre Drama\n- Young Goethe in Love starred_actors Alexander Fehling\n\nQuestion: who starred in the films whose screenwriters also wrote Young Goethe in Love",
+    "output": "Benno Fürmann | Florian Lukas | Johanna Wokalek",
+    "metadata": {
+      "question": "who starred in the films whose screenwriters also wrote [Young Goethe in Love]",
+      "gold_answers": [
+        "Benno Fürmann",
+        "Florian Lukas",
+        "Johanna Wokalek"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nSommersby → directed_by → Jon Amiel\nSommersby → written_by → Daniel Vigne\nSommersby → starred_actors → Jodie Foster\nSommersby → starred_actors → Richard Gere\nSommersby → starred_actors → Bill Pullman\nSommersby → starred_actors → James Earl Jones\nSommersby → release_year → 1993\nSommersby → has_genre → Drama\nSommersby → has_tags → jodie foster\nThe Accused → has_tags → jodie foster\nThe Brave One → has_tags → jodie foster\nInside Man → has_tags → jodie foster\nThe Beaver → has_tags → jodie foster\nThe Silence of the Lambs → has_tags → jodie foster\nNell → has_tags → jodie foster\nThe Little Girl Who Lives Down the Lane → has_tags → jodie foster\nContact → has_tags → jodie foster\nPanic Room → has_tags → jodie foster\nBugsy Malone → has_tags → jodie foster\nElysium → has_tags → jodie foster\nNim's Island → has_tags → jodie foster\nNapoleon and Samantha → has_tags → jodie foster\nThe Hotel New Hampshire → has_tags → jodie foster\nLittle Man Tate → has_tags → jodie foster\nFlightplan → has_tags → jodie foster\nTaxi Driver → has_tags → jodie foster\nAnna and the King → has_tags → jodie foster\nFreaky Friday → has_tags → jodie foster\nMaverick → has_tags → jodie foster\nHome for the Holidays → has_tags → jodie foster\nCandleshoe → has_tags → jodie foster\nQueen of Hearts → directed_by → Jon Amiel\nCopycat → directed_by → Jon Amiel\nThe Man Who Knew Too Little → directed_by → Jon Amiel\nThe Core → directed_by → Jon Amiel\nEntrapment → directed_by → Jon Amiel\nCreation → directed_by → Jon Amiel\nCreation → written_by → Jon Amiel\nThe Return of Martin Guerre → directed_by → Daniel Vigne\nThe Return of Martin Guerre → written_by → Daniel Vigne\nThe End of Violence → starred_actors → Bill Pullman\nLiebestraum → starred_actors → Bill Pullman\nZero Effect → starred_actors → Bill Pullman\nMalice → starred_actors → Bill Pullman\nMr. Wrong → starred_actors → Bill Pullman\nDear Wendy → starred_actors → Bill Pullman\nThe Last Seduction → starred_actors → Bill Pullman\n\nRetrieved Context:\n- Sommersby starred_actors Richard Gere\n- Sommersby starred_actors James Earl Jones\n- Sommersby starred_actors Jodie Foster\n- Sommersby starred_actors Bill Pullman\n- Sommersby directed_by Jon Amiel\n\nQuestion: when did the films starred by Sommersby actors release",
+    "output": "1974 | 1986 | 1987 | 1984 | 1985 | 1982 | 1983 | 1980 | 2003 | 1979 | 1988 | 1989 | 2011 | 2013 | 2012 | 2005 | 1951 | 1991 | 1990 | 1993 | 1992 | 1995 | 1994 | 1997 | 1996 | 1977 | 1998 | 1978 | 1972 | 1971 | 1970 | 2002 | 1999 | 2000 | 2006 | 2007 | 2004 | 1976 | 2008 | 2009",
+    "metadata": {
+      "question": "when did the films starred by [Sommersby] actors release",
+      "gold_answers": [
+        "1974",
+        "1986",
+        "1987",
+        "1984",
+        "1985",
+        "1982",
+        "1983",
+        "1980",
+        "2003",
+        "1979",
+        "1988",
+        "1989",
+        "2011",
+        "2013",
+        "2012",
+        "2005",
+        "1951",
+        "1991",
+        "1990",
+        "1993",
+        "1992",
+        "1995",
+        "1994",
+        "1997",
+        "1996",
+        "1977",
+        "1998",
+        "1978",
+        "1972",
+        "1971",
+        "1970",
+        "2002",
+        "1999",
+        "2000",
+        "2006",
+        "2007",
+        "2004",
+        "1976",
+        "2008",
+        "2009"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nA Man Apart → directed_by → F. Gary Gray\nA Man Apart → starred_actors → Vin Diesel\nA Man Apart → starred_actors → Larenz Tate\nA Man Apart → release_year → 2003\nA Man Apart → has_tags → f. gary gray\nThe Negotiator → directed_by → F. Gary Gray\nSet It Off → directed_by → F. Gary Gray\nLaw Abiding Citizen → directed_by → F. Gary Gray\nBe Cool → directed_by → F. Gary Gray\nFriday → directed_by → F. Gary Gray\nThe Italian Job → directed_by → F. Gary Gray\nThe Inkwell → starred_actors → Larenz Tate\nWhy Do Fools Fall in Love → starred_actors → Larenz Tate\nLove Jones → starred_actors → Larenz Tate\nDead Presidents → starred_actors → Larenz Tate\nThe Postman → starred_actors → Larenz Tate\nHangman's Curse → release_year → 2003\nGood Morning, Night → release_year → 2003\nDogville → release_year → 2003\nNot on the Lips → release_year → 2003\nThe Singing Detective → release_year → 2003\nKontroll → release_year → 2003\nDanny Deckchair → release_year → 2003\nPaycheck → release_year → 2003\nPTU → release_year → 2003\nWheel of Time → release_year → 2003\nLast Exit → release_year → 2003\nTokyo Godfathers → release_year → 2003\nLove Object → release_year → 2003\nLast Life in the Universe → release_year → 2003\nConfidence → release_year → 2003\nKoi... Mil Gaya → release_year → 2003\nBells of Innocence → release_year → 2003\nHarvie Krumpet → release_year → 2003\nOff the Map → release_year → 2003\nGacy → release_year → 2003\nBad Boys → release_year → 2003\nThe Company → release_year → 2003\nUnited → release_year → 2003\nThe Room → release_year → 2003\nHulk → release_year → 2003\nWuthering Heights → release_year → 2003\nAgent Cody Banks → release_year → 2003\nAt Point Blank → release_year → 2003\nAzumi → release_year → 2003\nWhat a Girl Wants → release_year → 2003\nS.W.A.T. → release_year → 2003\nFreddy vs. Jason → release_year → 2003\n\nRetrieved Context:\n- Cinematographer Style in_language English\n- Filmistaan in_language Hindi\n- A Film Unfinished in_language German\n- The Wedding Director in_language Italian\n- A Man and a Woman in_language French\n\nQuestion: what are the languages spoken in the movies directed by the A Man Apart director",
+    "output": "Italian",
+    "metadata": {
+      "question": "what are the languages spoken in the movies directed by the [A Man Apart] director",
+      "gold_answers": [
+        "Italian"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nA Fistful of Dollars → directed_by → Sergio Leone\nA Fistful of Dollars → written_by → Sergio Leone\nA Fistful of Dollars → starred_actors → Clint Eastwood\nA Fistful of Dollars → starred_actors → Gian Maria Volonté\nA Fistful of Dollars → starred_actors → Wolfgang Lukschy\nA Fistful of Dollars → starred_actors → Marianne Koch\nA Fistful of Dollars → release_year → 1964\nA Fistful of Dollars → has_genre → Western\nA Fistful of Dollars → has_tags → clint eastwood\nA Fistful of Dollars → has_tags → western\nA Fistful of Dollars → has_tags → spaghetti western\nA Fistful of Dollars → has_tags → italy\nA Fistful of Dollars → has_tags → ennio morricone\nA Fistful of Dollars → has_tags → sergio leone\nA Fistful of Dollars → has_tags → spain\nA Fistful of Dollars → has_tags → bad\nA Fistful of Dollars → has_tags → f\nA Fistful of Dollars → has_tags → spaghetti\nA Fistful of Dollars → has_tags → dollars trilogy\nZindagi Na Milegi Dobara → has_tags → spain\nEl Cid → has_tags → spain\nPan's Labyrinth → has_tags → spain\nBarcelona → has_tags → spain\nVicky Cristina Barcelona → has_tags → spain\nVolver → has_tags → spain\nFlags of Our Fathers → has_tags → clint eastwood\nThe Bridges of Madison County → has_tags → clint eastwood\nHigh Plains Drifter → has_tags → clint eastwood\nThe Eiger Sanction → has_tags → clint eastwood\nThe Gauntlet → has_tags → clint eastwood\nWhite Hunter Black Heart → has_tags → clint eastwood\nAny Which Way You Can → has_tags → clint eastwood\nUnforgiven → has_tags → clint eastwood\nPlay Misty for Me → has_tags → clint eastwood\nAmerican Sniper → has_tags → clint eastwood\nThe Good, the Bad and the Ugly → has_tags → clint eastwood\nTrouble with the Curve → has_tags → clint eastwood\nThe Beguiled → has_tags → clint eastwood\nInvictus → has_tags → clint eastwood\nCity Heat → has_tags → clint eastwood\nBird → has_tags → clint eastwood\nSpace Cowboys → has_tags → clint eastwood\nLetters from Iwo Jima → has_tags → clint eastwood\nBlood Work → has_tags → clint eastwood\nChangeling → has_tags → clint eastwood\nJoe Kidd → has_tags → clint eastwood\nSudden Impact → has_tags → clint eastwood\nTrue Crime → has_tags → clint eastwood\n\nRetrieved Context:\n- A Fistful of Dollars starred_actors Clint Eastwood\n- A Fistful of Dollars directed_by Sergio Leone\n- A Fistful of Dollars starred_actors Marianne Koch\n- A Fistful of Dollars starred_actors Wolfgang Lukschy\n- A Fistful of Dollars starred_actors Gian Maria Volonté\n\nQuestion: who starred films for the director of A Fistful of Dollars",
+    "output": "Jason Robards | Eli Wallach | James Woods | Claudia Cardinale | Lee Van Cleef | Henry Fonda | Gian Maria Volonté | Charles Bronson | Clint Eastwood | Robert De Niro",
+    "metadata": {
+      "question": "who starred films for the director of [A Fistful of Dollars]",
+      "gold_answers": [
+        "Jason Robards",
+        "Eli Wallach",
+        "James Woods",
+        "Claudia Cardinale",
+        "Lee Van Cleef",
+        "Henry Fonda",
+        "Gian Maria Volonté",
+        "Charles Bronson",
+        "Clint Eastwood",
+        "Robert De Niro"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nCitizen Kane → directed_by → Orson Welles\nCitizen Kane → written_by → Orson Welles\nCitizen Kane → release_year → 1941\nCitizen Kane → has_genre → Drama\nCitizen Kane → has_genre → Mystery\nCitizen Kane → has_tags → drama\nCitizen Kane → has_tags → cinematography\nCitizen Kane → has_tags → mystery\nCitizen Kane → has_tags → story\nCitizen Kane → has_tags → own\nCitizen Kane → has_tags → orson welles\nCitizen Kane → has_tags → innovative\nCitizen Kane → has_tags → rosebud\nSolaris → has_tags → cinematography\nRoad to Perdition → has_tags → cinematography\nThe Third Man → has_tags → cinematography\nCity of God → has_tags → cinematography\nInception → has_tags → cinematography\nThe Aviator → has_tags → cinematography\nGravity → has_tags → cinematography\nTrue Grit → has_tags → cinematography\nThe White Ribbon → has_tags → cinematography\nAmerican Beauty → has_tags → cinematography\nThe Master → has_tags → cinematography\nPrisoners → has_tags → cinematography\nWater → has_tags → cinematography\nThe King's Speech → has_tags → cinematography\nDays of Heaven → has_tags → cinematography\nThe Quiet Man → has_tags → cinematography\nLawrence of Arabia → has_tags → cinematography\nRebecca → has_tags → cinematography\nThe Tree of Life → has_tags → cinematography\nInside Llewyn Davis → has_tags → cinematography\nThe Mission → has_tags → cinematography\nThe Mirror → has_tags → cinematography\nMr. Nobody → has_tags → cinematography\nCrouching Tiger, Hidden Dragon → has_tags → cinematography\nThere Will Be Blood → has_tags → cinematography\nHugo → has_tags → cinematography\nChildren of Men → has_tags → cinematography\nThe Great Gatsby → has_tags → cinematography\nThe Thin Red Line → has_tags → cinematography\nParis, Texas → has_tags → cinematography\nA River Runs Through It → has_tags → cinematography\nSnow Falling on Cedars → has_tags → cinematography\nAvatar → has_tags → cinematography\nThe New World → has_tags → cinematography\nAntichrist → has_tags → cinematography\nMemoirs of a Geisha → has_tags → cinematography\n\nRetrieved Context:\n- Citizen Kane directed_by Orson Welles\n- Citizen Kane has_genre Drama\n- Citizen Kane release_year 1941\n- Citizen Kane has_genre Mystery\n- Citizen Kane has_tags cinematography\n\nQuestion: the films directed by the director of Citizen Kane starred who",
+    "output": "Suzanne Cloutier | Anthony Perkins | Rita Hayworth | Joseph Calleia | Everett Sloane | John Lithgow | Anne Baxter | Isabella Rossellini | Janet Leigh | Frank Finlay | Loretta Young | Charlton Heston | Dolores Costello | Orson Welles | Francesca Annis | Tim Holt | Robert Coote | Bob Hoskins | Jeanne Moreau | Laurence Fishburne | Joseph Cotten | Micheál MacLiammóir | Elsa Martinelli | John Gielgud | Irène Jacob | Maggie Smith | Edward G. Robinson | Laurence Olivier | Margaret Rutherford | Kenneth Branagh | Marcello Mastroianni | Jon Finch | Joyce Redman | Oja Kodar",
+    "metadata": {
+      "question": "the films directed by the director of [Citizen Kane] starred who",
+      "gold_answers": [
+        "Suzanne Cloutier",
+        "Anthony Perkins",
+        "Rita Hayworth",
+        "Joseph Calleia",
+        "Everett Sloane",
+        "John Lithgow",
+        "Anne Baxter",
+        "Isabella Rossellini",
+        "Janet Leigh",
+        "Frank Finlay",
+        "Loretta Young",
+        "Charlton Heston",
+        "Dolores Costello",
+        "Orson Welles",
+        "Francesca Annis",
+        "Tim Holt",
+        "Robert Coote",
+        "Bob Hoskins",
+        "Jeanne Moreau",
+        "Laurence Fishburne",
+        "Joseph Cotten",
+        "Micheál MacLiammóir",
+        "Elsa Martinelli",
+        "John Gielgud",
+        "Irène Jacob",
+        "Maggie Smith",
+        "Edward G. Robinson",
+        "Laurence Olivier",
+        "Margaret Rutherford",
+        "Kenneth Branagh",
+        "Marcello Mastroianni",
+        "Jon Finch",
+        "Joyce Redman",
+        "Oja Kodar"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nThe Outside Man → directed_by → Jacques Deray\nThe Outside Man → written_by → Jacques Deray\nThe Outside Man → starred_actors → Roy Scheider\nThe Outside Man → starred_actors → Angie Dickinson\nThe Outside Man → release_year → 1972\nThe Outside Man → in_language → French\nThe Bride Wore Black → in_language → French\nI Can't Sleep → in_language → French\nThe Well-Digger's Daughter → in_language → French\nMartyrs → in_language → French\nMy Favorite Season → in_language → French\nThe Grand Maneuver → in_language → French\nDante 01 → in_language → French\nPopulaire → in_language → French\nNighthawks → in_language → French\nNot on the Lips → in_language → French\nLOL → in_language → French\nThe Apartment → in_language → French\nDemonlover → in_language → French\nMademoiselle → in_language → French\nL'Age d'Or → in_language → French\nGabrielle → in_language → French\nA Screaming Man → in_language → French\nA Prophet → in_language → French\nI've Loved You So Long → in_language → French\nA Little Romance → in_language → French\nAvenue Montaigne → in_language → French\nThe Suicide Shop → in_language → French\nRenaissance → in_language → French\nRussian Dolls → in_language → French\nA Woman Is a Woman → in_language → French\nAu Hasard Balthazar → in_language → French\nDeath in Venice → in_language → French\nFrench Twist → in_language → French\nBye-Bye → in_language → French\nTrafic → in_language → French\nToo Beautiful for You → in_language → French\nDays of Darkness → in_language → French\nThe Man Who Sleeps → in_language → French\nMonsieur Lazhar → in_language → French\nBastards → in_language → French\nThe Girl on the Train → in_language → French\nSexual Chronicles of a French Family → in_language → French\nThe Old Lady Who Walked in the Sea → in_language → French\nThe Damned → in_language → French\nHouse of Tolerance → in_language → French\nAlice and Martin → in_language → French\nQueen to Play → in_language → French\nRead My Lips → in_language → French\nThe Murderer Lives at Number 21 → in_language → French\n\nRetrieved Context:\n- The Outside Man in_language French\n- Goodbye to Language starred_actors Richard Chevallier\n- The Outside Man starred_actors Roy Scheider\n- Inside Man starred_actors Clive Owen\n- The Outside Man directed_by Jacques Deray\n\nQuestion: what are the languages spoken in the films starred by The Outside Man actors",
+    "output": "Russian | French",
+    "metadata": {
+      "question": "what are the languages spoken in the films starred by [The Outside Man] actors",
+      "gold_answers": [
+        "Russian",
+        "French"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nBoulevard → starred_actors → Lou Diamond Phillips\nBoulevard → starred_actors → Rae Dawn Chong\nBoulevard → release_year → 1994\nBoulevard → has_genre → Crime\nThe Sentinel → has_genre → Crime\nThe Raid 2 → has_genre → Crime\nVice → has_genre → Crime\nAin't Them Bodies Saints → has_genre → Crime\nHomicide → has_genre → Crime\nUnderworld → has_genre → Crime\nMean Streets → has_genre → Crime\nThe Informant! → has_genre → Crime\nDom Hemingway → has_genre → Crime\nChicago Joe and the Showgirl → has_genre → Crime\nFalling Down → has_genre → Crime\nThe Singing Detective → has_genre → Crime\nEmpire State → has_genre → Crime\nDisorganized Crime → has_genre → Crime\nBlind Fury → has_genre → Crime\nScarface → has_genre → Crime\nCode of Silence → has_genre → Crime\nFilth → has_genre → Crime\nPTU → has_genre → Crime\nMad Money → has_genre → Crime\nBugsy → has_genre → Crime\nDog Day Afternoon → has_genre → Crime\nKiss of Death → has_genre → Crime\nThe Mayor of Hell → has_genre → Crime\nCatch Me If You Can → has_genre → Crime\nFive Minutes to Live → has_genre → Crime\nThe Real McCoy → has_genre → Crime\nMickey Blue Eyes → has_genre → Crime\nOn the Waterfront → has_genre → Crime\nWisdom → has_genre → Crime\nGirl in the Cadillac → has_genre → Crime\nThe Wrong Man → has_genre → Crime\nHorsemen → has_genre → Crime\nThe Killer Inside Me → has_genre → Crime\nCrime Story → has_genre → Crime\nBig Momma's House → has_genre → Crime\nThe Lincoln Lawyer → has_genre → Crime\nHenry's Crime → has_genre → Crime\nBrother Orchid → has_genre → Crime\nPulp Fiction → has_genre → Crime\nThe Big Heat → has_genre → Crime\nDown Terrace → has_genre → Crime\nConfidence → has_genre → Crime\nTime of the Gypsies → has_genre → Crime\nA Most Violent Year → has_genre → Crime\nLawless → has_genre → Crime\n\nRetrieved Context:\n- Boulevard starred_actors Lou Diamond Phillips\n- London Boulevard starred_actors Colin Farrell\n- London Boulevard starred_actors Keira Knightley\n- Boulevard starred_actors Rae Dawn Chong\n- Boulevard release_year 1994\n\nQuestion: when did the films starred by Boulevard actors release",
+    "output": "1991 | 1987 | 1993 | 1985 | 1990 | 1999 | 1998 | 1996 | 1988 | 1989 | 2003 | 2000 | 2001 | 2005 | 1986",
+    "metadata": {
+      "question": "when did the films starred by [Boulevard] actors release",
+      "gold_answers": [
+        "1991",
+        "1987",
+        "1993",
+        "1985",
+        "1990",
+        "1999",
+        "1998",
+        "1996",
+        "1988",
+        "1989",
+        "2003",
+        "2000",
+        "2001",
+        "2005",
+        "1986"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nPermanent Vacation → directed_by → Jim Jarmusch\nPermanent Vacation → written_by → Jim Jarmusch\nPermanent Vacation → release_year → 1980\nThe Limits of Control → directed_by → Jim Jarmusch\nThe Limits of Control → written_by → Jim Jarmusch\nStranger Than Paradise → directed_by → Jim Jarmusch\nStranger Than Paradise → written_by → Jim Jarmusch\nMystery Train → directed_by → Jim Jarmusch\nMystery Train → written_by → Jim Jarmusch\nBroken Flowers → directed_by → Jim Jarmusch\nBroken Flowers → written_by → Jim Jarmusch\nNight on Earth → directed_by → Jim Jarmusch\nNight on Earth → written_by → Jim Jarmusch\nCoffee and Cigarettes → directed_by → Jim Jarmusch\nCoffee and Cigarettes → written_by → Jim Jarmusch\nDead Man → directed_by → Jim Jarmusch\nDead Man → written_by → Jim Jarmusch\nDown by Law → directed_by → Jim Jarmusch\nDown by Law → written_by → Jim Jarmusch\nOnly Lovers Left Alive → directed_by → Jim Jarmusch\nOnly Lovers Left Alive → written_by → Jim Jarmusch\nThe Fiendish Plot of Dr. Fu Manchu → release_year → 1980\nCannibal Holocaust → release_year → 1980\nFrom the Life of the Marionettes → release_year → 1980\nThe Legend of Sleepy Hollow → release_year → 1980\nFun Is Beautiful → release_year → 1980\nRoadie → release_year → 1980\nThe Fog → release_year → 1980\nRunning Scared → release_year → 1980\nHe Knows You're Alone → release_year → 1980\nMotel Hell → release_year → 1980\nSeems Like Old Times → release_year → 1980\nMidnight Madness → release_year → 1980\nCaddyshack → release_year → 1980\nBlade on the Feather → release_year → 1980\nAny Which Way You Can → release_year → 1980\nForbidden Zone → release_year → 1980\nOh, God! Book II → release_year → 1980\nFoxes → release_year → 1980\nSimon → release_year → 1980\nSolo Sunny → release_year → 1980\nThe Kidnapping of the President → release_year → 1980\nCruising → release_year → 1980\nShogun Assassin → release_year → 1980\nSpetters → release_year → 1980\nJane Austen in Manhattan → release_year → 1980\nTerror Train → release_year → 1980\nTimes Square → release_year → 1980\n\nRetrieved Context:\n- Permanent Vacation directed_by Jim Jarmusch\n- Private Resort starred_actors Johnny Depp\n- National Lampoon's Vacation directed_by Harold Ramis\n- A Brief Vacation directed_by Vittorio De Sica\n- A Brief Vacation has_genre Drama\n\nQuestion: who acted in the films directed by the director of Permanent Vacation",
+    "output": "Richard Edson | Masatoshi Nagase | Tilda Swinton | Julie Delpy | Tom Hiddleston | Crispin Glover | Eszter Balint | Tom Waits | Isaach De Bankolé | Bill Murray | Lance Henriksen | John Lurie | Cinqué Lee | Johnny Depp | Mia Wasikowska | Roberto Benigni | Screamin' Jay Hawkins | Gary Farmer",
+    "metadata": {
+      "question": "who acted in the films directed by the director of [Permanent Vacation]",
+      "gold_answers": [
+        "Richard Edson",
+        "Masatoshi Nagase",
+        "Tilda Swinton",
+        "Julie Delpy",
+        "Tom Hiddleston",
+        "Crispin Glover",
+        "Eszter Balint",
+        "Tom Waits",
+        "Isaach De Bankolé",
+        "Bill Murray",
+        "Lance Henriksen",
+        "John Lurie",
+        "Cinqué Lee",
+        "Johnny Depp",
+        "Mia Wasikowska",
+        "Roberto Benigni",
+        "Screamin' Jay Hawkins",
+        "Gary Farmer"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  },
+  {
+    "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
+    "input": "Knowledge Graph:\nDarkman → directed_by → Sam Raimi\nDarkman → written_by → Sam Raimi\nDarkman → starred_actors → Liam Neeson\nDarkman → starred_actors → Frances McDormand\nDarkman → starred_actors → Colin Friels\nDarkman → starred_actors → Larry Drake\nDarkman → release_year → 1990\nDarkman → has_genre → Action\nDarkman → has_tags → superhero\nDarkman → has_tags → horror\nDarkman → has_tags → sam raimi\nDarkman → has_tags → frances mcdormand\nDr. Giggles → starred_actors → Larry Drake\nFunny About Love → release_year → 1990\nDreams → release_year → 1990\nThe Exorcist III → release_year → 1990\nChicago Joe and the Showgirl → release_year → 1990\nHidden Agenda → release_year → 1990\nHome Alone → release_year → 1990\nEverybody Wins → release_year → 1990\nTwo Evil Eyes → release_year → 1990\nPresumed Innocent → release_year → 1990\nThe First Power → release_year → 1990\nA Cry in the Wild → release_year → 1990\nHavana → release_year → 1990\nKorczak → release_year → 1990\nDemon Wind → release_year → 1990\nMetropolitan → release_year → 1990\nThe Bonfire of the Vanities → release_year → 1990\nReversal of Fortune → release_year → 1990\nWhite Hunter Black Heart → release_year → 1990\nWhere the Heart Is → release_year → 1990\nNuns on the Run → release_year → 1990\nThe Fourth War → release_year → 1990\nNight of the Living Dead → release_year → 1990\nHouse Party → release_year → 1990\nFear → release_year → 1990\nCaptain America → release_year → 1990\nI Bought a Vampire Motorcycle → release_year → 1990\nThe Guardian → release_year → 1990\nThe Nutcracker Prince → release_year → 1990\nDick Tracy → release_year → 1990\nClose-Up → release_year → 1990\nA Shock to the System → release_year → 1990\nMoon 44 → release_year → 1990\nMisery → release_year → 1990\nFire Birds → release_year → 1990\nMister Johnson → release_year → 1990\n\nRetrieved Context:\n- Darkman starred_actors Frances McDormand\n- Darkman directed_by Sam Raimi\n- Darkman starred_actors Liam Neeson\n- Darkman starred_actors Colin Friels\n- Dark Command starred_actors John Wayne\n\nQuestion: the films directed by the director of Darkman starred who",
+    "output": "Michelle Williams | Billy Bob Thornton | Kate Capshaw | Bruce Campbell | Paul L. Smith | Louise Lasser | Tobey Maguire | Bridget Fonda | Willem Dafoe | Brion James | Cate Blanchett | Ellen Sandweiss | Sharon Stone | Lorna Raver | Sam Elliott | Kelly Preston | Kenny Morrison | James Franco | Keanu Reeves | Katie Holmes | Mila Kunis | Rachel Weisz | Thomas Haden Church | Alison Lohman | Kevin Costner | Embeth Davidtz | Giovanni Ribisi | Bill Paxton | Russell Crowe | Kirsten Dunst | Tom Conti | Leonardo DiCaprio | Betsy Baker | Justin Long | Gene Hackman",
+    "metadata": {
+      "question": "the films directed by the director of [Darkman] starred who",
+      "gold_answers": [
+        "Michelle Williams",
+        "Billy Bob Thornton",
+        "Kate Capshaw",
+        "Bruce Campbell",
+        "Paul L. Smith",
+        "Louise Lasser",
+        "Tobey Maguire",
+        "Bridget Fonda",
+        "Willem Dafoe",
+        "Brion James",
+        "Cate Blanchett",
+        "Ellen Sandweiss",
+        "Sharon Stone",
+        "Lorna Raver",
+        "Sam Elliott",
+        "Kelly Preston",
+        "Kenny Morrison",
+        "James Franco",
+        "Keanu Reeves",
+        "Katie Holmes",
+        "Mila Kunis",
+        "Rachel Weisz",
+        "Thomas Haden Church",
+        "Alison Lohman",
+        "Kevin Costner",
+        "Embeth Davidtz",
+        "Giovanni Ribisi",
+        "Bill Paxton",
+        "Russell Crowe",
+        "Kirsten Dunst",
+        "Tom Conti",
+        "Leonardo DiCaprio",
+        "Betsy Baker",
+        "Justin Long",
+        "Gene Hackman"
+      ],
+      "hop": 3,
+      "mode": "graphrag",
+      "label_source": "gold"
+    }
+  }
+]
