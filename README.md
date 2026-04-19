@@ -126,9 +126,7 @@ Across three student model sizes: **Qwen2.5-0.5B**, **Qwen2.5-1.5B**, **Qwen2.5-
 
 ---
 
-### Training Loss Curves
 
-![Training loss curves](results/training_loss_curves.png)
 
 ---
 
