@@ -29,6 +29,8 @@ from failure_modes import (  # noqa: E402
     analyze_case,
     answer_metrics,
     extract_final_answer,
+    extract_evidence_lines,
+    normalize_answer,
     parse_answer_list,
     parse_context_sections,
 )
@@ -281,6 +283,27 @@ def classify_answer_set_error(pred: list[str], gold: list[str]) -> dict:
     }
 
 
+def answer_coverage_in_lines(answers: list[str], lines: list[str]) -> dict:
+    joined = "\n".join(str(line) for line in lines).lower()
+    covered = []
+    missing = []
+    for answer in answers:
+        if normalize_answer(answer) and normalize_answer(answer) in joined:
+            covered.append(answer)
+        else:
+            missing.append(answer)
+
+    return {
+        "covered": covered,
+        "missing": missing,
+        "covered_count": len(covered),
+        "missing_count": len(missing),
+        "all": bool(answers) and not missing,
+        "any": bool(covered),
+        "coverage_rate": len(covered) / len(answers) if answers else 0.0,
+    }
+
+
 def build_answer_error_tables(model_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     example_rows = []
     coverage_rows = []
@@ -401,6 +424,19 @@ def analyze_dataset_item(dataset_name: str, item: dict) -> dict:
     support_ratio = analysis["evidence_support"]["support_ratio"]
     evidence_count = analysis["evidence_support"]["total"]
     unsupported_count = len(analysis["evidence_support"]["unsupported"])
+    evidence_lines = extract_evidence_lines(output)
+    supported_evidence_lines = analysis["evidence_support"]["supported"]
+    trace_gold_coverage = answer_coverage_in_lines(gold, evidence_lines)
+    grounded_trace_gold_coverage = answer_coverage_in_lines(gold, supported_evidence_lines)
+    gold_answer_count = len(gold)
+    trace_compression_gap = gold_answer_count - trace_gold_coverage["covered_count"]
+    grounded_trace_compression_gap = gold_answer_count - grounded_trace_gold_coverage["covered_count"]
+    evidence_lines_per_gold_answer = evidence_count / gold_answer_count if gold_answer_count else 0.0
+    direct_answer_without_grounded_trace = (
+        analysis["metrics"]["em"] == 1.0
+        and gold_answer_count > 0
+        and not grounded_trace_gold_coverage["any"]
+    )
 
     return {
         "dataset": dataset_name,
@@ -408,7 +444,7 @@ def analyze_dataset_item(dataset_name: str, item: dict) -> dict:
         "mode": metadata.get("mode"),
         "label_source": metadata.get("label_source"),
         "question": metadata.get("question") or sections["question"],
-        "gold_answer_count": len(gold),
+        "gold_answer_count": gold_answer_count,
         "output_answer_count": len(predicted),
         "final_answer_em": analysis["metrics"]["em"],
         "final_answer_f1": analysis["metrics"]["f1"],
@@ -422,6 +458,18 @@ def analyze_dataset_item(dataset_name: str, item: dict) -> dict:
         "evidence_support_ratio": support_ratio,
         "unsupported_evidence_count": unsupported_count,
         "has_unsupported_evidence": unsupported_count > 0,
+        "trace_gold_answer_covered_count": trace_gold_coverage["covered_count"],
+        "trace_gold_answer_coverage_rate": trace_gold_coverage["coverage_rate"],
+        "trace_covers_any_gold_answer": trace_gold_coverage["any"],
+        "trace_covers_all_gold_answers": trace_gold_coverage["all"],
+        "grounded_trace_gold_answer_covered_count": grounded_trace_gold_coverage["covered_count"],
+        "grounded_trace_gold_answer_coverage_rate": grounded_trace_gold_coverage["coverage_rate"],
+        "grounded_trace_covers_any_gold_answer": grounded_trace_gold_coverage["any"],
+        "grounded_trace_covers_all_gold_answers": grounded_trace_gold_coverage["all"],
+        "trace_compression_gap": trace_compression_gap,
+        "grounded_trace_compression_gap": grounded_trace_compression_gap,
+        "evidence_lines_per_gold_answer": evidence_lines_per_gold_answer,
+        "direct_answer_without_grounded_trace": direct_answer_without_grounded_trace,
         "failure_mode": analysis["failure_mode"],
     }
 
@@ -456,6 +504,16 @@ def build_dataset_trace_tables() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFra
             avg_evidence_count=("evidence_count", "mean"),
             avg_evidence_support_ratio=("evidence_support_ratio", "mean"),
             unsupported_evidence_rate=("has_unsupported_evidence", "mean"),
+            avg_trace_gold_answer_coverage_rate=("trace_gold_answer_coverage_rate", "mean"),
+            trace_covers_all_gold_answers_rate=("trace_covers_all_gold_answers", "mean"),
+            trace_covers_any_gold_answer_rate=("trace_covers_any_gold_answer", "mean"),
+            avg_grounded_trace_gold_answer_coverage_rate=("grounded_trace_gold_answer_coverage_rate", "mean"),
+            grounded_trace_covers_all_gold_answers_rate=("grounded_trace_covers_all_gold_answers", "mean"),
+            grounded_trace_covers_any_gold_answer_rate=("grounded_trace_covers_any_gold_answer", "mean"),
+            avg_trace_compression_gap=("trace_compression_gap", "mean"),
+            avg_grounded_trace_compression_gap=("grounded_trace_compression_gap", "mean"),
+            avg_evidence_lines_per_gold_answer=("evidence_lines_per_gold_answer", "mean"),
+            direct_answer_without_grounded_trace_rate=("direct_answer_without_grounded_trace", "mean"),
         )
         .reset_index()
     )
@@ -625,6 +683,78 @@ def plot_trace_quality(summary_df: pd.DataFrame, out_dir: Path) -> None:
     )
 
 
+def plot_teacher_trace_gold_coverage(summary_df: pd.DataFrame, out_dir: Path) -> None:
+    hybrid = summary_df[summary_df["dataset"] == "GraphRAG Hybrid"].copy()
+    if hybrid.empty:
+        return
+    rows = []
+    for _, row in hybrid.iterrows():
+        rows.extend([
+            {
+                "hop": f"{int(row['hop'])}-hop",
+                "metric": "evidence covers all gold",
+                "rate": row["trace_covers_all_gold_answers_rate"],
+            },
+            {
+                "hop": f"{int(row['hop'])}-hop",
+                "metric": "grounded evidence covers all gold",
+                "rate": row["grounded_trace_covers_all_gold_answers_rate"],
+            },
+            {
+                "hop": f"{int(row['hop'])}-hop",
+                "metric": "grounded evidence covers any gold",
+                "rate": row["grounded_trace_covers_any_gold_answer_rate"],
+            },
+        ])
+    plot_df = pd.DataFrame(rows)
+    save_bar_chart(
+        plot_df,
+        x="hop",
+        y="rate",
+        hue="metric",
+        title="Teacher Trace Gold-Answer Coverage",
+        ylabel="Rate",
+        path=out_dir / "teacher_trace_gold_coverage.png",
+        rotate=0,
+    )
+
+
+def plot_teacher_trace_compression(summary_df: pd.DataFrame, out_dir: Path) -> None:
+    hybrid = summary_df[summary_df["dataset"] == "GraphRAG Hybrid"].copy()
+    if hybrid.empty:
+        return
+    rows = []
+    for _, row in hybrid.iterrows():
+        rows.extend([
+            {
+                "hop": f"{int(row['hop'])}-hop",
+                "metric": "gold answers",
+                "average": row["avg_gold_answer_count"],
+            },
+            {
+                "hop": f"{int(row['hop'])}-hop",
+                "metric": "grounded trace gap",
+                "average": row["avg_grounded_trace_compression_gap"],
+            },
+            {
+                "hop": f"{int(row['hop'])}-hop",
+                "metric": "evidence lines / gold answer",
+                "average": row["avg_evidence_lines_per_gold_answer"],
+            },
+        ])
+    plot_df = pd.DataFrame(rows)
+    save_bar_chart(
+        plot_df,
+        x="hop",
+        y="average",
+        hue="metric",
+        title="Teacher Trace Compression Under Multi-Answer Burden",
+        ylabel="Average count",
+        path=out_dir / "teacher_trace_compression_gap.png",
+        rotate=0,
+    )
+
+
 def plot_answer_burden(summary_df: pd.DataFrame, out_dir: Path) -> None:
     gold = summary_df[summary_df["dataset"] == "GraphRAG Gold"].copy()
     if gold.empty:
@@ -704,8 +834,17 @@ def write_summary_markdown(
         if not hybrid_trace.empty:
             unsupported = hybrid_trace["unsupported_evidence_rate"].mean()
             support = hybrid_trace["avg_evidence_support_ratio"].mean()
+            grounded_all = hybrid_trace["grounded_trace_covers_all_gold_answers_rate"].mean()
+            grounded_gap = hybrid_trace["avg_grounded_trace_compression_gap"].mean()
+            direct_only = hybrid_trace["direct_answer_without_grounded_trace_rate"].mean()
             lines.append(
                 f"- Teacher trace quality: average evidence support is {support:.3f}, with unsupported-evidence examples at {unsupported:.3f} across hops."
+            )
+            lines.append(
+                f"- Teacher trace completeness: grounded evidence covers every gold answer in {grounded_all:.3f} of hybrid examples on average; the average grounded compression gap is {grounded_gap:.2f} gold answers."
+            )
+            lines.append(
+                f"- Direct-answer supervision artifact rate: {direct_only:.3f} of hybrid examples have a correct final answer but no grounded evidence line covering any gold answer."
             )
 
     if not answer_summary_df.empty:
@@ -726,6 +865,8 @@ def write_summary_markdown(
         "- `f1_em_gap_by_hop.png`: shows where F1 is much higher than EM, indicating partial answer-set overlap.",
         "- `retrieval_coverage_by_hop.png`: gold answer coverage in GraphRAG/RAG contexts.",
         "- `teacher_trace_quality.png`: evidence support and unsupported-evidence rate.",
+        "- `teacher_trace_gold_coverage.png`: whether teacher evidence covers gold answers.",
+        "- `teacher_trace_compression_gap.png`: evidence compression under multi-answer burden.",
         "- `answer_burden_by_hop.png`: hop-wise multi-answer burden.",
         "- `answer_set_error_breakdown.png`: saved prediction error modes.",
         "",
@@ -767,6 +908,8 @@ def run(args: argparse.Namespace) -> None:
     if not trace_summary_df.empty:
         plot_retrieval_coverage(trace_summary_df, out_dir)
         plot_trace_quality(trace_summary_df, out_dir)
+        plot_teacher_trace_gold_coverage(trace_summary_df, out_dir)
+        plot_teacher_trace_compression(trace_summary_df, out_dir)
         plot_answer_burden(trace_summary_df, out_dir)
     plot_answer_set_errors(answer_summary_df, out_dir)
 

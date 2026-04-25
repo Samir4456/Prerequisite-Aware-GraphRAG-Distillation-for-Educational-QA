@@ -25,7 +25,21 @@ Key files:
 - `dataset_trace_summary_by_hop.csv` contains retrieval/context coverage, answer-count burden, and teacher-trace quality by hop.
 - `answer_set_error_breakdown.csv` summarizes incomplete-answer, overgeneration, exact-miss, and partial-overlap errors from saved predictions.
 - `summary.md` gives short report-ready interpretation.
-- `model_em_by_hop.png`, `retrieval_coverage_by_hop.png`, `teacher_trace_quality.png`, `answer_burden_by_hop.png`, and `answer_set_error_breakdown.png` are PPT-ready figures.
+- `model_em_by_hop.png`, `retrieval_coverage_by_hop.png`, `teacher_trace_quality.png`, `teacher_trace_gold_coverage.png`, `teacher_trace_compression_gap.png`, `answer_burden_by_hop.png`, and `answer_set_error_breakdown.png` are PPT-ready figures.
+
+## Teacher / Parent Trace Metrics
+
+For the hybrid dataset, the final answer is gold-injected, so parent answer accuracy is not the main teacher metric. The useful parent metrics are trace quality metrics:
+
+- **Evidence support rate:** percentage of teacher evidence lines grounded in graph/retrieved context.
+- **Unsupported evidence rate:** percentage of examples with at least one unsupported evidence line.
+- **Trace gold-answer coverage:** percentage of gold answers mentioned by the teacher evidence trace.
+- **Grounded trace gold-answer coverage:** percentage of gold answers mentioned by evidence lines that are themselves grounded.
+- **Trace completeness:** percentage of examples where evidence covers every gold answer.
+- **Grounded compression gap:** `gold_answer_count - grounded_trace_gold_answer_covered_count`.
+- **Direct-answer artifact rate:** final answer is correct, but grounded evidence covers no gold answer.
+
+This frames the parent model as a strong reasoner while still measuring whether its supervision trace is complete enough for student learning under context/token limits.
 
 ## Recommended Demo
 
@@ -51,7 +65,7 @@ The committed repository does not include `checkpoints/`, `data/raw/`, or `data/
 When those runtime artifacts are present, re-run evaluation with context saving:
 
 ```powershell
-python run_all.py --eval_only --reeval --examples_limit 0 --save_context
+python run_all.py --eval_only --reeval --examples_limit 0 --save_context --trace_output
 python src/evaluation/error_analysis_report.py
 ```
 
@@ -63,6 +77,12 @@ That will allow per-model calculation of:
 - partial overlap vs exact miss;
 - answer-set incompleteness and overgeneration;
 - same-size base vs trained deltas.
+
+For a strict before/after evidence-trace comparison, also evaluate the base model with the same trace prompt:
+
+```powershell
+python src/evaluation/evaluate_student.py --model_path Qwen/Qwen2.5-3B-Instruct --mode graphrag --run_name qwen2.5-3b-base-trace --output_dir results/qwen2.5-3b-base-trace --examples_limit 0 --save_context --trace_output
+```
 
 ## Model Framing
 

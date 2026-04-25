@@ -218,6 +218,8 @@ def main(args):
         ]
         if args.save_context:
             eval_cmd.append("--save_context")
+        if args.trace_output:
+            eval_cmd.append("--trace_output")
 
         eval_success = run_cmd(
             eval_cmd,
@@ -271,6 +273,8 @@ if __name__ == "__main__":
                         help="Examples to save per run. Use 0 to save all.")
     parser.add_argument("--save_context", action="store_true",
                         help="Save graph/retrieval context in eval examples for error analysis.")
+    parser.add_argument("--trace_output", action="store_true",
+                        help="Prompt models to emit evidence traces plus final answers during evaluation.")
 
     args = parser.parse_args()
     main(args)

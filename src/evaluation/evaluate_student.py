@@ -101,11 +101,16 @@ INSTRUCTION = (
     "Return only the answer entity or entities separated by |."
 )
 
+TRACE_INSTRUCTION = (
+    "Answer the question using the retrieved context and knowledge graph. "
+    "First list the supporting evidence from the graph or retrieved context, "
+    "then write 'Final answer:' followed by the answer entity or entities separated by |."
+)
 
-def build_prompt(input_text: str, tokenizer) -> str:
+def build_prompt(input_text: str, tokenizer, trace_output: bool = False) -> str:
     """Format as Qwen2.5 chat prompt."""
     messages = [
-        {"role": "system", "content": INSTRUCTION},
+        {"role": "system", "content": TRACE_INSTRUCTION if trace_output else INSTRUCTION},
         {"role": "user", "content": input_text},
     ]
     return tokenizer.apply_chat_template(
@@ -120,6 +125,9 @@ def parse_answer(raw: str) -> list[str]:
     Parse model output into a list of answer entities.
     Handles: "Answer1 | Answer2", "Final answer: X", plain text.
     """
+    final_match = re.search(r'(?is)final answer:\s*(.+)$', raw)
+    if final_match:
+        raw = final_match.group(1).strip()
     # Strip "Final answer:" prefix if present
     raw = re.sub(r'(?i)final answer:\s*', '', raw).strip()
     # Split on pipe
@@ -182,6 +190,7 @@ def evaluate_hop(
     model, tokenizer, device,
     qa_pairs, adjacency, index, corpus,
     hop_num, mode, n_samples, k, max_triples, save_context=False,
+    trace_output=False,
 ):
     context_hops = max(hop_num, 2)
     pairs = qa_pairs[:n_samples]
@@ -195,8 +204,11 @@ def evaluate_hop(
             mode=mode, hops=context_hops, k=k, max_triples=max_triples
         )
         input_text = bundle["input_text"]
-        prompt = build_prompt(input_text, tokenizer)
-        raw, latency = run_inference(model, tokenizer, prompt, device)
+        prompt = build_prompt(input_text, tokenizer, trace_output=trace_output)
+        raw, latency = run_inference(
+            model, tokenizer, prompt, device,
+            max_new_tokens=192 if trace_output else 64,
+        )
         pred_list = parse_answer(raw)
 
         em = exact_match(pred_list, item['answers'])
@@ -219,6 +231,7 @@ def evaluate_hop(
             "gold_answer_count": len(item['answers']),
             "pred_answer_count": len(pred_list),
             "latency_ms": round(latency, 2),
+            "trace_output": trace_output,
         }
         if save_context:
             example.update({
@@ -302,6 +315,7 @@ def main(args):
             k=args.k,
             max_triples=args.max_triples,
             save_context=args.save_context,
+            trace_output=args.trace_output,
         )
 
         tag = f"test_{hop_num}hop"
@@ -334,6 +348,7 @@ def main(args):
         "model": args.model_path,
         "mode": args.mode,
         "n_samples": args.n_samples,
+        "trace_output": args.trace_output,
         **all_metrics,
     }
     with open(out_dir / "eval_results.json", 'w', encoding='utf-8') as f:
@@ -374,5 +389,7 @@ if __name__ == "__main__":
                         help="Number of examples to save. Use 0 to save all.")
     parser.add_argument("--save_context", action="store_true",
                         help="Save retrieved chunks and graph context for error analysis.")
+    parser.add_argument("--trace_output", action="store_true",
+                        help="Prompt model to emit supporting evidence plus Final answer.")
     args = parser.parse_args()
     main(args)

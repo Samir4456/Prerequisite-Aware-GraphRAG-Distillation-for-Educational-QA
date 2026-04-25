@@ -402,7 +402,17 @@
       "gold_any_in_retrieval_rate": 0.884,
       "avg_evidence_count": 0.0,
       "avg_evidence_support_ratio": null,
-      "unsupported_evidence_rate": 0.0
+      "unsupported_evidence_rate": 0.0,
+      "avg_trace_gold_answer_coverage_rate": 0.0,
+      "trace_covers_all_gold_answers_rate": 0.0,
+      "trace_covers_any_gold_answer_rate": 0.0,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0,
+      "grounded_trace_covers_any_gold_answer_rate": 0.0,
+      "avg_trace_compression_gap": 1.8305,
+      "avg_grounded_trace_compression_gap": 1.8305,
+      "avg_evidence_lines_per_gold_answer": 0.0,
+      "direct_answer_without_grounded_trace_rate": 1.0
     },
     {
       "dataset": "GraphRAG Gold",
@@ -419,7 +429,17 @@
       "gold_any_in_retrieval_rate": 0.063,
       "avg_evidence_count": 0.0,
       "avg_evidence_support_ratio": null,
-      "unsupported_evidence_rate": 0.0
+      "unsupported_evidence_rate": 0.0,
+      "avg_trace_gold_answer_coverage_rate": 0.0,
+      "trace_covers_all_gold_answers_rate": 0.0,
+      "trace_covers_any_gold_answer_rate": 0.0,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0,
+      "grounded_trace_covers_any_gold_answer_rate": 0.0,
+      "avg_trace_compression_gap": 6.1895,
+      "avg_grounded_trace_compression_gap": 6.1895,
+      "avg_evidence_lines_per_gold_answer": 0.0,
+      "direct_answer_without_grounded_trace_rate": 1.0
     },
     {
       "dataset": "GraphRAG Gold",
@@ -436,7 +456,17 @@
       "gold_any_in_retrieval_rate": 0.4315,
       "avg_evidence_count": 0.0,
       "avg_evidence_support_ratio": null,
-      "unsupported_evidence_rate": 0.0
+      "unsupported_evidence_rate": 0.0,
+      "avg_trace_gold_answer_coverage_rate": 0.0,
+      "trace_covers_all_gold_answers_rate": 0.0,
+      "trace_covers_any_gold_answer_rate": 0.0,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0,
+      "grounded_trace_covers_any_gold_answer_rate": 0.0,
+      "avg_trace_compression_gap": 13.16,
+      "avg_grounded_trace_compression_gap": 13.16,
+      "avg_evidence_lines_per_gold_answer": 0.0,
+      "direct_answer_without_grounded_trace_rate": 1.0
     },
     {
       "dataset": "GraphRAG Hybrid",
@@ -453,7 +483,17 @@
       "gold_any_in_retrieval_rate": 0.8433333333,
       "avg_evidence_count": 2.1383333333,
       "avg_evidence_support_ratio": 0.9449305556,
-      "unsupported_evidence_rate": 0.0866666667
+      "unsupported_evidence_rate": 0.0866666667,
+      "avg_trace_gold_answer_coverage_rate": 0.9610826673,
+      "trace_covers_all_gold_answers_rate": 0.935,
+      "trace_covers_any_gold_answer_rate": 0.9833333333,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.9108788434,
+      "grounded_trace_covers_all_gold_answers_rate": 0.8683333333,
+      "grounded_trace_covers_any_gold_answer_rate": 0.955,
+      "avg_trace_compression_gap": 0.1933333333,
+      "avg_grounded_trace_compression_gap": 0.32,
+      "avg_evidence_lines_per_gold_answer": 1.4463624292,
+      "direct_answer_without_grounded_trace_rate": 0.045
     },
     {
       "dataset": "GraphRAG Hybrid",
@@ -470,7 +510,17 @@
       "gold_any_in_retrieval_rate": 0.0366666667,
       "avg_evidence_count": 3.6466666667,
       "avg_evidence_support_ratio": 0.8182258751,
-      "unsupported_evidence_rate": 0.2783333333
+      "unsupported_evidence_rate": 0.2783333333,
+      "avg_trace_gold_answer_coverage_rate": 0.7021577868,
+      "trace_covers_all_gold_answers_rate": 0.6133333333,
+      "trace_covers_any_gold_answer_rate": 0.8266666667,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.4952049212,
+      "grounded_trace_covers_all_gold_answers_rate": 0.4316666667,
+      "grounded_trace_covers_any_gold_answer_rate": 0.585,
+      "avg_trace_compression_gap": 4.4633333333,
+      "avg_grounded_trace_compression_gap": 5.14,
+      "avg_evidence_lines_per_gold_answer": 1.4891421046,
+      "direct_answer_without_grounded_trace_rate": 0.415
     },
     {
       "dataset": "GraphRAG Hybrid",
@@ -487,7 +537,17 @@
       "gold_any_in_retrieval_rate": 0.3516666667,
       "avg_evidence_count": 4.7333333333,
       "avg_evidence_support_ratio": 0.8042010001,
-      "unsupported_evidence_rate": 0.2966666667
+      "unsupported_evidence_rate": 0.2966666667,
+      "avg_trace_gold_answer_coverage_rate": 0.1028849301,
+      "trace_covers_all_gold_answers_rate": 0.04,
+      "trace_covers_any_gold_answer_rate": 0.39,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0942858715,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0383333333,
+      "grounded_trace_covers_any_gold_answer_rate": 0.345,
+      "avg_trace_compression_gap": 12.5183333333,
+      "avg_grounded_trace_compression_gap": 12.5666666667,
+      "avg_evidence_lines_per_gold_answer": 1.075827475,
+      "direct_answer_without_grounded_trace_rate": 0.655
     },
     {
       "dataset": "RAG Gold",
@@ -504,7 +564,17 @@
       "gold_any_in_retrieval_rate": 0.892,
       "avg_evidence_count": 0.0,
       "avg_evidence_support_ratio": null,
-      "unsupported_evidence_rate": 0.0
+      "unsupported_evidence_rate": 0.0,
+      "avg_trace_gold_answer_coverage_rate": 0.0,
+      "trace_covers_all_gold_answers_rate": 0.0,
+      "trace_covers_any_gold_answer_rate": 0.0,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0,
+      "grounded_trace_covers_any_gold_answer_rate": 0.0,
+      "avg_trace_compression_gap": 1.808,
+      "avg_grounded_trace_compression_gap": 1.808,
+      "avg_evidence_lines_per_gold_answer": 0.0,
+      "direct_answer_without_grounded_trace_rate": 1.0
     },
     {
       "dataset": "RAG Gold",
@@ -521,7 +591,17 @@
       "gold_any_in_retrieval_rate": 0.064,
       "avg_evidence_count": 0.0,
       "avg_evidence_support_ratio": null,
-      "unsupported_evidence_rate": 0.0
+      "unsupported_evidence_rate": 0.0,
+      "avg_trace_gold_answer_coverage_rate": 0.0,
+      "trace_covers_all_gold_answers_rate": 0.0,
+      "trace_covers_any_gold_answer_rate": 0.0,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0,
+      "grounded_trace_covers_any_gold_answer_rate": 0.0,
+      "avg_trace_compression_gap": 6.428,
+      "avg_grounded_trace_compression_gap": 6.428,
+      "avg_evidence_lines_per_gold_answer": 0.0,
+      "direct_answer_without_grounded_trace_rate": 1.0
     },
     {
       "dataset": "RAG Gold",
@@ -538,7 +618,17 @@
       "gold_any_in_retrieval_rate": 0.454,
       "avg_evidence_count": 0.0,
       "avg_evidence_support_ratio": null,
-      "unsupported_evidence_rate": 0.0
+      "unsupported_evidence_rate": 0.0,
+      "avg_trace_gold_answer_coverage_rate": 0.0,
+      "trace_covers_all_gold_answers_rate": 0.0,
+      "trace_covers_any_gold_answer_rate": 0.0,
+      "avg_grounded_trace_gold_answer_coverage_rate": 0.0,
+      "grounded_trace_covers_all_gold_answers_rate": 0.0,
+      "grounded_trace_covers_any_gold_answer_rate": 0.0,
+      "avg_trace_compression_gap": 13.11,
+      "avg_grounded_trace_compression_gap": 13.11,
+      "avg_evidence_lines_per_gold_answer": 0.0,
+      "direct_answer_without_grounded_trace_rate": 1.0
     }
   ],
   "trace_failure_modes": [

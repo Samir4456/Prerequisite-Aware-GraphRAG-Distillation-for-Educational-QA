@@ -26,7 +26,7 @@ from failure_modes import (  # noqa: E402
     normalize_answer,
     parse_context_sections,
 )
-from error_analysis_report import load_examples, short_model_name  # noqa: E402
+from error_analysis_report import answer_coverage_in_lines, load_examples, short_model_name  # noqa: E402
 
 
 TRACE_PATH = ROOT / "data" / "processed" / "instruction_pairs" / "train_graphrag_hybrid.json"
@@ -742,6 +742,23 @@ def render_metric_strip(analysis: dict) -> None:
     c5.metric("Evidence lines", str(analysis["evidence_support"]["total"]))
 
 
+def render_teacher_trace_metrics(analysis: dict, gold: list[str]) -> None:
+    evidence_coverage = answer_coverage_in_lines(gold, analysis["evidence"])
+    grounded_coverage = answer_coverage_in_lines(
+        gold, analysis["evidence_support"]["supported"]
+    )
+    compression_gap = len(gold) - grounded_coverage["covered_count"]
+
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Trace covers gold", fmt_pct(evidence_coverage["coverage_rate"]))
+    c2.metric("Grounded trace covers gold", fmt_pct(grounded_coverage["coverage_rate"]))
+    c3.metric("Grounded compression gap", str(compression_gap))
+    c4.metric(
+        "Direct-answer artifact",
+        "yes" if analysis["metrics"]["em"] == 1.0 and not grounded_coverage["any"] else "no",
+    )
+
+
 def render_evidence(analysis: dict) -> None:
     evidence = analysis["evidence"]
     support = analysis["evidence_support"]
@@ -865,6 +882,7 @@ def render_trace_tab(trace_items: list[dict]) -> None:
     st.caption(case["note"])
     render_answer_columns(case["question"], case["gold"], analysis)
     render_metric_strip(analysis)
+    render_teacher_trace_metrics(analysis, case["gold"])
     render_diagnosis(analysis)
 
     left, right = st.columns([1, 1])
@@ -980,6 +998,113 @@ def render_actual_error_tab(eval_examples: list[dict]) -> None:
         st.caption(f"Latency: {example.get('latency_ms', 'n/a')} ms")
 
 
+def reported_metrics_for_label(model_label: str) -> dict | None:
+    for row in REPORTED_MODEL_ROWS:
+        if short_model_name(row["Model"]) == model_label or row["Model"] == model_label:
+            return row
+    return None
+
+
+def render_prediction_sample(example: dict, index: int) -> None:
+    pred = example.get("pred") or []
+    gold = example.get("gold") or []
+    metrics = answer_metrics(pred, gold)
+    label, explanation = answer_set_label(metrics)
+
+    with st.container(border=True):
+        st.markdown(f"**Example {index}: {example.get('question', 'unknown question')}**")
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("EM", f"{metrics.exact_match:.0f}")
+        c2.metric("F1", fmt_pct(metrics.f1))
+        c3.metric("Gold count", str(len(gold)))
+        c4.metric("Pred count", str(len(pred)))
+
+        left, right = st.columns(2)
+        with left:
+            st.markdown("Gold set")
+            st.code(" | ".join(gold) if gold else "(none)", language="text")
+        with right:
+            st.markdown("LLM response")
+            st.code(" | ".join(pred) if pred else example.get("raw_output", "(empty)"), language="text")
+
+        st.caption(f"{label}: {explanation}")
+        if metrics.missing:
+            st.write(f"Missing: `{', '.join(metrics.missing)}`")
+        if metrics.extra:
+            st.write(f"Extra: `{', '.join(metrics.extra)}`")
+
+
+def render_trace_sample(item: dict, index: int) -> None:
+    case = apply_trace_scenario(item, "Recorded trace")
+    analysis = case["analysis"]
+    with st.container(border=True):
+        st.markdown(f"**Trace example {index}: {case['question']}**")
+        render_answer_columns(case["question"], case["gold"], analysis)
+        render_metric_strip(analysis)
+        render_teacher_trace_metrics(analysis, case["gold"])
+        render_evidence(analysis)
+
+
+def render_hop_explorer_tab(eval_examples: list[dict], trace_items: list[dict]) -> None:
+    st.markdown(
+        "Goal: select a model and hop, then inspect three questions with LLM output, gold answers, sample performance, and overall performance."
+    )
+
+    hop_labeled = [
+        example for example in eval_examples
+        if example.get("hop") is not None and example.get("model_label")
+    ]
+
+    if hop_labeled:
+        model_options = sorted({example["model_label"] for example in hop_labeled})
+        selected_model = st.selectbox("Model", model_options, key="hop_explorer_model")
+        model_rows = [example for example in hop_labeled if example["model_label"] == selected_model]
+        hop_options = sorted({int(example["hop"]) for example in model_rows})
+        selected_hop = st.selectbox("Hop", hop_options, key="hop_explorer_hop")
+        subset = [example for example in model_rows if int(example["hop"]) == selected_hop]
+        subset.sort(key=lambda item: (float(item.get("em", 0)), -float(item.get("f1", 0))))
+
+        sample = subset[:3]
+        sample_em = sum(float(example.get("em", 0)) for example in subset) / len(subset)
+        sample_f1 = sum(float(example.get("f1", 0)) for example in subset) / len(subset)
+        reported = reported_metrics_for_label(selected_model) or {}
+
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Subset examples", str(len(subset)))
+        c2.metric("Subset EM", fmt_pct(sample_em))
+        c3.metric("Subset F1", fmt_pct(sample_f1))
+        c4.metric("Reported hop EM", fmt_pct(reported.get(f"{selected_hop}-hop EM")))
+
+        overall = reported.get("Overall EM")
+        st.caption(
+            f"Overall reported EM for {selected_model}: {overall:.3f}" if overall is not None else
+            "Overall reported EM is unavailable for this model."
+        )
+
+        for i, example in enumerate(sample, start=1):
+            render_prediction_sample(example, i)
+        return
+
+    st.warning(
+        "The committed `eval_examples.json` files do not contain hop/context fields, so true per-hop model-output exploration "
+        "requires re-running evaluation with `--save_context --examples_limit 0`."
+    )
+    st.code(
+        "python run_all.py --eval_only --reeval --examples_limit 0 --save_context\n"
+        "python src/evaluation/error_analysis_report.py",
+        language="powershell",
+    )
+
+    st.markdown(
+        "Fallback shown below: per-hop **teacher/evidence trace** samples from the instruction artifacts. "
+        "These are useful for explaining trace quality and retrieval coverage, but they are not before/after model predictions."
+    )
+    hop = st.selectbox("Hop", [1, 2, 3], key="trace_hop_fallback")
+    candidates = [item for item in trace_items if item.get("metadata", {}).get("hop") == hop]
+    for i, item in enumerate(candidates[:3], start=1):
+        render_trace_sample(item, i)
+
+
 def main() -> None:
     render_model_status()
 
@@ -987,8 +1112,8 @@ def main() -> None:
     eval_examples = load_eval_examples()
     example_artifacts = load_example_artifacts()
 
-    compare_tab, trace_tab, error_tab, talking_points_tab = st.tabs(
-        ["All-model comparison", "Evidence trace diagnosis", "Saved model errors", "Demo talking points"]
+    compare_tab, trace_tab, hop_tab, error_tab, talking_points_tab = st.tabs(
+        ["All-model comparison", "Evidence trace diagnosis", "Hop explorer", "Saved model errors", "Demo talking points"]
     )
 
     with compare_tab:
@@ -996,6 +1121,9 @@ def main() -> None:
 
     with trace_tab:
         render_trace_tab(trace_items)
+
+    with hop_tab:
+        render_hop_explorer_tab(eval_examples, trace_items)
 
     with error_tab:
         render_actual_error_tab(eval_examples)
