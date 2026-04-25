@@ -51,16 +51,18 @@ import numpy as np
 # Context builder
 # ─────────────────────────────────────────────
 
-def build_input(item, adjacency, index, corpus, mode, hops, k=5, max_triples=50):
+def build_input_bundle(item, adjacency, index, corpus, mode, hops, k=5, max_triples=50):
     question = item['question']
     entity = item.get('topic_entity') or extract_topic_entity(question) or ''
 
     graph_text = ""
+    subgraph = []
     if mode in ("graph", "graphrag") and entity:
         subgraph = get_subgraph(entity, adjacency, hops=hops, max_triples=max_triples)
         graph_text = serialize_triples(subgraph, style="arrow")
 
     chunks_text = ""
+    chunks = []
     if mode in ("rag", "graphrag"):
         q_vec = embed_single(question).astype(np.float32)
         scores, indices = index.search(q_vec, k)
@@ -74,7 +76,20 @@ def build_input(item, adjacency, index, corpus, mode, hops, k=5, max_triples=50)
         parts.append(f"Retrieved Context:\n{chunks_text}")
     parts.append(f"Question: {clean_question(question)}")
 
-    return "\n\n".join(parts)
+    return {
+        "input_text": "\n\n".join(parts),
+        "topic_entity": entity,
+        "graph_text": graph_text,
+        "graph_triples": subgraph,
+        "retrieved_chunks": chunks,
+        "context_hops": hops,
+    }
+
+
+def build_input(item, adjacency, index, corpus, mode, hops, k=5, max_triples=50):
+    return build_input_bundle(
+        item, adjacency, index, corpus, mode, hops, k=k, max_triples=max_triples
+    )["input_text"]
 
 
 # ─────────────────────────────────────────────
@@ -166,7 +181,7 @@ def f1_score(pred_list: list[str], gold_list: list[str]) -> float:
 def evaluate_hop(
     model, tokenizer, device,
     qa_pairs, adjacency, index, corpus,
-    hop_num, mode, n_samples, k, max_triples,
+    hop_num, mode, n_samples, k, max_triples, save_context=False,
 ):
     context_hops = max(hop_num, 2)
     pairs = qa_pairs[:n_samples]
@@ -175,10 +190,11 @@ def evaluate_hop(
     examples = []
 
     for item in tqdm(pairs, desc=f"  {hop_num}-hop", leave=False):
-        input_text = build_input(
+        bundle = build_input_bundle(
             item, adjacency, index, corpus,
             mode=mode, hops=context_hops, k=k, max_triples=max_triples
         )
+        input_text = bundle["input_text"]
         prompt = build_prompt(input_text, tokenizer)
         raw, latency = run_inference(model, tokenizer, prompt, device)
         pred_list = parse_answer(raw)
@@ -190,15 +206,29 @@ def evaluate_hop(
         f1_scores.append(f1)
         latencies.append(latency)
 
-        examples.append({
+        example = {
             "question": item['question'],
+            "hop": hop_num,
+            "mode": mode,
+            "topic_entity": bundle["topic_entity"],
             "gold": item['answers'],
             "pred": pred_list,
             "raw_output": raw,
             "em": em,
             "f1": f1,
+            "gold_answer_count": len(item['answers']),
+            "pred_answer_count": len(pred_list),
             "latency_ms": round(latency, 2),
-        })
+        }
+        if save_context:
+            example.update({
+                "input_text": input_text,
+                "graph_text": bundle["graph_text"],
+                "graph_triples": bundle["graph_triples"],
+                "retrieved_chunks": bundle["retrieved_chunks"],
+                "context_hops": bundle["context_hops"],
+            })
+        examples.append(example)
 
     n = len(em_scores)
     return {
@@ -271,6 +301,7 @@ def main(args):
             n_samples=args.n_samples,
             k=args.k,
             max_triples=args.max_triples,
+            save_context=args.save_context,
         )
 
         tag = f"test_{hop_num}hop"
@@ -305,11 +336,12 @@ def main(args):
         "n_samples": args.n_samples,
         **all_metrics,
     }
-    with open(out_dir / "eval_results.json", 'w') as f:
+    with open(out_dir / "eval_results.json", 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
 
-    with open(out_dir / "eval_examples.json", 'w') as f:
-        json.dump(all_examples[:100], f, indent=2, ensure_ascii=False)
+    examples_to_save = all_examples if args.examples_limit <= 0 else all_examples[:args.examples_limit]
+    with open(out_dir / "eval_examples.json", 'w', encoding='utf-8') as f:
+        json.dump(examples_to_save, f, indent=2, ensure_ascii=False)
 
     print(f"\n{'='*50}")
     print("STUDENT MODEL RESULTS")
@@ -338,5 +370,9 @@ if __name__ == "__main__":
     parser.add_argument("--max_triples", type=int, default=50)
     parser.add_argument("--output_dir",  default="results/qwen2.5-eval")
     parser.add_argument("--run_name",    default="qwen2.5-student-eval")
+    parser.add_argument("--examples_limit", type=int, default=100,
+                        help="Number of examples to save. Use 0 to save all.")
+    parser.add_argument("--save_context", action="store_true",
+                        help="Save retrieved chunks and graph context for error analysis.")
     args = parser.parse_args()
     main(args)

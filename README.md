@@ -20,8 +20,9 @@
 7. [Quickstart](#quickstart)
 8. [Training Configuration](#training-configuration)
 9. [Instruction Set Format](#instruction-set-format)
-10. [Reproducibility](#reproducibility)
-11. [Troubleshooting](#troubleshooting)
+10. [Failure Mode Analysis](#failure-mode-analysis)
+11. [Reproducibility](#reproducibility)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -123,6 +124,40 @@ Across three student model sizes: **Qwen2.5-0.5B**, **Qwen2.5-1.5B**, **Qwen2.5-
 #### Latency Comparison
 
 ![Latency base vs fine-tuned](results/latency_base_vs_finetuned.png)
+
+---
+
+## Failure Mode Analysis
+
+The current benchmark plots are a performance snapshot: EM, F1, latency, and memory tell us what happened, but they do not by themselves explain why a system failed. To explain error sources, we need a second layer of analysis that inspects retrieval quality, evidence grounding, reasoning-path correctness, and answer-set behavior.
+
+This project's evaluation setup supports that kind of diagnosis:
+
+- **Retrieval coverage:** if the gold path is absent from the retrieved context, the error is more likely a retrieval failure than a generation failure.
+- **Evidence validity:** if the model produces fake triples or unsupported evidence, the likely issue is hallucination or grounding failure.
+- **Path faithfulness:** if the evidence is real but does not compose into the correct chain, the error is better described as reasoning or path-selection failure.
+- **Partial overlap vs exact miss:** if F1 remains non-trivial while EM is zero, the model may be suffering from incomplete answer-set generation, overgeneration, or answer-format mismatch rather than total failure.
+- **Base vs trained comparison at fixed retrieval:** if a fine-tuned model beats a same-size base model under the same retrieved context, the improvement is more plausibly due to better use of context rather than model size alone.
+- **Teacher trace quality:** if a hybrid-trained model underperforms and its teacher traces are noisy, that points to supervision noise rather than purely inference-time weakness.
+- **Hop-wise answer count:** if 3-hop examples contain more gold answers on average, lower EM can partly reflect multi-answer difficulty and output burden, not only deeper reasoning difficulty.
+
+Taken together, these signals help separate several distinct failure modes:
+
+- retrieval miss
+- noisy retrieval
+- hallucinated evidence
+- wrong relation selection
+- wrong intermediate entity
+- incomplete answer set
+- extra wrong answers
+- formatting or set mismatch
+- supervision noise
+- capacity limitation
+- output burden from evidence generation
+
+This is a stronger explanation than simply saying that 3-hop performance is low. For example, it lets us make claims such as: 3-hop errors are driven more by incomplete answer-set generation and low gold-path coverage, while 2-hop errors are driven more by relation or path-selection mistakes.
+
+This section should still be framed as **failure mode analysis** or **error source analysis**, not absolute causal proof. Some factors interact: poor retrieval can trigger bad reasoning, noisy teacher traces can harm both reasoning and formatting, and smaller models may fail at both path selection and answer completion. The goal is therefore to attribute likely sources of error, not to claim perfectly isolated causes.
 
 ---
 

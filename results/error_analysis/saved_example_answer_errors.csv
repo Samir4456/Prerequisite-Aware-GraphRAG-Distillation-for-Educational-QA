@@ -1,0 +1,150 @@
+model,model_label,params,training,example_index,hop,question,load_status,context_available,failure_mode,gold_any_in_context,gold_all_in_context,evidence_support_ratio,answer_set_error,em,f1,precision,recall,missing_count,extra_count,gold_answer_count,pred_answer_count
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,0,,what does [Grégoire Colin] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,1,,[Joe Thomas] appears in which movies,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,2,,what films did [Michelle Trachtenberg] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,5,5
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,3,,what does [Helen Mack] star in,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.5,1.0,0.3333333333333333,2,0,3,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,4,,what films did [Shahid Kapoor] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,5,,[Brendan Gleeson] appears in which movies,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.625,1.0,0.45454545454545453,6,0,11,5
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,6,,what films does [Paresh Rawal] appear in,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.6666666666666666,1.0,0.5,1,0,2,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,7,,what does [Doug Collins] star in,salvaged_partial_json,False,partial: overgeneration,,,,partial: overgeneration,0.0,0.6666666666666666,0.5,1.0,0,1,1,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,8,,what films does [Brigitte Nielsen] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,9,,[Mona McKinnon] appears in which movies,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,10,,what films did [Christina Ricci] act in,salvaged_partial_json,False,partial: missing + extra,,,,partial: missing + extra,0.0,0.8571428571428572,0.9375,0.7894736842105263,4,1,19,16
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,11,,[Brian Backer] appears in which movies,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,12,,what films does [William Atherton] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,5,5
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,13,,what does [Jeremy Piven] act in,salvaged_partial_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,3,1,3,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,14,,what films did [Roger Bart] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,15,,[Ruggero Raimondi] appears in which movies,salvaged_partial_json,False,partial: overgeneration,,,,partial: overgeneration,0.0,0.6666666666666666,0.5,1.0,0,1,1,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,16,,what films did [Robert Strauss] act in,salvaged_partial_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,2,2,2,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,17,,what films did [Aleksandr Gordon] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,18,,what does [Stephen Furst] act in,salvaged_partial_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,1,1,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,19,,what does [Hiromi Nagasaku] star in,salvaged_partial_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,1,1,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,20,,what films does [Claude Akins] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,4
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,21,,what films did [Arjun Rampal] act in,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.7272727272727273,1.0,0.5714285714285714,3,0,7,6
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,22,,what movies was [Chris O'Donnell] an actor in,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.8421052631578948,1.0,0.7272727272727273,3,0,11,8
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,23,,what does [May Robson] act in,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.6666666666666666,1.0,0.5,1,0,2,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,24,,what films did [Melvin Van Peebles] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,25,,what does [Tannishtha Chatterjee] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,26,,what movies was [Michael Tully] an actor in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,27,,what movies was [Dan Petronijevic] an actor in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,28,,what films did [Phil Silvers] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,29,,what films does [James B. Schwartz] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,30,,what films did [Piolo Pascual] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,31,,what movies was [Eiji Funakoshi] an actor in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,32,,what films does [Richard Roundtree] appear in,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.4,1.0,0.25,3,0,4,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,33,,what movies did [Darren McGavin] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,4,5
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,34,,what films did [Stéphane Demers] act in,salvaged_partial_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,1,1,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,35,,what does [Ximena Ayala] appear in,salvaged_partial_json,False,partial: overgeneration,,,,partial: overgeneration,0.0,0.6666666666666666,0.5,1.0,0,1,1,2
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,36,,what does [Nell Cattrysse] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,37,,what does [Sharon Gans] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,38,,what does [Beatrice Lillie] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,39,,what movies did [Caroline Aaron] star in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,40,,what films does [Celia Montalván] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,41,,what movies did [Martín Adjemián] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,42,,[Judi Dench] appears in which movies,salvaged_partial_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.8333333333333333,1.0,0.7142857142857143,2,0,7,7
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,43,,what does [Marlee Matlin] appear in,salvaged_partial_json,False,partial: missing + extra,,,,partial: missing + extra,0.0,0.6666666666666666,0.6666666666666666,0.6666666666666666,1,1,3,3
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,44,,what films did [Fabiola Quiroz] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,45,,what films did [Carroll Ballard] act in,salvaged_partial_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,1,1,1,1
+Qwen2.5-0.5B GraphRAG Hybrid,Hybrid 0.5B,0.5B,hybrid,46,,what movies did [Nicole Grimaudo] act in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-1.5B GraphRAG Hybrid,Hybrid 1.5B,1.5B,hybrid,0,,what does [Grégoire Colin] appear in,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-1.5B GraphRAG Hybrid,Hybrid 1.5B,1.5B,hybrid,1,,[Joe Thomas] appears in which movies,salvaged_partial_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,0,,what does [Grégoire Colin] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,1,,[Joe Thomas] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,2,,what films did [Michelle Trachtenberg] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,5,5
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,3,,what does [Helen Mack] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,4,,what films did [Shahid Kapoor] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,5,,[Brendan Gleeson] appears in which movies,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.8421052631578948,1.0,0.7272727272727273,3,0,11,9
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,6,,what films does [Paresh Rawal] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,7,,what does [Doug Collins] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,8,,what films does [Brigitte Nielsen] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,9,,[Mona McKinnon] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,10,,what films did [Christina Ricci] act in,valid_json,False,partial: missing + extra,,,,partial: missing + extra,0.0,0.8571428571428572,0.9375,0.7894736842105263,4,1,19,16
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,11,,[Brian Backer] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,12,,what films does [William Atherton] appear in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.888888888888889,1.0,0.8,1,0,5,4
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,13,,what does [Jeremy Piven] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,14,,what films did [Roger Bart] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,15,,[Ruggero Raimondi] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,16,,what films did [Robert Strauss] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,17,,what films did [Aleksandr Gordon] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,18,,what does [Stephen Furst] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,19,,what does [Hiromi Nagasaku] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,20,,what films does [Claude Akins] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,21,,what films did [Arjun Rampal] act in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.923076923076923,1.0,0.8571428571428571,1,0,7,6
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,22,,what movies was [Chris O'Donnell] an actor in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.9523809523809523,1.0,0.9090909090909091,1,0,11,10
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,23,,what does [May Robson] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,24,,what films did [Melvin Van Peebles] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,25,,what does [Tannishtha Chatterjee] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,26,,what movies was [Michael Tully] an actor in,valid_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,1,1,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,27,,what movies was [Dan Petronijevic] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,28,,what films did [Phil Silvers] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,3,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,29,,what films does [James B. Schwartz] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,30,,what films did [Piolo Pascual] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,31,,what movies was [Eiji Funakoshi] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,32,,what films does [Richard Roundtree] appear in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.8571428571428571,1.0,0.75,1,0,4,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,33,,what movies did [Darren McGavin] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,4,4
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,34,,what films did [Stéphane Demers] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,35,,what does [Ximena Ayala] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,36,,what does [Nell Cattrysse] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,37,,what does [Sharon Gans] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,38,,what does [Beatrice Lillie] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,39,,what movies did [Caroline Aaron] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,40,,what films does [Celia Montalván] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,41,,what movies did [Martín Adjemián] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,42,,[Judi Dench] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,7,7
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,43,,what does [Marlee Matlin] appear in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.8,1.0,0.6666666666666666,1,0,3,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,44,,what films did [Fabiola Quiroz] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,45,,what films did [Carroll Ballard] act in,valid_json,False,exact miss,,,,exact miss,0.0,0.0,0.0,0.0,1,4,1,4
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,46,,what movies did [Nicole Grimaudo] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,47,,what films did [Agnes Ayres] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,48,,what films did [Audra Lindley] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,49,,what movies did [Max Elliott Slade] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,50,,what movies did [Knut Berger] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,51,,what films did [Tamara Toumanova] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,52,,what films does [Ralf Harolde] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,53,,what movies did [Sophie Rois] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,54,,what does [Marguerite Churchill] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,55,,what films did [Odoardo Spadaro] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,56,,what films does [Ben Mendelsohn] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,5,5
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,57,,what films did [Pat Derby] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,58,,what movies did [Wesley Jonathan] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,59,,what movies did [Paul Lynde] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,60,,what does [JoBeth Williams] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,7,7
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,61,,what movies was [William Zappa] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,62,,what films does [Susan Cabot] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,63,,what movies did [Eion Bailey] act in,valid_json,False,partial: missing + extra,,,,partial: missing + extra,0.0,0.6666666666666666,0.6666666666666666,0.6666666666666666,1,1,3,3
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,64,,what films did [Leonid Mozgovoy] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,65,,what movies did [Taurean Blacque] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,66,,what does [Chips Rafferty] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,67,,what films does [Grace Kelly] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,9,9
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,68,,what does [Stanley Baker] act in,valid_json,False,partial: missing + extra,,,,partial: missing + extra,0.0,0.8333333333333334,0.8333333333333334,0.8333333333333334,1,1,6,6
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,69,,[Eric Cantona] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,70,,what movies did [Mike White] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,71,,what does [Ayesha Takia] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,72,,what does [Susan George] act in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.9090909090909091,1.0,0.8333333333333334,1,0,6,5
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,73,,what movies was [Scott Grimes] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,74,,what does [Geraldine Smith] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,75,,what films did [Patrick Malahide] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,76,,what does [Joanna Newsom] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,77,,what films did [Lemmy] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,78,,what films did [Carrie Henn] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,79,,what films does [Julian Sands] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,6,6
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,80,,what films did [Greg McLane] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,81,,what movies did [Maury Chaykin] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,82,,what movies was [Jade Yorker] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,83,,what does [Chevy Chase] appear in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.9032258064516129,1.0,0.8235294117647058,3,0,17,14
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,84,,what movies did [Margrét Vilhjálmsdóttir] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,85,,what does [Andy Rodoreda] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,86,,what films did [Jon Seda] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,87,,what films does [Tom Hughes] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,88,,what movies was [Jason Alexander] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,6,6
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,89,,what movies did [Tyler Labine] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,90,,what movies was [Mitchell Ryan] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,91,,what does [Haley Joel] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,92,,what movies did [Jackie Earle Haley] star in,valid_json,False,partial: incomplete answer set,,,,partial: incomplete answer set,0.0,0.9333333333333333,1.0,0.875,1,0,8,7
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,93,,what movies was [Heather Sears] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,94,,what movies did [Annabelle Gurwitch] star in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,95,,[Ryan Alosio] appears in which movies,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,2,2
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,96,,[Jack Palance] appears in which movies,valid_json,False,partial: missing + extra,,,,partial: missing + extra,0.0,0.9333333333333333,0.9333333333333333,0.9333333333333333,1,1,15,15
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,97,,what films does [Baby Peggy] appear in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,98,,what does [Mark Dacascos] act in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,5,5
+Qwen2.5-3B GraphRAG Hybrid,Hybrid 3B,3B,hybrid,99,,what movies was [Roger Perry] an actor in,valid_json,False,correct,,,,correct,1.0,1.0,1.0,1.0,0,0,1,1

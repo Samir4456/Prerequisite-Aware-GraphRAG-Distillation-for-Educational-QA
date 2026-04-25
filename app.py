@@ -264,9 +264,22 @@ def load_distilbert():
 @st.cache_resource
 def load_qwen():
     from transformers import AutoModelForCausalLM, AutoTokenizer
-    model_path = "checkpoints/qwen2.5-1.5b-graphrag-gold"
-    if not Path(model_path).exists():
-        return None, None
+
+    candidates = [
+        ("Qwen2.5-3B GraphRAG Gold", "checkpoints/qwen2.5-3b-graphrag-gold", "3B (LoRA)"),
+        ("Qwen2.5-3B GraphRAG Hybrid", "checkpoints/qwen2.5-3b-graphrag-hybrid", "3B (LoRA + traces)"),
+        ("Qwen2.5-1.5B GraphRAG Gold", "checkpoints/qwen2.5-1.5b-graphrag-gold", "1.5B (LoRA)"),
+        ("Qwen2.5-1.5B GraphRAG Hybrid", "checkpoints/qwen2.5-1.5b-graphrag-hybrid", "1.5B (LoRA + traces)"),
+    ]
+
+    selected = next(
+        ((label, path, params) for label, path, params in candidates if Path(path).exists()),
+        None,
+    )
+    if selected is None:
+        return None, None, "Qwen2.5-3B student preferred", "3B preferred", ""
+
+    label, model_path, params = selected
     tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
@@ -275,7 +288,7 @@ def load_qwen():
         trust_remote_code=True,
     )
     model.eval()
-    return model, tokenizer
+    return model, tokenizer, label, params, model_path
 
 
 # ─────────────────────────────────────────────
@@ -389,7 +402,7 @@ if "results" not in st.session_state:
 # ─────────────────────────────────────────────
 
 st.markdown('<div class="main-title">Pocket GraphRAG</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">DISTILBERT BASELINE  ↔  QWEN2.5-1.5B STUDENT</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">DISTILBERT BASELINE  ↔  QWEN2.5-3B STUDENT (PREFERRED)</div>', unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # Load models
@@ -404,7 +417,7 @@ with st.spinner("Loading models and index..."):
         st.error(f"KB/Index load failed: {e}")
 
     db_model, db_tokenizer = load_distilbert()
-    qwen_model, qwen_tokenizer = load_qwen()
+    qwen_model, qwen_tokenizer, qwen_label, qwen_params, qwen_checkpoint = load_qwen()
 
 col_s1, col_s2, col_s3 = st.columns(3)
 with col_s1:
@@ -419,7 +432,7 @@ with col_s2:
     )
 with col_s3:
     st.markdown(
-        f'<div class="{"status-ok" if qwen_model else "status-err"}">{"● Qwen2.5 ready" if qwen_model else "✗ Qwen2.5 not found"}</div>',
+        f'<div class="{"status-ok" if qwen_model else "status-err"}">{"● " + qwen_label if qwen_model else "✗ " + qwen_label + " not found"}</div>',
         unsafe_allow_html=True
     )
 
@@ -518,6 +531,9 @@ if submitted and st.session_state.question and kb_ok:
         "db_latency": db_latency,
         "qwen_answer": qwen_answer,
         "qwen_latency": qwen_latency,
+        "qwen_label": qwen_label,
+        "qwen_params": qwen_params,
+        "qwen_checkpoint": qwen_checkpoint,
         "hops": hops,
         "max_triples": max_triples,
     }
@@ -561,9 +577,9 @@ if st.session_state.results:
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
-        st.markdown('''
+        st.markdown(f'''
         <div class="model-card">
-            <div class="model-header qwen-header">▸ QWEN2.5-1.5B STUDENT</div>
+            <div class="model-header qwen-header">▸ {r.get("qwen_label", "Qwen2.5 student").upper()}</div>
         ''', unsafe_allow_html=True)
 
         st.markdown(f'''
@@ -573,7 +589,7 @@ if st.session_state.results:
         <div class="metric-row">
             <div class="metric-pill">latency <span>{r["qwen_latency"]:.0f}ms</span></div>
             <div class="metric-pill">method <span>generative</span></div>
-            <div class="metric-pill">params <span>1.5B (LoRA)</span></div>
+            <div class="metric-pill">params <span>{r.get("qwen_params", "3B preferred")}</span></div>
         </div>
         ''', unsafe_allow_html=True)
 
@@ -625,13 +641,13 @@ if st.session_state.results:
 
     import pandas as pd
     bench_data = {
-        "Model": ["DistilBERT baseline", "Qwen2.5-1.5B GraphRAG Gold"],
-        "1-hop EM": [0.449, 0.690],
-        "2-hop EM": [0.649, 0.490],
-        "3-hop EM": [0.059, 0.055],
-        "Overall EM": ["-", 0.412],
-        "Avg latency": ["~5ms", "~550ms"],
-        "Params": ["66M", "1.5B"],
+        "Model": ["DistilBERT baseline", "Qwen2.5-3B GraphRAG Gold"],
+        "1-hop EM": [0.449, 0.832],
+        "2-hop EM": [0.649, 0.586],
+        "3-hop EM": [0.059, 0.050],
+        "Overall EM": ["-", 0.489],
+        "Avg latency": ["~5ms", "~600ms"],
+        "Params": ["66M", "3B"],
     }
     df = pd.DataFrame(bench_data)
     st.dataframe(df, use_container_width=True, hide_index=True)

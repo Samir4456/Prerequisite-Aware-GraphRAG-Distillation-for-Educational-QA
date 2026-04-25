@@ -206,16 +206,21 @@ def main(args):
             })
             continue
 
+        eval_cmd = [
+            sys.executable,
+            "src/evaluation/evaluate_student.py",
+            "--model_path",  exp["eval_model"],
+            "--mode",        exp["eval_mode"],
+            "--run_name",    exp["run_name"],
+            "--n_samples",   str(args.n_samples),
+            "--output_dir",  f"results/{exp['run_name']}",
+            "--examples_limit", str(args.examples_limit),
+        ]
+        if args.save_context:
+            eval_cmd.append("--save_context")
+
         eval_success = run_cmd(
-            [
-                sys.executable,
-                "src/evaluation/evaluate_student.py",
-                "--model_path",  exp["eval_model"],
-                "--mode",        exp["eval_mode"],
-                "--run_name",    exp["run_name"],
-                "--n_samples",   str(args.n_samples),
-                "--output_dir",  f"results/{exp['run_name']}",
-            ],
+            eval_cmd,
             f"Evaluate {exp['name']}"
         )
 
@@ -262,6 +267,10 @@ if __name__ == "__main__":
                         help="Re-evaluate even if results already exist")
     parser.add_argument("--n_samples", type=int, default=500,
                         help="Test samples per hop for evaluation")
+    parser.add_argument("--examples_limit", type=int, default=100,
+                        help="Examples to save per run. Use 0 to save all.")
+    parser.add_argument("--save_context", action="store_true",
+                        help="Save graph/retrieval context in eval examples for error analysis.")
 
     args = parser.parse_args()
     main(args)

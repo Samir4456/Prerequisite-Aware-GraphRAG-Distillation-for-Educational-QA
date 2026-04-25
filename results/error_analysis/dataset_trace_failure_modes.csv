@@ -1,0 +1,13 @@
+dataset,hop,failure_mode,count,total,rate
+GraphRAG Gold,1,correct grounded answer,2000,2000,1.0
+GraphRAG Gold,2,correct grounded answer,2000,2000,1.0
+GraphRAG Gold,3,correct grounded answer,2000,2000,1.0
+GraphRAG Hybrid,1,"correct answer, unsupported evidence",52,600,0.08666666666666667
+GraphRAG Hybrid,1,correct grounded answer,548,600,0.9133333333333333
+GraphRAG Hybrid,2,"correct answer, unsupported evidence",167,600,0.2783333333333333
+GraphRAG Hybrid,2,correct grounded answer,433,600,0.7216666666666667
+GraphRAG Hybrid,3,"correct answer, unsupported evidence",178,600,0.2966666666666667
+GraphRAG Hybrid,3,correct grounded answer,422,600,0.7033333333333334
+RAG Gold,1,correct grounded answer,500,500,1.0
+RAG Gold,2,correct grounded answer,500,500,1.0
+RAG Gold,3,correct grounded answer,500,500,1.0
