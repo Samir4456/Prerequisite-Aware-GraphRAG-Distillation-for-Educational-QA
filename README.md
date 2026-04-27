@@ -1,7 +1,7 @@
 # Pocket GraphRAG
-### Prerequisite-Aware GraphRAG Distillation for Educational QA
+### Small-Model GraphRAG Distillation for Multi-Hop Knowledge-Graph QA
 
-> Fine-tuning small Qwen2.5 models (0.5B–3B) to perform multi-hop knowledge graph QA using GraphRAG, evaluated on MetaQA across 1-hop, 2-hop, and 3-hop reasoning tasks.
+> A controlled MetaQA benchmark study of **base Qwen**, **GraphRAG Gold supervision**, and **GraphRAG Hybrid trace supervision**, with a second layer of **error source analysis** to explain why performance changes across 1-hop, 2-hop, and 3-hop questions.
 
 [![WandB](https://img.shields.io/badge/WandB-pocket--graphrag-yellow)](https://wandb.ai/st125989-asian-institute-of-technology/pocket-graphrag)
 [![Python](https://img.shields.io/badge/Python-3.10-blue)](https://python.org)
@@ -9,331 +9,222 @@
 
 ---
 
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Key Findings](#key-findings)
-3. [Results](#results)
-4. [Pipeline](#pipeline)
-5. [Dataset](#dataset)
-6. [Repository Structure](#repository-structure)
-7. [Quickstart](#quickstart)
-8. [Training Configuration](#training-configuration)
-9. [Instruction Set Format](#instruction-set-format)
-10. [Failure Mode Analysis](#failure-mode-analysis)
-11. [Reproducibility](#reproducibility)
-12. [Troubleshooting](#troubleshooting)
-
----
-
 ## Overview
 
-This project investigates whether **small language models (SLMs)** can match large teacher models on multi-hop knowledge graph question answering when equipped with **graph-augmented retrieval (GraphRAG)** and **instruction fine-tuning**.
+This project asks a focused question:
 
-We compare:
-- **RAG only** — flat FAISS retrieval over serialized KB triples
-- **GraphRAG** — explicit KG traversal + FAISS retrieval combined
-- **Gold SFT** — fine-tuned on MetaQA gold answers
-- **Hybrid distillation** — fine-tuned on teacher-generated evidence chains + gold answers
+**Can small Qwen2.5 models answer multi-hop knowledge-graph questions better when we combine graph retrieval with targeted supervision?**
 
-Across three student model sizes: **Qwen2.5-0.5B**, **Qwen2.5-1.5B**, **Qwen2.5-3B**
+We evaluate on **MetaQA**, a movie-domain KGQA benchmark with:
 
----
+- a prebuilt knowledge graph
+- bracketed topic entities
+- gold answers
+- explicit 1-hop, 2-hop, and 3-hop splits
 
-## Key Findings
+The project compares three main regimes:
 
-**RAG collapses on 2-hop (EM = 0.025)**. Without the knowledge graph, the model cannot connect entities across reasoning steps. GraphRAG maintains 0.544 on 2-hop — a **21x improvement** over RAG only.
+- **Base Qwen GraphRAG**: no fine-tuning, only prompted with graph/text context
+- **GraphRAG Gold**: fine-tuned on gold final answers
+- **GraphRAG Hybrid**: fine-tuned on teacher-style evidence traces plus gold final answers
 
-| Model | 1-hop EM | 2-hop EM | 3-hop EM | Overall EM |
-|-------|---------|---------|---------|-----------|
-| DistilBERT baseline | 0.449 | 0.649 | 0.059 | — |
-| Qwen2.5-1.5B RAG only | 0.720 | 0.025 | 0.020 | 0.255 |
-| Qwen2.5-0.5B GraphRAG Gold | 0.756 | 0.478 | 0.056 | 0.430 |
-| Qwen2.5-1.5B GraphRAG Gold | 0.778 | 0.544 | 0.054 | 0.459 |
-| Qwen2.5-3B GraphRAG Gold | **0.832** | **0.586** | 0.050 | **0.489** |
-| Qwen2.5-0.5B GraphRAG Hybrid | 0.572 | 0.092 | 0.004 | 0.223 |
-| Qwen2.5-1.5B GraphRAG Hybrid | 0.614 | 0.112 | 0.032 | 0.253 |
-| Qwen2.5-3B GraphRAG Hybrid | 0.830 | 0.474 | **0.070** | 0.458 |
+The key contribution is not only performance reporting. We also generate **failure mode / error source analysis** to explain likely causes such as:
+
+- retrieval coverage failure
+- unsupported evidence / grounding failure
+- answer-set incompleteness
+- teacher trace compression
+- multi-answer burden on 3-hop questions
 
 ---
 
-## Results
+## Current Headline Results
 
-### Overall Exact Match — All Models
+### Best answer-accuracy model
 
-![Overall EM all models](results/all9_overall_em.png)
+- **Qwen2.5-3B GraphRAG Gold**
+- `overall EM = 0.489`
 
----
+### Best evidence-trace demo model
 
-### Exact Match by Hop — All Models
+- **Qwen2.5-3B GraphRAG Hybrid**
+- latest saved eval with trace prompting:
+  - `1-hop EM = 0.824`, `F1 = 0.9088`
+  - `2-hop EM = 0.556`, `F1 = 0.6986`
+  - `3-hop EM = 0.042`, `F1 = 0.2381`
+  - `overall EM = 0.474`, `overall F1 = 0.6152`
 
-![EM by hop all models](results/all_em_by_hop.png)
+### Best framing for the report
 
----
-
-### F1 Score by Hop — All Models
-
-![F1 by hop all models](results/all_f1_by_hop.png)
-
----
-
-### Inference Latency — All Models
-
-![Latency all models](results/all_latency.png)
+- Use **3B Gold** as the strongest final-answer model.
+- Use **3B Hybrid** as the live evidence-trace and error-analysis demo model.
 
 ---
 
-### GraphRAG Gold — Model Size Scaling
+## What The Results Mean
 
-#### Exact Match by Hop
+The raw benchmark metrics tell you **what happened**:
 
-![GraphRAG Gold EM by hop](results/gold_em_by_hop.png)
+- EM
+- F1
+- latency
 
-#### F1 Score by Hop
+The error-analysis layer tells you **why it likely happened**:
 
-![GraphRAG Gold F1 by hop](results/gold_f1_by_hop.png)
+- If gold answers are missing from context, the likely issue is **retrieval failure**.
+- If evidence is unsupported, the likely issue is **grounding / hallucination failure**.
+- If evidence is real but the chain is wrong, the likely issue is **path-selection / reasoning failure**.
+- If F1 is decent but EM is low, the likely issue is often **answer-set incompleteness or overgeneration**, not total failure.
 
-#### Overall Exact Match
+This is the reason the project is framed as:
 
-![GraphRAG Gold overall EM](results/gold_overall_em.png)
+- `failure mode analysis`
+- `error source analysis`
 
-#### Inference Latency
-
-![GraphRAG Gold latency](results/gold_latency.png)
-
----
-
-### Base Model vs Fine-tuned — Impact of Training
-
-#### Exact Match Comparison
-
-![Base vs fine-tuned EM](results/base_vs_finetuned.png)
-
-#### EM Improvement Over Base (delta)
-
-![EM improvement delta](results/improvement_delta.png)
-
-#### F1 Score Comparison
-
-![Base vs fine-tuned F1](results/f1_base_vs_finetuned.png)
-
-#### F1 Improvement Over Base (delta)
-
-![F1 improvement delta](results/f1_improvement_delta.png)
-
-#### Latency Comparison
-
-![Latency base vs fine-tuned](results/latency_base_vs_finetuned.png)
+and not as absolute causal proof.
 
 ---
 
-## Failure Mode Analysis
+## Main Findings From Error Analysis
 
-The current benchmark plots are a performance snapshot: EM, F1, latency, and memory tell us what happened, but they do not by themselves explain why a system failed. To explain error sources, we need a second layer of analysis that inspects retrieval quality, evidence grounding, reasoning-path correctness, and answer-set behavior.
+From the latest saved `results/error_analysis/summary.md`:
 
-This project's evaluation setup supports that kind of diagnosis:
+- Best available overall EM row: **Qwen2.5-3B GraphRAG Gold (0.489)**
+- 3B Hybrid improves overall EM over 3B base by **0.227**
+- Teacher trace quality:
+  - average evidence support: **0.856**
+  - unsupported-evidence examples: **0.221**
+- Teacher trace completeness:
+  - grounded evidence covers every gold answer in only **0.446** of hybrid examples on average
+  - average grounded compression gap: **6.01** gold answers
+- Direct-answer artifact rate:
+  - **0.372** of hybrid examples have a correct final answer but no grounded evidence line covering any gold answer
 
-- **Retrieval coverage:** if the gold path is absent from the retrieved context, the error is more likely a retrieval failure than a generation failure.
-- **Evidence validity:** if the model produces fake triples or unsupported evidence, the likely issue is hallucination or grounding failure.
-- **Path faithfulness:** if the evidence is real but does not compose into the correct chain, the error is better described as reasoning or path-selection failure.
-- **Partial overlap vs exact miss:** if F1 remains non-trivial while EM is zero, the model may be suffering from incomplete answer-set generation, overgeneration, or answer-format mismatch rather than total failure.
-- **Base vs trained comparison at fixed retrieval:** if a fine-tuned model beats a same-size base model under the same retrieved context, the improvement is more plausibly due to better use of context rather than model size alone.
-- **Teacher trace quality:** if a hybrid-trained model underperforms and its teacher traces are noisy, that points to supervision noise rather than purely inference-time weakness.
-- **Hop-wise answer count:** if 3-hop examples contain more gold answers on average, lower EM can partly reflect multi-answer difficulty and output burden, not only deeper reasoning difficulty.
+Interpretation:
 
-Taken together, these signals help separate several distinct failure modes:
-
-- retrieval miss
-- noisy retrieval
-- hallucinated evidence
-- wrong relation selection
-- wrong intermediate entity
-- incomplete answer set
-- extra wrong answers
-- formatting or set mismatch
-- supervision noise
-- capacity limitation
-- output burden from evidence generation
-
-This is a stronger explanation than simply saying that 3-hop performance is low. For example, it lets us make claims such as: 3-hop errors are driven more by incomplete answer-set generation and low gold-path coverage, while 2-hop errors are driven more by relation or path-selection mistakes.
-
-This section should still be framed as **failure mode analysis** or **error source analysis**, not absolute causal proof. Some factors interact: poor retrieval can trigger bad reasoning, noisy teacher traces can harm both reasoning and formatting, and smaller models may fail at both path selection and answer completion. The goal is therefore to attribute likely sources of error, not to claim perfectly isolated causes.
+- **3-hop is hard not only because reasoning is deeper**
+- it is also hard because:
+  - gold answer sets are larger
+  - coverage drops
+  - evidence traces become compressed
+  - exact-match becomes unforgiving under multi-answer output burden
 
 ---
 
+## Key Visuals
 
+### Core benchmark visuals
+
+Located in [`results/`](results):
+
+- `all_em_by_hop.png`
+- `all_f1_by_hop.png`
+- `all_latency.png`
+- `base_vs_finetuned.png`
+- `improvement_delta.png`
+
+### Error-analysis visuals
+
+Located in [`results/error_analysis/`](results/error_analysis):
+
+- `model_em_by_hop.png`
+- `f1_em_gap_by_hop.png`
+- `retrieval_coverage_by_hop.png`
+- `answer_burden_by_hop.png`
+- `teacher_trace_quality.png`
+- `teacher_trace_gold_coverage.png`
+- `teacher_trace_compression_gap.png`
+- `answer_set_error_breakdown.png`
+
+These are the main report / PPT-ready graphics.
 
 ---
 
-## Pipeline
+## Demos
 
-```
-Question with [bracketed entity]
-        │
-        ▼
-Entity Extraction
-        │
-   ┌────┴────┐
-   ▼         ▼
-KG Traversal  FAISS Retrieval
-(N-hop)      (top-K chunks)
-   │         │
-   └────┬────┘
-        ▼
-  Context Prompt
-  (graph triples + retrieved text)
-        │
-        ▼
-  Qwen2.5 Student (LoRA fine-tuned)
-        │
-        ▼
-    Answer
+### 1. Live app
+
+```powershell
+streamlit run app.py
 ```
 
-**Example:**
+What it does:
+
+- shows saved benchmark and error-analysis visuals immediately
+- lets you run a live GraphRAG question through a selected local student checkpoint
+- supports evidence-trace output for hybrid checkpoints
+
+Recommended live choice:
+
+- `Qwen2.5-1.5B GraphRAG Hybrid` for speed
+- `Qwen2.5-3B GraphRAG Hybrid` for strongest trace-style demo if runtime is acceptable
+
+### 2. Failure-mode analysis app
+
+```powershell
+streamlit run failure_mode_demo.py
 ```
-Question: who directed [Inception]
 
-Knowledge Graph triples:
-  Inception -> directed_by -> Christopher Nolan
-  Inception -> starred_actors -> Leonardo DiCaprio
+What it does:
 
-Retrieved Context:
-  - Inception directed_by Christopher Nolan
-
-Answer: Christopher Nolan
-```
-
----
-
-## Dataset
-
-**MetaQA** — Movie knowledge graph QA benchmark
-
-| Split | 1-hop | 2-hop | 3-hop |
-|-------|-------|-------|-------|
-| Train | 96,106 | 118,980 | 114,196 |
-| Dev | 9,992 | 14,872 | 14,274 |
-| Test | 9,947 | 14,872 | 14,274 |
-
-- KB: **134,741 triples** | **43,234 entities** | **9 relation types**
-- Questions contain bracketed topic entities: `who directed [Inception]`
-- Answers pipe-separated: `Christopher Nolan`
-- Download: [Google Drive](https://drive.google.com/drive/folders/0B-36Uca2AvwhTWVFSUZqRXVtbUE)
-
----
-
-## Repository Structure
-
-```
-pocket-graphrag/
-├── app.py                              # Streamlit demo
-├── run_all.py                          # Master training + evaluation script
-├── results_charts.ipynb               # Jupyter notebook for all charts
-├── dataset_info.json                   # LlamaFactory dataset registry
-├── configs/
-│   ├── lora_0.5b_graphrag_gold.yaml
-│   ├── lora_0.5b_graphrag_hybrid.yaml
-│   ├── lora_1.5b_graphrag_gold.yaml
-│   ├── lora_1.5b_graphrag_hybrid.yaml
-│   ├── lora_1.5b_rag_gold.yaml
-│   ├── lora_3b_graphrag_gold.yaml
-│   └── lora_3b_graphrag_hybrid.yaml
-├── data/
-│   ├── raw/                            # MetaQA (download separately)
-│   ├── faiss/                          # Auto-generated by build_index.py
-│   └── processed/instruction_pairs/   # Generated JSON datasets
-├── checkpoints/                        # Saved model weights (not in git)
-├── results/                            # Evaluation JSON + charts
-└── src/
-    ├── data/
-    │   ├── load_kb.py
-    │   ├── load_metaqa.py
-    │   └── eda_inspect.py
-    ├── graph/
-    │   ├── entity_extract.py
-    │   ├── subgraph.py
-    │   └── serialize.py
-    ├── retrieval/
-    │   ├── embedder.py
-    │   ├── faiss_index.py
-    │   ├── build_index.py
-    │   └── retrieve.py
-    ├── models/
-    │   └── baseline.py
-    ├── teacher/
-    │   └── build_instruction_set.py
-    └── evaluation/
-        ├── evaluate_student.py
-        └── compile_results.py
-```
+- all-model comparison
+- teacher vs student trace comparison
+- hop explorer
+- saved prediction error exploration
 
 ---
 
 ## Quickstart
 
-### 1. Environment setup
+### 1. Environment
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Linux/Mac
-# .venv\Scripts\Activate.ps1      # Windows
-
-pip install "numpy<2" faiss-cpu==1.7.4
-pip install transformers==4.35.0 datasets accelerate wandb peft
-pip install sentence-transformers llamafactory openai streamlit pandas tqdm matplotlib
+source .venv/bin/activate
+# Windows: .venv\Scripts\Activate.ps1
 ```
 
-**PyTorch — choose for your GPU:**
+Install core packages:
+
 ```bash
-# RTX 5070/5080/5090 (Blackwell sm_120)
-pip install --pre torch torchvision torchaudio \
-    --index-url https://download.pytorch.org/whl/nightly/cu128
-
-# RTX 3090/4090/A6000
-pip install torch==2.4.1 \
-    --index-url https://download.pytorch.org/whl/cu124
+pip install "numpy<2" faiss-cpu==1.7.4
+pip install transformers datasets accelerate wandb peft
+pip install sentence-transformers llamafactory streamlit pandas tqdm matplotlib pypdf
 ```
 
-### 2. Download MetaQA data
+### 2. MetaQA data
 
-```
-https://drive.google.com/drive/folders/0B-36Uca2AvwhTWVFSUZqRXVtbUE
-```
+Download MetaQA and place files as:
 
-Arrange as:
-```
+```text
 data/raw/kb.txt
-data/raw/1hop/qa_train.txt  qa_dev.txt  qa_test.txt
-data/raw/2hop/  (same structure)
-data/raw/3hop/  (same structure)
+data/raw/1hop/qa_train.txt
+data/raw/1hop/qa_dev.txt
+data/raw/1hop/qa_test.txt
+data/raw/2hop/...
+data/raw/3hop/...
 ```
 
-> Rename folders from `1-hop` to `1hop` after download.
-
-### 3. Build FAISS index (once)
+### 3. Build FAISS index
 
 ```bash
 python src/retrieval/build_index.py --kb_path data/raw/kb.txt
 ```
 
-### 4. Build instruction datasets
+### 4. Build instruction sets
+
+Gold GraphRAG:
 
 ```bash
-# Gold GraphRAG — free, no API needed
 python src/teacher/build_instruction_set.py \
     --mode graphrag --label_source gold \
     --samples_per_hop 2000 --seed 42 \
     --output_path data/processed/instruction_pairs/train_graphrag_gold.json
+```
 
-# Gold RAG — ablation baseline
-python src/teacher/build_instruction_set.py \
-    --mode rag --label_source gold \
-    --samples_per_hop 2000 --seed 42 \
-    --output_path data/processed/instruction_pairs/train_rag_gold.json
+Hybrid GraphRAG:
 
-# Hybrid teacher evidence — DeepSeek (~$0.05 per 1500 examples)
-export DEEPSEEK_API_KEY="your-key"
+```bash
 python src/teacher/build_instruction_set.py \
     --mode graphrag --label_source hybrid \
     --samples_per_hop 2000 --seed 42 \
@@ -342,128 +233,115 @@ python src/teacher/build_instruction_set.py \
     --output_path data/processed/instruction_pairs/train_graphrag_hybrid.json
 ```
 
-Copy `dataset_info.json` to instruction pairs folder:
-```bash
-cp dataset_info.json data/processed/instruction_pairs/dataset_info.json
-```
+### 5. Train / evaluate
 
-### 5. Train all models (runs overnight)
+Run the main sweep:
 
 ```bash
 python run_all.py --experiments gold hybrid --sizes 0.5b 1.5b 3b
 ```
 
-Or train individually:
-```bash
-llamafactory-cli train configs/lora_1.5b_graphrag_gold.yaml
-```
-
-### 6. Evaluate
+Or evaluate one checkpoint:
 
 ```bash
 python src/evaluation/evaluate_student.py \
-    --model_path checkpoints/qwen2.5-3b-graphrag-gold \
+    --model_path checkpoints/qwen2.5-3b-graphrag-hybrid \
     --mode graphrag \
-    --run_name qwen2.5-3b-graphrag-gold \
-    --n_samples 500
+    --run_name qwen2.5-3b-graphrag-hybrid \
+    --n_samples 500 \
+    --trace_output
 ```
 
-### 7. Compile results table
+### 6. Build error-analysis outputs
 
 ```bash
-python src/evaluation/compile_results.py --save_csv results/comparison.csv
+python src/evaluation/error_analysis_report.py
 ```
 
-### 8. Generate charts
+Important:
 
-Open `results_charts.ipynb` in Jupyter and run all cells.
-
-### 9. Run demo
-
-```bash
-streamlit run app.py
-```
-
-Opens at `http://localhost:8501` — side-by-side DistilBERT vs Qwen2.5 with graph triples and retrieved chunks visible.
+- this **does not rerun the models**
+- it reads saved `results/*` artifacts and regenerates `results/error_analysis/*`
 
 ---
 
-## Training Configuration
+## Evaluation Outputs
 
-| Parameter | 0.5B | 1.5B | 3B |
-|-----------|------|------|----|
-| `lora_rank` | 16 | 16 | 16 |
-| `lora_alpha` | 32 | 32 | 32 |
-| `per_device_train_batch_size` | 2 | 1 | 1 |
-| `gradient_accumulation_steps` | 8 | 16 | 16 |
-| `cutoff_len` | 512 | 512 | 512 |
-| `num_train_epochs` | 3 | 3 | 3 |
-| `learning_rate` | 2e-4 | 2e-4 | 2e-4 |
-| `trainable params` | ~4M | ~4M | ~4M |
+### Standard evaluation
 
-All models use `seed: 42` and `data_seed: 42` for reproducibility.
+Saved per model in:
+
+```text
+results/<run_name>/eval_results.json
+results/<run_name>/eval_examples.json
+```
+
+Main metrics:
+
+- Exact Match (EM)
+- F1
+- latency per hop
+
+### Error-analysis outputs
+
+Saved in:
+
+```text
+results/error_analysis/
+```
+
+Important files:
+
+- `model_metrics_all.csv`
+- `dataset_trace_summary_by_hop.csv`
+- `answer_set_error_breakdown.csv`
+- `saved_example_answer_errors.csv`
+- `summary.md`
 
 ---
 
-## Instruction Set Format
+## Current Project Framing
 
-**Gold label** (free — MetaQA gold answer, no API):
-```json
-{
-  "instruction": "Answer the question using the retrieved context and knowledge graph. Return only the answer entity or entities separated by |.",
-  "input": "Knowledge Graph:\nInception -> directed_by -> Christopher Nolan\n\nRetrieved Context:\n- Inception directed_by Christopher Nolan\n\nQuestion: who directed Inception",
-  "output": "Christopher Nolan"
-}
-```
+Use this wording in the report / slides:
 
-**Hybrid label** (teacher evidence + gold answer):
-```json
-{
-  "instruction": "Answer the question using the retrieved context and knowledge graph. First list the supporting evidence, then give the final answer.",
-  "input": "Knowledge Graph:\nInception -> directed_by -> Christopher Nolan\n\nQuestion: who directed Inception",
-  "output": "Supporting evidence:\n- Inception -> directed_by -> Christopher Nolan\n\nFinal answer: Christopher Nolan"
-}
-```
+> Pocket GraphRAG is a controlled MetaQA benchmark study showing that GraphRAG helps small Qwen models on multi-hop KGQA, while a second error-analysis layer explains why failures remain, especially on 3-hop questions.
+
+And for the conclusion:
+
+> 3-hop errors are driven not only by deeper reasoning difficulty, but also by lower retrieval coverage, larger answer sets, and compressed or incomplete evidence supervision.
 
 ---
 
-## Reproducibility
+## Repository Structure
 
-- All experiments use `--seed 42`
-- Same seed + same MetaQA files = identical instruction pairs for all team members
-- Training and test splits are completely separate — trained on `qa_train.txt`, evaluated on `qa_test.txt`
-- LlamaFactory holds out 10% of instruction set as validation during training
-
-> **Teacher API outputs are not deterministic.** Generate the hybrid dataset once and share the JSON file — do not call the API independently across team members.
-
----
-
-## WandB Tracking
-
-All training and evaluation runs are logged to:
-
-```
-https://wandb.ai/st125989-asian-institute-of-technology/pocket-graphrag
-```
-
-Login before running:
-```bash
-wandb login
+```text
+app.py
+failure_mode_demo.py
+run_all.py
+results_charts.ipynb
+configs/
+data/
+checkpoints/
+results/
+src/
+  data/
+  graph/
+  retrieval/
+  teacher/
+  evaluation/
 ```
 
 ---
 
 ## Troubleshooting
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| `module 'inspect' has no attribute` | `inspect.py` shadows built-in | Rename `src/data/inspect.py` → `eda_inspect.py` |
-| `faiss import error` | numpy 2.x incompatible | `pip install "numpy<2" faiss-cpu==1.7.4` |
-| `CUDA out of memory` | Sequence too long | Set `cutoff_len: 384` in yaml |
-| `dataset_info.json not found` | Wrong location | Copy to `data/processed/instruction_pairs/` |
-| `UnicodeEncodeError: charmap` | Windows cp1252 encoding | Add `encoding='utf-8'` to all `open()` calls |
-| RTX 5070 not compatible | Needs nightly for sm_120 | Use PyTorch nightly cu128 |
-| `checkpoints/model is not a local folder` | Model not trained yet | Run `llamafactory-cli train` first |
+| Error | Likely cause | Fix |
+|---|---|---|
+| `ValueError: We need an offload_dir...` | Model too large for available VRAM | use the patched app loaders with disk offload; prefer 1.5B Hybrid for live demo |
+| `TypeError: image() got unexpected keyword` | older/newer Streamlit API mismatch | restart after latest `app.py` patch |
+| `faiss import error` | numpy 2.x incompatibility | `pip install "numpy<2" faiss-cpu==1.7.4` |
+| `CUDA out of memory` | large checkpoint or long trace generation | use 0.5B/1.5B model, reduce trace use, or allow CPU/disk offload |
+| `checkpoint not found` | nested checkpoint folder layout | current app supports both `checkpoints/<model>` and `checkpoints/checkpoints/<model>` |
 
 ---
 
@@ -471,5 +349,8 @@ wandb login
 
 Asian Institute of Technology
 
-WandB: [pocket-graphrag](https://wandb.ai/st125989-asian-institute-of-technology/pocket-graphrag)
-GitHub: [Samir4456/Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA](https://github.com/Samir4456/Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA)
+WandB:
+[pocket-graphrag](https://wandb.ai/st125989-asian-institute-of-technology/pocket-graphrag)
+
+GitHub:
+[Samir4456/Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA](https://github.com/Samir4456/Prerequisite-Aware-GraphRAG-Distillation-for-Educational-QA)

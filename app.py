@@ -21,11 +21,6 @@ sys.path.insert(0, "src/retrieval")
 
 
 def resolve_checkpoint_path(*parts: str) -> Path:
-    """
-    Support both checkpoint layouts:
-    - checkpoints/<model_name>
-    - checkpoints/checkpoints/<model_name>
-    """
     candidates = [
         Path("checkpoints", *parts),
         Path("checkpoints", "checkpoints", *parts),
@@ -134,6 +129,7 @@ def split_trace_and_answer(raw_output: str) -> tuple[str, str]:
     if match:
         return match.group(1).strip(), match.group(2).strip()
     return "", raw_output.strip()
+
 
 # ─────────────────────────────────────────────
 # Page config
@@ -626,100 +622,12 @@ for i, sample in enumerate(SAMPLES):
             unsafe_allow_html=True,
         )
         label = sample["question"] if len(sample["question"]) <= 42 else sample["question"][:39] + "..."
-        if st.button(label, key=f"sample_{i}", use_column_width=True):
+        if st.button(label, key=f"sample_{i}", use_container_width=True):
             st.session_state.question = sample["question"]
             st.session_state.results = None
             st.rerun()
 
 st.markdown('<hr class="divider">', unsafe_allow_html=True)
-st.markdown('<div class="section-label">Saved benchmark and error-analysis overview</div>', unsafe_allow_html=True)
-
-overview_metrics = load_metrics_table()
-overview_trace = load_trace_summary_table()
-overview_breakdown = load_answer_breakdown_table()
-
-if not overview_metrics.empty:
-    st.markdown("**Primary comparison: Base vs Gold vs Hybrid (3B family)**")
-    overview_primary = overview_metrics[overview_metrics["model"].isin([
-        "Qwen2.5-3B Instruct base",
-        "Qwen2.5-3B GraphRAG Gold",
-        "Qwen2.5-3B GraphRAG Hybrid",
-    ])].copy()
-    if not overview_primary.empty:
-        overview_primary = overview_primary[[
-            "model", "training", "retrieval", "1hop_EM", "2hop_EM", "3hop_EM",
-            "overall_EM", "1hop_F1", "2hop_F1", "3hop_F1", "overall_F1"
-        ]].rename(columns={
-            "model": "Model",
-            "training": "Training",
-            "retrieval": "Retrieval",
-            "1hop_EM": "1-hop EM",
-            "2hop_EM": "2-hop EM",
-            "3hop_EM": "3-hop EM",
-            "overall_EM": "Overall EM",
-            "1hop_F1": "1-hop F1",
-            "2hop_F1": "2-hop F1",
-            "3hop_F1": "3-hop F1",
-            "overall_F1": "Overall F1",
-        })
-        st.dataframe(overview_primary, use_column_width=True, hide_index=True)
-
-if not overview_trace.empty:
-    st.markdown("**Failure-mode stats by hop**")
-    overview_trace_view = overview_trace[overview_trace["dataset"].isin(["GraphRAG Hybrid", "GraphRAG Gold", "RAG Gold"])].copy()
-    overview_trace_view = overview_trace_view[[
-        "dataset", "hop", "avg_gold_answer_count", "gold_all_in_context_rate",
-        "gold_any_in_context_rate", "avg_evidence_support_ratio",
-        "avg_grounded_trace_gold_answer_coverage_rate", "avg_grounded_trace_compression_gap"
-    ]].rename(columns={
-        "dataset": "Dataset",
-        "hop": "Hop",
-        "avg_gold_answer_count": "Avg gold answers",
-        "gold_all_in_context_rate": "All gold in context",
-        "gold_any_in_context_rate": "Any gold in context",
-        "avg_evidence_support_ratio": "Evidence support ratio",
-        "avg_grounded_trace_gold_answer_coverage_rate": "Grounded trace coverage",
-        "avg_grounded_trace_compression_gap": "Grounded compression gap",
-    })
-    st.dataframe(overview_trace_view, use_column_width=True, hide_index=True)
-
-if not overview_breakdown.empty:
-    st.markdown("**Saved answer-set error breakdown for Hybrid 3B**")
-    overview_hybrid = overview_breakdown[overview_breakdown["model"] == "Qwen2.5-3B GraphRAG Hybrid"].copy()
-    if not overview_hybrid.empty:
-        overview_hybrid = overview_hybrid[[
-            "answer_set_error", "count", "rate", "avg_example_f1",
-            "partial_overlap_rate", "exact_miss_rate"
-        ]].rename(columns={
-            "answer_set_error": "Answer-set error",
-            "count": "Count",
-            "rate": "Rate",
-            "avg_example_f1": "Avg example F1",
-            "partial_overlap_rate": "Partial-overlap rate",
-            "exact_miss_rate": "Exact-miss rate",
-        })
-        st.dataframe(overview_hybrid, use_column_width=True, hide_index=True)
-
-overview_left, overview_right = st.columns(2)
-with overview_left:
-    for title, path in [
-        ("EM by hop", Path("results/all_em_by_hop.png")),
-        ("F1 by hop", Path("results/all_f1_by_hop.png")),
-        ("Latency", Path("results/all_latency.png")),
-    ]:
-        if path.exists():
-            st.markdown(f"**{title}**")
-            st.image(str(path), use_column_width=True)
-with overview_right:
-    for title, path in [
-        ("Retrieval coverage by hop", Path("results/error_analysis/retrieval_coverage_by_hop.png")),
-        ("Answer burden by hop", Path("results/error_analysis/answer_burden_by_hop.png")),
-        ("Teacher trace compression gap", Path("results/error_analysis/teacher_trace_compression_gap.png")),
-        ("Answer-set error breakdown", Path("results/error_analysis/answer_set_error_breakdown.png")),
-    ]:
-        if path.exists():
-            st.markdown(f"**{title}**")
-            st.image(str(path), use_column_width=True)
 
 # ─────────────────────────────────────────────
 # Input form
@@ -736,12 +644,11 @@ with st.form("query_form", clear_on_submit=False):
         value=bool(selected_qwen and selected_qwen.get("trace_native")),
         help="Hybrid checkpoints are the best fit for this mode.",
     )
-
     submitted = st.form_submit_button("Run pipeline →", type="primary")
 
 if submitted:
     st.session_state.question = question_input
-    st.session_state.results = None  # clear old results
+    st.session_state.results = None
 
 # ─────────────────────────────────────────────
 # Run pipeline
@@ -768,7 +675,6 @@ if submitted and st.session_state.question and kb_ok:
             question, graph_text, chunks, qwen_model, qwen_tokenizer, trace_output=trace_output
         )
 
-    # Store results in session state
     st.session_state.results = {
         "question": question,
         "entity": entity,
@@ -787,15 +693,17 @@ if submitted and st.session_state.question and kb_ok:
         "max_triples": max_triples,
     }
 
+elif submitted and not kb_ok:
+    st.error("KB or FAISS index not loaded. Check data/raw/kb.txt and data/faiss/")
+
 # ─────────────────────────────────────────────
-# Display results (from session state)
+# Live pipeline output  (only when results exist)
 # ─────────────────────────────────────────────
 
 if st.session_state.results:
     r = st.session_state.results
     qwen_trace, qwen_final_answer = split_trace_and_answer(r.get("qwen_answer", ""))
     qwen_display_answer = qwen_final_answer or r.get("qwen_answer", "")
-    selected_metrics = metrics_for_model(selected_qwen["metrics_label"]) if selected_qwen else {}
 
     if r["entity"]:
         st.markdown(
@@ -814,7 +722,6 @@ if st.session_state.results:
         <div class="model-card">
             <div class="model-header distilbert-header">▸ DISTILBERT BASELINE</div>
         ''', unsafe_allow_html=True)
-
         st.markdown(f'''
         <div class="answer-box distilbert-answer">
             <div class="answer-text">{r["db_answer"]}</div>
@@ -825,7 +732,6 @@ if st.session_state.results:
             <div class="metric-pill">params <span>66M</span></div>
         </div>
         ''', unsafe_allow_html=True)
-
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
@@ -833,7 +739,6 @@ if st.session_state.results:
         <div class="model-card">
             <div class="model-header qwen-header">▸ {r.get("qwen_label", "Qwen2.5 student").upper()}</div>
         ''', unsafe_allow_html=True)
-
         st.markdown(f'''
         <div class="answer-box qwen-answer">
             <div class="answer-text">{qwen_display_answer}</div>
@@ -845,11 +750,9 @@ if st.session_state.results:
             <div class="metric-pill">trace mode <span>{"on" if r.get("trace_output") else "off"}</span></div>
         </div>
         ''', unsafe_allow_html=True)
-
         if qwen_trace:
             st.markdown("**Evidence trace**")
             st.code(qwen_trace, language="text")
-
         st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
@@ -892,149 +795,136 @@ if st.session_state.results:
                 unsafe_allow_html=True
             )
 
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown('<div class="section-label">Reported stats for selected live student</div>', unsafe_allow_html=True)
-    if selected_metrics:
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("1-hop EM", f'{selected_metrics.get("1hop_EM", 0):.3f}')
-        c2.metric("2-hop EM", f'{selected_metrics.get("2hop_EM", 0):.3f}')
-        c3.metric("3-hop EM", f'{selected_metrics.get("3hop_EM", 0):.3f}')
-        overall_em = selected_metrics.get("overall_EM")
-        c4.metric("Overall EM", f'{overall_em:.3f}' if pd.notna(overall_em) else "n/a")
+# ─────────────────────────────────────────────
+# Tables + visuals — always visible, always below pipeline
+# ─────────────────────────────────────────────
 
-        stats_df = pd.DataFrame([{
-            "Model": selected_metrics.get("model", r.get("qwen_label")),
-            "Training": selected_metrics.get("training", "n/a"),
-            "Retrieval": selected_metrics.get("retrieval", "n/a"),
-            "1-hop F1": selected_metrics.get("1hop_F1", "n/a"),
-            "2-hop F1": selected_metrics.get("2hop_F1", "n/a"),
-            "3-hop F1": selected_metrics.get("3hop_F1", "n/a"),
-            "1-hop latency ms": selected_metrics.get("1hop_latency_ms", "n/a"),
-            "2-hop latency ms": selected_metrics.get("2hop_latency_ms", "n/a"),
-            "3-hop latency ms": selected_metrics.get("3hop_latency_ms", "n/a"),
-            "n_samples": selected_metrics.get("n_samples", "reported benchmark"),
-        }])
-        st.dataframe(stats_df, use_column_width=True, hide_index=True)
-    else:
-        st.info("No stored benchmark row was found for the selected checkpoint in results/error_analysis/model_metrics_all.csv.")
+selected_metrics = metrics_for_model(selected_qwen["metrics_label"]) if selected_qwen else {}
 
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown('<div class="section-label">Primary comparison: Base vs Gold vs Hybrid (3B family)</div>', unsafe_allow_html=True)
-    metrics_df = load_metrics_table()
-    primary_rows = metrics_df[metrics_df["model"].isin([
-        "Qwen2.5-3B Instruct base",
-        "Qwen2.5-3B GraphRAG Gold",
-        "Qwen2.5-3B GraphRAG Hybrid",
-    ])].copy() if not metrics_df.empty else pd.DataFrame()
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
+st.markdown('<div class="section-label">Reported stats for selected live student</div>', unsafe_allow_html=True)
+if selected_metrics:
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("1-hop EM", f'{selected_metrics.get("1hop_EM", 0):.3f}')
+    c2.metric("2-hop EM", f'{selected_metrics.get("2hop_EM", 0):.3f}')
+    c3.metric("3-hop EM", f'{selected_metrics.get("3hop_EM", 0):.3f}')
+    overall_em = selected_metrics.get("overall_EM")
+    c4.metric("Overall EM", f'{overall_em:.3f}' if pd.notna(overall_em) else "n/a")
+    stats_df = pd.DataFrame([{
+        "Model": selected_metrics.get("model", selected_qwen_label),
+        "Training": selected_metrics.get("training", "n/a"),
+        "Retrieval": selected_metrics.get("retrieval", "n/a"),
+        "1-hop F1": selected_metrics.get("1hop_F1", "n/a"),
+        "2-hop F1": selected_metrics.get("2hop_F1", "n/a"),
+        "3-hop F1": selected_metrics.get("3hop_F1", "n/a"),
+        "1-hop latency ms": selected_metrics.get("1hop_latency_ms", "n/a"),
+        "2-hop latency ms": selected_metrics.get("2hop_latency_ms", "n/a"),
+        "3-hop latency ms": selected_metrics.get("3hop_latency_ms", "n/a"),
+        "n_samples": selected_metrics.get("n_samples", "reported benchmark"),
+    }])
+    st.dataframe(stats_df, use_container_width=True, hide_index=True)
+else:
+    st.info("No stored benchmark row found for the selected checkpoint in results/error_analysis/model_metrics_all.csv.")
 
-    if not primary_rows.empty:
-        primary_rows = primary_rows[[
-            "model", "training", "retrieval", "1hop_EM", "2hop_EM", "3hop_EM",
-            "overall_EM", "1hop_F1", "2hop_F1", "3hop_F1", "overall_F1"
-        ]].rename(columns={
-            "model": "Model",
-            "training": "Training",
-            "retrieval": "Retrieval",
-            "1hop_EM": "1-hop EM",
-            "2hop_EM": "2-hop EM",
-            "3hop_EM": "3-hop EM",
-            "overall_EM": "Overall EM",
-            "1hop_F1": "1-hop F1",
-            "2hop_F1": "2-hop F1",
-            "3hop_F1": "3-hop F1",
-            "overall_F1": "Overall F1",
-        })
-        st.dataframe(primary_rows, use_column_width=True, hide_index=True)
-    else:
-        st.info("Could not load the base/gold/hybrid comparison rows from results/error_analysis/model_metrics_all.csv.")
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
+st.markdown('<div class="section-label">Primary comparison: Base vs Gold vs Hybrid (3B family)</div>', unsafe_allow_html=True)
+metrics_df = load_metrics_table()
+primary_rows = metrics_df[metrics_df["model"].isin([
+    "Qwen2.5-3B Instruct base",
+    "Qwen2.5-3B GraphRAG Gold",
+    "Qwen2.5-3B GraphRAG Hybrid",
+])].copy() if not metrics_df.empty else pd.DataFrame()
 
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown('<div class="section-label">Failure-mode stats by hop (from saved analysis artifacts)</div>', unsafe_allow_html=True)
-    trace_df = load_trace_summary_table()
-    if not trace_df.empty:
-        trace_view = trace_df[trace_df["dataset"].isin(["GraphRAG Hybrid", "GraphRAG Gold", "RAG Gold"])].copy()
-        trace_view = trace_view[[
-            "dataset", "hop", "avg_gold_answer_count", "gold_all_in_context_rate",
-            "gold_any_in_context_rate", "avg_evidence_support_ratio",
-            "avg_grounded_trace_gold_answer_coverage_rate",
-            "avg_grounded_trace_compression_gap", "direct_answer_without_grounded_trace_rate"
-        ]].rename(columns={
-            "dataset": "Dataset",
-            "hop": "Hop",
-            "avg_gold_answer_count": "Avg gold answers",
-            "gold_all_in_context_rate": "All gold in context",
-            "gold_any_in_context_rate": "Any gold in context",
-            "avg_evidence_support_ratio": "Evidence support ratio",
-            "avg_grounded_trace_gold_answer_coverage_rate": "Grounded trace coverage",
-            "avg_grounded_trace_compression_gap": "Grounded compression gap",
-            "direct_answer_without_grounded_trace_rate": "Direct answer w/o grounded trace",
-        })
-        st.dataframe(trace_view, use_column_width=True, hide_index=True)
-    else:
-        st.info("No hop-level failure-mode summary file was found in results/error_analysis.")
+if not primary_rows.empty:
+    primary_rows = primary_rows[[
+        "model", "training", "retrieval", "1hop_EM", "2hop_EM", "3hop_EM",
+        "overall_EM", "1hop_F1", "2hop_F1", "3hop_F1", "overall_F1"
+    ]].rename(columns={
+        "model": "Model", "training": "Training", "retrieval": "Retrieval",
+        "1hop_EM": "1-hop EM", "2hop_EM": "2-hop EM", "3hop_EM": "3-hop EM",
+        "overall_EM": "Overall EM", "1hop_F1": "1-hop F1",
+        "2hop_F1": "2-hop F1", "3hop_F1": "3-hop F1", "overall_F1": "Overall F1",
+    })
+    st.dataframe(primary_rows, use_container_width=True, hide_index=True)
+else:
+    st.info("Could not load the base/gold/hybrid comparison rows from results/error_analysis/model_metrics_all.csv.")
 
-    if selected_metrics.get("model") == "Qwen2.5-3B GraphRAG Hybrid":
-        breakdown_df = load_answer_breakdown_table()
-        hybrid_breakdown = breakdown_df[breakdown_df["model"] == "Qwen2.5-3B GraphRAG Hybrid"].copy() if not breakdown_df.empty else pd.DataFrame()
-        if not hybrid_breakdown.empty:
-            st.markdown("**Saved prediction error breakdown for Hybrid 3B**")
-            hybrid_breakdown = hybrid_breakdown[[
-                "answer_set_error", "count", "rate", "avg_example_f1",
-                "partial_overlap_rate", "exact_miss_rate", "avg_gold_answer_count",
-                "avg_pred_answer_count"
-            ]].rename(columns={
-                "answer_set_error": "Answer-set error",
-                "count": "Count",
-                "rate": "Rate",
-                "avg_example_f1": "Avg example F1",
-                "partial_overlap_rate": "Partial-overlap rate",
-                "exact_miss_rate": "Exact-miss rate",
-                "avg_gold_answer_count": "Avg gold count",
-                "avg_pred_answer_count": "Avg pred count",
-            })
-            st.dataframe(hybrid_breakdown, use_column_width=True, hide_index=True)
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
+st.markdown('<div class="section-label">Failure-mode stats by hop</div>', unsafe_allow_html=True)
+trace_df = load_trace_summary_table()
+if not trace_df.empty:
+    trace_view = trace_df[trace_df["dataset"].isin(["GraphRAG Hybrid", "GraphRAG Gold", "RAG Gold"])].copy()
+    trace_view = trace_view[[
+        "dataset", "hop", "avg_gold_answer_count", "gold_all_in_context_rate",
+        "gold_any_in_context_rate", "avg_evidence_support_ratio",
+        "avg_grounded_trace_gold_answer_coverage_rate",
+        "avg_grounded_trace_compression_gap", "direct_answer_without_grounded_trace_rate"
+    ]].rename(columns={
+        "dataset": "Dataset", "hop": "Hop",
+        "avg_gold_answer_count": "Avg gold answers",
+        "gold_all_in_context_rate": "All gold in context",
+        "gold_any_in_context_rate": "Any gold in context",
+        "avg_evidence_support_ratio": "Evidence support ratio",
+        "avg_grounded_trace_gold_answer_coverage_rate": "Grounded trace coverage",
+        "avg_grounded_trace_compression_gap": "Grounded compression gap",
+        "direct_answer_without_grounded_trace_rate": "Direct answer w/o grounded trace",
+    })
+    st.dataframe(trace_view, use_container_width=True, hide_index=True)
+else:
+    st.info("No hop-level failure-mode summary file found in results/error_analysis.")
 
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown('<div class="section-label">Saved evaluation visuals</div>', unsafe_allow_html=True)
-    perf_left, perf_right = st.columns(2)
-    with perf_left:
-        perf_paths = [
-            ("EM by hop", Path("results/all_em_by_hop.png")),
-            ("F1 by hop", Path("results/all_f1_by_hop.png")),
-            ("Latency", Path("results/all_latency.png")),
-        ]
-        for title, path in perf_paths:
-            if path.exists():
-                st.markdown(f"**{title}**")
-                st.image(str(path), use_column_width=True)
-    with perf_right:
-        analysis_paths = [
-            ("Retrieval coverage by hop", Path("results/error_analysis/retrieval_coverage_by_hop.png")),
-            ("Answer burden by hop", Path("results/error_analysis/answer_burden_by_hop.png")),
-            ("Teacher trace compression gap", Path("results/error_analysis/teacher_trace_compression_gap.png")),
-            ("Answer-set error breakdown", Path("results/error_analysis/answer_set_error_breakdown.png")),
-        ]
-        for title, path in analysis_paths:
-            if path.exists():
-                st.markdown(f"**{title}**")
-                st.image(str(path), use_column_width=True)
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
+st.markdown('<div class="section-label">Answer-set error breakdown — Hybrid 3B</div>', unsafe_allow_html=True)
+breakdown_df = load_answer_breakdown_table()
+hybrid_breakdown = breakdown_df[breakdown_df["model"] == "Qwen2.5-3B GraphRAG Hybrid"].copy() if not breakdown_df.empty else pd.DataFrame()
+if not hybrid_breakdown.empty:
+    hybrid_breakdown = hybrid_breakdown[[
+        "answer_set_error", "count", "rate", "avg_example_f1",
+        "partial_overlap_rate", "exact_miss_rate", "avg_gold_answer_count",
+        "avg_pred_answer_count"
+    ]].rename(columns={
+        "answer_set_error": "Answer-set error", "count": "Count", "rate": "Rate",
+        "avg_example_f1": "Avg example F1", "partial_overlap_rate": "Partial-overlap rate",
+        "exact_miss_rate": "Exact-miss rate", "avg_gold_answer_count": "Avg gold count",
+        "avg_pred_answer_count": "Avg pred count",
+    })
+    st.dataframe(hybrid_breakdown, use_container_width=True, hide_index=True)
+else:
+    st.info("No answer-set error breakdown found for Hybrid 3B.")
 
-    # Benchmark table
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown('<div class="section-label">Benchmark results (test set · 200 samples per hop)</div>', unsafe_allow_html=True)
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
+st.markdown('<div class="section-label">Benchmark results (test set · 200 samples per hop)</div>', unsafe_allow_html=True)
+bench_data = {
+    "Model": ["DistilBERT baseline", "Qwen2.5-3B GraphRAG Gold"],
+    "1-hop EM": [0.449, 0.832],
+    "2-hop EM": [0.649, 0.586],
+    "3-hop EM": [0.059, 0.050],
+    "Overall EM": ["-", 0.489],
+    "Avg latency": ["~5ms", "~600ms"],
+    "Params": ["66M", "3B"],
+}
+st.dataframe(pd.DataFrame(bench_data), use_container_width=True, hide_index=True)
 
-    import pandas as pd
-    bench_data = {
-        "Model": ["DistilBERT baseline", "Qwen2.5-3B GraphRAG Gold"],
-        "1-hop EM": [0.449, 0.832],
-        "2-hop EM": [0.649, 0.586],
-        "3-hop EM": [0.059, 0.050],
-        "Overall EM": ["-", 0.489],
-        "Avg latency": ["~5ms", "~600ms"],
-        "Params": ["66M", "3B"],
-    }
-    df = pd.DataFrame(bench_data)
-    st.dataframe(df, use_column_width=True, hide_index=True)
-
-elif submitted and not kb_ok:
-    st.error("KB or FAISS index not loaded. Check data/raw/kb.txt and data/faiss/")
+# ── Saved evaluation visuals — always last ──
+st.markdown('<hr class="divider">', unsafe_allow_html=True)
+st.markdown('<div class="section-label">Saved evaluation visuals</div>', unsafe_allow_html=True)
+perf_left, perf_right = st.columns(2)
+with perf_left:
+    for title, path in [
+        ("EM by hop", Path("results/all_em_by_hop.png")),
+        ("F1 by hop", Path("results/all_f1_by_hop.png")),
+        ("Latency", Path("results/all_latency.png")),
+    ]:
+        if path.exists():
+            st.markdown(f"**{title}**")
+            st.image(str(path), use_container_width=True)
+with perf_right:
+    for title, path in [
+        ("Retrieval coverage by hop", Path("results/error_analysis/retrieval_coverage_by_hop.png")),
+        ("Answer burden by hop", Path("results/error_analysis/answer_burden_by_hop.png")),
+        ("Teacher trace compression gap", Path("results/error_analysis/teacher_trace_compression_gap.png")),
+        ("Answer-set error breakdown", Path("results/error_analysis/answer_set_error_breakdown.png")),
+    ]:
+        if path.exists():
+            st.markdown(f"**{title}**")
+            st.image(str(path), use_container_width=True)
