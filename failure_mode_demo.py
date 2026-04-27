@@ -10,10 +10,13 @@ from __future__ import annotations
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 ROOT = Path(__file__).resolve().parent
@@ -31,6 +34,12 @@ from error_analysis_report import answer_coverage_in_lines, load_examples, short
 
 TRACE_PATH = ROOT / "data" / "processed" / "instruction_pairs" / "train_graphrag_hybrid.json"
 LOCAL_3B_HYBRID_RESULTS = ROOT / "results" / "qwen2.5-3b-graphrag-hybrid" / "eval_results.json"
+
+TRACE_SYSTEM_PROMPT = (
+    "Answer the question using the retrieved context and knowledge graph. "
+    "First list the supporting evidence from the graph or retrieved context, "
+    "then write 'Final answer:' followed by the answer entity or entities separated by |."
+)
 
 EVAL_EXAMPLE_MODELS = {
     "qwen2.5-eval": "Qwen2.5-3B Instruct base",
@@ -167,21 +176,55 @@ EXAMPLE_ARTIFACTS = [
 
 CHECKPOINT_CANDIDATES = [
     (
+        "Qwen2.5-0.5B GraphRAG Gold",
+        "qwen2.5-0.5b-graphrag-gold",
+        "Smallest GraphRAG Gold student.",
+    ),
+    (
+        "Qwen2.5-0.5B GraphRAG Hybrid",
+        "qwen2.5-0.5b-graphrag-hybrid",
+        "Smallest trace-trained student.",
+    ),
+    (
+        "Qwen2.5-1.5B GraphRAG Gold",
+        "qwen2.5-1.5b-graphrag-gold",
+        "Mid-size GraphRAG Gold student.",
+    ),
+    (
+        "Qwen2.5-1.5B GraphRAG Hybrid",
+        "qwen2.5-1.5b-graphrag-hybrid",
+        "Mid-size trace-trained student.",
+    ),
+    (
         "Qwen2.5-3B GraphRAG Gold",
-        ROOT / "checkpoints" / "qwen2.5-3b-graphrag-gold",
+        "qwen2.5-3b-graphrag-gold",
         "Best overall answer model in the report.",
     ),
     (
         "Qwen2.5-3B GraphRAG Hybrid",
-        ROOT / "checkpoints" / "qwen2.5-3b-graphrag-hybrid",
+        "qwen2.5-3b-graphrag-hybrid",
         "Best fit for live evidence-trace prompting.",
     ),
     (
-        "Qwen2.5-1.5B GraphRAG Gold",
-        ROOT / "checkpoints" / "qwen2.5-1.5b-graphrag-gold",
-        "Fallback answer model.",
+        "Qwen2.5-1.5B RAG Only Gold",
+        "qwen2.5-1.5b-rag-gold",
+        "RAG-only baseline student for retrieval comparisons.",
     ),
 ]
+
+
+def resolve_checkpoint_path(name: str) -> Path:
+    candidates = [
+        ROOT / "checkpoints" / name,
+        ROOT / "checkpoints" / "checkpoints" / name,
+    ]
+    return next((path for path in candidates if path.exists()), candidates[0])
+
+
+def get_offload_dir(name: str) -> Path:
+    offload_dir = ROOT / ".offload" / name
+    offload_dir.mkdir(parents=True, exist_ok=True)
+    return offload_dir
 
 
 st.set_page_config(
@@ -343,7 +386,38 @@ def load_example_artifacts() -> dict[str, list[dict]]:
 
 
 def available_checkpoints() -> list[tuple[str, Path, str]]:
-    return [candidate for candidate in CHECKPOINT_CANDIDATES if candidate[1].exists()]
+    rows = []
+    for label, checkpoint_name, note in CHECKPOINT_CANDIDATES:
+        path = resolve_checkpoint_path(checkpoint_name)
+        if path.exists():
+            rows.append((label, path, note))
+    return rows
+
+
+@st.cache_resource(show_spinner=False)
+def load_live_checkpoint(model_path: str):
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    offload_dir = get_offload_dir(Path(model_path).name)
+    try:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            torch_dtype=torch.float16,
+            device_map="auto",
+            offload_folder=str(offload_dir),
+            offload_state_dict=True,
+            low_cpu_mem_usage=True,
+            trust_remote_code=True,
+        )
+    except ValueError:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            torch_dtype=torch.float32,
+            device_map="cpu",
+            low_cpu_mem_usage=True,
+            trust_remote_code=True,
+        )
+    model.eval()
+    return model, tokenizer
 
 
 def fmt_pct(value: float | None) -> str:
@@ -357,6 +431,46 @@ def context_from_item(item: dict) -> tuple[list[str], dict]:
     graph_lines = sections["graph_lines"]
     retrieved_lines = sections["retrieved_lines"]
     return [*graph_lines, *retrieved_lines], sections
+
+
+def parse_predicted_answers(raw_output: str) -> list[str]:
+    match = re.search(r"(?is)final answer:\s*(.+)$", raw_output or "")
+    answer_text = match.group(1).strip() if match else (raw_output or "").strip()
+    answer_text = re.sub(r"(?i)^final answer:\s*", "", answer_text).strip()
+    return [part.strip() for part in answer_text.split("|") if part.strip()]
+
+
+@torch.no_grad()
+def run_live_checkpoint(model, tokenizer, input_text: str, trace_output: bool = True) -> tuple[str, float]:
+    messages = [
+        {
+            "role": "system",
+            "content": TRACE_SYSTEM_PROMPT if trace_output else (
+                "Answer the question using the retrieved context and knowledge graph. "
+                "Return only the answer entity or entities separated by |."
+            ),
+        },
+        {"role": "user", "content": input_text},
+    ]
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+    )
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+
+    t0 = time.time()
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=192 if trace_output else 64,
+        do_sample=False,
+        pad_token_id=tokenizer.eos_token_id,
+    )
+    latency_ms = (time.time() - t0) * 1000
+
+    new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
+    raw_output = tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+    return raw_output, latency_ms
 
 
 def line_contains_any_answer(line: str, answers: list[str]) -> bool:
@@ -815,7 +929,7 @@ def render_model_status() -> None:
 
     if checkpoints:
         names = ", ".join(name for name, _, _ in checkpoints)
-        st.success(f"Local checkpoint detected: {names}. For live inference, use the main `app.py` pipeline.")
+        st.success(f"Local checkpoint detected: {names}. Live parent-vs-student comparison is enabled in this app.")
     else:
         st.warning(
             "No local `checkpoints/`, `data/raw/`, or `data/faiss/` artifacts are committed here, "
@@ -1045,6 +1159,99 @@ def render_trace_sample(item: dict, index: int) -> None:
         render_evidence(analysis)
 
 
+def render_parent_student_tab(trace_items: list[dict]) -> None:
+    st.markdown(
+        "Pick a teacher-trace example by hop, then run a local student checkpoint on the exact same context. "
+        "This is the cleanest app-style comparison available in the repo because the teacher trace and gold answers are already stored."
+    )
+
+    checkpoints = available_checkpoints()
+    if not checkpoints:
+        st.warning("No local checkpoints were found, so live student inference is unavailable.")
+        return
+    if not trace_items:
+        st.warning(f"Teacher trace artifact not found: {TRACE_PATH}")
+        return
+
+    hop = st.selectbox("Hop", [1, 2, 3], key="parent_student_hop")
+    hop_items = [item for item in trace_items if item.get("metadata", {}).get("hop") == hop]
+    if not hop_items:
+        st.info(f"No teacher-trace items found for {hop}-hop.")
+        return
+
+    checkpoint_labels = [name for name, _, _ in checkpoints]
+    selected_label = st.selectbox("Student checkpoint", checkpoint_labels, key="parent_student_checkpoint")
+    selected_checkpoint = next(path for name, path, _ in checkpoints if name == selected_label)
+
+    labels = [
+        item.get("metadata", {}).get("question", f"Example {idx + 1}")
+        for idx, item in enumerate(hop_items[:200])
+    ]
+    chosen_question = st.selectbox("Question", labels, key="parent_student_question")
+    selected_item = hop_items[labels.index(chosen_question)]
+    teacher_case = apply_trace_scenario(selected_item, "Recorded trace")
+
+    use_trace_output = st.toggle("Ask student for evidence trace too", value=True, key="parent_student_trace_toggle")
+    if st.button("Run selected student on this teacher example", type="primary", key="run_parent_student"):
+        with st.spinner(f"Running {selected_label}..."):
+            model, tokenizer = load_live_checkpoint(str(selected_checkpoint))
+            raw_output, latency_ms = run_live_checkpoint(
+                model,
+                tokenizer,
+                selected_item.get("input", ""),
+                trace_output=use_trace_output,
+            )
+        st.session_state["parent_student_result"] = {
+            "question": teacher_case["question"],
+            "hop": hop,
+            "model_label": selected_label,
+            "raw_output": raw_output,
+            "latency_ms": latency_ms,
+            "gold": teacher_case["gold"],
+            "context_lines": teacher_case["context_lines"],
+            "teacher_case": teacher_case,
+            "student_analysis": analyze_case(
+                gold_answers=teacher_case["gold"],
+                raw_output=raw_output,
+                predicted_answers=parse_predicted_answers(raw_output),
+                context_lines=teacher_case["context_lines"],
+            ),
+        }
+
+    result = st.session_state.get("parent_student_result")
+    if not result or result.get("question") != teacher_case["question"] or result.get("model_label") != selected_label:
+        st.info("Select a hop/question and run a local student checkpoint to compare against the stored teacher trace.")
+        return
+
+    teacher_analysis = teacher_case["analysis"]
+    student_analysis = result["student_analysis"]
+
+    top_left, top_right = st.columns(2)
+    with top_left:
+        st.markdown("### Teacher / parent reference")
+        render_answer_columns(teacher_case["question"], teacher_case["gold"], teacher_analysis)
+        render_metric_strip(teacher_analysis)
+        render_teacher_trace_metrics(teacher_analysis, teacher_case["gold"])
+        render_diagnosis(teacher_analysis)
+        render_evidence(teacher_analysis)
+    with top_right:
+        st.markdown(f"### Student checkpoint: {selected_label}")
+        render_answer_columns(result["question"], result["gold"], student_analysis)
+        render_metric_strip(student_analysis)
+        c1, c2 = st.columns(2)
+        c1.metric("Latency", f"{result['latency_ms']:.0f} ms")
+        c2.metric("Hop", str(result["hop"]))
+        render_diagnosis(student_analysis)
+        st.markdown("**Student raw output**")
+        st.code(result["raw_output"], language="text")
+        if student_analysis["evidence"]:
+            st.markdown("**Student evidence trace**")
+            render_evidence(student_analysis)
+
+    with st.expander("Show shared graph and retrieval context", expanded=False):
+        render_context(teacher_case)
+
+
 def render_hop_explorer_tab(eval_examples: list[dict], trace_items: list[dict]) -> None:
     st.markdown(
         "Goal: select a model and hop, then inspect three questions with LLM output, gold answers, sample performance, and overall performance."
@@ -1112,12 +1319,15 @@ def main() -> None:
     eval_examples = load_eval_examples()
     example_artifacts = load_example_artifacts()
 
-    compare_tab, trace_tab, hop_tab, error_tab, talking_points_tab = st.tabs(
-        ["All-model comparison", "Evidence trace diagnosis", "Hop explorer", "Saved model errors", "Demo talking points"]
+    compare_tab, parent_tab, trace_tab, hop_tab, error_tab = st.tabs(
+        ["All-model comparison", "Teacher vs student", "Evidence trace diagnosis", "Hop explorer", "Saved model errors"]
     )
 
     with compare_tab:
         render_all_model_comparison_tab(example_artifacts)
+
+    with parent_tab:
+        render_parent_student_tab(trace_items)
 
     with trace_tab:
         render_trace_tab(trace_items)
@@ -1127,29 +1337,6 @@ def main() -> None:
 
     with error_tab:
         render_actual_error_tab(eval_examples)
-
-    with talking_points_tab:
-        st.markdown(
-            """
-### How to present this
-
-1. Start with the metric table: EM/F1/latency tells us what happened, not why.
-2. Open the evidence trace tab and show `Recorded trace` first: the answer is grounded when evidence is supported.
-3. Switch to `Retrieval miss`: gold support disappears from context, so the likely source moves upstream to retrieval.
-4. Switch to `Unsupported evidence`: the answer may look plausible, but the cited triple is not grounded.
-5. Switch to the saved model errors tab: high F1 with EM=0 demonstrates incomplete answer sets and overgeneration across available example files.
-
-### Model choice
-
-Your instinct is right that the strongest student family here is Qwen2.5-3B. For the final report, phrase it precisely:
-
-`Qwen2.5-3B GraphRAG Gold is the best overall answer model, while Qwen2.5-3B GraphRAG Hybrid is the natural evidence-trace demo model because it was trained with teacher evidence traces.`
-
-### Caution
-
-Call this `failure mode analysis` or `error source analysis`, not absolute causal proof. Retrieval, reasoning, formatting, and supervision noise can interact.
-"""
-        )
 
 
 if __name__ == "__main__":

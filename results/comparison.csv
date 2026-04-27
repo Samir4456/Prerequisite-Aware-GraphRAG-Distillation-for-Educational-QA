@@ -1,2 +1,5 @@
 model,params,type,1hop_EM,1hop_F1,1hop_latency_ms,2hop_EM,2hop_F1,2hop_latency_ms,3hop_EM,3hop_F1,3hop_latency_ms,overall_EM,overall_F1
 DistilBERT baseline,66M,baseline,0.4485,0.4876,5.22,0.649,0.6737,6.08,0.059,0.0614,5.67,,
+Qwen2.5-0.5B GraphRAG,0.5B,student,0.744,0.8845,2197.49,0.5,0.6779,2659.82,0.052,0.1735,1340.12,0.432,0.5786
+Qwen2.5-1.5B GraphRAG,1.5B,student,0.726,0.8831,1061.01,0.538,0.6947,1624.04,0.06,0.1867,535.82,0.4413,0.5882
+Qwen2.5-3B GraphRAG,3B,student,0.812,0.929,2045.91,0.564,0.7186,3518.14,0.046,0.1797,1802.79,0.474,0.6091

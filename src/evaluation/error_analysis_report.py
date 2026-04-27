@@ -848,6 +848,13 @@ def write_summary_markdown(
             )
 
     if not answer_summary_df.empty:
+        example_counts = (
+            answer_summary_df[["model", "saved_examples"]]
+            .drop_duplicates()
+            .sort_values("saved_examples")
+        )
+        min_examples = int(example_counts["saved_examples"].min())
+        max_examples = int(example_counts["saved_examples"].max())
         partial_rows = answer_summary_df[
             answer_summary_df["answer_set_error"].astype(str).str.startswith("partial")
         ]
@@ -855,6 +862,9 @@ def write_summary_markdown(
         if not partial.empty:
             lines.append(
                 f"- Saved prediction examples show partial-overlap errors most strongly for {partial.index[0]} ({partial.iloc[0]:.3f} of saved examples)."
+            )
+            lines.append(
+                f"- Saved-example caveat: answer-set breakdowns are illustrative because recoverable per-model examples range from {min_examples} to {max_examples}; use full re-evaluation with context saving for definitive rates."
             )
 
     lines.extend([

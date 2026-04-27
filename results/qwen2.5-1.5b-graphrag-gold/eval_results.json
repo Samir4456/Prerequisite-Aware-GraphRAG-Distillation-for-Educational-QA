@@ -1,0 +1,17 @@
+{
+  "model": "checkpoints/qwen2.5-1.5b-graphrag-gold",
+  "mode": "graphrag",
+  "n_samples": 500,
+  "trace_output": true,
+  "test_1hop/EM": 0.726,
+  "test_1hop/F1": 0.8831,
+  "test_1hop/latency_ms": 1061.01,
+  "test_2hop/EM": 0.538,
+  "test_2hop/F1": 0.6947,
+  "test_2hop/latency_ms": 1624.04,
+  "test_3hop/EM": 0.06,
+  "test_3hop/F1": 0.1867,
+  "test_3hop/latency_ms": 535.82,
+  "overall/EM": 0.4413,
+  "overall/F1": 0.5882
+}
